@@ -13,13 +13,13 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = ForgottenMobs.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCreativeModeTab {
-    public static CreativeModeTab FORGOTTENMOBSTAB;
+    public static CreativeModeTab FORGOTTENTAB;
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
 
-        FORGOTTENMOBSTAB = event.registerCreativeModeTab(new ResourceLocation(ForgottenMobs.MODID, "forgottenmobstab"),
-            builder -> builder.icon(() -> new ItemStack(Items.ENDER_EYE))
-                    .title(Component.translatable("Forgotten Mobs"))
-                .build());
+        FORGOTTENTAB = event.registerCreativeModeTab(new ResourceLocation(ForgottenMobs.MODID, "forgottentab"),
+                builder -> builder.icon(() -> new ItemStack(Items.ENDER_EYE))
+                        .title(Component.translatable("Forgotten Mobs"))
+                        .build());
     }
 }
