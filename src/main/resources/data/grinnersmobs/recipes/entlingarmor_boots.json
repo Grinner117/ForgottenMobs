@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:oak_log"
+    },
+    "X": {
+      "item": "grinnersmobs:monsterleather"
+    }
+  },
+  "pattern": [
+    "# #",
+    "X X"
+  ],
+  "result": {
+    "item": "grinnersmobs:entlingarmor_boots"
+  }
+}
