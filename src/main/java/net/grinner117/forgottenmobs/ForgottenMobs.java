@@ -3,8 +3,8 @@ package net.grinner117.forgottenmobs;
 
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
 import net.grinner117.forgottenmobs.entity.client.AnimatedArmorRenderer;
-import net.grinner117.forgottenmobs.entity.client.AnimatedLeatherArmorModel;
 import net.grinner117.forgottenmobs.entity.client.AnimatedLeatherArmorRenderer;
+import net.grinner117.forgottenmobs.entity.client.AnimatedIronArmorRenderer;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -52,11 +52,16 @@ public class ForgottenMobs {
             SpawnPlacements.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
+
+            SpawnPlacements.register(ModEntityTypes.ANIMATEDIRONARMOR.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
         });
     }
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == ModCreativeModeTab.FORGOTTENTAB) {
 
+            event.accept(ModItems.ANIMATEDIRONARMOR_SPAWN_EGG);
             event.accept(ModItems.ANIMATEDLEATHERARMOR_SPAWN_EGG);
             event.accept(ModItems.ANIMATEDARMOR_SPAWN_EGG);
         }
@@ -67,6 +72,8 @@ public class ForgottenMobs {
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntityTypes.ANIMATEDARMOR.get(), AnimatedArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(), AnimatedLeatherArmorRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ANIMATEDIRONARMOR.get(), AnimatedIronArmorRenderer::new);
+
         }
     }
 }

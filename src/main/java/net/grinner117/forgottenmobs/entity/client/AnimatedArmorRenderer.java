@@ -12,8 +12,8 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 public class AnimatedArmorRenderer extends GeoEntityRenderer<AnimatedArmorEntity> {
     public AnimatedArmorRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new AnimatedArmorModel());
-        this.shadowRadius = 1.0f;
-        this.scaleWidth = 1.5f;
+        this.shadowRadius = 0.5f;
+        this.scaleWidth = 1.8f;
         this.scaleHeight = 1.5f;
     }
     @Override

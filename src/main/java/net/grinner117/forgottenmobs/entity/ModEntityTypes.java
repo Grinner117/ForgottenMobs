@@ -2,6 +2,8 @@ package net.grinner117.forgottenmobs.entity;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.AnimatedArmorEntity;
+import net.grinner117.forgottenmobs.entity.custom.AnimatedIronArmorEntity;
+import net.grinner117.forgottenmobs.entity.custom.AnimatedLeatherArmorEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -19,11 +21,17 @@ public class ModEntityTypes {
                             .sized(0.7F, 1.8F).clientTrackingRange(10)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"animatedarmor").toString()));
 
-    public static final RegistryObject<EntityType<AnimatedArmorEntity>> ANIMATEDLEATHERARMOR =
+    public static final RegistryObject<EntityType<AnimatedLeatherArmorEntity>> ANIMATEDLEATHERARMOR =
             ENTITY_TYPES.register("animatedleatherarmor",
-                    () -> EntityType.Builder.of(AnimatedArmorEntity::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(AnimatedLeatherArmorEntity::new, MobCategory.MONSTER)
                             .sized(0.7F, 1.8F).clientTrackingRange(10)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"animatedleatherarmor").toString()));
+
+    public static final RegistryObject<EntityType<AnimatedIronArmorEntity>> ANIMATEDIRONARMOR =
+            ENTITY_TYPES.register("animatedironarmor",
+                    () -> EntityType.Builder.of(AnimatedIronArmorEntity::new, MobCategory.MONSTER)
+                            .sized(0.7F, 1.8F).clientTrackingRange(10)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"animatedironarmor").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
