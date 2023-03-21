@@ -15,7 +15,9 @@ public class ModItems {
     public static final RegistryObject<Item> ANIMATEDARMOR_SPAWN_EGG = ITEMS.register("animatedarmor_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.ANIMATEDARMOR, 0x22b541, 0x19732e,
                     new Item.Properties()));
-
+    public static final RegistryObject<Item> ANIMATEDLEATHERARMOR_SPAWN_EGG = ITEMS.register("animatedleatherarmor_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ANIMATEDLEATHERARMOR, 0x22b541, 0x19732e,
+                    new Item.Properties()));
   private static Item.Properties props(){return new Item.Properties(); }
        public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }

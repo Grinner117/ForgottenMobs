@@ -16,8 +16,14 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<AnimatedArmorEntity>> ANIMATEDARMOR =
             ENTITY_TYPES.register("animatedarmor",
                     () -> EntityType.Builder.of(AnimatedArmorEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(10)
+                            .sized(0.7F, 1.8F).clientTrackingRange(10)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"animatedarmor").toString()));
+
+    public static final RegistryObject<EntityType<AnimatedArmorEntity>> ANIMATEDLEATHERARMOR =
+            ENTITY_TYPES.register("animatedleatherarmor",
+                    () -> EntityType.Builder.of(AnimatedArmorEntity::new, MobCategory.MONSTER)
+                            .sized(0.7F, 1.8F).clientTrackingRange(10)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"animatedleatherarmor").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

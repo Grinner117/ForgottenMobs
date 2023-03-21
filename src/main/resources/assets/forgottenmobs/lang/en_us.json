@@ -1,5 +1,7 @@
-
+{
   "item.forgottenmobs.animatedarmor_spawn_egg": "Animated Armor Spawn Egg",
+  "item.forgottenmobs.animatedleatherarmor_spawn_egg": "Animated Leather Armor Spawn Egg",
 
+  "entity.forgottenmobs.animatedleatherarmor": "Animated Leather Armor",
   "entity.forgottenmobs.animatedarmor": "Animated Armor"
 }

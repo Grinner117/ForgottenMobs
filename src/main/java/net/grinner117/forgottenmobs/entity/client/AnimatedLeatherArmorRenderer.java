@@ -9,8 +9,9 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-public class AnimatedArmorRenderer extends GeoEntityRenderer<AnimatedArmorEntity> {
-    public AnimatedArmorRenderer(EntityRendererProvider.Context renderManager) {
+
+public class AnimatedLeatherArmorRenderer extends GeoEntityRenderer<AnimatedArmorEntity> {
+    public AnimatedLeatherArmorRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new AnimatedArmorModel());
         this.shadowRadius = 1.0f;
         this.scaleWidth = 1.5f;
@@ -18,7 +19,7 @@ public class AnimatedArmorRenderer extends GeoEntityRenderer<AnimatedArmorEntity
     }
     @Override
     public ResourceLocation getTextureLocation(AnimatedArmorEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/animatedarmorblank.png");
+        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/animatedleatherarmor.png");
     }
     public RenderType getRenderType(AnimatedArmorEntity animatable, ResourceLocation texture,
                                     @Nullable MultiBufferSource bufferSource,
