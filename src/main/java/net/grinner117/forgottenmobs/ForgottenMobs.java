@@ -1,14 +1,11 @@
 package net.grinner117.forgottenmobs;
 
-
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedGoldArmorRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedDiamondArmorRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedLeatherArmorRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedIronArmorRenderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.*;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -43,26 +40,33 @@ public class ForgottenMobs {
 
         modEventBus.addListener(this::addCreative);
     }
+
+    private static void run() {
+
+
+        SpawnPlacements.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.ANIMATEDIRONARMOR.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.ANIMATEDGOLDARMOR.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.SHADOWWYRMLING.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-
-
-            SpawnPlacements.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-
-            SpawnPlacements.register(ModEntityTypes.ANIMATEDIRONARMOR.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-
-            SpawnPlacements.register(ModEntityTypes.ANIMATEDGOLDARMOR.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-
-            SpawnPlacements.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
-        });
+        event.enqueueWork(ForgottenMobs::run);
     }
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == ModCreativeModeTab.FORGOTTENTAB) {
@@ -71,6 +75,8 @@ public class ForgottenMobs {
             event.accept(ModItems.ANIMATEDLEATHERARMOR_SPAWN_EGG);
             event.accept(ModItems.ANIMATEDGOLDARMOR_SPAWN_EGG);
             event.accept(ModItems.ANIMATEDDIAMONDARMOR_SPAWN_EGG);
+            event.accept(ModItems.SHADOWWYRMLING_SPAWN_EGG);
+
 
         }
     }
@@ -82,6 +88,8 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.ANIMATEDIRONARMOR.get(), AnimatedIronArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.ANIMATEDGOLDARMOR.get(), AnimatedGoldArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(), AnimatedDiamondArmorRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SHADOWWYRMLING.get(), ShadowWyrmlingRenderer::new);
+
 
 
 
