@@ -23,18 +23,18 @@ import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInst
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
-public class AnimatedIronArmorEntity extends Monster implements GeoEntity {
+public class AnimatedGoldArmorEntity extends Monster implements GeoEntity {
     private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
-    public AnimatedIronArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
+    public AnimatedGoldArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
         super(EntityType, Level);
-        this.xpReward = 60;
+        this.xpReward = 40;
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 35.0D)
-                .add(Attributes.ATTACK_DAMAGE, 5.0D)
-                .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.MOVEMENT_SPEED, 1.0F)
+                .add(Attributes.MAX_HEALTH, 18.0D)
+                .add(Attributes.ATTACK_DAMAGE, 3.0D)
+                .add(Attributes.ATTACK_SPEED, 1.5F)
+                .add(Attributes.MOVEMENT_SPEED, 1.1F)
                 .build();
     }
     public void aiStep() {

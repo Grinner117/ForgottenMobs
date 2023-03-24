@@ -2,9 +2,10 @@ package net.grinner117.forgottenmobs;
 
 
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.client.AnimatedArmorRenderer;
-import net.grinner117.forgottenmobs.entity.client.AnimatedLeatherArmorRenderer;
-import net.grinner117.forgottenmobs.entity.client.AnimatedIronArmorRenderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedGoldArmorRenderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedDiamondArmorRenderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedLeatherArmorRenderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.AnimatedIronArmorRenderer;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -45,15 +46,20 @@ public class ForgottenMobs {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
 
-            SpawnPlacements.register(ModEntityTypes.ANIMATEDARMOR.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules);
 
             SpawnPlacements.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
 
             SpawnPlacements.register(ModEntityTypes.ANIMATEDIRONARMOR.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+
+            SpawnPlacements.register(ModEntityTypes.ANIMATEDGOLDARMOR.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+
+            SpawnPlacements.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
         });
@@ -63,16 +69,21 @@ public class ForgottenMobs {
 
             event.accept(ModItems.ANIMATEDIRONARMOR_SPAWN_EGG);
             event.accept(ModItems.ANIMATEDLEATHERARMOR_SPAWN_EGG);
-            event.accept(ModItems.ANIMATEDARMOR_SPAWN_EGG);
+            event.accept(ModItems.ANIMATEDGOLDARMOR_SPAWN_EGG);
+            event.accept(ModItems.ANIMATEDDIAMONDARMOR_SPAWN_EGG);
+
         }
     }
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(ModEntityTypes.ANIMATEDARMOR.get(), AnimatedArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(), AnimatedLeatherArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.ANIMATEDIRONARMOR.get(), AnimatedIronArmorRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ANIMATEDGOLDARMOR.get(), AnimatedGoldArmorRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(), AnimatedDiamondArmorRenderer::new);
+
+
 
         }
     }

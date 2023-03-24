@@ -23,11 +23,11 @@ import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInst
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
-public class AnimatedIronArmorEntity extends Monster implements GeoEntity {
+public class AnimatedDiamondArmorEntity extends Monster implements GeoEntity {
     private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
-    public AnimatedIronArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
+    public AnimatedDiamondArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
         super(EntityType, Level);
-        this.xpReward = 60;
+        this.xpReward = 70;
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()

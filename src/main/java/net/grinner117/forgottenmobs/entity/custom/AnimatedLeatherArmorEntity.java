@@ -53,8 +53,7 @@ public class AnimatedLeatherArmorEntity extends Monster implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.25F, false));
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
@@ -113,7 +112,6 @@ public class AnimatedLeatherArmorEntity extends Monster implements GeoEntity {
 
         return PlayState.CONTINUE;
     }
-
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
