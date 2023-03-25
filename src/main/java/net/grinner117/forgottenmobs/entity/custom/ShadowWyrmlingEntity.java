@@ -78,7 +78,7 @@ public class ShadowWyrmlingEntity extends FlyingMob implements Enemy, GeoEntity 
     
     public static AttributeSupplier setAttributes() {    
         return Monster.createMonsterAttributes()    
-                .add(Attributes.MAX_HEALTH, 100.0D)    
+                .add(Attributes.MAX_HEALTH, 80.0D)
                 .add(Attributes.ATTACK_DAMAGE, 14.0D)    
                 .add(Attributes.ATTACK_SPEED, 1.0F)    
                 .add(Attributes.MOVEMENT_SPEED, 1.0F)    
@@ -149,14 +149,6 @@ public class ShadowWyrmlingEntity extends FlyingMob implements Enemy, GeoEntity 
 
     }
 
-    public void aiStep() {
-        if (this.isAlive() && this.isSunBurnTick()) {
-            this.setSecondsOnFire(8);
-        }
-
-        super.aiStep();
-    }
-
     protected void customServerAiStep() {
         super.customServerAiStep();
     }
@@ -193,15 +185,15 @@ public class ShadowWyrmlingEntity extends FlyingMob implements Enemy, GeoEntity 
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.PHANTOM_AMBIENT;
+        return SoundEvents.ENDER_DRAGON_AMBIENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource p_33152_) {
-        return SoundEvents.PHANTOM_HURT;
+        return SoundEvents.ENDER_DRAGON_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PHANTOM_DEATH;
+        return SoundEvents.ENDER_DRAGON_DEATH;
     }
 
     public MobType getMobType() {
@@ -516,12 +508,12 @@ public class ShadowWyrmlingEntity extends FlyingMob implements Enemy, GeoEntity 
     }
 
     private PlayState predicate(AnimationState animationState) {
-        if (animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("animation.animatedarmor.walk", Animation.LoopType.LOOP));
+        if(animationState.isMoving()) {
+            animationState.getController().setAnimation(RawAnimation.begin().then("wyrmling.animation.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
 
-        animationState.getController().setAnimation(RawAnimation.begin().then("animation.animatedarmor.idle", Animation.LoopType.LOOP));
+        animationState.getController().setAnimation(RawAnimation.begin().then("wyrmling.animation.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
@@ -529,7 +521,7 @@ public class ShadowWyrmlingEntity extends FlyingMob implements Enemy, GeoEntity 
         if (this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
             state.getController().forceAnimationReset();
             state.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.animatedarmor.attack", Animation.LoopType.PLAY_ONCE));
+                    .then("wyrmling.animation.attack", Animation.LoopType.PLAY_ONCE));
             this.swinging = false;
         }
 
@@ -540,6 +532,4 @@ public class ShadowWyrmlingEntity extends FlyingMob implements Enemy, GeoEntity 
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
-
-
 }
