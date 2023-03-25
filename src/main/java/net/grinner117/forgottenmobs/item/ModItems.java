@@ -33,7 +33,9 @@ public class ModItems {
     public static final RegistryObject<Item> SHADOWYOUNGDRAGON_SPAWN_EGG = ITEMS.register("shadowyoungdragon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SHADOWYOUNGDRAGON, 0x1eff3f, 0x000000,
                     new Item.Properties()));
-
+    public static final RegistryObject<Item> SHADOWADULTDRAGON_SPAWN_EGG = ITEMS.register("shadowadultdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.SHADOWADULTDRAGON, 0x1eff3f, 0x000000,
+                    new Item.Properties()));
     private static Item.Properties props(){return new Item.Properties(); }
        public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }

@@ -5,9 +5,10 @@
   "item.forgottenmobs.animateddiamondarmor_spawn_egg": "Animated Diamond Armor Spawn Egg",
   "item.forgottenmobs.shadowwyrmling_spawn_egg": "Shadow Wyrmling Spawn Egg",
   "item.forgottenmobs.shadowyoungdragon_spawn_egg": "Young Shadow Dragon Spawn Egg",
+  "item.forgottenmobs.shadowadultdragon_spawn_egg": "Adult Shadow Dragon Spawn Egg",
 
 
-  "entity.forgottenmobs.shadowyoungdragon": "Young Shadow Dragon",
+  "entity.forgottenmobs.shadowadultdragon": "Adult Shadow Dragon",
   "entity.forgottenmobs.animateddiamondarmor": "Animated Diamond Armor",
   "entity.forgottenmobs.animatedgoldarmor": "Animated Gold Armor",
   "entity.forgottenmobs.animatedleatherarmor": "Animated Leather Armor",

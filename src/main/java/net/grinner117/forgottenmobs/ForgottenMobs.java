@@ -82,7 +82,7 @@ public class ForgottenMobs {
 
             event.accept(ModItems.SHADOWWYRMLING_SPAWN_EGG);
             event.accept(ModItems.SHADOWYOUNGDRAGON_SPAWN_EGG);
-
+            event.accept(ModItems.SHADOWADULTDRAGON_SPAWN_EGG);
 
 
         }
@@ -97,9 +97,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(), AnimatedDiamondArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHADOWWYRMLING.get(), ShadowWyrmlingRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHADOWYOUNGDRAGON.get(), ShadowYoungDragonRenderer::new);
-
-
-
+            EntityRenderers.register(ModEntityTypes.SHADOWADULTDRAGON.get(), ShadowAdultDragonRenderer::new);
 
         }
     }

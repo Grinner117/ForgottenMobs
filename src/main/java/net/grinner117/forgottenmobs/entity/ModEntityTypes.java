@@ -46,6 +46,11 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(ShadowYoungDragonEntity::new, MobCategory.MONSTER)
                             .sized(1.8F, 1.8F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"shadowyoungdragon").toString()));
+    public static final RegistryObject<EntityType<ShadowAdultDragonEntity>> SHADOWADULTDRAGON =
+            ENTITY_TYPES.register("shadowadultdragon",
+                    () -> EntityType.Builder.of(ShadowAdultDragonEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 1.8F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"shadowadultdragon").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
