@@ -8,7 +8,7 @@
     "minecraft:the_void"
   ],
   "spawners": {
-    "type": "forgottenmobs:shadowadultdragon",
+    "type": "forgottenmobs:shadowelderdragon",
     "weight": 10,
     "minCount": 1,
     "maxCount": 1

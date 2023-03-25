@@ -17,8 +17,8 @@ public class ShadowYoungDragonRenderer extends GeoEntityRenderer<ShadowYoungDrag
     public ShadowYoungDragonRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new ShadowYoungDragonModel());
         this.shadowRadius = 0.5f;
-        this.scaleWidth = 1.8f;
-        this.scaleHeight = 1.8f;
+        this.scaleWidth = 2.5f;
+        this.scaleHeight = 2.5f;
     }
     @Override
     public ResourceLocation getTextureLocation(ShadowYoungDragonEntity instance) {

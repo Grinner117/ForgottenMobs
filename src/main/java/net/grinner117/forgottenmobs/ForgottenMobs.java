@@ -67,6 +67,14 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.SHADOWYOUNGDRAGON.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.SHADOWADULTDRAGON.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.SHADOWELDERDRAGON.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -83,6 +91,8 @@ public class ForgottenMobs {
             event.accept(ModItems.SHADOWWYRMLING_SPAWN_EGG);
             event.accept(ModItems.SHADOWYOUNGDRAGON_SPAWN_EGG);
             event.accept(ModItems.SHADOWADULTDRAGON_SPAWN_EGG);
+            event.accept(ModItems.SHADOWELDERDRAGON_SPAWN_EGG);
+
 
 
         }
@@ -98,6 +108,8 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.SHADOWWYRMLING.get(), ShadowWyrmlingRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHADOWYOUNGDRAGON.get(), ShadowYoungDragonRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHADOWADULTDRAGON.get(), ShadowAdultDragonRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SHADOWELDERDRAGON.get(), ShadowElderDragonRenderer::new);
+
 
         }
     }
