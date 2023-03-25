@@ -24,12 +24,7 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(AnimatedLeatherArmorEntity::new, MobCategory.MONSTER)
                             .sized(0.7F, 1.8F).clientTrackingRange(10)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"animatedleatherarmor").toString()));
-    public static final RegistryObject<EntityType<ShadowWyrmlingEntity>> SHADOWWYRMLING =
-            ENTITY_TYPES.register("shadowwyrmling",
-                    () -> EntityType.Builder.of(ShadowWyrmlingEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(50)
-                            .build(new ResourceLocation(ForgottenMobs.MODID,"shadowwyrmling").toString()));
-    public static final RegistryObject<EntityType<AnimatedIronArmorEntity>> ANIMATEDIRONARMOR =
+       public static final RegistryObject<EntityType<AnimatedIronArmorEntity>> ANIMATEDIRONARMOR =
             ENTITY_TYPES.register("animatedironarmor",
                     () -> EntityType.Builder.of(AnimatedIronArmorEntity::new, MobCategory.MONSTER)
                             .sized(0.7F, 1.8F).clientTrackingRange(10)
@@ -39,6 +34,19 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(AnimatedGoldArmorEntity::new, MobCategory.MONSTER)
                             .sized(0.7F, 1.8F).clientTrackingRange(10)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"animatedgoldarmor").toString()));
+
+    public static final RegistryObject<EntityType<ShadowWyrmlingEntity>> SHADOWWYRMLING =
+            ENTITY_TYPES.register("shadowwyrmling",
+                    () -> EntityType.Builder.of(ShadowWyrmlingEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 1.0F).clientTrackingRange(50)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"shadowwyrmling").toString()));
+
+    public static final RegistryObject<EntityType<ShadowYoungDragonEntity>> SHADOWYOUNGDRAGON =
+            ENTITY_TYPES.register("shadowyoungdragon",
+                    () -> EntityType.Builder.of(ShadowYoungDragonEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 1.8F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"shadowyoungdragon").toString()));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
