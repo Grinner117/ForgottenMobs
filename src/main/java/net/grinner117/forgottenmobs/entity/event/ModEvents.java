@@ -24,6 +24,7 @@ public class ModEvents {
             event.put(ModEntityTypes.SHADOWELDERDRAGON.get(), ShadowElderDragonEntity.setAttributes());
 
             event.put(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterEnity.setAttributes());
+            event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEnity.setAttributes());
 
 
 

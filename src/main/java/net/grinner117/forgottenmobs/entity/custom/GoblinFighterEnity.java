@@ -23,9 +23,9 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.npc.InventoryCarrier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -72,6 +72,8 @@ public class GoblinFighterEnity extends Monster implements CrossbowAttackMob, In
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Animal.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Slime.class, true));
+
     }
 
 
@@ -79,7 +81,7 @@ public class GoblinFighterEnity extends Monster implements CrossbowAttackMob, In
         this.eatAnimationTick = this.eatBlockGoal.getEatAnimationTick();
         super.customServerAiStep();
     }
-
+@Override
     public void aiStep() {
         if (this.level.isClientSide) {
             this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
@@ -87,15 +89,6 @@ public class GoblinFighterEnity extends Monster implements CrossbowAttackMob, In
 
         super.aiStep();
     }
-
-    public void addAdditionalSaveData(CompoundTag p_34751_) {
-        super.addAdditionalSaveData(p_34751_);
-        if (this.isBaby()) {
-            p_34751_.putBoolean("IsBaby", true);
-        }
-        this.writeInventoryToTag(p_34751_);
-    }
-
     public void readAdditionalSaveData(CompoundTag p_34725_) {
         super.readAdditionalSaveData(p_34725_);
         this.readInventoryFromTag(p_34725_);

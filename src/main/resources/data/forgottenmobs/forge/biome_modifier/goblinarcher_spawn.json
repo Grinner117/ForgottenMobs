@@ -1,0 +1,25 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:bamboo_jungle",
+    "minecraft:dark_forest",
+    "minecraft:dripstone_caves",
+    "minecraft:forest",
+    "minecraft:jungle",
+    "minecraft:mangrove_swamp",
+    "minecraft:swamp",
+    "minecraft:grove"
+  ],
+  "spawners": {
+    "type": "forgottenmobs:goblinfighter",
+    "weight": 70,
+    "minCount": 2,
+    "maxCount": 8
+  },
+  "spawners": {
+    "type": "forgottenmobs:goblinarcher",
+    "weight": 70,
+    "minCount": 2,
+    "maxCount": 6
+  }
+}

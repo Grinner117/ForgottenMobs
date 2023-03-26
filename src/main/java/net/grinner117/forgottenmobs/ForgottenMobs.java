@@ -79,6 +79,10 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.GOBLINFIGHTER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.GOBLINARCHER.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -98,6 +102,8 @@ public class ForgottenMobs {
             event.accept(ModItems.SHADOWELDERDRAGON_SPAWN_EGG);
 
             event.accept(ModItems.GOBLINFIGHTER_SPAWN_EGG);
+            event.accept(ModItems.GOBLINARCHER_SPAWN_EGG);
+
 
         }
     }
@@ -116,6 +122,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.SHADOWELDERDRAGON.get(), ShadowElderDragonRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterRenderer::new);
+            EntityRenderers.register(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherRenderer::new);
 
         }
     }
