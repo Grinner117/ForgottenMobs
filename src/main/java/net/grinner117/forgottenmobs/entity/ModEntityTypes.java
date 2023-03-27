@@ -68,6 +68,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(GoblinArcherEnity::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.8F).clientTrackingRange(10)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"goblinarcher").toString()));
+
+    public static final RegistryObject<EntityType<GoblinShamanEnity>> GOBLINSHAMAN =
+            ENTITY_TYPES.register("goblinshaman",
+                    () -> EntityType.Builder.of(GoblinShamanEnity::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F).clientTrackingRange(10)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"goblinshaman").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

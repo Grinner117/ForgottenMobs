@@ -67,6 +67,7 @@ public class GoblinArcherEnity extends Monster implements RangedAttackMob, GeoEn
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
                 .add(Attributes.ATTACK_SPEED, 0.8F)
                 .add(Attributes.MOVEMENT_SPEED, 0.5F)
+                .add(Attributes.FOLLOW_RANGE, 48.0D)
                 .build();
     }
     @Override

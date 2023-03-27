@@ -21,5 +21,11 @@
     "weight": 70,
     "minCount": 4,
     "maxCount": 8
+  },
+  "spawners": {
+    "type": "forgottenmobs:goblinshaman",
+    "weight": 60,
+    "minCount": 2,
+    "maxCount": 4
   }
 }

@@ -47,6 +47,10 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.GOBLINARCHER, 0x9f8636, 0x000000,
                     new Item.Properties()));
 
+    public static final RegistryObject<Item> GOBLINSHAMAN_SPAWN_EGG = ITEMS.register("goblinshaman_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.GOBLINSHAMAN, 0x9f8636, 0x000000,
+                    new Item.Properties()));
+
     private static Item.Properties props(){return new Item.Properties(); }
        public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }

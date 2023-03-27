@@ -58,6 +58,7 @@ public class GoblinFighterEnity extends Monster implements CrossbowAttackMob, In
                 .add(Attributes.ATTACK_DAMAGE, 3.0D)
                 .add(Attributes.ATTACK_SPEED, 0.5F)
                 .add(Attributes.MOVEMENT_SPEED, 1.1F)
+                .add(Attributes.FOLLOW_RANGE, 48.0D)
                 .build();
     }
     @Override

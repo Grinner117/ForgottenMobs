@@ -25,6 +25,7 @@ public class ModEvents {
 
             event.put(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterEnity.setAttributes());
             event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEnity.setAttributes());
+            event.put(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanEnity.setAttributes());
 
 
 
