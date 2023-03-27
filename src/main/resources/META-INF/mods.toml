@@ -42,21 +42,9 @@ authors="Grinner117" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-<<<<<<< HEAD
-Introducing Grinner's Mobs for Minecraft 1.19.2!
-This mod brings a new and dangerous mob to the game - the Pure Titan.
-Inspired by the Titans from the anime Attack on Titans, these massive creatures can be found roaming in old forests.
-With their towering height and incredible strength, the Pure Titans will test even the bravest of players.
-So gear up, and get ready for an epic battle against these Grinner's Mobs.
-=======
-Experience the danger of the Nether with the Grinner's Mobs mod for Minecraft 1.19.2! This mod introduces two fearsome new mobs to the game, the Death Spike and the Pure Titan.
 
-The Death Spike can be found in the treacherous biomes of the Wooded Badlands, Swamps, Basalt Deltas, Badlands, Crimson Forests, Warped Forests, and Nether Wastes. With its deep red fur and massive thorn tail, this creature is extremely aggressive and should be approached with caution.
->>>>>>> 1.19.3
+Based off Monsters found in DND5e Monster Manual
 
-The Pure Titan, on the other hand, is a massive and formidable creature that spawns in old forests. Inspired by the Titans from the anime Attack on Titans, these massive beasts will provide a challenging new threat for players to contend with.
-
-Both of these Grinner's Mobs are not for the faint of heart, but those brave enough to take them on will be rewarded with an unforgettable gaming experience. So gear up, and get ready to face the dangers of the Grinner!
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.forgottenmobs]] #optional

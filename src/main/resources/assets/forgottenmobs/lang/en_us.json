@@ -13,10 +13,14 @@
   "item.forgottenmobs.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
   "item.forgottenmobs.goblinshaman_spawn_egg": "Goblin Shaman Spawn Egg",
 
+  "item.forgottenmobs.couatl_spawn_egg": "Couatl",
+
 
   "entity.forgottenmobs.goblinfighter": "Goblin Fighter",
   "entity.forgottenmobs.goblinarcher": "Goblin Archer",
   "entity.forgottenmobs.goblinshaman": "Goblin Shaman",
+
+  "entity.forgottenmobs.couatl": "Couatl",
 
 
   "entity.forgottenmobs.shadowelderdragon": "Elder Shadow Dragon",
