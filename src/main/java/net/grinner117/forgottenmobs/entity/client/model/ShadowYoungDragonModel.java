@@ -1,12 +1,11 @@
 package net.grinner117.forgottenmobs.entity.client.model;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.custom.ShadowWyrmlingEntity;
 import net.grinner117.forgottenmobs.entity.custom.ShadowYoungDragonEntity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class ShadowYoungDragonModel extends GeoModel<ShadowYoungDragonEntity> {
+public class ShadowYoungDragonModel extends AnimatedGeoModel<ShadowYoungDragonEntity> {
     @Override
     public ResourceLocation getModelResource(ShadowYoungDragonEntity object) {
         return new ResourceLocation(ForgottenMobs.MODID, "geo/dragon.geo.json");

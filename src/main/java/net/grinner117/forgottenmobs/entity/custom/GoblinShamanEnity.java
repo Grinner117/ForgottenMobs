@@ -26,17 +26,21 @@ import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib3.core.AnimationState;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import java.util.EnumSet;
 
-public class GoblinShamanEnity extends Monster implements GeoEntity {
+public class GoblinShamanEnity extends Monster implements IAnimatable {
 
-    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
+    AnimationFactory manager = GeckoLibUtil.createFactory(this);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(GoblinShamanEnity.class, EntityDataSerializers.BYTE);
 
     public GoblinShamanEnity(EntityType<? extends GoblinShamanEnity> p_32219_, Level p_32220_) {
@@ -224,36 +228,34 @@ public class GoblinShamanEnity extends Monster implements GeoEntity {
         return 0.8F;
     }
 
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
-                0, this::predicate));
-        controllers.add(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
-
-    private PlayState predicate(software.bernie.geckolib.core.animation.AnimationState animationState) {
-        if(animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("animation.goblinshaman.walk", Animation.LoopType.LOOP));
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinshaman.walk", true));
             return PlayState.CONTINUE;
         }
-
-        animationState.getController().setAnimation(RawAnimation.begin().then("animation.goblinshaman.idle", Animation.LoopType.LOOP));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinshaman.idle", true));
         return PlayState.CONTINUE;
     }
 
-    private PlayState attackPredicate(AnimationState state) {
-        if(this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-            state.getController().forceAnimationReset();
-            state.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.goblinshaman.attack", Animation.LoopType.PLAY_ONCE));
+    private PlayState attackPredicate(AnimationEvent event) {
+        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+            event.getController().markNeedsReload();
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinshaman.attack", false));
             this.swinging = false;
         }
-
         return PlayState.CONTINUE;
     }
+
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return factory;
+    public void registerControllers(AnimationData data) {
+        data.addAnimationController(new AnimationController(this, "controller",
+                0, this::predicate));
+        data.addAnimationController(new AnimationController(this, "attackController",
+                0, this::attackPredicate));
     }
+    @Override
+    public AnimationFactory getFactory() {
+        return manager;
+    }
+
 }

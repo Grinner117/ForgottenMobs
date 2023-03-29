@@ -3,9 +3,9 @@ package net.grinner117.forgottenmobs.entity.client.model;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.AnimatedIronArmorEntity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class AnimatedIronArmorModel extends GeoModel<AnimatedIronArmorEntity> {
+public class AnimatedIronArmorModel extends AnimatedGeoModel<AnimatedIronArmorEntity> {
     @Override
     public ResourceLocation getModelResource(AnimatedIronArmorEntity object) {
         return new ResourceLocation(ForgottenMobs.MODID, "geo/animatedarmor.geo.json");

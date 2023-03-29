@@ -3,10 +3,10 @@ package net.grinner117.forgottenmobs.entity.client.model;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.GoblinShamanEnity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 
-public class GoblinShamanModel extends GeoModel<GoblinShamanEnity> {
+public class GoblinShamanModel extends AnimatedGeoModel<GoblinShamanEnity> {
     @Override
     public ResourceLocation getModelResource(GoblinShamanEnity object) {
         return new ResourceLocation(ForgottenMobs.MODID, "geo/goblinshaman.geo.json");

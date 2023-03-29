@@ -2,11 +2,10 @@ package net.grinner117.forgottenmobs.entity.client.model;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.AnimatedDiamondArmorEntity;
-import net.grinner117.forgottenmobs.entity.custom.AnimatedGoldArmorEntity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class AnimatedDiamondArmorModel extends GeoModel<AnimatedDiamondArmorEntity> {
+public class AnimatedDiamondArmorModel extends AnimatedGeoModel<AnimatedDiamondArmorEntity> {
     @Override
     public ResourceLocation getModelResource(AnimatedDiamondArmorEntity object) {
         return new ResourceLocation(ForgottenMobs.MODID, "geo/animatedarmor.geo.json");

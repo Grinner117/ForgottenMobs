@@ -1,5 +1,6 @@
 package net.grinner117.forgottenmobs;
 
+import com.mojang.logging.LogUtils;
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
 import net.grinner117.forgottenmobs.entity.client.renderer.*;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
@@ -10,19 +11,20 @@ import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import software.bernie.geckolib.GeckoLib;
+import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 @Mod(ForgottenMobs.MODID)
 public class ForgottenMobs {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "forgottenmobs";
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     // Directly reference a slf4j logger
     public ForgottenMobs() {
@@ -38,7 +40,6 @@ public class ForgottenMobs {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        modEventBus.addListener(this::addCreative);
     }
 
     private static void run() {
@@ -96,28 +97,7 @@ public class ForgottenMobs {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(ForgottenMobs::run);
     }
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == ModCreativeModeTab.FORGOTTENTAB) {
 
-            event.accept(ModItems.ANIMATEDIRONARMOR_SPAWN_EGG);
-            event.accept(ModItems.ANIMATEDLEATHERARMOR_SPAWN_EGG);
-            event.accept(ModItems.ANIMATEDGOLDARMOR_SPAWN_EGG);
-            event.accept(ModItems.ANIMATEDDIAMONDARMOR_SPAWN_EGG);
-
-            event.accept(ModItems.SHADOWWYRMLING_SPAWN_EGG);
-            event.accept(ModItems.SHADOWYOUNGDRAGON_SPAWN_EGG);
-            event.accept(ModItems.SHADOWADULTDRAGON_SPAWN_EGG);
-            event.accept(ModItems.SHADOWELDERDRAGON_SPAWN_EGG);
-
-            event.accept(ModItems.GOBLINFIGHTER_SPAWN_EGG);
-            event.accept(ModItems.GOBLINARCHER_SPAWN_EGG);
-            event.accept(ModItems.GOBLINSHAMAN_SPAWN_EGG);
-
-            event.accept(ModItems.COUATL_SPAWN_EGG);
-
-
-        }
-    }
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEvents {
         @SubscribeEvent

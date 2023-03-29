@@ -1,21 +1,25 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-build/
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
 
-run/
+# gradle
+build
+.gradle
 
-.idea/
+# other
+eclipse
+run
 
-.gradle/
-=======
-=======
->>>>>>> Stashed changes
-/run/
-/build/
-/.idea/
-/.gradle/
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+# Files from Forge MDK
+forge*changelog.txt

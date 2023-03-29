@@ -3,9 +3,9 @@ package net.grinner117.forgottenmobs.entity.client.model;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.GoblinArcherEnity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class GoblinArcherModel extends GeoModel<GoblinArcherEnity> {
+public class GoblinArcherModel extends AnimatedGeoModel<GoblinArcherEnity> {
     @Override
     public ResourceLocation getModelResource(GoblinArcherEnity object) {
         return new ResourceLocation(ForgottenMobs.MODID, "geo/goblinarcher.geo.json");

@@ -17,7 +17,6 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.PatrollingMonster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
@@ -30,22 +29,25 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib3.core.AnimationState;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 
-public class GoblinArcherEnity extends Monster implements RangedAttackMob, GeoEntity {
+public class GoblinArcherEnity extends Monster implements RangedAttackMob, IAnimatable {
     private final RangedBowAttackGoal<GoblinArcherEnity> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 10, 12.0F);
     private int eatAnimationTick;
     private EatBlockGoal eatBlockGoal;
-    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
+    AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 0.8D, false) {
         public void stop() {
@@ -219,36 +221,33 @@ public class GoblinArcherEnity extends Monster implements RangedAttackMob, GeoEn
         return true;
     }
 
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
-                0, this::predicate));
-        controllers.add(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
-
-    private PlayState predicate(software.bernie.geckolib.core.animation.AnimationState animationState) {
-        if(animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("animation.goblinarcher.walk", Animation.LoopType.LOOP));
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinarcher.walk", true));
             return PlayState.CONTINUE;
         }
-
-        animationState.getController().setAnimation(RawAnimation.begin().then("animation.goblinarcher.idle", Animation.LoopType.LOOP));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinarcher.idle", true));
         return PlayState.CONTINUE;
     }
 
-    private PlayState attackPredicate(AnimationState state) {
-        if(this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-            state.getController().forceAnimationReset();
-            state.getController().setAnimation(RawAnimation.begin()
-                    .then("animation.goblinarcher.attack", Animation.LoopType.PLAY_ONCE));
+    private PlayState attackPredicate(AnimationEvent event) {
+        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+            event.getController().markNeedsReload();
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinarcher.attack", false));
             this.swinging = false;
         }
-
         return PlayState.CONTINUE;
     }
+
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return factory;
+    public void registerControllers(AnimationData data) {
+        data.addAnimationController(new AnimationController(this, "controller",
+                0, this::predicate));
+        data.addAnimationController(new AnimationController(this, "attackController",
+                0, this::attackPredicate));
+    }
+    @Override
+    public AnimationFactory getFactory() {
+        return manager;
     }
 }

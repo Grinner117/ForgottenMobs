@@ -28,22 +28,24 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib3.core.AnimationState;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.List;
 
-public class ShadowElderDragonEntity extends FlyingMob implements Enemy, GeoEntity {
+public class ShadowElderDragonEntity extends FlyingMob implements Enemy, IAnimatable {
 
-    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
-
+    AnimationFactory manager = GeckoLibUtil.createFactory(this);
     public static final float FLAP_DEGREES_PER_TICK = 7.448451F;
     public static final int TICKS_PER_FLAP = Mth.ceil(24.166098F);
     private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(ShadowElderDragonEntity.class, EntityDataSerializers.INT);
@@ -295,8 +297,8 @@ public class ShadowElderDragonEntity extends FlyingMob implements Enemy, GeoEnti
         }
 
         public void start() {
-            this.distance = 5.0F + ShadowElderDragonEntity.this.random.nextFloat() * 10.0F;
-            this.height = -4.0F + ShadowElderDragonEntity.this.random.nextFloat() * 9.0F;
+            this.distance = 30.0F + ShadowElderDragonEntity.this.random.nextFloat() * 10.0F;
+            this.height = -30.0F + ShadowElderDragonEntity.this.random.nextFloat() * 9.0F;
             this.clockwise = ShadowElderDragonEntity.this.random.nextBoolean() ? 1.0F : -1.0F;
             this.selectNext();
         }
@@ -480,37 +482,33 @@ public class ShadowElderDragonEntity extends FlyingMob implements Enemy, GeoEnti
         }
     }
 
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
-                0, this::predicate));
-        controllers.add(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
-
-    private PlayState predicate(AnimationState animationState) {
-        if(animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("wyrmling.animation.walk", Animation.LoopType.LOOP));
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.walk", true));
             return PlayState.CONTINUE;
         }
-
-        animationState.getController().setAnimation(RawAnimation.begin().then("wyrmling.animation.idle", Animation.LoopType.LOOP));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.idle", true));
         return PlayState.CONTINUE;
     }
 
-    private PlayState attackPredicate(AnimationState state) {
-        if (this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-            state.getController().forceAnimationReset();
-            state.getController().setAnimation(RawAnimation.begin()
-                    .then("wyrmling.animation.attack", Animation.LoopType.PLAY_ONCE));
+    private PlayState attackPredicate(AnimationEvent event) {
+        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+            event.getController().markNeedsReload();
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.attack", false));
             this.swinging = false;
         }
-
         return PlayState.CONTINUE;
     }
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return factory;
+    public void registerControllers(AnimationData data) {
+        data.addAnimationController(new AnimationController(this, "controller",
+                0, this::predicate));
+        data.addAnimationController(new AnimationController(this, "attackController",
+                0, this::attackPredicate));
+    }
+    @Override
+    public AnimationFactory getFactory() {
+        return manager;
     }
 }

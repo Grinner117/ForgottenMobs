@@ -3,9 +3,9 @@ package net.grinner117.forgottenmobs.entity.client.model;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.AnimatedLeatherArmorEntity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class AnimatedLeatherArmorModel extends GeoModel<AnimatedLeatherArmorEntity> {
+public class AnimatedLeatherArmorModel extends AnimatedGeoModel<AnimatedLeatherArmorEntity> {
     @Override
     public ResourceLocation getModelResource(AnimatedLeatherArmorEntity object) {
         return new ResourceLocation(ForgottenMobs.MODID, "geo/animatedarmor.geo.json");
