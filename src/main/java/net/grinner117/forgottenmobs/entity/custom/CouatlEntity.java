@@ -261,7 +261,7 @@ public class CouatlEntity extends FlyingMob implements Enemy, GeoEntity {
     }
 
     class PhantomMoveControl extends MoveControl {
-        private float speed = 0.1F;
+        private float speed = 0.08F;
 
         public PhantomMoveControl(Mob p_33241_) {
             super(p_33241_);
