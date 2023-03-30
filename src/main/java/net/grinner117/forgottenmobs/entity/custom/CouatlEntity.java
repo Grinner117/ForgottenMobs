@@ -151,10 +151,6 @@ public class CouatlEntity extends FlyingMob implements Enemy, IAnimatable {
         return SoundSource.NEUTRAL;
     }
 
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENDER_DRAGON_AMBIENT;
-    }
-
     protected SoundEvent getHurtSound(DamageSource p_33152_) {
         return SoundEvents.TRIDENT_THUNDER;
     }
@@ -163,7 +159,7 @@ public class CouatlEntity extends FlyingMob implements Enemy, IAnimatable {
         return SoundEvents.ENDER_DRAGON_DEATH;
     }
     public MobType getMobType() {
-        return MobType.UNDEAD;
+        return MobType.UNDEFINED;
     }
     protected float getSoundVolume() {
         return 10.0F;
