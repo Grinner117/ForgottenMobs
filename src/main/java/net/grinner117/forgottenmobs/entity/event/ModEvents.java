@@ -3,6 +3,7 @@ package net.grinner117.forgottenmobs.entity.event;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
 import net.grinner117.forgottenmobs.entity.custom.*;
+import net.grinner117.forgottenmobs.entity.custom.beholder.Beholder71Entity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +30,7 @@ public class ModEvents {
 
             event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
 
+            event.put(ModEntityTypes.BEHOLDER71.get(), Beholder71Entity.setAttributes());
 
         }
     }

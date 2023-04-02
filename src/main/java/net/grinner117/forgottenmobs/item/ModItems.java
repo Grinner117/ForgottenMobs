@@ -55,6 +55,12 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.COUATL, 0x14499b, 0xff923c,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+
+    public static final RegistryObject<Item> BEHOLDER71_SPAWN_EGG = ITEMS.register("beholder71_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.BEHOLDER71, 0x7d512e, 0xd22f00,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
     private static Item.Properties props(){return new Item.Properties(); }
        public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
