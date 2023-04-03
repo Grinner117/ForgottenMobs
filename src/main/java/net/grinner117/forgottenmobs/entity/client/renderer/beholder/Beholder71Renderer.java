@@ -15,7 +15,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class Beholder71Renderer extends GeoEntityRenderer<Beholder71Entity> {
     public Beholder71Renderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new Beholder71Model());
-        this.shadowRadius = 2.0f;
+        this.shadowRadius = 1.0f;
     }
     @Override
     public ResourceLocation getTextureLocation(Beholder71Entity instance) {
