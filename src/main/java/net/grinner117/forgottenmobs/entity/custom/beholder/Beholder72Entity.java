@@ -68,6 +68,8 @@ public class Beholder72Entity extends Monster implements IAnimatable {
 
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder72Entity.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder71Entity.class, true));
 
     }
 
