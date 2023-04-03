@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
 import net.grinner117.forgottenmobs.entity.client.renderer.*;
 import net.grinner117.forgottenmobs.entity.client.renderer.beholder.Beholder71Renderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.beholder.Beholder72Renderer;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -97,6 +98,10 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.BEHOLDER71.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.BEHOLDER72.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -124,6 +129,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.BEHOLDER71.get(), Beholder71Renderer::new);
+            EntityRenderers.register(ModEntityTypes.BEHOLDER72.get(), Beholder72Renderer::new);
 
         }
     }

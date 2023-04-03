@@ -35,11 +35,11 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class Beholder71Entity extends Monster implements IAnimatable {
+public class Beholder72Entity extends Monster implements IAnimatable {
     private float allowedHeightOffset = 0.5F;
     private int nextHeightOffsetChangeTick;
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
-    private static final EntityDataAccessor<Integer> DATA_ID_ATTACK_TARGET = SynchedEntityData.defineId(Beholder71Entity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> DATA_ID_ATTACK_TARGET = SynchedEntityData.defineId(Beholder72Entity.class, EntityDataSerializers.INT);
 
     public int getAttackDuration() {
         return 80;
@@ -47,9 +47,9 @@ public class Beholder71Entity extends Monster implements IAnimatable {
 
     private LivingEntity clientSideCachedAttackTarget;
 
-    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Beholder71Entity.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Beholder72Entity.class, EntityDataSerializers.BYTE);
 
-    public Beholder71Entity(EntityType<? extends Beholder71Entity> p_32219_, Level p_32220_) {
+    public Beholder72Entity(EntityType<? extends Beholder72Entity> p_32219_, Level p_32220_) {
         super(p_32219_, p_32220_);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
@@ -59,11 +59,11 @@ public class Beholder71Entity extends Monster implements IAnimatable {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new Beholder71Entity.GuardianAttackGoal(this));
+        this.goalSelector.addGoal(1, new Beholder72Entity.GuardianAttackGoal(this));
         this.goalSelector.addGoal(1, new MoveTowardsRestrictionGoal(this, 1.0D));
         this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 0.5D, 0.0F));
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 64.0F));
-        this.goalSelector.addGoal(1, new Beholder71Entity.BlazeAttackGoal(this));
+        this.goalSelector.addGoal(1, new Beholder72Entity.BlazeAttackGoal(this));
         this.goalSelector.addGoal(1, new MoveTowardsTargetGoal(this, 1.0f, 30.0f));
 
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
@@ -173,7 +173,7 @@ public class Beholder71Entity extends Monster implements IAnimatable {
 
             while (d4 < d3) {
                 d4 += 1.8D - d5 + this.random.nextDouble() * (2.0D - d5);
-                this.level.addParticle(ParticleTypes.DRAGON_BREATH, this.getX() + d0 * d4, this.getEyeY() + d1 * d4, this.getZ() + d2 * d4, 0.0D, 0.0D, 0.0D);
+                this.level.addParticle(ParticleTypes.MYCELIUM, this.getX() + d0 * d4, this.getEyeY() + d1 * d4, this.getZ() + d2 * d4, 0.0D, 0.0D, 0.0D);
             }
         }
         super.aiStep();
@@ -238,12 +238,12 @@ public class Beholder71Entity extends Monster implements IAnimatable {
     }
 
     static class GuardianAttackGoal extends Goal {
-        private final Beholder71Entity guardian;
+        private final Beholder72Entity guardian;
         private int attackTime;
 
-        public GuardianAttackGoal(Beholder71Entity p_32871_) {
+        public GuardianAttackGoal(Beholder72Entity p_32871_) {
             this.guardian = p_32871_;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+            this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
         public boolean canUse() {
@@ -321,14 +321,14 @@ public class Beholder71Entity extends Monster implements IAnimatable {
         this.entityData.set(DATA_FLAGS_ID, b0);
     }
     static class BlazeAttackGoal extends Goal {
-        private final Beholder71Entity blaze;
+        private final Beholder72Entity blaze;
         private int attackStep;
         private int attackTime;
         private int lastSeen;
 
-        public BlazeAttackGoal(Beholder71Entity p_32247_) {
+        public BlazeAttackGoal(Beholder72Entity p_32247_) {
             this.blaze = p_32247_;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+            this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
         public boolean canUse() {

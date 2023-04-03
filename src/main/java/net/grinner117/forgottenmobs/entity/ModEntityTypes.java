@@ -3,6 +3,7 @@ package net.grinner117.forgottenmobs.entity;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.custom.*;
 import net.grinner117.forgottenmobs.entity.custom.beholder.Beholder71Entity;
+import net.grinner117.forgottenmobs.entity.custom.beholder.Beholder72Entity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -87,6 +88,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(Beholder71Entity::new, MobCategory.MONSTER)
                             .sized(2.0F, 3.0F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"beholder71").toString()));
+
+    public static final RegistryObject<EntityType<Beholder72Entity>> BEHOLDER72 =
+            ENTITY_TYPES.register("beholder72",
+                    () -> EntityType.Builder.of(Beholder72Entity::new, MobCategory.MONSTER)
+                            .sized(2.0F, 3.0F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"beholder72").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
