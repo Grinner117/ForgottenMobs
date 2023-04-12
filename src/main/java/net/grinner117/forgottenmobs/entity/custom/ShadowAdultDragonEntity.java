@@ -75,7 +75,8 @@ public class ShadowAdultDragonEntity extends FlyingMob implements Enemy, IAnimat
                 .add(Attributes.ATTACK_DAMAGE, 35.0D)
                 .add(Attributes.ATTACK_SPEED, 1.5F)
                 .add(Attributes.MOVEMENT_SPEED, 1.6F)
-                .build();    
+                .add(Attributes.ARMOR_TOUGHNESS, 8.0F)
+                .build();
     }      
                       
     protected void registerGoals() {

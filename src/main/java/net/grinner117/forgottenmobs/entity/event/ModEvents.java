@@ -25,14 +25,16 @@ public class ModEvents {
             event.put(ModEntityTypes.SHADOWADULTDRAGON.get(), ShadowAdultDragonEntity.setAttributes());
             event.put(ModEntityTypes.SHADOWELDERDRAGON.get(), ShadowElderDragonEntity.setAttributes());
 
-            event.put(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterEnity.setAttributes());
-            event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEnity.setAttributes());
-            event.put(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanEnity.setAttributes());
+            event.put(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterEntity.setAttributes());
+            event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEntity.setAttributes());
+            event.put(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanEntity.setAttributes());
 
             event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
 
             event.put(ModEntityTypes.BEHOLDER71.get(), Beholder71Entity.setAttributes());
             event.put(ModEntityTypes.BEHOLDER72.get(), Beholder72Entity.setAttributes());
+
+            event.put(ModEntityTypes.GREENHAG.get(), GreenHagEntity.setAttributes());
 
         }
     }

@@ -44,13 +44,13 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class GoblinFighterEnity extends Monster implements CrossbowAttackMob, InventoryCarrier, IAnimatable {
-    private static final EntityDataAccessor<Boolean> DATA_IS_CHARGING_CROSSBOW = SynchedEntityData.defineId(GoblinFighterEnity.class, EntityDataSerializers.BOOLEAN);
+public class GoblinFighterEntity extends Monster implements CrossbowAttackMob, InventoryCarrier, IAnimatable {
+    private static final EntityDataAccessor<Boolean> DATA_IS_CHARGING_CROSSBOW = SynchedEntityData.defineId(GoblinFighterEntity.class, EntityDataSerializers.BOOLEAN);
     private final SimpleContainer inventory = new SimpleContainer(8);
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
     private int eatAnimationTick;
     private EatBlockGoal eatBlockGoal;
-    public GoblinFighterEnity(EntityType<? extends Monster> p_34683_, Level p_34684_) {
+    public GoblinFighterEntity(EntityType<? extends Monster> p_34683_, Level p_34684_) {
         super(p_34683_, p_34684_);
         this.xpReward = 5;
     }

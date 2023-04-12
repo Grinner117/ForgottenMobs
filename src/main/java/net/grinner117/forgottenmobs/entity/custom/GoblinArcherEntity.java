@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 
-public class GoblinArcherEnity extends Monster implements RangedAttackMob, IAnimatable {
-    private final RangedBowAttackGoal<GoblinArcherEnity> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 10, 12.0F);
+public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAnimatable {
+    private final RangedBowAttackGoal<GoblinArcherEntity> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 10, 12.0F);
     private int eatAnimationTick;
     private EatBlockGoal eatBlockGoal;
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
@@ -52,14 +52,14 @@ public class GoblinArcherEnity extends Monster implements RangedAttackMob, IAnim
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 0.8D, false) {
         public void stop() {
             super.stop();
-            GoblinArcherEnity.this.setAggressive(false);
+            GoblinArcherEntity.this.setAggressive(false);
         }
         public void start() {
             super.start();
-            GoblinArcherEnity.this.setAggressive(true);
+            GoblinArcherEntity.this.setAggressive(true);
         }
     };
-    public GoblinArcherEnity(EntityType<? extends GoblinArcherEnity> p_32133_, Level p_32134_) {
+    public GoblinArcherEntity(EntityType<? extends GoblinArcherEntity> p_32133_, Level p_32134_) {
         super(p_32133_, p_32134_);
         this.reassessWeaponGoal();
     }

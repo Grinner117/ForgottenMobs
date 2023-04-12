@@ -102,6 +102,10 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.BEHOLDER72.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.GREENHAG.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -130,6 +134,9 @@ public class ForgottenMobs {
 
             EntityRenderers.register(ModEntityTypes.BEHOLDER71.get(), Beholder71Renderer::new);
             EntityRenderers.register(ModEntityTypes.BEHOLDER72.get(), Beholder72Renderer::new);
+
+            EntityRenderers.register(ModEntityTypes.GREENHAG.get(), GreenHagRenderer::new);
+
 
         }
     }

@@ -18,6 +18,8 @@
 
   "item.forgottenmobs.couatl_spawn_egg": "Couatl",
 
+  "item.forgottenmobs.greenhag_spawn_egg": "Green Hag Spawn Egg",
+
   "item.forgottenmobs.beholder71_spawn_egg": "Beholder 7 1 Spawn Egg",
   "item.forgottenmobs.beholder72_spawn_egg": "Beholder 7 2 Spawn Egg",
 
@@ -30,6 +32,8 @@
   "entity.forgottenmobs.goblinshaman": "Goblin Shaman",
 
   "entity.forgottenmobs.couatl": "Couatl",
+
+  "entity.forgottenmobs.greenhag": "Green Hag",
 
 
   "entity.forgottenmobs.shadowelderdragon": "Elder Shadow Dragon",

@@ -63,6 +63,9 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.BEHOLDER72, 0x7d512e, 0x010913,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> GREENHAG_SPAWN_EGG = ITEMS.register("greenhag_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.GREENHAG, 0x7d512e, 0x9f8636,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     private static Item.Properties props(){return new Item.Properties(); }
        public static void register(IEventBus eventBus) {

@@ -59,21 +59,21 @@ public class ModEntityTypes {
                             .sized(3.0F, 3.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"shadowelderdragon").toString()));
 
-    public static final RegistryObject<EntityType<GoblinFighterEnity>> GOBLINFIGHTER =
+    public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
             ENTITY_TYPES.register("goblinfighter",
-                    () -> EntityType.Builder.of(GoblinFighterEnity::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(GoblinFighterEntity::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"goblinfighter").toString()));
 
-    public static final RegistryObject<EntityType<GoblinArcherEnity>> GOBLINARCHER =
+    public static final RegistryObject<EntityType<GoblinArcherEntity>> GOBLINARCHER =
             ENTITY_TYPES.register("goblinarcher",
-                    () -> EntityType.Builder.of(GoblinArcherEnity::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(GoblinArcherEntity::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"goblinarcher").toString()));
 
-    public static final RegistryObject<EntityType<GoblinShamanEnity>> GOBLINSHAMAN =
+    public static final RegistryObject<EntityType<GoblinShamanEntity>> GOBLINSHAMAN =
             ENTITY_TYPES.register("goblinshaman",
-                    () -> EntityType.Builder.of(GoblinShamanEnity::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(GoblinShamanEntity::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"goblinshaman").toString()));
 
@@ -94,6 +94,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(Beholder72Entity::new, MobCategory.MONSTER)
                             .sized(2.0F, 3.0F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"beholder72").toString()));
+
+    public static final RegistryObject<EntityType<GreenHagEntity>> GREENHAG =
+            ENTITY_TYPES.register("greenhag",
+                    () -> EntityType.Builder.of(GreenHagEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 2.0F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"greenhag").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

@@ -38,12 +38,12 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import java.util.EnumSet;
 
-public class GoblinShamanEnity extends Monster implements IAnimatable {
+public class GoblinShamanEntity extends Monster implements IAnimatable {
 
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
-    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(GoblinShamanEnity.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(GoblinShamanEntity.class, EntityDataSerializers.BYTE);
 
-    public GoblinShamanEnity(EntityType<? extends GoblinShamanEnity> p_32219_, Level p_32220_) {
+    public GoblinShamanEntity(EntityType<? extends GoblinShamanEntity> p_32219_, Level p_32220_) {
         super(p_32219_, p_32220_);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
@@ -54,7 +54,7 @@ public class GoblinShamanEnity extends Monster implements IAnimatable {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new GoblinShamanEnity.BlazeAttackGoal(this));
+        this.goalSelector.addGoal(1, new GoblinShamanEntity.BlazeAttackGoal(this));
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
@@ -111,12 +111,12 @@ public class GoblinShamanEnity extends Monster implements IAnimatable {
     }
 
     static class BlazeAttackGoal extends Goal {
-        private final GoblinShamanEnity blaze;
+        private final GoblinShamanEntity blaze;
         private int attackStep;
         private int attackTime;
         private int lastSeen;
 
-        public BlazeAttackGoal(GoblinShamanEnity p_32247_) {
+        public BlazeAttackGoal(GoblinShamanEntity p_32247_) {
             this.blaze = p_32247_;
             this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
         }
