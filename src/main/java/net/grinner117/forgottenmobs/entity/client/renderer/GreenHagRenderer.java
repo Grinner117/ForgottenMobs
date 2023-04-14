@@ -20,7 +20,7 @@ public class GreenHagRenderer extends GeoEntityRenderer<GreenHagEntity> {
     }
     @Override
     public ResourceLocation getTextureLocation(GreenHagEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/hag.png");
+        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/greenhag.png");
     }
     @Override
     public RenderType getRenderType(GreenHagEntity animatable, float partialTicks, PoseStack stack,
