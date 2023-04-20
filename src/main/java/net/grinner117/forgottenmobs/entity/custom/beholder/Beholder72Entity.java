@@ -58,6 +58,7 @@ public class Beholder72Entity extends Monster implements IAnimatable {
         this.xpReward = 300;
     }
 
+    //ai goals
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new Beholder72Entity.GuardianAttackGoal(this));
         this.goalSelector.addGoal(1, new MoveTowardsRestrictionGoal(this, 1.0D));
@@ -73,6 +74,7 @@ public class Beholder72Entity extends Monster implements IAnimatable {
 
     }
 
+    //stat block
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 300.0D)
@@ -97,6 +99,7 @@ public class Beholder72Entity extends Monster implements IAnimatable {
         this.entityData.set(DATA_ID_ATTACK_TARGET, p_32818_);
     }
 
+    //sounds
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENDERMAN_AMBIENT;
     }
@@ -181,6 +184,7 @@ public class Beholder72Entity extends Monster implements IAnimatable {
         super.aiStep();
     }
 
+    //immune to water
     public boolean isSensitiveToWater() {
         return false;
     }
@@ -202,11 +206,12 @@ public class Beholder72Entity extends Monster implements IAnimatable {
         super.customServerAiStep();
     }
 
+    //immune to fall damage
     public boolean causeFallDamage(float p_149683_, float p_149684_, DamageSource p_149685_) {
         return false;
     }
 
-
+//animations
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.beholder.walk", true));

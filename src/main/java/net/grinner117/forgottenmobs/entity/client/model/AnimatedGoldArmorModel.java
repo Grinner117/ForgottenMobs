@@ -18,4 +18,6 @@ public class AnimatedGoldArmorModel extends AnimatedGeoModel<AnimatedGoldArmorEn
     public ResourceLocation getAnimationResource(AnimatedGoldArmorEntity animatable) {
         return new ResourceLocation(ForgottenMobs.MODID, "animations/animatedarmor.animation.json");
     }
+
+
 }

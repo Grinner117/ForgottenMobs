@@ -170,6 +170,7 @@ public class ShadowAdultDragonEntity extends FlyingMob implements Enemy, IAnimat
         return true;
     }
 
+    //sounds
     public SoundSource getSoundSource() {
         return SoundSource.HOSTILE;
     }
@@ -484,7 +485,7 @@ public class ShadowAdultDragonEntity extends FlyingMob implements Enemy, IAnimat
         }
     }
 
-
+//animation
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.walk", true));
@@ -514,4 +515,7 @@ public class ShadowAdultDragonEntity extends FlyingMob implements Enemy, IAnimat
     public AnimationFactory getFactory() {
         return manager;
     }
+
+    //adds fireball attack while circling
+
 }

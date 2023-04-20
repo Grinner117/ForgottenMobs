@@ -344,4 +344,5 @@ public class CouatlEntity extends FlyingMob implements Enemy, IAnimatable {
     public AnimationFactory getFactory() {
         return manager;
     }
+
 }

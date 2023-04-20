@@ -106,6 +106,9 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.GREENHAG.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+        SpawnPlacements.register(ModEntityTypes.OWLBEARFOREST.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -137,6 +140,7 @@ public class ForgottenMobs {
 
             EntityRenderers.register(ModEntityTypes.GREENHAG.get(), GreenHagRenderer::new);
 
+            EntityRenderers.register(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestRenderer::new);
 
         }
     }

@@ -67,8 +67,10 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.GREENHAG, 0x7d512e, 0x9f8636,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
-    private static Item.Properties props(){return new Item.Properties(); }
-       public static void register(IEventBus eventBus) {
+    public static final RegistryObject<Item> OWLBEARFOREST_SPAWN_EGG = ITEMS.register("owlbearforest_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARFOREST, 0x75642d, 0x6f6b58,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+     public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
 
 }

@@ -49,6 +49,8 @@ public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAni
     private EatBlockGoal eatBlockGoal;
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
+
+
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 0.8D, false) {
         public void stop() {
             super.stop();
@@ -63,6 +65,8 @@ public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAni
         super(p_32133_, p_32134_);
         this.reassessWeaponGoal();
     }
+
+    //stat block
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0D)
@@ -72,10 +76,13 @@ public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAni
                 .add(Attributes.FOLLOW_RANGE, 48.0D)
                 .build();
     }
+
+    //ai goals
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(9, new RandomStrollGoal(this, 0.1F));
+        this.goalSelector.addGoal(7, new AvoidEntityGoal<>(this, OwlBearForestEntity.class, 6.0F, 1.0D, 1.2D));
 
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
         this.eatBlockGoal = new EatBlockGoal(this);
@@ -188,6 +195,7 @@ public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAni
         }
     }
 
+
     protected float getStandingEyeHeight(Pose p_32154_, EntityDimensions p_32155_) {
         return 1.0F;
     }
@@ -196,6 +204,7 @@ public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAni
         return -0.6D;
     }
 
+    //sounds
     protected void playStepSound(BlockPos p_34316_, BlockState p_34317_) {
         this.playSound(SoundEvents.PIG_AMBIENT, 1.0F, 0.5F);
     }
@@ -221,6 +230,7 @@ public class GoblinArcherEntity extends Monster implements RangedAttackMob, IAni
         return true;
     }
 
+    //animations
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinarcher.walk", true));

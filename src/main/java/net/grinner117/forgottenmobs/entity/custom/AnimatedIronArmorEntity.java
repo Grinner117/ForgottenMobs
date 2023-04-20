@@ -117,5 +117,9 @@ public class AnimatedIronArmorEntity extends Monster implements IAnimatable {
     public AnimationFactory getFactory() {
         return manager;
     }
+
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;}
 }
 

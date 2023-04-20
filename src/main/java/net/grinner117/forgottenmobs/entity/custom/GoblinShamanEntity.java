@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
@@ -52,11 +53,14 @@ public class GoblinShamanEntity extends Monster implements IAnimatable {
         this.xpReward = 100;
     }
 
+    //ai goals
+    //are afraid of owlbears
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new GoblinShamanEntity.BlazeAttackGoal(this));
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
+        this.goalSelector.addGoal(7, new AvoidEntityGoal<>(this, OwlBearForestEntity.class, 6.0F, 1.0D, 1.2D));
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
@@ -64,6 +68,7 @@ public class GoblinShamanEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Animal.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Slime.class, true));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
+
 
     }
     public static AttributeSupplier setAttributes() {

@@ -117,5 +117,11 @@ public class AnimatedGoldArmorEntity extends Monster implements IAnimatable {
     public AnimationFactory getFactory() {
         return manager;
     }
+
+    //sinks to the bottom of water
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
 }
 

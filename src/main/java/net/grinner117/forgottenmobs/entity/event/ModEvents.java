@@ -36,6 +36,8 @@ public class ModEvents {
 
             event.put(ModEntityTypes.GREENHAG.get(), GreenHagEntity.setAttributes());
 
+            event.put(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestEntity.setAttributes());
+
         }
     }
 }

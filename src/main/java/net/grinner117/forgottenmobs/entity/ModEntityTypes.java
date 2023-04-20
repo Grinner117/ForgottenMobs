@@ -100,6 +100,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(GreenHagEntity::new, MobCategory.MONSTER)
                             .sized(1.0F, 2.0F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"greenhag").toString()));
+
+    public static final RegistryObject<EntityType<OwlBearForestEntity>> OWLBEARFOREST =
+            ENTITY_TYPES.register("owlbearforest",
+                    () -> EntityType.Builder.of(OwlBearForestEntity::new, MobCategory.MONSTER)
+                            .sized(1.6F, 2.6F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"owlbearforest").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

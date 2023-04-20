@@ -119,5 +119,9 @@ public class AnimatedDiamondArmorEntity extends Monster implements IAnimatable {
         return manager;
     }
 
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;}
+
 }
 
