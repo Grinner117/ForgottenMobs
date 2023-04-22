@@ -82,6 +82,12 @@ public class ModItems {
                             .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 0), 0.3F)
                             .build())));
 
+    public static final RegistryObject<Item> BEHOLDERFANG = ITEMS.register("beholderfang",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+                    .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 5), 1.0F)
+                            .build())));
+
      public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
 

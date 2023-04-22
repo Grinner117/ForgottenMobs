@@ -116,6 +116,7 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.GREENHAG.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+
         SpawnPlacements.register(ModEntityTypes.OWLBEARFOREST.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
