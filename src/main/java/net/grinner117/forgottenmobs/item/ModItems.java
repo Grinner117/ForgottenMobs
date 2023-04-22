@@ -88,6 +88,9 @@ public class ModItems {
                             .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 5), 1.0F)
                             .build())));
 
+    public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
      public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
 
