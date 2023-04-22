@@ -88,6 +88,11 @@ public class ModItems {
                             .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 5), 1.0F)
                             .build())));
 
+    public static final RegistryObject<Item> GOBLINFANG = ITEMS.register("goblinfang",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+                    .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+                            .build())));
     public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
