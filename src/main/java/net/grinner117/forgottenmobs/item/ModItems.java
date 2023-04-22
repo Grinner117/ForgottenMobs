@@ -3,6 +3,9 @@ package net.grinner117.forgottenmobs.item;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -68,14 +71,16 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<Item> OWLBEARFOREST_SPAWN_EGG = ITEMS.register("owlbearforest_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARFOREST, 0x75642d, 0x6f6b58,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARFOREST, 0x9f8636, 0x9f8636,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
-    //beholder eye stalk, edible, posions you
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
-            () -> new Item(new Item.Properties().food(1.05f,1.0f).tab(ModCreativeModeTab.FORGOTTENTAB)));
-
-
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)
+                            .effect(() -> new MobEffectInstance(MobEffects.WITHER, 80, 0), 0.3F)
+                            .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 80, 0), 0.3F)
+                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 0), 0.3F)
+                            .build())));
 
      public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
