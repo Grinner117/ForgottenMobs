@@ -70,6 +70,13 @@ public class ModItems {
     public static final RegistryObject<Item> OWLBEARFOREST_SPAWN_EGG = ITEMS.register("owlbearforest_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARFOREST, 0x75642d, 0x6f6b58,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    //beholder eye stalk, edible, posions you
+    public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
+            () -> new Item(new Item.Properties().food(1.05f,1.0f).tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
+
      public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
 
