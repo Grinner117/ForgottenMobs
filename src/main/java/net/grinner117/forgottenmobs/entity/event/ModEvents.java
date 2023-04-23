@@ -49,6 +49,9 @@ public class ModEvents {
 
             event.put(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestEntity.setAttributes());
 
+            event.put(ModEntityTypes.UNICORN.get(), UnicornEntity.setAttributes());
+
+
         }
     }
 }

@@ -117,6 +117,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(OwlBearForestEntity::new, MobCategory.MONSTER)
                             .sized(1.6F, 2.6F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"owlbearforest").toString()));
+
+    public static final RegistryObject<EntityType<UnicornEntity>> UNICORN =
+            ENTITY_TYPES.register("unicorn",
+                    () -> EntityType.Builder.of(UnicornEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 1.6F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"unicorn").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

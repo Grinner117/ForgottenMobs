@@ -74,6 +74,10 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARFOREST, 0x9f8636, 0x9f8636,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> UNICORN_SPAWN_EGG = ITEMS.register("unicorn_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.UNICORN, 0xf0e97f, 0xfbfbfb,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)
@@ -95,6 +99,8 @@ public class ModItems {
                             .build())));
     public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
 
      public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
