@@ -102,6 +102,10 @@ public class ModItems {
     public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> GRIFFONFEATHER = ITEMS.register("griffonfeather",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
 
 
      public static void register(IEventBus eventBus) {
