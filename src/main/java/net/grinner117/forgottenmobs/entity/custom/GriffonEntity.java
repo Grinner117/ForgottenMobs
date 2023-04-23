@@ -12,18 +12,23 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -38,7 +43,7 @@ import javax.annotation.Nullable;
 
 
 public class GriffonEntity extends AbstractHorse implements IAnimatable {
-    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(net.minecraft.world.entity.animal.horse.Horse.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(GriffonEntity.class, EntityDataSerializers.INT);
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
     public GriffonEntity(EntityType<? extends GriffonEntity> p_30689_, Level p_30690_) {
@@ -47,16 +52,33 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0D)
+                .add(Attributes.MAX_HEALTH, 49.0D)
                 .add(Attributes.ATTACK_DAMAGE, 10.0D)
-                .add(Attributes.ATTACK_SPEED, 0.5F)
+                .add(Attributes.ATTACK_SPEED, 0.3F)
                 .add(Attributes.FOLLOW_RANGE, 148.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3F)
-                .add(Attributes.JUMP_STRENGTH, 0.5F)
-                .add(Attributes.FLYING_SPEED, 2.5F)
+                .add(Attributes.JUMP_STRENGTH, 4.0F)
+                .add(Attributes.FLYING_SPEED, 1.0F)
+                .add(Attributes.ARMOR, 2.0D)
                 .build();
     }
 
+    protected void registerGoals() {
+        super.registerGoals();
+        this.goalSelector.addGoal(1, new FloatGoal(this));
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.5F, true));
+
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, Raider.class));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Zombie.class, true));
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Rabbit.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Cat.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, true));
+    }
 
     protected void defineSynchedData() {
         super.defineSynchedData();
@@ -98,6 +120,11 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
         return SoundEvents.PARROT_HURT;
     }
 
+    protected SoundEvent getSwimSound() {
+        return SoundEvents.PARROT_FLY;
+    }
+
+
     public InteractionResult mobInteract(Player p_30713_, InteractionHand p_30714_) {
         ItemStack itemstack = p_30713_.getItemInHand(p_30714_);
         if (!this.isBaby()) {
@@ -110,7 +137,6 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
                 return super.mobInteract(p_30713_, p_30714_);
             }
         }
-
         if (!itemstack.isEmpty()) {
             if (this.isFood(itemstack)) {
                 return this.fedFood(p_30713_, itemstack);
@@ -141,6 +167,7 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
         }
     }
 
+
     public void tick() {
         super.tick();
         if (this.isVehicle()) {
@@ -148,25 +175,24 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
             if (entity instanceof Player) {
                 Player player = (Player) entity;
                 if (player.isSprinting()) {
-                        this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 3, false, false, false ));
+                    this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 3, false, false, false));
                     this.removeEffect(MobEffects.SLOW_FALLING);
-                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.1F)));
+                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.15F)));
 
                 } else {
                     this.removeEffect(MobEffects.LEVITATION);
-                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.05F)));
+                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.08F)));
 
-                    this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20, 0,false, false, false ));
+                    this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20, 0, false, false, false));
                 }
             }
         }
     }
-//entity is immune to damage from falling
+
+    //entity is immune to damage from falling
     public boolean causeFallDamage(float p_70097_, float p_70098_, DamageSource p_70099_) {
         return false;
     }
-
-
 
 
     //animations
