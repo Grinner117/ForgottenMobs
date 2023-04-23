@@ -99,13 +99,18 @@ public class ModItems {
                     .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
                             .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
                             .build())));
+
     public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<Item> GRIFFONFEATHER = ITEMS.register("griffonfeather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
-
+    public static final RegistryObject<Item> GRIFFONBEAK = ITEMS.register("griffonbeak",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+                    .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+                            .build())));
 
 
      public static void register(IEventBus eventBus) {
