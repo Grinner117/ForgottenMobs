@@ -77,7 +77,9 @@ public class ModItems {
     public static final RegistryObject<Item> UNICORN_SPAWN_EGG = ITEMS.register("unicorn_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.UNICORN, 0xf0e97f, 0xfbfbfb,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
+    public static final RegistryObject<Item> GRIFFON_SPAWN_EGG = ITEMS.register("griffon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.GRIFFON, 0xac8a5f, 0xe0cfba,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)

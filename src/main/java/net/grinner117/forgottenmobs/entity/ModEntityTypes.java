@@ -123,6 +123,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(UnicornEntity::new, MobCategory.MONSTER)
                             .sized(1.8F, 1.6F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"unicorn").toString()));
+
+    public static final RegistryObject<EntityType<GriffonEntity>> GRIFFON =
+            ENTITY_TYPES.register("griffin",
+                    () -> EntityType.Builder.of(GriffonEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 1.6F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"griffin").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

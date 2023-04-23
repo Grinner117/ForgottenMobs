@@ -32,6 +32,7 @@
   "item.forgottenmobs.beholder72_spawn_egg": "Beholder 7 2 Spawn Egg",
 
   "item.forgottenmobs.unicorn_spawn_egg": "Unicorn Spawn Egg",
+  "item.forgottenmobs.griffon_spawn_egg": "Griffon Spawn Egg",
 
 
   "entity.forgottenmobs.unicorn": "Majestic Unicorn",
@@ -47,6 +48,8 @@
   "entity.forgottenmobs.goblinshaman": "Goblin Shaman",
 
   "entity.forgottenmobs.couatl": "Couatl",
+  "entity.forgottenmobs.griffon": "Griffon",
+
 
   "entity.forgottenmobs.greenhag": "Green Hag",
 

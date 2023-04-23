@@ -22,6 +22,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -35,22 +37,23 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 
 
-public class UnicornEntity extends AbstractHorse implements IAnimatable {
+public class GriffonEntity extends AbstractHorse implements IAnimatable {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(net.minecraft.world.entity.animal.horse.Horse.class, EntityDataSerializers.INT);
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    public UnicornEntity(EntityType<? extends UnicornEntity> p_30689_, Level p_30690_) {
+    public GriffonEntity(EntityType<? extends GriffonEntity> p_30689_, Level p_30690_) {
         super(p_30689_, p_30690_);
     }
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 100.0D)
-                .add(Attributes.ATTACK_DAMAGE, 100.0D)
+                .add(Attributes.MAX_HEALTH, 20.0D)
+                .add(Attributes.ATTACK_DAMAGE, 10.0D)
                 .add(Attributes.ATTACK_SPEED, 0.5F)
                 .add(Attributes.FOLLOW_RANGE, 148.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.2F)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .add(Attributes.JUMP_STRENGTH, 0.5F)
+                .add(Attributes.FLYING_SPEED, 2.5F)
                 .build();
     }
 
@@ -77,7 +80,7 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
 
     protected SoundEvent getDeathSound() {
         super.getDeathSound();
-        return SoundEvents.ENDER_DRAGON_DEATH;
+        return SoundEvents.HORSE_DEATH;
     }
 
     @Nullable
@@ -87,12 +90,12 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
 
     protected SoundEvent getHurtSound(DamageSource p_30720_) {
         super.getHurtSound(p_30720_);
-        return SoundEvents.HORSE_HURT;
+        return SoundEvents.PARROT_HURT;
     }
 
     protected SoundEvent getAngrySound() {
         super.getAngrySound();
-        return SoundEvents.ENDERMAN_SCREAM;
+        return SoundEvents.PARROT_HURT;
     }
 
     public InteractionResult mobInteract(Player p_30713_, InteractionHand p_30714_) {
@@ -138,60 +141,48 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
         }
     }
 
-    //this entity heals itself passiively
-    public void aiStep() {
-        if (this.level.isClientSide) {
-            this.updateSwingTime();
-        }
-        if (this.random.nextInt(100) == 0) {
-            this.heal(1.0F);
-        }
-        super.aiStep();
-    }
-
-    //this entity heals the rider
-    public void onPassengerTurned(Entity p_70043_) {
-        super.onPassengerTurned(p_70043_);
-        if (p_70043_ instanceof Player) {
-            Player player = (Player) p_70043_;
-            player.heal(1.0F);
-        }
-    }
-
-    //Unicorn gives it's rider the glow effect every tick and removes the particles from the mobeffect
-
-
     public void tick() {
         super.tick();
         if (this.isVehicle()) {
             Entity entity = this.getPassengers().get(0);
             if (entity instanceof Player) {
                 Player player = (Player) entity;
-                player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0));
-                player.addEffect(new MobEffectInstance(MobEffects.HEAL, 100, 0));
+                if (player.isSprinting()) {
+                        this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 3, false, false, false ));
+                    this.removeEffect(MobEffects.SLOW_FALLING);
+                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.1F)));
 
-                this.removeEffectParticles();
+                } else {
+                    this.removeEffect(MobEffects.LEVITATION);
+                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.05F)));
+
+                    this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20, 0,false, false, false ));
+                }
             }
         }
-        //this.removeEffectParticles();
-
     }
+//entity is immune to damage from falling
+    public boolean causeFallDamage(float p_70097_, float p_70098_, DamageSource p_70099_) {
+        return false;
+    }
+
+
 
 
     //animations
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.unicorn.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.griffon.walk", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.unicorn.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.griffon.idle", true));
         return PlayState.CONTINUE;
     }
 
     private PlayState attackPredicate(AnimationEvent event) {
         if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
             event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.unicorn.attack", false));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.griffon.attack", false));
             this.swinging = false;
         }
         return PlayState.CONTINUE;
