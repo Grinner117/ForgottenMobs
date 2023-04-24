@@ -121,6 +121,9 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.OWLBEARSNOW.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.UNICORN.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -161,6 +164,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.GREENHAG.get(), GreenHagRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestRenderer::new);
+            EntityRenderers.register(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
             EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);

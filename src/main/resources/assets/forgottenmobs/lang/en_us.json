@@ -27,7 +27,8 @@
 
   "item.forgottenmobs.couatl_spawn_egg": "Couatl",
 
-  "item.forgottenmobs.owlbearforest_spawn_egg": "Forest Owl Bear Spawn Egg",
+  "item.forgottenmobs.owlbearforest_spawn_egg": "Forest OwlBear Spawn Egg",
+  "item.forgottenmobs.owlbearsnow_spawn_egg": "Snow OwlBear Spawn Egg",
 
   "item.forgottenmobs.greenhag_spawn_egg": "Green Hag Spawn Egg",
 
@@ -43,7 +44,8 @@
   "entity.forgottenmobs.beholder72": "Beholder",
   "entity.forgottenmobs.beholder71": "Beholder",
 
-  "entity.forgottenmobs.owlbearforest": "Owl Bear",
+  "entity.forgottenmobs.owlbearforest": "OwlBear",
+  "entity.forgottenmobs.owlbearsnow": "OwlBear",
 
 
   "entity.forgottenmobs.goblinfighter": "Goblin Fighter",
