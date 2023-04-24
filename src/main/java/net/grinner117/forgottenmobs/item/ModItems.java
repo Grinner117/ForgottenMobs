@@ -116,6 +116,12 @@ public class ModItems {
                             .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
                             .build())));
 
+    public static final RegistryObject<Item> OWLBEARBEAK = ITEMS.register("owlbearbeak",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+                    .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+                            .build())));
+
 
      public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);    }
