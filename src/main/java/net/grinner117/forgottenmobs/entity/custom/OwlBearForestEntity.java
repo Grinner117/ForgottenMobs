@@ -55,7 +55,7 @@ public class OwlBearForestEntity extends Monster implements IAnimatable {
     //stat block
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 120.0D)
+                .add(Attributes.MAX_HEALTH, 60.0D)
                 .add(Attributes.ATTACK_DAMAGE, 15.0D)
                 .add(Attributes.ATTACK_SPEED, 0.5F)
                 .add(Attributes.MOVEMENT_SPEED, 1.0F)

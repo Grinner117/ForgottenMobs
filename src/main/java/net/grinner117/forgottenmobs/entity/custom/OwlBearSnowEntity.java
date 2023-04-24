@@ -40,7 +40,7 @@ public class OwlBearSnowEntity extends Monster implements IAnimatable {
     //stat block
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 120.0D)
+                .add(Attributes.MAX_HEALTH, 60.0D)
                 .add(Attributes.ATTACK_DAMAGE, 15.0D)
                 .add(Attributes.ATTACK_SPEED, 0.5F)
                 .add(Attributes.MOVEMENT_SPEED, 1.0F)
@@ -61,6 +61,7 @@ public class OwlBearSnowEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Animal.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Slime.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, true));
 
     }
 
