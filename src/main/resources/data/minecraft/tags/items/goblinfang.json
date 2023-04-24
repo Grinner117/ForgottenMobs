@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "forgottenmobs:goblinfang",
+    "minecraft:bone",
     "forgottenmobs:beholderfang"
   ]
 }
