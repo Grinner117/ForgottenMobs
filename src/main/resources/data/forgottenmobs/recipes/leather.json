@@ -5,6 +5,8 @@
   "ingredient": {
     "item": "forgottenmobs:beholderhide"
   },
-  "count": 6,
-  "result": "minecraft:leather"
+  "result": {
+    "count": 6,
+    "item": "minecraft:leather"
+  }
 }

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:grindstone",
-
-  "ingredient": {
-    "item": "grinnersmobs:monsterleather"
-  },
-  "count": 9,
-  "result": "minecraft:bonemeal"
-}
