@@ -15,6 +15,7 @@ import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowAdultDragon
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowElderDragonEntity;
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowWyrmlingEntity;
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowYoungDragonEntity;
+import net.grinner117.forgottenmobs.entity.projectile.NeedleEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -135,6 +136,17 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(GriffonEntity::new, MobCategory.MONSTER)
                             .sized(1.8F, 1.6F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"griffin").toString()));
+
+    public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
+            ENTITY_TYPES.register("needleblight",
+                    () -> EntityType.Builder.of(NeedleBlightEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"needleblight").toString()));
+
+    public static final RegistryObject<EntityType<NeedleEntity>> NEEDLE = ENTITY_TYPES.register("needle",
+            () -> EntityType.Builder.of((EntityType.EntityFactory<NeedleEntity>) NeedleEntity::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
+                    .build(new ResourceLocation(ForgottenMobs.MODID,"needle").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

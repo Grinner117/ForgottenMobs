@@ -4,9 +4,7 @@ package net.grinner117.forgottenmobs.entity.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.client.model.GreenHagModel;
 import net.grinner117.forgottenmobs.entity.client.model.NeedleBlightModel;
-import net.grinner117.forgottenmobs.entity.custom.GreenHagEntity;
 import net.grinner117.forgottenmobs.entity.custom.NeedleBlightEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -29,7 +27,7 @@ public class NeedleBlightRenderer extends GeoEntityRenderer<NeedleBlightEntity> 
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(2.5f, 2.5f, 2.5f);
+        stack.scale(2.0f, 1.6f, 2.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

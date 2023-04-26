@@ -40,7 +40,6 @@ public class ModEvents {
             event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEntity.setAttributes());
             event.put(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanEntity.setAttributes());
 
-            event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
 
             event.put(ModEntityTypes.BEHOLDER71.get(), Beholder71Entity.setAttributes());
             event.put(ModEntityTypes.BEHOLDER72.get(), Beholder72Entity.setAttributes());
@@ -50,8 +49,11 @@ public class ModEvents {
             event.put(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestEntity.setAttributes());
             event.put(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowEntity.setAttributes());
 
+            event.put(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightEntity.setAttributes());
+
             event.put(ModEntityTypes.UNICORN.get(), UnicornEntity.setAttributes());
             event.put(ModEntityTypes.GRIFFON.get(), GriffonEntity.setAttributes());
+            event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
 
 
         }

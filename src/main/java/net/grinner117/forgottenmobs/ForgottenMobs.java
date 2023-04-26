@@ -12,6 +12,7 @@ import net.grinner117.forgottenmobs.entity.client.renderer.beholder.Beholder72Re
 import net.grinner117.forgottenmobs.entity.client.renderer.goblin.GoblinArcherRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.goblin.GoblinFighterRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.goblin.GoblinShamanRenderer;
+import net.grinner117.forgottenmobs.entity.client.renderer.projectile.NeedleRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.shadowdragon.ShadowAdultDragonRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.shadowdragon.ShadowElderDragonRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.shadowdragon.ShadowWyrmlingRenderer;
@@ -101,9 +102,6 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
-        SpawnPlacements.register(ModEntityTypes.COUATL.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.BEHOLDER71.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -125,11 +123,19 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.NEEDLEBLIGHT.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+
         SpawnPlacements.register(ModEntityTypes.UNICORN.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.GRIFFON.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.COUATL.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
     }
@@ -156,8 +162,6 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherRenderer::new);
             EntityRenderers.register(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanRenderer::new);
 
-            EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
-
             EntityRenderers.register(ModEntityTypes.BEHOLDER71.get(), Beholder71Renderer::new);
             EntityRenderers.register(ModEntityTypes.BEHOLDER72.get(), Beholder72Renderer::new);
 
@@ -166,8 +170,13 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestRenderer::new);
             EntityRenderers.register(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowRenderer::new);
 
+            EntityRenderers.register(ModEntityTypes.NEEDLE.get(), NeedleRenderer::new);
+            EntityRenderers.register(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightRenderer::new);
+
             EntityRenderers.register(ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
             EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);
+            EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
+
 
         }
     }
