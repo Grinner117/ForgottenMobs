@@ -5,17 +5,22 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib3.core.AnimationState;
@@ -31,10 +36,10 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class TwigBlightEntity extends Monster implements IAnimatable {
+public class VineBlightEntity extends Monster implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    public TwigBlightEntity(EntityType<? extends Monster> type, Level worldIn) {
+    public VineBlightEntity(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
@@ -56,11 +61,35 @@ public class TwigBlightEntity extends Monster implements IAnimatable {
                 .add(Attributes.MAX_HEALTH, 12.0D)
                 .add(Attributes.ATTACK_DAMAGE, 1.0D)
                 .add(Attributes.ATTACK_SPEED, 0.4F)
-                .add(Attributes.MOVEMENT_SPEED, 0.35F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.FOLLOW_RANGE, 64.0D)
                 .add(Attributes.ARMOR, 3.0D)
                 .build();
     }
+
+    //Immune to damage from needlentity
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        if (source.getDirectEntity() instanceof NeedleEntity) {
+            return false;
+        }
+        return super.hurt(source, amount);
+    }
+
+    //melee attack gives the slow effect
+    @Override
+    public boolean doHurtTarget(Entity entityIn) {
+        if (super.doHurtTarget(entityIn)) {
+            if (entityIn instanceof Player) {
+                ((Player) entityIn).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2));
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //passive particle effect
     @Override
     public void tick() {
         super.tick();
@@ -69,14 +98,6 @@ public class TwigBlightEntity extends Monster implements IAnimatable {
                 this.level.addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.5D, 0.5D, 0.5D);
             }
         }
-    }
-    //Immune to damage from needlentity
-    @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if (source.getDirectEntity() instanceof NeedleEntity) {
-            return false;
-        }
-        return super.hurt(source, amount);
     }
 
     //weak to fire

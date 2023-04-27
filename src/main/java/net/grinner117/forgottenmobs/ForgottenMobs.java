@@ -127,6 +127,16 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.TWIGBLIGHT.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+
+
+        SpawnPlacements.register(ModEntityTypes.VINEBLIGHT.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+
+
         SpawnPlacements.register(ModEntityTypes.UNICORN.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
@@ -173,6 +183,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.NEEDLE.get(), NeedleRenderer::new);
             EntityRenderers.register(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightRenderer::new);
             EntityRenderers.register(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightRenderer::new);
+            EntityRenderers.register(ModEntityTypes.VINEBLIGHT.get(), VineBlightRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
             EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);

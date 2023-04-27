@@ -140,13 +140,18 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
             ENTITY_TYPES.register("needleblight",
                     () -> EntityType.Builder.of(NeedleBlightEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .sized(1.0F, 2.0F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"needleblight").toString()));
     public static final RegistryObject<EntityType<TwigBlightEntity>> TWIGBLIGHT =
             ENTITY_TYPES.register("twigblight",
                     () -> EntityType.Builder.of(TwigBlightEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .sized(0.8F, 1.4F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"twigblight").toString()));
+    public static final RegistryObject<EntityType<VineBlightEntity>> VINEBLIGHT =
+            ENTITY_TYPES.register("vineblight",
+                    () -> EntityType.Builder.of(VineBlightEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 1.8F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"vineblight").toString()));
 
     public static final RegistryObject<EntityType<NeedleEntity>> NEEDLE = ENTITY_TYPES.register("needle",
             () -> EntityType.Builder.of((EntityType.EntityFactory<NeedleEntity>) NeedleEntity::new, MobCategory.MISC)

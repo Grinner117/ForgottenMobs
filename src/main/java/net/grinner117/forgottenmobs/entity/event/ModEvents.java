@@ -51,6 +51,7 @@ public class ModEvents {
 
             event.put(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightEntity.setAttributes());
             event.put(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightEntity.setAttributes());
+            event.put(ModEntityTypes.VINEBLIGHT.get(), VineBlightEntity.setAttributes());
 
 
             event.put(ModEntityTypes.UNICORN.get(), UnicornEntity.setAttributes());

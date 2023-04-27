@@ -86,6 +86,9 @@ public class ModItems {
         () -> new ForgeSpawnEggItem(ModEntityTypes.TWIGBLIGHT, 0x231c06, 0x6b5411,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> VINEBLIGHT_SPAWN_EGG = ITEMS.register("vineblight_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.VINEBLIGHT, 0x231c06, 0x6b5411,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
             () -> new Item(new Item.Properties()));
 

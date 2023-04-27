@@ -1,6 +1,7 @@
 package net.grinner117.forgottenmobs.entity.custom;
 
 import net.grinner117.forgottenmobs.entity.projectile.NeedleEntity;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -88,7 +89,15 @@ public class NeedleBlightEntity extends Monster implements RangedAttackMob, IAni
         super.aiStep();
     }
 
-
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.level.isClientSide) {
+            for (int i = 0; i < 2; ++i) {
+                this.level.addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.5D, 0.5D, 0.5D);
+            }
+        }
+    }
 
     //soundS
     @Override

@@ -42,10 +42,13 @@
 
   "item.forgottenmobs.needleblight_spawn_egg": "Needle Blight Spawn Egg",
   "item.forgottenmobs.twigblight_spawn_egg": "Twig Blight Spawn Egg",
+  "item.forgottenmobs.vineblight_spawn_egg": "Vine Blight Spawn Egg",
 
 
   "entity.forgottenmobs.needleblight": "Needle Blight",
   "entity.forgottenmobs.twigblight": "Twig Blight",
+  "entity.forgottenmobs.vineblight": "Vine Blight",
+
 
   "entity.forgottenmobs.unicorn": "Majestic Unicorn",
 
