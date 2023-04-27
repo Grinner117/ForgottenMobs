@@ -27,7 +27,7 @@ public class NeedleBlightRenderer extends GeoEntityRenderer<NeedleBlightEntity> 
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(2.0f, 1.6f, 2.0f);
+        stack.scale(1.5f, 2.0f, 1.5f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

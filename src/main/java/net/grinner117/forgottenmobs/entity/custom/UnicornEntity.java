@@ -167,14 +167,11 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
             Entity entity = this.getPassengers().get(0);
             if (entity instanceof Player) {
                 Player player = (Player) entity;
-                player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0));
-                player.addEffect(new MobEffectInstance(MobEffects.HEAL, 100, 0));
-
+                player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0,false,false,false));
+                player.addEffect(new MobEffectInstance(MobEffects.HEAL, 100, 0,false,false,false));
                 this.removeEffectParticles();
             }
         }
-        //this.removeEffectParticles();
-
     }
 
 
