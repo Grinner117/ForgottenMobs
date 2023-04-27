@@ -50,6 +50,8 @@ public class ModEvents {
             event.put(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowEntity.setAttributes());
 
             event.put(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightEntity.setAttributes());
+            event.put(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightEntity.setAttributes());
+
 
             event.put(ModEntityTypes.UNICORN.get(), UnicornEntity.setAttributes());
             event.put(ModEntityTypes.GRIFFON.get(), GriffonEntity.setAttributes());

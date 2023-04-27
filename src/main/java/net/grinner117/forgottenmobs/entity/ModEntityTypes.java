@@ -142,6 +142,11 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(NeedleBlightEntity::new, MobCategory.MONSTER)
                             .sized(1.0F, 1.0F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"needleblight").toString()));
+    public static final RegistryObject<EntityType<TwigBlightEntity>> TWIGBLIGHT =
+            ENTITY_TYPES.register("twigblight",
+                    () -> EntityType.Builder.of(TwigBlightEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"twigblight").toString()));
 
     public static final RegistryObject<EntityType<NeedleEntity>> NEEDLE = ENTITY_TYPES.register("needle",
             () -> EntityType.Builder.of((EntityType.EntityFactory<NeedleEntity>) NeedleEntity::new, MobCategory.MISC)

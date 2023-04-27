@@ -82,8 +82,12 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.NEEDLEBLIGHT, 0x231c06, 0x6b5411,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> TWIGBLIGHT_SPAWN_EGG = ITEMS.register("twigblight_spawn_egg",
+        () -> new ForgeSpawnEggItem(ModEntityTypes.TWIGBLIGHT, 0x231c06, 0x6b5411,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+            () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> UNICORN_SPAWN_EGG = ITEMS.register("unicorn_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.UNICORN, 0xf0e97f, 0xfbfbfb,

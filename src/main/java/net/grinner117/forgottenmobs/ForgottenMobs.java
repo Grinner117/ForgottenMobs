@@ -172,6 +172,7 @@ public class ForgottenMobs {
 
             EntityRenderers.register(ModEntityTypes.NEEDLE.get(), NeedleRenderer::new);
             EntityRenderers.register(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightRenderer::new);
+            EntityRenderers.register(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
             EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);
