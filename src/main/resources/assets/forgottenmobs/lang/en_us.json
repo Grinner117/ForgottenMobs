@@ -39,6 +39,8 @@
 
   "item.forgottenmobs.unicorn_spawn_egg": "Unicorn Spawn Egg",
   "item.forgottenmobs.griffon_spawn_egg": "Griffon Spawn Egg",
+  "item.forgottenmobs.intellectdevourer_spawn_egg": "Intellect Devourer Spawn Egg",
+
 
   "item.forgottenmobs.needleblight_spawn_egg": "Needle Blight Spawn Egg",
   "item.forgottenmobs.twigblight_spawn_egg": "Twig Blight Spawn Egg",
@@ -51,6 +53,8 @@
 
 
   "entity.forgottenmobs.unicorn": "Majestic Unicorn",
+  "entity.forgottenmobs.intellectdevourer": "Intellect Devourer",
+
 
   "entity.forgottenmobs.beholder72": "Beholder",
   "entity.forgottenmobs.beholder71": "Beholder",

@@ -159,8 +159,6 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
     }
 
     //Unicorn gives it's rider the glow effect every tick and removes the particles from the mobeffect
-
-
     public void tick() {
         super.tick();
         if (this.isVehicle()) {

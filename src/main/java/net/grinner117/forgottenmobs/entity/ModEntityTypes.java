@@ -157,6 +157,12 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of((EntityType.EntityFactory<NeedleEntity>) NeedleEntity::new, MobCategory.MISC)
                     .sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
                     .build(new ResourceLocation(ForgottenMobs.MODID,"needle").toString()));
+
+    public static final RegistryObject<EntityType<IntellectDevourerEntity>> INTELLECTDEVOURER =
+            ENTITY_TYPES.register("intellectdevouerer",
+                    () -> EntityType.Builder.of(IntellectDevourerEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"intellectdevouerer").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

@@ -57,7 +57,7 @@ public class ModEvents {
             event.put(ModEntityTypes.UNICORN.get(), UnicornEntity.setAttributes());
             event.put(ModEntityTypes.GRIFFON.get(), GriffonEntity.setAttributes());
             event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
-
+            event.put(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerEntity.setAttributes());
 
         }
     }

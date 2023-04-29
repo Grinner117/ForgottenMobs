@@ -89,6 +89,7 @@ public class NeedleBlightEntity extends Monster implements RangedAttackMob, IAni
         super.aiStep();
     }
 
+    //particle effect
     @Override
     public void tick() {
         super.tick();
