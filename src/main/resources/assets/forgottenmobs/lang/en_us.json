@@ -42,6 +42,7 @@
   "item.forgottenmobs.intellectdevourer_spawn_egg": "Intellect Devourer Spawn Egg",
   "item.forgottenmobs.cloudgiant_spawn_egg": "Cloud Giant Spawn Egg",
   "item.forgottenmobs.ghost_spawn_egg": "Ghost Spawn Egg",
+  "item.forgottenmobs.mindflayer_spawn_egg": "Mind Flayer Spawn Egg",
 
 
 
@@ -59,6 +60,8 @@
   "entity.forgottenmobs.intellectdevourer": "Intellect Devourer",
   "entity.forgottenmobs.cloudgiant": "Cloud Giant",
   "entity.forgottenmobs.ghost": "Ghost",
+  "entity.forgottenmobs.mindflayer": "Mindflayer",
+
 
   "entity.forgottenmobs.beholder72": "Beholder",
   "entity.forgottenmobs.beholder71": "Beholder",

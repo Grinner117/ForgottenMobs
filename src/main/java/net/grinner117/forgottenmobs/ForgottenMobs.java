@@ -159,6 +159,9 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.GHOST.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
+        SpawnPlacements.register(ModEntityTypes.MINDFLAYER.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
 
     }
 
@@ -201,7 +204,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);
             EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
             EntityRenderers.register(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerRenderer::new);
-
+            EntityRenderers.register(ModEntityTypes.MINDFLAYER.get(),MindflayerRenderer::new);
             EntityRenderers.register(ModEntityTypes.CLOUDGIANT.get(),CloudGiantRenderer::new);
             EntityRenderers.register(ModEntityTypes.GHOST.get(),GhostRenderer::new);
 
