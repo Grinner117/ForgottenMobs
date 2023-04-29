@@ -58,6 +58,7 @@ public class ModEvents {
             event.put(ModEntityTypes.GRIFFON.get(), GriffonEntity.setAttributes());
             event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
             event.put(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerEntity.setAttributes());
+            event.put(ModEntityTypes.CLOUDGIANT.get(), CloudGiantEntity.setAttributes());
 
         }
     }

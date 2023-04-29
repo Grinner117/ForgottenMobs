@@ -102,6 +102,11 @@ public class ModItems {
     public static final RegistryObject<Item> INTELLECTDEVOURER_SPAWN_EGG = ITEMS.register("intellectdevourer_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.INTELLECTDEVOURER, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    public static final RegistryObject<Item> CLOUDGIANT_SPAWN_EGG = ITEMS.register("cloudgiant_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CLOUDGIANT, 0xac8a5f, 0xe0cfba,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)
