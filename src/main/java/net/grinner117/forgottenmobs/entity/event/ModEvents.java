@@ -59,6 +59,7 @@ public class ModEvents {
             event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
             event.put(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerEntity.setAttributes());
             event.put(ModEntityTypes.CLOUDGIANT.get(), CloudGiantEntity.setAttributes());
+            event.put(ModEntityTypes.GHOST.get(), GhostEntity.setAttributes());
 
         }
     }

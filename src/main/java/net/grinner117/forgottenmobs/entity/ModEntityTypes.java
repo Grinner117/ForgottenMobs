@@ -164,10 +164,15 @@ public class ModEntityTypes {
                             .sized(1.0F, 1.0F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"intellectdevouerer").toString()));
     public static final RegistryObject<EntityType<CloudGiantEntity>> CLOUDGIANT =
-            ENTITY_TYPES.register("CloudGiant",
+            ENTITY_TYPES.register("cloudgiant",
                     () -> EntityType.Builder.of(CloudGiantEntity::new, MobCategory.MONSTER)
                             .sized(1.0F, 1.0F).clientTrackingRange(60)
-                            .build(new ResourceLocation(ForgottenMobs.MODID,"CloudGiant").toString()));
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"cloudgiant").toString()));
+    public static final RegistryObject<EntityType<GhostEntity>> GHOST =
+            ENTITY_TYPES.register("ghost",
+                    () -> EntityType.Builder.of(GhostEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"ghost").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

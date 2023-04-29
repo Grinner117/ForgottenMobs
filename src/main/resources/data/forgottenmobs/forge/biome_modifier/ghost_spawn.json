@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:jungle",
+    "minecraft:lush_caves",
+    "minecraft:swamp",
+    "minecraft:river"
+  ],
+  "spawners": {
+    "type": "forgottenmobs:ghost",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 4
+  }
+}
