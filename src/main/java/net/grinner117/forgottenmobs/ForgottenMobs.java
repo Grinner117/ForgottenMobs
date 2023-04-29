@@ -198,7 +198,8 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);
             EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
             EntityRenderers.register(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerRenderer::new);
-            EntityRenderers.register(ModEntityTypes.CLOUDGIANT.get(), CloudGiantRenderer::new);
+
+            EntityRenderers.register(ModEntityTypes.CLOUDGIANT.get(),CloudGiantRenderer::new);
 
 
         }

@@ -1,6 +1,5 @@
 package net.grinner117.forgottenmobs.entity.client.renderer;
 
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.grinner117.forgottenmobs.ForgottenMobs;
