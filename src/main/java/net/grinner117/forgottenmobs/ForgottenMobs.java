@@ -207,6 +207,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.MINDFLAYER.get(),MindflayerRenderer::new);
             EntityRenderers.register(ModEntityTypes.CLOUDGIANT.get(),CloudGiantRenderer::new);
             EntityRenderers.register(ModEntityTypes.GHOST.get(),GhostRenderer::new);
+            EntityRenderers.register(ModEntityTypes.DBEAST.get(),DBeastRenderer::new);
 
 
         }

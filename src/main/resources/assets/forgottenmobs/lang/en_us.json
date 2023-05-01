@@ -43,8 +43,7 @@
   "item.forgottenmobs.cloudgiant_spawn_egg": "Cloud Giant Spawn Egg",
   "item.forgottenmobs.ghost_spawn_egg": "Ghost Spawn Egg",
   "item.forgottenmobs.mindflayer_spawn_egg": "Mind Flayer Spawn Egg",
-
-
+  "item.forgottenmobs.dbeast_spawn_egg": "Displacer Beast Spawn Egg",
 
   "item.forgottenmobs.needleblight_spawn_egg": "Needle Blight Spawn Egg",
   "item.forgottenmobs.twigblight_spawn_egg": "Twig Blight Spawn Egg",
@@ -61,6 +60,7 @@
   "entity.forgottenmobs.cloudgiant": "Cloud Giant",
   "entity.forgottenmobs.ghost": "Ghost",
   "entity.forgottenmobs.mindflayer": "Mindflayer",
+  "entity.forgottenmobs.dbeast": "Displacer Beast",
 
 
   "entity.forgottenmobs.beholder72": "Beholder",

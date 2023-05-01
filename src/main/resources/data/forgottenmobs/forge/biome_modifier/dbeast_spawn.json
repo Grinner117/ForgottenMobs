@@ -1,0 +1,26 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:frozen_ocean",
+    "minecraft:frozen_peaks",
+    "minecraft:frozen_river",
+    "minecraft:ice_spikes",
+    "minecraft:snowy_beach",
+    "minecraft:snowy_plains",
+    "minecraft:snowy_slopes",
+    "minecraft:snowy_taiga",
+    "minecraft:swamp",
+    "minecraft:wooded_badlands",
+    "minecraft:end_barrens",
+    "minecraft:end_highlands",
+    "minecraft:end_midlands",
+    "minecraft:the_end",
+    "minecraft:the_void"
+  ],
+  "spawners": {
+    "type": "forgottenmobs:dbeast",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

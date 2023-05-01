@@ -61,6 +61,7 @@ public class ModEvents {
             event.put(ModEntityTypes.CLOUDGIANT.get(), CloudGiantEntity.setAttributes());
             event.put(ModEntityTypes.GHOST.get(), GhostEntity.setAttributes());
             event.put(ModEntityTypes.MINDFLAYER.get(), MindflayerEntity.setAttributes());
+            event.put(ModEntityTypes.DBEAST.get(), DBeastEntity.setAttributes());
 
         }
     }
