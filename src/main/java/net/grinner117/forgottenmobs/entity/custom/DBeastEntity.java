@@ -3,9 +3,14 @@ package net.grinner117.forgottenmobs.entity.custom;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -16,6 +21,7 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -28,6 +34,7 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class DBeastEntity extends Monster implements Enemy, IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
+    private float yRot;
 
     public DBeastEntity(EntityType<? extends DBeastEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
@@ -39,8 +46,8 @@ public class DBeastEntity extends Monster implements Enemy, IAnimatable {
                 .add(Attributes.MAX_HEALTH, 40.0D)
                 .add(Attributes.ARMOR_TOUGHNESS, 8.0D)
                 .add(Attributes.ATTACK_DAMAGE, 16.0D)
-                .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.MOVEMENT_SPEED, 0.2F)
+                .add(Attributes.ATTACK_SPEED, 0.4F)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .build();
     }
 
@@ -49,31 +56,19 @@ public class DBeastEntity extends Monster implements Enemy, IAnimatable {
         super.registerGoals();
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 14.4F));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
         this.goalSelector.addGoal(5, new FloatGoal(this));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 64.0F));
+
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, 0, false, false, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
     }
 
-    //can summons a chicken when an enemy is nearby
-    private int chickenCountdown;
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.chickenCountdown <= 0) {
-            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.spawnAtLocation(EntityType.CHICKEN.create(this.level), 0.0D, 0.0D, 0.0D, this.random.nextFloat() * 360.0F, false);
-            this.chickenCountdown = 100;
-        }
-    }
+    //summons a chicken mob after 20 seconds
 
-    private void spawnAtLocation(Chicken chicken, double v, double v1, double v2, float v3, boolean b) {
-    }
-
-
+    
     //sound
     public SoundSource getSoundSource() {
         return SoundSource.HOSTILE;
@@ -98,17 +93,17 @@ public class DBeastEntity extends Monster implements Enemy, IAnimatable {
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.intellectdevourer.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dbeast.walk", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.intellectdevourer.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dbeast.idle", true));
         return PlayState.CONTINUE;
     }
 
     private PlayState attackPredicate(AnimationEvent event) {
         if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
             event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.intellectdevourer.attack", false));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dbeast.attack", false));
             this.swinging = false;
         }
         return PlayState.CONTINUE;

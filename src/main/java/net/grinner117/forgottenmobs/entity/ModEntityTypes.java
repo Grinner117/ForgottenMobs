@@ -181,7 +181,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<DBeastEntity>> DBEAST =
             ENTITY_TYPES.register("dbeast",
                     () -> EntityType.Builder.of(DBeastEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .sized(2.0F, 1.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"dbeast").toString()));
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

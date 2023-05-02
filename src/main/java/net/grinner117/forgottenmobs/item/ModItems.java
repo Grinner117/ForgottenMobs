@@ -114,7 +114,7 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.MINDFLAYER, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> DBEAST_SPAWN_EGG = ITEMS.register("dbeast_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.MINDFLAYER, 0xac8a5f, 0xe0cfba,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DBEAST, 0x3d3045, 0xb1b901,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
