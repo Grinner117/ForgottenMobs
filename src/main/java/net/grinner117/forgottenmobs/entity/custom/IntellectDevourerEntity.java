@@ -39,7 +39,7 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class IntellectDevourerEntity extends FlyingMob implements Enemy, IAnimatable {
+public class IntellectDevourerEntity extends Monster implements Enemy, IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
     public IntellectDevourerEntity(EntityType<? extends IntellectDevourerEntity> p_33101_, Level p_33102_) {

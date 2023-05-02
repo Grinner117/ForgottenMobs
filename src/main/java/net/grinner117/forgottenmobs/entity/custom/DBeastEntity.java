@@ -4,12 +4,17 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -21,36 +26,71 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class DBeastEntity extends FlyingMob implements Enemy, IAnimatable {
+public class DBeastEntity extends Monster implements Enemy, IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
     public DBeastEntity(EntityType<? extends DBeastEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
-        this.xpReward = 20;
+        this.xpReward = 50;
     }
+
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 10.0D)
-                .add(Attributes.ARMOR_TOUGHNESS, 1.0D)
-                .add(Attributes.ATTACK_DAMAGE, 2.0D)
+                .add(Attributes.MAX_HEALTH, 40.0D)
+                .add(Attributes.ARMOR_TOUGHNESS, 8.0D)
+                .add(Attributes.ATTACK_DAMAGE, 16.0D)
                 .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.MOVEMENT_SPEED, 0.1F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .build();
     }
 
+    @Override
     protected void registerGoals() {
+        super.registerGoals();
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 14.4F));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(5, new FloatGoal(this));
+
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, 0, false, false, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
     }
+
+    //can summons a chicken when an enemy is nearby
+    private int chickenCountdown;
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.chickenCountdown <= 0) {
+            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+            this.spawnAtLocation(EntityType.CHICKEN.create(this.level), 0.0D, 0.0D, 0.0D, this.random.nextFloat() * 360.0F, false);
+            this.chickenCountdown = 100;
+        }
+    }
+
+    private void spawnAtLocation(Chicken chicken, double v, double v1, double v2, float v3, boolean b) {
+    }
+
+
+    //sound
     public SoundSource getSoundSource() {
-        return SoundSource.NEUTRAL;
+        return SoundSource.HOSTILE;
     }
 
     protected SoundEvent getHurtSound(DamageSource p_33152_) {
-        return SoundEvents.TRIDENT_THUNDER;
+        return SoundEvents.WOLF_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENDER_DRAGON_DEATH;
+        return SoundEvents.WOLF_DEATH;
     }
+
+    public SoundEvent getAmbientSound() {
+        return SoundEvents.WOLF_AMBIENT;
+    }
+
     protected float getSoundVolume() {
         return 1.0F;
     }

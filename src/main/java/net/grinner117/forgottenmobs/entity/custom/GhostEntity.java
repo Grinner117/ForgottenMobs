@@ -21,7 +21,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class GhostEntity extends FlyingMob implements Enemy, IAnimatable {
+public class GhostEntity extends Monster implements Enemy, IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
     public GhostEntity(EntityType<? extends GhostEntity> p_33101_, Level p_33102_) {
