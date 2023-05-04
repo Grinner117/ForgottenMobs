@@ -66,7 +66,8 @@ public class DBeastEntity extends Monster implements Enemy, IAnimatable {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, 0, false, false, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
     }
 
-    //summons a chicken mob after 20 seconds
+    //summons a single chicken mob after 20 seconds
+
 
     
     //sound

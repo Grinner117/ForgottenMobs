@@ -12,6 +12,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenMobs.MODID);
@@ -83,7 +84,7 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<Item> TWIGBLIGHT_SPAWN_EGG = ITEMS.register("twigblight_spawn_egg",
-        () -> new ForgeSpawnEggItem(ModEntityTypes.TWIGBLIGHT, 0x231c06, 0x6b5411,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.TWIGBLIGHT, 0x231c06, 0x6b5411,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<Item> VINEBLIGHT_SPAWN_EGG = ITEMS.register("vineblight_spawn_egg",
@@ -95,6 +96,7 @@ public class ModItems {
     public static final RegistryObject<Item> UNICORN_SPAWN_EGG = ITEMS.register("unicorn_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.UNICORN, 0xf0e97f, 0xfbfbfb,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> GRIFFON_SPAWN_EGG = ITEMS.register("griffon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.GRIFFON, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
@@ -104,18 +106,21 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<Item> CLOUDGIANT_SPAWN_EGG = ITEMS.register("cloudgiant_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.CLOUDGIANT, 0xac8a5f, 0xe0cfba,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CLOUDGIANT, 0xbb1b42, 0xdc1541,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<Item> GHOST_SPAWN_EGG = ITEMS.register("ghost_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.GHOST, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> MINDFLAYER_SPAWN_EGG = ITEMS.register("mindflayer_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.MINDFLAYER, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> DBEAST_SPAWN_EGG = ITEMS.register("dbeast_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DBEAST, 0x3d3045, 0xb1b901,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)
@@ -155,7 +160,8 @@ public class ModItems {
                             .build())));
 
 
-     public static void register(IEventBus eventBus) {
-    ITEMS.register(eventBus);    }
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
 
 }
