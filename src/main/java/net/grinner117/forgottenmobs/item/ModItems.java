@@ -121,6 +121,10 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.DBEAST, 0x3d3045, 0xb1b901,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> GRIMLOCK_SPAWN_EGG = ITEMS.register("grimlock_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.GRIMLOCK, 0xaa9fae, 0xbebc9b,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)

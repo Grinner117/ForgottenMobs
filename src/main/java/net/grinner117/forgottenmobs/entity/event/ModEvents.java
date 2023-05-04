@@ -63,6 +63,7 @@ public class ModEvents {
             event.put(ModEntityTypes.MINDFLAYER.get(), MindflayerEntity.setAttributes());
             event.put(ModEntityTypes.DBEAST.get(), DBeastEntity.setAttributes());
             event.put(ModEntityTypes.IDBEAST.get(), IDBeastEntity.setAttributes());
+            event.put(ModEntityTypes.GRIMLOCK.get(), GrimlockEntity.setAttributes());
 
         }
     }

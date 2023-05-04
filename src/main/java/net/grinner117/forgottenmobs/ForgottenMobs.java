@@ -168,6 +168,10 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
+        SpawnPlacements.register(ModEntityTypes.GRIMLOCK.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingMob::checkMobSpawnRules);
+
 
     }
 
@@ -215,6 +219,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.GHOST.get(),GhostRenderer::new);
             EntityRenderers.register(ModEntityTypes.DBEAST.get(),DBeastRenderer::new);
             EntityRenderers.register(ModEntityTypes.IDBEAST.get(),IDBeastRenderer::new);
+            EntityRenderers.register(ModEntityTypes.GRIMLOCK.get(),GrimlockRenderer::new);
 
 
         }

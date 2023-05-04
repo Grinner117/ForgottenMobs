@@ -26,12 +26,13 @@
   "item.forgottenmobs.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
   "item.forgottenmobs.goblinshaman_spawn_egg": "Goblin Shaman Spawn Egg",
 
-  "item.forgottenmobs.couatl_spawn_egg": "Couatl",
 
   "item.forgottenmobs.owlbearforest_spawn_egg": "Forest OwlBear Spawn Egg",
   "item.forgottenmobs.owlbearsnow_spawn_egg": "Snow OwlBear Spawn Egg",
 
   "item.forgottenmobs.greenhag_spawn_egg": "Green Hag Spawn Egg",
+  "item.forgottenmobs.couatl_spawn_egg": "Couatl Spawn Egg",
+  "item.forgottenmobs.grimlock_spawn_egg": "Grimlock Spawn Egg",
 
   "item.forgottenmobs.beholder71_spawn_egg": "Beholder 7 1 Spawn Egg",
   "item.forgottenmobs.beholder72_spawn_egg": "Beholder 7 2 Spawn Egg",
@@ -61,6 +62,7 @@
   "entity.forgottenmobs.mindflayer": "Mindflayer",
   "entity.forgottenmobs.dbeast": "Displacer Beast",
   "entity.forgottenmobs.idbeast": "Displacer Beast",
+  "entity.forgottenmobs.grimlock": "Grimlock",
 
 
   "entity.forgottenmobs.beholder72": "Beholder",
