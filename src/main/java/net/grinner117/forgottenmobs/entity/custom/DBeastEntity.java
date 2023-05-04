@@ -68,7 +68,6 @@ public class DBeastEntity extends Monster implements Enemy, IAnimatable {
 
     //summons a single chicken mob after 20 seconds
 
-
     
     //sound
     public SoundSource getSoundSource() {
