@@ -166,7 +166,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<CloudGiantEntity>> CLOUDGIANT =
             ENTITY_TYPES.register("cloudgiant",
                     () -> EntityType.Builder.of(CloudGiantEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .sized(5.0F, 10.0F).clientTrackingRange(100)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"cloudgiant").toString()));
     public static final RegistryObject<EntityType<MindflayerEntity>> MINDFLAYER =
             ENTITY_TYPES.register("mindflayer",

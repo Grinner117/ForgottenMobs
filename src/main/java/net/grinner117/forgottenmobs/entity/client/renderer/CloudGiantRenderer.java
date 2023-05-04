@@ -26,7 +26,7 @@ public class CloudGiantRenderer extends GeoEntityRenderer<CloudGiantEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(2.0f, 2.5f, 2.5f);
+        stack.scale(20.0f, 20.0f, 20.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }
