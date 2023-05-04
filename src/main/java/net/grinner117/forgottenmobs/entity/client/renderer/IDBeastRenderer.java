@@ -18,7 +18,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class IDBeastRenderer extends GeoEntityRenderer<IDBeastEntity> {
     public IDBeastRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new IDBeastModel());
-        this.shadowRadius = 2.0f;
+        this.shadowRadius = 1.0f;
     }
     @Override
     public ResourceLocation getTextureLocation(IDBeastEntity instance) {

@@ -16,7 +16,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class DBeastRenderer extends GeoEntityRenderer<DBeastEntity> {
     public DBeastRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new DBeastModel());
-        this.shadowRadius = 2.0f;
+        this.shadowRadius = 1.0f;
     }
     @Override
     public ResourceLocation getTextureLocation(DBeastEntity instance) {

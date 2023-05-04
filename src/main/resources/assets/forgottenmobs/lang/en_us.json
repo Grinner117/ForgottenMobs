@@ -12,7 +12,6 @@
   "item.forgottenmobs.owlbearbeak": "Owlbear Beak",
 
 
-
   "item.forgottenmobs.animatedleatherarmor_spawn_egg": "Animated Leather Armor Spawn Egg",
   "item.forgottenmobs.animatedironarmor_spawn_egg": "Animated Iron Armor Spawn Egg",
   "item.forgottenmobs.animatedgoldarmor_spawn_egg": "Animated Gold Armor Spawn Egg",
@@ -61,6 +60,7 @@
   "entity.forgottenmobs.ghost": "Ghost",
   "entity.forgottenmobs.mindflayer": "Mindflayer",
   "entity.forgottenmobs.dbeast": "Displacer Beast",
+  "entity.forgottenmobs.idbeast": "Displacer Beast",
 
 
   "entity.forgottenmobs.beholder72": "Beholder",
