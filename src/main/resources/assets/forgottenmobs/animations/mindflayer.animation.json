@@ -22,54 +22,29 @@
 		},
 		"animation.mindflayer.walk": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.25,
+			"animation_length": 2,
 			"bones": {
 				"bone": {
 					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.25": {
-							"vector": [12.5, 0, 0]
-						}
+						"vector": [12.5, 0, 0]
 					},
 					"position": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.25": {
-							"vector": [0, 2, 0]
-						}
+						"vector": [0, 2, 0]
 					}
 				},
 				"bone6": {
 					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.25": {
-							"vector": [-12.5, 0, 0]
-						}
+						"vector": [-12.5, 0, 0]
 					}
 				},
 				"bone3": {
 					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.25": {
-							"vector": [-12.5, 0, 0]
-						}
+						"vector": [-12.5, 0, 0]
 					}
 				},
 				"bone4": {
 					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.25": {
-							"vector": [-12.5, 0, 0]
-						}
+						"vector": [-12.5, 0, 0]
 					}
 				},
 				"bone5": {
@@ -170,5 +145,6 @@
 				}
 			}
 		}
-	}
+	},
+	"geckolib_format_version": 2
 }
