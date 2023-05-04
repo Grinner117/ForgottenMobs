@@ -176,7 +176,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<GhostEntity>> GHOST =
             ENTITY_TYPES.register("ghost",
                     () -> EntityType.Builder.of(GhostEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .sized(1.0F, 2.0F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"ghost").toString()));
     public static final RegistryObject<EntityType<DBeastEntity>> DBEAST =
             ENTITY_TYPES.register("dbeast",
