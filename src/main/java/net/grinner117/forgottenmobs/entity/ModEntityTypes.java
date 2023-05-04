@@ -183,6 +183,12 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(DBeastEntity::new, MobCategory.MONSTER)
                             .sized(2.0F, 1.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"dbeast").toString()));
+    public static final RegistryObject<EntityType<IDBeastEntity>> IDBEAST =
+            ENTITY_TYPES.register("idbeast",
+                    () -> EntityType.Builder.of(IDBeastEntity::new, MobCategory.MONSTER)
+                            .sized(2.0F, 1.8F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"idbeast").toString()));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }

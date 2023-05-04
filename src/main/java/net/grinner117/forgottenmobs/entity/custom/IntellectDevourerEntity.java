@@ -41,10 +41,12 @@ import java.util.EnumSet;
 
 public class IntellectDevourerEntity extends Monster implements Enemy, IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
+
     public IntellectDevourerEntity(EntityType<? extends IntellectDevourerEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
         this.xpReward = 20;
     }
+
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 10.0D)
@@ -57,17 +59,21 @@ public class IntellectDevourerEntity extends Monster implements Enemy, IAnimatab
 
     protected void registerGoals() {
     }
+
+    //sound
     public SoundSource getSoundSource() {
-        return SoundSource.ENEMY;
+        return SoundSource.HOSTILE;
     }
 
     protected SoundEvent getHurtSound(DamageSource p_33152_) {
-        return SoundEvents.TRIDENT_THUNDER;
+        return SoundEvents.WOLF_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENDER_DRAGON_DEATH;
+        return SoundEvents.WOLF_DEATH;
     }
+
+
     protected float getSoundVolume() {
         return 1.0F;
     }
