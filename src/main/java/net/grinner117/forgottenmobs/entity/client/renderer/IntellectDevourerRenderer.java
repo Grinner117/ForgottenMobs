@@ -16,7 +16,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class IntellectDevourerRenderer extends GeoEntityRenderer<IntellectDevourerEntity> {
     public IntellectDevourerRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new IntellectDevourerModel());
-        this.shadowRadius = 2.0f;
+        this.shadowRadius = 0.5f;
     }
     @Override
     public ResourceLocation getTextureLocation(IntellectDevourerEntity instance) {
@@ -27,7 +27,7 @@ public class IntellectDevourerRenderer extends GeoEntityRenderer<IntellectDevour
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(2.0f, 2.0f, 2.0f);
+        stack.scale(1.0f, 1.0f, 1.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }
