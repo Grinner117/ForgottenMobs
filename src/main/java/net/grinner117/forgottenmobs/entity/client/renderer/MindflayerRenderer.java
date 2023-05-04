@@ -27,7 +27,7 @@ public class MindflayerRenderer extends GeoEntityRenderer<MindflayerEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(2.5f, 2.5f, 2.5f);
+        stack.scale(2.0f, 2.0f, 2.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

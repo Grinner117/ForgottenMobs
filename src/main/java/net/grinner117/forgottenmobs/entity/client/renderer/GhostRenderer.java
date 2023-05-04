@@ -16,7 +16,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class GhostRenderer extends GeoEntityRenderer<GhostEntity> {
     public GhostRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new GhostModel());
-        this.shadowRadius = 0.2f;
+        this.shadowRadius = 0.0f;
     }
     @Override
     public ResourceLocation getTextureLocation(GhostEntity instance) {
@@ -27,7 +27,7 @@ public class GhostRenderer extends GeoEntityRenderer<GhostEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(2.8f, 2.6f, 2.8f);
+        stack.scale(2.0f, 2.0f, 2.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

@@ -38,11 +38,13 @@ public class GhostEntity extends Monster implements Enemy, IAnimatable {
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.ARMOR_TOUGHNESS, 1.0D)
-                .add(Attributes.ATTACK_DAMAGE, 2.0D)
+                .add(Attributes.ATTACK_DAMAGE, 1.0D)
                 .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.MOVEMENT_SPEED, 0.1F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
+                .add(Attributes.FOLLOW_RANGE, 64.0D)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 10.5D)
                 .build();
     }
 

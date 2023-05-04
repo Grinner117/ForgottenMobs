@@ -171,7 +171,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<MindflayerEntity>> MINDFLAYER =
             ENTITY_TYPES.register("mindflayer",
                     () -> EntityType.Builder.of(MindflayerEntity::new, MobCategory.MONSTER)
-                            .sized(1.0F, 1.0F).clientTrackingRange(60)
+                            .sized(1.0F, 2.0F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"mindflayer").toString()));
     public static final RegistryObject<EntityType<GhostEntity>> GHOST =
             ENTITY_TYPES.register("ghost",
