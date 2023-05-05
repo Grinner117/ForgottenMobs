@@ -193,6 +193,11 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(GrimlockEntity::new, MobCategory.MONSTER)
                             .sized(1.8F, 2.5F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"grimlock").toString()));
+    public static final RegistryObject<EntityType<GrimlockEntity>> SHAMBLINGMOUND =
+            ENTITY_TYPES.register("shamblingmound",
+                    () -> EntityType.Builder.of(GrimlockEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 2.5F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"shamblingmound").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

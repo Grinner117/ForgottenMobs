@@ -64,6 +64,8 @@ public class ModEvents {
             event.put(ModEntityTypes.DBEAST.get(), DBeastEntity.setAttributes());
             event.put(ModEntityTypes.IDBEAST.get(), IDBeastEntity.setAttributes());
             event.put(ModEntityTypes.GRIMLOCK.get(), GrimlockEntity.setAttributes());
+            event.put(ModEntityTypes.SHAMBLINGMOUND.get(), ShamblingMoundEntity.setAttributes());
+
 
         }
     }
