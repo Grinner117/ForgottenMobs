@@ -33,6 +33,8 @@
   "item.forgottenmobs.greenhag_spawn_egg": "Green Hag Spawn Egg",
   "item.forgottenmobs.couatl_spawn_egg": "Couatl Spawn Egg",
   "item.forgottenmobs.grimlock_spawn_egg": "Grimlock Spawn Egg",
+  "item.forgottenmobs.planetar_spawn_egg": "Planetar Spawn Egg",
+
 
   "item.forgottenmobs.beholder71_spawn_egg": "Beholder 7 1 Spawn Egg",
   "item.forgottenmobs.beholder72_spawn_egg": "Beholder 7 2 Spawn Egg",
@@ -63,6 +65,7 @@
   "entity.forgottenmobs.dbeast": "Displacer Beast",
   "entity.forgottenmobs.idbeast": "Displacer Beast",
   "entity.forgottenmobs.grimlock": "Grimlock",
+  "entity.forgottenmobs.planetar": "Planetar",
 
 
   "entity.forgottenmobs.beholder72": "Beholder",
