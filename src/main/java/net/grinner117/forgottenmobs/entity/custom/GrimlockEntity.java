@@ -22,6 +22,7 @@ import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -76,11 +77,13 @@ public class GrimlockEntity extends Monster implements IAnimatable {
         return super.hurt(source, amount);
     }
 
-//when standing on stone, get mob effect confusion
-
-    //when standing on grass gets mob effect healing
-
-
+//every tick, check the block bellow this entity, if it as stone block, give this entity a speed
+    public void aiStep() {
+        super.aiStep();
+        if (this.level.getBlockState(this.blockPosition().below()).getBlock() == Blocks.STONE) {
+            this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 20, 1, false, false, false));
+        }
+    }
 
     //passive particle effect
     @Override
@@ -91,15 +94,6 @@ public class GrimlockEntity extends Monster implements IAnimatable {
                 this.level.addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.8D), 0.8D, 0.8D, 0.8D);
             }
         }
-    }
-
-    //heals over time
-    @Override
-    public void aiStep() {
-        if (this.level.isDay()) {
-            this.heal(0.05F);
-        }
-        super.aiStep();
     }
 
     //sounds

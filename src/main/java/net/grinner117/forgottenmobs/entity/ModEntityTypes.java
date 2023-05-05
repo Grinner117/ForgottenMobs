@@ -191,7 +191,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<GrimlockEntity>> GRIMLOCK =
             ENTITY_TYPES.register("grimlock",
                     () -> EntityType.Builder.of(GrimlockEntity::new, MobCategory.MONSTER)
-                            .sized(2.0F, 1.8F).clientTrackingRange(80)
+                            .sized(1.8F, 2.5F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"grimlock").toString()));
 
     public static void register(IEventBus eventBus) {
