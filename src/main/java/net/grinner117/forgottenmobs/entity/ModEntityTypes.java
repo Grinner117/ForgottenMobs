@@ -159,10 +159,10 @@ public class ModEntityTypes {
                     .build(new ResourceLocation(ForgottenMobs.MODID,"needle").toString()));
 
     public static final RegistryObject<EntityType<IntellectDevourerEntity>> INTELLECTDEVOURER =
-            ENTITY_TYPES.register("intellectdevouerer",
+            ENTITY_TYPES.register("intellectdevourer",
                     () -> EntityType.Builder.of(IntellectDevourerEntity::new, MobCategory.MONSTER)
                             .sized(1.0F, 1.0F).clientTrackingRange(60)
-                            .build(new ResourceLocation(ForgottenMobs.MODID,"intellectdevouerer").toString()));
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"intellectdevourer").toString()));
     public static final RegistryObject<EntityType<CloudGiantEntity>> CLOUDGIANT =
             ENTITY_TYPES.register("cloudgiant",
                     () -> EntityType.Builder.of(CloudGiantEntity::new, MobCategory.MONSTER)
