@@ -122,10 +122,6 @@ public class GhostEntity extends Monster implements Enemy, IAnimatable {
         return SoundEvents.PLAYER_DEATH;
     }
 
-    public SoundEvent getAmbientSound() {
-        return SoundEvents.PLAYER_BREATH;
-    }
-
     protected float getSoundVolume() {
         return 1.5F;
     }

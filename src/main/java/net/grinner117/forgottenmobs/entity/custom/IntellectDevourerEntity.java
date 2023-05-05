@@ -100,10 +100,6 @@ public class IntellectDevourerEntity extends Monster implements Enemy, IAnimatab
         return SoundEvents.ENDERMAN_DEATH;
     }
 
-    public SoundEvent getAmbientSound() {
-        return SoundEvents.GHAST_AMBIENT;
-    }
-
     protected float getSoundVolume() {
         return 1.0F;
     }
