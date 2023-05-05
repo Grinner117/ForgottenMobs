@@ -128,7 +128,9 @@ public class ModItems {
     public static final RegistryObject<Item> SHAMBLINGMOUND_SPAWN_EGG = ITEMS.register("shamblingmound_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SHAMBLINGMOUND, 0xea261c, 0x39843e,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
+    public static final RegistryObject<Item> PLANETAR_SPAWN_EGG = ITEMS.register("planetar_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.PLANETAR, 0xea261c, 0x39843e,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
 
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
