@@ -16,6 +16,10 @@ import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowAdultDragon
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowElderDragonEntity;
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowWyrmlingEntity;
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowYoungDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteAdultDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteElderDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteWyrmlingEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteYoungDragonEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +39,11 @@ public class ModEvents {
             event.put(ModEntityTypes.SHADOWYOUNGDRAGON.get(), ShadowYoungDragonEntity.setAttributes());
             event.put(ModEntityTypes.SHADOWADULTDRAGON.get(), ShadowAdultDragonEntity.setAttributes());
             event.put(ModEntityTypes.SHADOWELDERDRAGON.get(), ShadowElderDragonEntity.setAttributes());
+
+            event.put(ModEntityTypes.WHITEWYRMLING.get(), WhiteWyrmlingEntity.setAttributes());
+            event.put(ModEntityTypes.WHITEYOUNGDRAGON.get(), WhiteYoungDragonEntity.setAttributes());
+            event.put(ModEntityTypes.WHITEADULTDRAGON.get(), WhiteAdultDragonEntity.setAttributes());
+            event.put(ModEntityTypes.WHITEELDERDRAGON.get(), WhiteElderDragonEntity.setAttributes());
 
             event.put(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterEntity.setAttributes());
             event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEntity.setAttributes());

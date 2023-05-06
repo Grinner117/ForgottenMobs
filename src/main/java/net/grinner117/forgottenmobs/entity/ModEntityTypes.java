@@ -15,6 +15,10 @@ import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowAdultDragon
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowElderDragonEntity;
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowWyrmlingEntity;
 import net.grinner117.forgottenmobs.entity.custom.shadowdragon.ShadowYoungDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteAdultDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteElderDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteWyrmlingEntity;
+import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteYoungDragonEntity;
 import net.grinner117.forgottenmobs.entity.projectile.NeedleEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -70,7 +74,27 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(ShadowElderDragonEntity::new, MobCategory.MONSTER)
                             .sized(3.0F, 3.8F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"shadowelderdragon").toString()));
+    public static final RegistryObject<EntityType<WhiteWyrmlingEntity>> WHITEWYRMLING =
+            ENTITY_TYPES.register("whitewyrmling",
+                    () -> EntityType.Builder.of(WhiteWyrmlingEntity::new, MobCategory.MONSTER)
+                            .sized(1.0F, 1.0F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"whitewyrmling").toString()));
 
+    public static final RegistryObject<EntityType<WhiteYoungDragonEntity>> WHITEYOUNGDRAGON =
+            ENTITY_TYPES.register("whiteyoungdragon",
+                    () -> EntityType.Builder.of(WhiteYoungDragonEntity::new, MobCategory.MONSTER)
+                            .sized(1.8F, 1.8F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"whiteyoungdragon").toString()));
+    public static final RegistryObject<EntityType<WhiteAdultDragonEntity>> WHITEADULTDRAGON =
+            ENTITY_TYPES.register("whiteadultdragon",
+                    () -> EntityType.Builder.of(WhiteAdultDragonEntity::new, MobCategory.MONSTER)
+                            .sized(2.8F, 2.8F).clientTrackingRange(60)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"whiteadultdragon").toString()));
+    public static final RegistryObject<EntityType<WhiteElderDragonEntity>> WHITEELDERDRAGON =
+            ENTITY_TYPES.register("whiteelderdragon",
+                    () -> EntityType.Builder.of(WhiteElderDragonEntity::new, MobCategory.MONSTER)
+                            .sized(3.0F, 3.8F).clientTrackingRange(80)
+                            .build(new ResourceLocation(ForgottenMobs.MODID,"whiteelderdragon").toString()));
     public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
             ENTITY_TYPES.register("goblinfighter",
                     () -> EntityType.Builder.of(GoblinFighterEntity::new, MobCategory.MONSTER)

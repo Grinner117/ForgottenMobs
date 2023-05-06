@@ -43,6 +43,20 @@ public class ModItems {
     public static final RegistryObject<Item> SHADOWELDERDRAGON_SPAWN_EGG = ITEMS.register("shadowelderdragon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SHADOWELDERDRAGON, 0x1eff3f, 0x000000,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    public static final RegistryObject<Item> WHITEWYRMLING_SPAWN_EGG = ITEMS.register("whitewyrmling_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.WHITEWYRMLING, 0x1eff3f, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    public static final RegistryObject<Item> WHITEYOUNGDRAGON_SPAWN_EGG = ITEMS.register("whiteyoungdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.WHITEYOUNGDRAGON, 0x1eff3f, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> WHITEADULTDRAGON_SPAWN_EGG = ITEMS.register("whiteadultdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.WHITEADULTDRAGON, 0x1eff3f, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> WHITEELDERDRAGON_SPAWN_EGG = ITEMS.register("whiteelderdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.WHITEELDERDRAGON, 0x1eff3f, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GOBLINFIGHTER_SPAWN_EGG = ITEMS.register("goblinfighter_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.GOBLINFIGHTER, 0x9f8636, 0x000000,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));

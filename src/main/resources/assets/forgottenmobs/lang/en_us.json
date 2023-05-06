@@ -22,6 +22,11 @@
   "item.forgottenmobs.shadowadultdragon_spawn_egg": "Adult Shadow Dragon Spawn Egg",
   "item.forgottenmobs.shadowelderdragon_spawn_egg": "Elder Shadow Dragon Spawn Egg",
 
+  "item.forgottenmobs.whitewyrmling_spawn_egg": "White Wyrmling Spawn Egg",
+  "item.forgottenmobs.whiteyoungdragon_spawn_egg": "Young White Dragon Spawn Egg",
+  "item.forgottenmobs.whiteadultdragon_spawn_egg": "Adult White Dragon Spawn Egg",
+  "item.forgottenmobs.whiteelderdragon_spawn_egg": "Elder White Dragon Spawn Egg",
+
   "item.forgottenmobs.goblinfighter_spawn_egg": "Goblin Fighter Spawn Egg",
   "item.forgottenmobs.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
   "item.forgottenmobs.goblinshaman_spawn_egg": "Goblin Shaman Spawn Egg",
@@ -92,6 +97,10 @@
 
   "entity.forgottenmobs.greenhag": "Green Hag",
 
+  "entity.forgottenmobs.whiteelderdragon": "Elder White Dragon",
+  "entity.forgottenmobs.whiteadultdragon": "Adult White Dragon",
+  "entity.forgottenmobs.whiteyoungdragon": "Young White Dragon",
+  "entity.forgottenmobs.whitewyrmling": "White Wyrmling",
 
   "entity.forgottenmobs.shadowelderdragon": "Elder Shadow Dragon",
   "entity.forgottenmobs.shadowadultdragon": "Adult Shadow Dragon",
