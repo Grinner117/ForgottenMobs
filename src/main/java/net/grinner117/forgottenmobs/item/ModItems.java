@@ -132,6 +132,10 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.PLANETAR, 0xea261c, 0x39843e,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> DEVA_SPAWN_EGG = ITEMS.register("deva_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DEVA, 0xea261c, 0x39843e,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
 
     public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)

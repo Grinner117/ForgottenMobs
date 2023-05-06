@@ -27,7 +27,6 @@
     "minecraft:sunflower_plains",
     "minecraft:swamp",
     "minecraft:taiga",
-    "minecraft:warm_ocean",
     "minecraft:windswept_forest",
     "minecraft:windswept_gravelly_hills",
     "minecraft:windswept_hills",
@@ -46,9 +45,9 @@
     "minecraft:savanna"
   ],
   "spawners": {
-    "type": "forgottenmobs:planetar",
+    "type": "forgottenmobs:deva",
     "weight": 1,
     "minCount": 1,
-    "maxCount": 1
+    "maxCount": 2
   }
 }
