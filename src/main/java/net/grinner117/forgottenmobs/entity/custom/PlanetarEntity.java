@@ -135,17 +135,17 @@ public class PlanetarEntity extends Monster implements Enemy, IAnimatable {
     }
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.mindflayer.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.walk", true));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.mindflayer.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.idle", true));
         return PlayState.CONTINUE;
     }
 
     private PlayState attackPredicate(AnimationEvent event) {
         if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
             event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.mindflayer.attack", false));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.attack", false));
             this.swinging = false;
         }
         return PlayState.CONTINUE;
