@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.client.model.animatedarmor.AnimatedIronArmorModel;
-import net.grinner117.forgottenmobs.entity.custom.animatedarmor.AnimatedIronArmorEntity;
+import net.grinner117.forgottenmobs.entity.custom.AnimatedIronArmorEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -27,7 +27,7 @@ public class AnimatedIronArmorRenderer extends GeoEntityRenderer<AnimatedIronArm
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(1.8f, 1.8f, 1.5f);
+        stack.scale(1.9f, 1.6f, 1.9f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

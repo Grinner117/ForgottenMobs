@@ -1,7 +1,7 @@
 package net.grinner117.forgottenmobs.entity.client.model.animatedarmor;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.custom.animatedarmor.AnimatedGoldArmorEntity;
+import net.grinner117.forgottenmobs.entity.custom.AnimatedGoldArmorEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

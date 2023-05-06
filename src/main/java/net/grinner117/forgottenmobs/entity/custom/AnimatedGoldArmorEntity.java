@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom.animatedarmor;
+package net.grinner117.forgottenmobs.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,28 +27,31 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class AnimatedDiamondArmorEntity extends Monster implements IAnimatable {
+public class AnimatedGoldArmorEntity extends Monster implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
-    public AnimatedDiamondArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
+    public AnimatedGoldArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
         super(EntityType, Level);
-        this.xpReward = 70;
+        this.xpReward = 40;
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 35.0D)
-                .add(Attributes.ATTACK_DAMAGE, 5.0D)
-                .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.MOVEMENT_SPEED, 1.0F)
+                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.ATTACK_DAMAGE, 1.0D)
+                .add(Attributes.ATTACK_SPEED, 1.1F)
+                .add(Attributes.MOVEMENT_SPEED, 1.2F)
+                .add(Attributes.FOLLOW_RANGE, 64.0D)
+                .add(Attributes.ARMOR, 10.0D)
+                .add(Attributes.ARMOR_TOUGHNESS, 8.0D)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D)
                 .build();
     }
+
+
     public void aiStep() {
         if (this.level.isClientSide) {
             for(int i = 0; i < 2; ++i) {
                 this.level.addParticle(ParticleTypes.PORTAL, this.getRandomX(0.3D), this.getRandomY() - 0.23D, this.getRandomZ(0.3D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
             }
-        }
-        this.jumping = false;
-        if (!this.level.isClientSide) {
         }
         super.aiStep();
     }
@@ -56,8 +59,7 @@ public class AnimatedDiamondArmorEntity extends Monster implements IAnimatable {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.25F, false));
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
@@ -69,24 +71,34 @@ public class AnimatedDiamondArmorEntity extends Monster implements IAnimatable {
     protected SoundEvent getHurtSound(DamageSource p_32527_) {
         return SoundEvents.ANVIL_BREAK;
     }
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.WITHER_SKELETON_AMBIENT;
-    }
-
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENDERMAN_DEATH;
     }
 
     protected SoundEvent getStepSound() {
-        return SoundEvents.WITHER_SKELETON_STEP;
+        return SoundEvents.ARMOR_EQUIP_CHAIN;
     }
 
     protected float getSoundVolume() {
         return 1.0F;
     }
+
+
+    //immune to potion effects
+    @Override
+    public boolean isAffectedByPotions() {
+        return false;
+    }
+    public boolean isFireImmune() {
+        return true;
+    }
+
     public boolean isSensitiveToWater() {
         return false;
     }
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;}
 
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
@@ -119,9 +131,6 @@ public class AnimatedDiamondArmorEntity extends Monster implements IAnimatable {
         return manager;
     }
 
-    @Override
-    public boolean canBreatheUnderwater() {
-        return true;}
-
 }
+
 

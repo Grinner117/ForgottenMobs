@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom.animatedarmor;
+package net.grinner117.forgottenmobs.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,28 +27,31 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class AnimatedGoldArmorEntity extends Monster implements IAnimatable {
+public class AnimatedIronArmorEntity extends Monster implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
-    public AnimatedGoldArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
+    public AnimatedIronArmorEntity(EntityType<? extends Monster> EntityType, Level Level) {
         super(EntityType, Level);
-        this.xpReward = 40;
+        this.xpReward = 60;
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 18.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0D)
-                .add(Attributes.ATTACK_SPEED, 1.5F)
-                .add(Attributes.MOVEMENT_SPEED, 1.1F)
+                .add(Attributes.MAX_HEALTH, 11.0D)
+                .add(Attributes.ATTACK_DAMAGE, 6.0D)
+                .add(Attributes.ATTACK_SPEED, 1.0F)
+                .add(Attributes.MOVEMENT_SPEED, 1.0F)
+                .add(Attributes.FOLLOW_RANGE, 64.0D)
+                .add(Attributes.ARMOR, 8.0D)
+                .add(Attributes.ARMOR_TOUGHNESS, 8.0D)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D)
                 .build();
     }
+
+
     public void aiStep() {
         if (this.level.isClientSide) {
             for(int i = 0; i < 2; ++i) {
                 this.level.addParticle(ParticleTypes.PORTAL, this.getRandomX(0.3D), this.getRandomY() - 0.23D, this.getRandomZ(0.3D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
             }
-        }
-        this.jumping = false;
-        if (!this.level.isClientSide) {
         }
         super.aiStep();
     }
@@ -56,8 +59,7 @@ public class AnimatedGoldArmorEntity extends Monster implements IAnimatable {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.25F, false));
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
@@ -69,24 +71,37 @@ public class AnimatedGoldArmorEntity extends Monster implements IAnimatable {
     protected SoundEvent getHurtSound(DamageSource p_32527_) {
         return SoundEvents.ANVIL_BREAK;
     }
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.WITHER_SKELETON_AMBIENT;
-    }
-
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENDERMAN_DEATH;
     }
 
     protected SoundEvent getStepSound() {
-        return SoundEvents.WITHER_SKELETON_STEP;
+        return SoundEvents.ARMOR_EQUIP_CHAIN;
     }
 
     protected float getSoundVolume() {
         return 1.0F;
     }
+
+
+    //immune to potion effects
+    @Override
+    public boolean isAffectedByPotions() {
+        return false;
+    }
+    public boolean isFireImmune() {
+        return true;
+    }
+
     public boolean isSensitiveToWater() {
         return false;
     }
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;}
+
+
+
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
@@ -118,10 +133,5 @@ public class AnimatedGoldArmorEntity extends Monster implements IAnimatable {
         return manager;
     }
 
-    //sinks to the bottom of water
-    @Override
-    public boolean canBreatheUnderwater() {
-        return true;
-    }
 }
 

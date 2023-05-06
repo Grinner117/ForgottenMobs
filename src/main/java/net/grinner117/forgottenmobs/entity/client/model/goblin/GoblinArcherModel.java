@@ -1,7 +1,7 @@
 package net.grinner117.forgottenmobs.entity.client.model.goblin;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.custom.goblin.GoblinArcherEntity;
+import net.grinner117.forgottenmobs.entity.custom.GoblinArcherEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

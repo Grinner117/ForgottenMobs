@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom.whitedragon;
+package net.grinner117.forgottenmobs.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -43,22 +43,21 @@ import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.List;
 
-public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimatable {
+public class WhiteYoungDragonEntity extends FlyingMob implements Enemy, IAnimatable {
 
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
-
     public static final float FLAP_DEGREES_PER_TICK = 7.448451F;
     public static final int TICKS_PER_FLAP = Mth.ceil(24.166098F);
-    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(WhiteAdultDragonEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(WhiteYoungDragonEntity.class, EntityDataSerializers.INT);
     Vec3 moveTargetPoint = Vec3.ZERO;
     BlockPos anchorPoint = BlockPos.ZERO;
-    WhiteAdultDragonEntity.AttackPhase attackPhase = WhiteAdultDragonEntity.AttackPhase.CIRCLE;
+    WhiteYoungDragonEntity.AttackPhase attackPhase = WhiteYoungDragonEntity.AttackPhase.CIRCLE;
 
-    public WhiteAdultDragonEntity(EntityType<? extends WhiteAdultDragonEntity> p_33101_, Level p_33102_) {
+    public WhiteYoungDragonEntity(EntityType<? extends WhiteYoungDragonEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
-        this.xpReward = 140;
-        this.moveControl = new WhiteAdultDragonEntity.PhantomMoveControl(this);
-        this.lookControl = new WhiteAdultDragonEntity.PhantomLookControl(this);
+        this.xpReward = 60;
+        this.moveControl = new WhiteYoungDragonEntity.PhantomMoveControl(this);
+        this.lookControl = new WhiteYoungDragonEntity.PhantomLookControl(this);
     }
 
     public boolean isFlapping() {
@@ -66,24 +65,23 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
     }
 
     protected BodyRotationControl createBodyControl() {
-        return new WhiteAdultDragonEntity.PhantomBodyRotationControl(this);
+        return new WhiteYoungDragonEntity.PhantomBodyRotationControl(this);
     }
 
     public static AttributeSupplier setAttributes() {    
         return Monster.createMonsterAttributes()    
-                .add(Attributes.MAX_HEALTH, 200.0D)
-                .add(Attributes.ATTACK_DAMAGE, 35.0D)
-                .add(Attributes.ATTACK_SPEED, 1.5F)
-                .add(Attributes.MOVEMENT_SPEED, 1.6F)
-                .add(Attributes.ARMOR_TOUGHNESS, 8.0F)
-                .build();
+                .add(Attributes.MAX_HEALTH, 120.0D)
+                .add(Attributes.ATTACK_DAMAGE, 22.0D)
+                .add(Attributes.ATTACK_SPEED, 1.2F)
+                .add(Attributes.MOVEMENT_SPEED, 1.5F)
+                .build();    
     }      
                       
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new WhiteAdultDragonEntity.PhantomAttackStrategyGoal());
-        this.goalSelector.addGoal(2, new WhiteAdultDragonEntity.PhantomSweepAttackGoal());
-        this.goalSelector.addGoal(3, new WhiteAdultDragonEntity.PhantomCircleAroundAnchorGoal());
-        this.targetSelector.addGoal(1, new WhiteAdultDragonEntity.PhantomAttackPlayerTargetGoal());
+        this.goalSelector.addGoal(1, new WhiteYoungDragonEntity.PhantomAttackStrategyGoal());
+        this.goalSelector.addGoal(2, new WhiteYoungDragonEntity.PhantomSweepAttackGoal());
+        this.goalSelector.addGoal(3, new WhiteYoungDragonEntity.PhantomCircleAroundAnchorGoal());
+        this.targetSelector.addGoal(1, new WhiteYoungDragonEntity.PhantomAttackPlayerTargetGoal());
     }
 
     protected void defineSynchedData() {
@@ -120,26 +118,13 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         return this.getId() * 3;
     }
 
-    //particle effect
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        if (this.level.isClientSide) {
-            float f = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
-            float f1 = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount + 1) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
-            if (f > 0.0F && f1 <= 0.0F) {
-                this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() + (double) (this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double) this.getBbWidth(), this.getY() + 0.5D + (double) (this.random.nextFloat() * this.getBbHeight()), this.getZ() + (double) (this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double) this.getBbWidth(), 1.0D, 1.0D, 1.0D);
-            }
-        }
-    }
-
     public void tick() {
         super.tick();
         if (this.level.isClientSide) {
             float f = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
             float f1 = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount + 1) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
             if (f > 0.0F && f1 <= 0.0F) {
-                this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENDER_DRAGON_FLAP, this.getSoundSource(), 0.95F + this.random.nextFloat() * 0.05F, 0.95F + this.random.nextFloat() * 0.05F, false);
+                this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.PHANTOM_FLAP, this.getSoundSource(), 0.95F + this.random.nextFloat() * 0.05F, 0.95F + this.random.nextFloat() * 0.05F, false);
             }
 
             int i = this.getPhantomSize();
@@ -147,7 +132,7 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
             float f3 = Mth.sin(this.getYRot() * ((float) Math.PI / 180F)) * (1.3F + 0.21F * (float) i);
             float f4 = (0.3F + f * 0.45F) * ((float) i * 0.2F + 1.0F);
             this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() + (double) f2, this.getY() + (double) f4, this.getZ() + (double) f3, 0.3D, 0.3D, 0.3D);
-            this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() - (double) f2, this.getY() + (double) f4, this.getZ() - (double) f3, 0.3D, 0.3D, 0.3D);  }
+            this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() - (double) f2, this.getY() + (double) f4, this.getZ() - (double) f3, 0.3D, 0.3D, 0.3D); }
 
     }
 
@@ -182,7 +167,6 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         return true;
     }
 
-    //sounds
     public SoundSource getSoundSource() {
         return SoundSource.HOSTILE;
     }
@@ -229,13 +213,13 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
                 return false;
             } else {
                 this.nextScanTick = reducedTickDelay(60);
-                List<Player> list = WhiteAdultDragonEntity.this.level.getNearbyPlayers(this.attackTargeting, WhiteAdultDragonEntity.this, WhiteAdultDragonEntity.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
+                List<Player> list = WhiteYoungDragonEntity.this.level.getNearbyPlayers(this.attackTargeting, WhiteYoungDragonEntity.this, WhiteYoungDragonEntity.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
                 if (!list.isEmpty()) {
                     list.sort(Comparator.<Entity, Double>comparing(Entity::getY).reversed());
 
                     for (Player player : list) {
-                        if (WhiteAdultDragonEntity.this.canAttack(player, TargetingConditions.DEFAULT)) {
-                            WhiteAdultDragonEntity.this.setTarget(player);
+                        if (WhiteYoungDragonEntity.this.canAttack(player, TargetingConditions.DEFAULT)) {
+                            WhiteYoungDragonEntity.this.setTarget(player);
                             return true;
                         }
                     }
@@ -245,8 +229,8 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         }
 
         public boolean canContinueToUse() {
-            LivingEntity livingentity = WhiteAdultDragonEntity.this.getTarget();
-            return livingentity != null ? WhiteAdultDragonEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
+            LivingEntity livingentity = WhiteYoungDragonEntity.this.getTarget();
+            return livingentity != null ? WhiteYoungDragonEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
         }
     }
 
@@ -254,37 +238,37 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         private int nextSweepTick;
 
         public boolean canUse() {
-            LivingEntity livingentity = WhiteAdultDragonEntity.this.getTarget();
-            return livingentity != null ? WhiteAdultDragonEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
+            LivingEntity livingentity = WhiteYoungDragonEntity.this.getTarget();
+            return livingentity != null ? WhiteYoungDragonEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
         }
 
         public void start() {
             this.nextSweepTick = this.adjustedTickDelay(10);
-            WhiteAdultDragonEntity.this.attackPhase = WhiteAdultDragonEntity.AttackPhase.CIRCLE;
+            WhiteYoungDragonEntity.this.attackPhase = WhiteYoungDragonEntity.AttackPhase.CIRCLE;
             this.setAnchorAboveTarget();
         }
 
         public void stop() {
-            WhiteAdultDragonEntity.this.anchorPoint = WhiteAdultDragonEntity.this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, WhiteAdultDragonEntity.this.anchorPoint).above(10 + WhiteAdultDragonEntity.this.random.nextInt(20));
+            WhiteYoungDragonEntity.this.anchorPoint = WhiteYoungDragonEntity.this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, WhiteYoungDragonEntity.this.anchorPoint).above(10 + WhiteYoungDragonEntity.this.random.nextInt(20));
         }
 
         public void tick() {
-            if (WhiteAdultDragonEntity.this.attackPhase == WhiteAdultDragonEntity.AttackPhase.CIRCLE) {
+            if (WhiteYoungDragonEntity.this.attackPhase == WhiteYoungDragonEntity.AttackPhase.CIRCLE) {
                 --this.nextSweepTick;
                 if (this.nextSweepTick <= 0) {
-                    WhiteAdultDragonEntity.this.attackPhase = WhiteAdultDragonEntity.AttackPhase.SWOOP;
+                    WhiteYoungDragonEntity.this.attackPhase = WhiteYoungDragonEntity.AttackPhase.SWOOP;
                     this.setAnchorAboveTarget();
-                    this.nextSweepTick = this.adjustedTickDelay((8 + WhiteAdultDragonEntity.this.random.nextInt(4)) * 20);
-                    WhiteAdultDragonEntity.this.playSound(SoundEvents.PHANTOM_SWOOP, 10.0F, 0.95F + WhiteAdultDragonEntity.this.random.nextFloat() * 0.1F);
+                    this.nextSweepTick = this.adjustedTickDelay((8 + WhiteYoungDragonEntity.this.random.nextInt(4)) * 20);
+                    WhiteYoungDragonEntity.this.playSound(SoundEvents.PHANTOM_SWOOP, 10.0F, 0.95F + WhiteYoungDragonEntity.this.random.nextFloat() * 0.1F);
                 }
             }
 
         }
 
         private void setAnchorAboveTarget() {
-            WhiteAdultDragonEntity.this.anchorPoint = WhiteAdultDragonEntity.this.getTarget().blockPosition().above(20 + WhiteAdultDragonEntity.this.random.nextInt(20));
-            if (WhiteAdultDragonEntity.this.anchorPoint.getY() < WhiteAdultDragonEntity.this.level.getSeaLevel()) {
-                WhiteAdultDragonEntity.this.anchorPoint = new BlockPos(WhiteAdultDragonEntity.this.anchorPoint.getX(), WhiteAdultDragonEntity.this.level.getSeaLevel() + 1, WhiteAdultDragonEntity.this.anchorPoint.getZ());
+            WhiteYoungDragonEntity.this.anchorPoint = WhiteYoungDragonEntity.this.getTarget().blockPosition().above(20 + WhiteYoungDragonEntity.this.random.nextInt(20));
+            if (WhiteYoungDragonEntity.this.anchorPoint.getY() < WhiteYoungDragonEntity.this.level.getSeaLevel()) {
+                WhiteYoungDragonEntity.this.anchorPoint = new BlockPos(WhiteYoungDragonEntity.this.anchorPoint.getX(), WhiteYoungDragonEntity.this.level.getSeaLevel() + 1, WhiteYoungDragonEntity.this.anchorPoint.getZ());
             }
 
         }
@@ -296,34 +280,34 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         }
 
         public void clientTick() {
-            WhiteAdultDragonEntity.this.yHeadRot = WhiteAdultDragonEntity.this.yBodyRot;
-            WhiteAdultDragonEntity.this.yBodyRot = WhiteAdultDragonEntity.this.getYRot();
+            WhiteYoungDragonEntity.this.yHeadRot = WhiteYoungDragonEntity.this.yBodyRot;
+            WhiteYoungDragonEntity.this.yBodyRot = WhiteYoungDragonEntity.this.getYRot();
         }
     }
 
-    class PhantomCircleAroundAnchorGoal extends WhiteAdultDragonEntity.PhantomMoveTargetGoal {
+    class PhantomCircleAroundAnchorGoal extends WhiteYoungDragonEntity.PhantomMoveTargetGoal {
         private float angle;
         private float distance;
         private float height;
         private float clockwise;
 
         public boolean canUse() {
-            return WhiteAdultDragonEntity.this.getTarget() == null || WhiteAdultDragonEntity.this.attackPhase == WhiteAdultDragonEntity.AttackPhase.CIRCLE;
+            return WhiteYoungDragonEntity.this.getTarget() == null || WhiteYoungDragonEntity.this.attackPhase == WhiteYoungDragonEntity.AttackPhase.CIRCLE;
         }
 
         public void start() {
-            this.distance = 30.0F + WhiteAdultDragonEntity.this.random.nextFloat() * 10.0F;
-            this.height = -30.0F + WhiteAdultDragonEntity.this.random.nextFloat() * 9.0F;
-            this.clockwise = WhiteAdultDragonEntity.this.random.nextBoolean() ? 1.0F : -1.0F;
+            this.distance = 20.0F + WhiteYoungDragonEntity.this.random.nextFloat() * 10.0F;
+            this.height = -12.0F + WhiteYoungDragonEntity.this.random.nextFloat() * 9.0F;
+            this.clockwise = WhiteYoungDragonEntity.this.random.nextBoolean() ? 1.0F : -1.0F;
             this.selectNext();
         }
 
         public void tick() {
-            if (WhiteAdultDragonEntity.this.random.nextInt(this.adjustedTickDelay(350)) == 0) {
-                this.height = -4.0F + WhiteAdultDragonEntity.this.random.nextFloat() * 9.0F;
+            if (WhiteYoungDragonEntity.this.random.nextInt(this.adjustedTickDelay(350)) == 0) {
+                this.height = -4.0F + WhiteYoungDragonEntity.this.random.nextFloat() * 9.0F;
             }
 
-            if (WhiteAdultDragonEntity.this.random.nextInt(this.adjustedTickDelay(250)) == 0) {
+            if (WhiteYoungDragonEntity.this.random.nextInt(this.adjustedTickDelay(250)) == 0) {
                 ++this.distance;
                 if (this.distance > 15.0F) {
                     this.distance = 5.0F;
@@ -331,8 +315,8 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
                 }
             }
 
-            if (WhiteAdultDragonEntity.this.random.nextInt(this.adjustedTickDelay(450)) == 0) {
-                this.angle = WhiteAdultDragonEntity.this.random.nextFloat() * 2.0F * (float) Math.PI;
+            if (WhiteYoungDragonEntity.this.random.nextInt(this.adjustedTickDelay(450)) == 0) {
+                this.angle = WhiteYoungDragonEntity.this.random.nextFloat() * 2.0F * (float) Math.PI;
                 this.selectNext();
             }
 
@@ -340,12 +324,12 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
                 this.selectNext();
             }
 
-            if (WhiteAdultDragonEntity.this.moveTargetPoint.y < WhiteAdultDragonEntity.this.getY() && !WhiteAdultDragonEntity.this.level.isEmptyBlock(WhiteAdultDragonEntity.this.blockPosition().below(1))) {
+            if (WhiteYoungDragonEntity.this.moveTargetPoint.y < WhiteYoungDragonEntity.this.getY() && !WhiteYoungDragonEntity.this.level.isEmptyBlock(WhiteYoungDragonEntity.this.blockPosition().below(1))) {
                 this.height = Math.max(1.0F, this.height);
                 this.selectNext();
             }
 
-            if (WhiteAdultDragonEntity.this.moveTargetPoint.y > WhiteAdultDragonEntity.this.getY() && !WhiteAdultDragonEntity.this.level.isEmptyBlock(WhiteAdultDragonEntity.this.blockPosition().above(1))) {
+            if (WhiteYoungDragonEntity.this.moveTargetPoint.y > WhiteYoungDragonEntity.this.getY() && !WhiteYoungDragonEntity.this.level.isEmptyBlock(WhiteYoungDragonEntity.this.blockPosition().above(1))) {
                 this.height = Math.min(-1.0F, this.height);
                 this.selectNext();
             }
@@ -353,12 +337,12 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         }
 
         private void selectNext() {
-            if (BlockPos.ZERO.equals(WhiteAdultDragonEntity.this.anchorPoint)) {
-                WhiteAdultDragonEntity.this.anchorPoint = WhiteAdultDragonEntity.this.blockPosition();
+            if (BlockPos.ZERO.equals(WhiteYoungDragonEntity.this.anchorPoint)) {
+                WhiteYoungDragonEntity.this.anchorPoint = WhiteYoungDragonEntity.this.blockPosition();
             }
 
             this.angle += this.clockwise * 15.0F * ((float) Math.PI / 180F);
-            WhiteAdultDragonEntity.this.moveTargetPoint = Vec3.atLowerCornerOf(WhiteAdultDragonEntity.this.anchorPoint).add((double) (this.distance * Mth.cos(this.angle)), (double) (-4.0F + this.height), (double) (this.distance * Mth.sin(this.angle)));
+            WhiteYoungDragonEntity.this.moveTargetPoint = Vec3.atLowerCornerOf(WhiteYoungDragonEntity.this.anchorPoint).add((double) (this.distance * Mth.cos(this.angle)), (double) (-4.0F + this.height), (double) (this.distance * Mth.sin(this.angle)));
         }
     }
 
@@ -379,14 +363,14 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         }
 
         public void tick() {
-            if (WhiteAdultDragonEntity.this.horizontalCollision) {
-                WhiteAdultDragonEntity.this.setYRot(WhiteAdultDragonEntity.this.getYRot() + 180.0F);
+            if (WhiteYoungDragonEntity.this.horizontalCollision) {
+                WhiteYoungDragonEntity.this.setYRot(WhiteYoungDragonEntity.this.getYRot() + 180.0F);
                 this.speed = 0.1F;
             }
 
-            double d0 = WhiteAdultDragonEntity.this.moveTargetPoint.x - WhiteAdultDragonEntity.this.getX();
-            double d1 = WhiteAdultDragonEntity.this.moveTargetPoint.y - WhiteAdultDragonEntity.this.getY();
-            double d2 = WhiteAdultDragonEntity.this.moveTargetPoint.z - WhiteAdultDragonEntity.this.getZ();
+            double d0 = WhiteYoungDragonEntity.this.moveTargetPoint.x - WhiteYoungDragonEntity.this.getX();
+            double d1 = WhiteYoungDragonEntity.this.moveTargetPoint.y - WhiteYoungDragonEntity.this.getY();
+            double d2 = WhiteYoungDragonEntity.this.moveTargetPoint.z - WhiteYoungDragonEntity.this.getZ();
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
             if (Math.abs(d3) > (double) 1.0E-5F) {
                 double d4 = 1.0D - Math.abs(d1 * (double) 0.7F) / d3;
@@ -394,26 +378,26 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
                 d2 *= d4;
                 d3 = Math.sqrt(d0 * d0 + d2 * d2);
                 double d5 = Math.sqrt(d0 * d0 + d2 * d2 + d1 * d1);
-                float f = WhiteAdultDragonEntity.this.getYRot();
+                float f = WhiteYoungDragonEntity.this.getYRot();
                 float f1 = (float) Mth.atan2(d2, d0);
-                float f2 = Mth.wrapDegrees(WhiteAdultDragonEntity.this.getYRot() + 90.0F);
+                float f2 = Mth.wrapDegrees(WhiteYoungDragonEntity.this.getYRot() + 90.0F);
                 float f3 = Mth.wrapDegrees(f1 * (180F / (float) Math.PI));
-                WhiteAdultDragonEntity.this.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
-                WhiteAdultDragonEntity.this.yBodyRot = WhiteAdultDragonEntity.this.getYRot();
-                if (Mth.degreesDifferenceAbs(f, WhiteAdultDragonEntity.this.getYRot()) < 3.0F) {
+                WhiteYoungDragonEntity.this.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
+                WhiteYoungDragonEntity.this.yBodyRot = WhiteYoungDragonEntity.this.getYRot();
+                if (Mth.degreesDifferenceAbs(f, WhiteYoungDragonEntity.this.getYRot()) < 3.0F) {
                     this.speed = Mth.approach(this.speed, 1.8F, 0.005F * (1.8F / this.speed));
                 } else {
                     this.speed = Mth.approach(this.speed, 0.2F, 0.025F);
                 }
 
                 float f4 = (float) (-(Mth.atan2(-d1, d3) * (double) (180F / (float) Math.PI)));
-                WhiteAdultDragonEntity.this.setXRot(f4);
-                float f5 = WhiteAdultDragonEntity.this.getYRot() + 90.0F;
+                WhiteYoungDragonEntity.this.setXRot(f4);
+                float f5 = WhiteYoungDragonEntity.this.getYRot() + 90.0F;
                 double d6 = (double) (this.speed * Mth.cos(f5 * ((float) Math.PI / 180F))) * Math.abs(d0 / d5);
                 double d7 = (double) (this.speed * Mth.sin(f5 * ((float) Math.PI / 180F))) * Math.abs(d2 / d5);
                 double d8 = (double) (this.speed * Mth.sin(f4 * ((float) Math.PI / 180F))) * Math.abs(d1 / d5);
-                Vec3 vec3 = WhiteAdultDragonEntity.this.getDeltaMovement();
-                WhiteAdultDragonEntity.this.setDeltaMovement(vec3.add((new Vec3(d6, d8, d7)).subtract(vec3).scale(0.2D)));
+                Vec3 vec3 = WhiteYoungDragonEntity.this.getDeltaMovement();
+                WhiteYoungDragonEntity.this.setDeltaMovement(vec3.add((new Vec3(d6, d8, d7)).subtract(vec3).scale(0.2D)));
             }
 
         }
@@ -425,21 +409,21 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         }
 
         protected boolean touchingTarget() {
-            return WhiteAdultDragonEntity.this.moveTargetPoint.distanceToSqr(WhiteAdultDragonEntity.this.getX(), WhiteAdultDragonEntity.this.getY(), WhiteAdultDragonEntity.this.getZ()) < 4.0D;
+            return WhiteYoungDragonEntity.this.moveTargetPoint.distanceToSqr(WhiteYoungDragonEntity.this.getX(), WhiteYoungDragonEntity.this.getY(), WhiteYoungDragonEntity.this.getZ()) < 4.0D;
         }
     }
 
-    class PhantomSweepAttackGoal extends WhiteAdultDragonEntity.PhantomMoveTargetGoal {
+    class PhantomSweepAttackGoal extends WhiteYoungDragonEntity.PhantomMoveTargetGoal {
         private static final int CAT_SEARCH_TICK_DELAY = 20;
         private boolean isScaredOfCat;
         private int catSearchTick;
 
         public boolean canUse() {
-            return WhiteAdultDragonEntity.this.getTarget() != null && WhiteAdultDragonEntity.this.attackPhase == WhiteAdultDragonEntity.AttackPhase.SWOOP;
+            return WhiteYoungDragonEntity.this.getTarget() != null && WhiteYoungDragonEntity.this.attackPhase == WhiteYoungDragonEntity.AttackPhase.SWOOP;
         }
 
         public boolean canContinueToUse() {
-            LivingEntity livingentity = WhiteAdultDragonEntity.this.getTarget();
+            LivingEntity livingentity = WhiteYoungDragonEntity.this.getTarget();
             if (livingentity == null) {
                 return false;
             } else if (!livingentity.isAlive()) {
@@ -455,9 +439,9 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
                 if (!this.canUse()) {
                     return false;
                 } else {
-                    if (WhiteAdultDragonEntity.this.tickCount > this.catSearchTick) {
-                        this.catSearchTick = WhiteAdultDragonEntity.this.tickCount + 20;
-                        List<Cat> list = WhiteAdultDragonEntity.this.level.getEntitiesOfClass(Cat.class, WhiteAdultDragonEntity.this.getBoundingBox().inflate(16.0D), EntitySelector.ENTITY_STILL_ALIVE);
+                    if (WhiteYoungDragonEntity.this.tickCount > this.catSearchTick) {
+                        this.catSearchTick = WhiteYoungDragonEntity.this.tickCount + 20;
+                        List<Cat> list = WhiteYoungDragonEntity.this.level.getEntitiesOfClass(Cat.class, WhiteYoungDragonEntity.this.getBoundingBox().inflate(16.0D), EntitySelector.ENTITY_STILL_ALIVE);
 
                         for (Cat cat : list) {
                             cat.hiss();
@@ -475,29 +459,28 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
         }
 
         public void stop() {
-            WhiteAdultDragonEntity.this.setTarget((LivingEntity) null);
-            WhiteAdultDragonEntity.this.attackPhase = WhiteAdultDragonEntity.AttackPhase.CIRCLE;
+            WhiteYoungDragonEntity.this.setTarget((LivingEntity) null);
+            WhiteYoungDragonEntity.this.attackPhase = WhiteYoungDragonEntity.AttackPhase.CIRCLE;
         }
 
         public void tick() {
-            LivingEntity livingentity = WhiteAdultDragonEntity.this.getTarget();
+            LivingEntity livingentity = WhiteYoungDragonEntity.this.getTarget();
             if (livingentity != null) {
-                WhiteAdultDragonEntity.this.moveTargetPoint = new Vec3(livingentity.getX(), livingentity.getY(0.5D), livingentity.getZ());
-                if (WhiteAdultDragonEntity.this.getBoundingBox().inflate((double) 0.2F).intersects(livingentity.getBoundingBox())) {
-                    WhiteAdultDragonEntity.this.doHurtTarget(livingentity);
-                    WhiteAdultDragonEntity.this.attackPhase = WhiteAdultDragonEntity.AttackPhase.CIRCLE;
-                    if (!WhiteAdultDragonEntity.this.isSilent()) {
-                        WhiteAdultDragonEntity.this.level.levelEvent(1039, WhiteAdultDragonEntity.this.blockPosition(), 0);
+                WhiteYoungDragonEntity.this.moveTargetPoint = new Vec3(livingentity.getX(), livingentity.getY(0.5D), livingentity.getZ());
+                if (WhiteYoungDragonEntity.this.getBoundingBox().inflate((double) 0.2F).intersects(livingentity.getBoundingBox())) {
+                    WhiteYoungDragonEntity.this.doHurtTarget(livingentity);
+                    WhiteYoungDragonEntity.this.attackPhase = WhiteYoungDragonEntity.AttackPhase.CIRCLE;
+                    if (!WhiteYoungDragonEntity.this.isSilent()) {
+                        WhiteYoungDragonEntity.this.level.levelEvent(1039, WhiteYoungDragonEntity.this.blockPosition(), 0);
                     }
-                } else if (WhiteAdultDragonEntity.this.horizontalCollision || WhiteAdultDragonEntity.this.hurtTime > 0) {
-                    WhiteAdultDragonEntity.this.attackPhase = WhiteAdultDragonEntity.AttackPhase.CIRCLE;
+                } else if (WhiteYoungDragonEntity.this.horizontalCollision || WhiteYoungDragonEntity.this.hurtTime > 0) {
+                    WhiteYoungDragonEntity.this.attackPhase = WhiteYoungDragonEntity.AttackPhase.CIRCLE;
                 }
 
             }
         }
     }
 
-//animation
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.walk", true));
@@ -527,7 +510,4 @@ public class WhiteAdultDragonEntity extends FlyingMob implements Enemy, IAnimata
     public AnimationFactory getFactory() {
         return manager;
     }
-
-    //adds fireball attack while circling
-
 }

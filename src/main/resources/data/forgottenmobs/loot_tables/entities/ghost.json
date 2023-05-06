@@ -46,7 +46,6 @@
       "conditions": [
         {
           "condition": "minecraft:killed_by_player",
-          "inverse": false
         }
       ]
     }

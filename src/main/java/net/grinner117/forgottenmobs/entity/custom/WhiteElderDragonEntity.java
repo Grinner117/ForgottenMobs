@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom.whitedragon;
+package net.grinner117.forgottenmobs.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -43,21 +43,21 @@ import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.List;
 
-public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable {
+public class WhiteElderDragonEntity extends FlyingMob implements Enemy, IAnimatable {
 
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
     public static final float FLAP_DEGREES_PER_TICK = 7.448451F;
     public static final int TICKS_PER_FLAP = Mth.ceil(24.166098F);
-    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(WhiteWyrmlingEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(WhiteElderDragonEntity.class, EntityDataSerializers.INT);
     Vec3 moveTargetPoint = Vec3.ZERO;
     BlockPos anchorPoint = BlockPos.ZERO;
-    WhiteWyrmlingEntity.AttackPhase attackPhase = WhiteWyrmlingEntity.AttackPhase.CIRCLE;
+    WhiteElderDragonEntity.AttackPhase attackPhase = WhiteElderDragonEntity.AttackPhase.CIRCLE;
 
-    public WhiteWyrmlingEntity(EntityType<? extends WhiteWyrmlingEntity> p_33101_, Level p_33102_) {
+    public WhiteElderDragonEntity(EntityType<? extends WhiteElderDragonEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
-        this.xpReward = 30;
-        this.moveControl = new WhiteWyrmlingEntity.PhantomMoveControl(this);
-        this.lookControl = new WhiteWyrmlingEntity.PhantomLookControl(this);
+        this.xpReward = 140;
+        this.moveControl = new WhiteElderDragonEntity.PhantomMoveControl(this);
+        this.lookControl = new WhiteElderDragonEntity.PhantomLookControl(this);
     }
 
     public boolean isFlapping() {
@@ -65,24 +65,23 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
     }
 
     protected BodyRotationControl createBodyControl() {
-        return new WhiteWyrmlingEntity.PhantomBodyRotationControl(this);
+        return new WhiteElderDragonEntity.PhantomBodyRotationControl(this);
     }
 
-    
-    public static AttributeSupplier setAttributes() {    
-        return Monster.createMonsterAttributes()    
-                .add(Attributes.MAX_HEALTH, 20.0D)
-                .add(Attributes.ATTACK_DAMAGE, 10.0D)
-                .add(Attributes.ATTACK_SPEED, 1.0F)    
-                .add(Attributes.MOVEMENT_SPEED, 1.0F)    
-                .build();    
-    }      
-                      
+    public static AttributeSupplier setAttributes() {
+        return Monster.createMonsterAttributes()
+                .add(Attributes.MAX_HEALTH, 400.0D)
+                .add(Attributes.ATTACK_DAMAGE, 100.0D)
+                .add(Attributes.ATTACK_SPEED, 1.8F)
+                .add(Attributes.MOVEMENT_SPEED, 1.8F)
+                .build();
+    }
+
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new WhiteWyrmlingEntity.PhantomAttackStrategyGoal());
-        this.goalSelector.addGoal(2, new WhiteWyrmlingEntity.PhantomSweepAttackGoal());
-        this.goalSelector.addGoal(3, new WhiteWyrmlingEntity.PhantomCircleAroundAnchorGoal());
-        this.targetSelector.addGoal(1, new WhiteWyrmlingEntity.PhantomAttackPlayerTargetGoal());
+        this.goalSelector.addGoal(1, new WhiteElderDragonEntity.PhantomAttackStrategyGoal());
+        this.goalSelector.addGoal(2, new WhiteElderDragonEntity.PhantomSweepAttackGoal());
+        this.goalSelector.addGoal(3, new WhiteElderDragonEntity.PhantomCircleAroundAnchorGoal());
+        this.targetSelector.addGoal(1, new WhiteElderDragonEntity.PhantomAttackPlayerTargetGoal());
     }
 
     protected void defineSynchedData() {
@@ -119,27 +118,22 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         return this.getId() * 3;
     }
 
-    protected boolean shouldDespawnInPeaceful() {
-        return true;
-    }
-
     public void tick() {
         super.tick();
         if (this.level.isClientSide) {
             float f = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
             float f1 = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount + 1) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
             if (f > 0.0F && f1 <= 0.0F) {
-                this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.PHANTOM_FLAP, this.getSoundSource(), 0.95F + this.random.nextFloat() * 0.05F, 0.95F + this.random.nextFloat() * 0.05F, false);
+                this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENDER_DRAGON_FLAP, this.getSoundSource(), 0.95F + this.random.nextFloat() * 0.05F, 0.95F + this.random.nextFloat() * 0.05F, false);
             }
-
-            int i = this.getPhantomSize();
-            float f2 = Mth.cos(this.getYRot() * ((float) Math.PI / 180F)) * (1.3F + 0.21F * (float) i);
-            float f3 = Mth.sin(this.getYRot() * ((float) Math.PI / 180F)) * (1.3F + 0.21F * (float) i);
-            float f4 = (0.3F + f * 0.45F) * ((float) i * 0.2F + 1.0F);
-            this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() + (double) f2, this.getY() + (double) f4, this.getZ() + (double) f3, 0.3D, 0.3D, 0.3D);
-            this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() - (double) f2, this.getY() + (double) f4, this.getZ() - (double) f3, 0.3D, 0.3D, 0.3D);
         }
 
+        super.tick();
+        if (this.level.isClientSide) {
+            for (int i = 0; i < 2; ++i) {
+                this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getRandomX(1.5D), this.getRandomY(), this.getRandomZ(1.0D), 1.8D, 1.8D, 1.8D);
+            }
+        }
     }
 
     protected void customServerAiStep() {
@@ -189,17 +183,14 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         return SoundEvents.ENDER_DRAGON_DEATH;
     }
 
-    public MobType getMobType() {
-        return MobType.UNDEAD;
-    }
-
     protected float getSoundVolume() {
-        return 1.0F;
+        return 6.0F;
     }
 
     public boolean canAttackType(EntityType<?> p_33111_) {
         return true;
     }
+
 
     public EntityDimensions getDimensions(Pose p_33113_) {
         int i = this.getPhantomSize();
@@ -223,25 +214,24 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
                 return false;
             } else {
                 this.nextScanTick = reducedTickDelay(60);
-                List<Player> list = WhiteWyrmlingEntity.this.level.getNearbyPlayers(this.attackTargeting, WhiteWyrmlingEntity.this, WhiteWyrmlingEntity.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
+                List<Player> list = WhiteElderDragonEntity.this.level.getNearbyPlayers(this.attackTargeting, WhiteElderDragonEntity.this, WhiteElderDragonEntity.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
                 if (!list.isEmpty()) {
                     list.sort(Comparator.<Entity, Double>comparing(Entity::getY).reversed());
 
                     for (Player player : list) {
-                        if (WhiteWyrmlingEntity.this.canAttack(player, TargetingConditions.DEFAULT)) {
-                            WhiteWyrmlingEntity.this.setTarget(player);
+                        if (WhiteElderDragonEntity.this.canAttack(player, TargetingConditions.DEFAULT)) {
+                            WhiteElderDragonEntity.this.setTarget(player);
                             return true;
                         }
                     }
                 }
-
                 return false;
             }
         }
 
         public boolean canContinueToUse() {
-            LivingEntity livingentity = WhiteWyrmlingEntity.this.getTarget();
-            return livingentity != null ? WhiteWyrmlingEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
+            LivingEntity livingentity = WhiteElderDragonEntity.this.getTarget();
+            return livingentity != null ? WhiteElderDragonEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
         }
     }
 
@@ -249,37 +239,37 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         private int nextSweepTick;
 
         public boolean canUse() {
-            LivingEntity livingentity = WhiteWyrmlingEntity.this.getTarget();
-            return livingentity != null ? WhiteWyrmlingEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
+            LivingEntity livingentity = WhiteElderDragonEntity.this.getTarget();
+            return livingentity != null ? WhiteElderDragonEntity.this.canAttack(livingentity, TargetingConditions.DEFAULT) : false;
         }
 
         public void start() {
             this.nextSweepTick = this.adjustedTickDelay(10);
-            WhiteWyrmlingEntity.this.attackPhase = WhiteWyrmlingEntity.AttackPhase.CIRCLE;
+            WhiteElderDragonEntity.this.attackPhase = WhiteElderDragonEntity.AttackPhase.CIRCLE;
             this.setAnchorAboveTarget();
         }
 
         public void stop() {
-            WhiteWyrmlingEntity.this.anchorPoint = WhiteWyrmlingEntity.this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, WhiteWyrmlingEntity.this.anchorPoint).above(10 + WhiteWyrmlingEntity.this.random.nextInt(20));
+            WhiteElderDragonEntity.this.anchorPoint = WhiteElderDragonEntity.this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, WhiteElderDragonEntity.this.anchorPoint).above(10 + WhiteElderDragonEntity.this.random.nextInt(20));
         }
 
         public void tick() {
-            if (WhiteWyrmlingEntity.this.attackPhase == WhiteWyrmlingEntity.AttackPhase.CIRCLE) {
+            if (WhiteElderDragonEntity.this.attackPhase == WhiteElderDragonEntity.AttackPhase.CIRCLE) {
                 --this.nextSweepTick;
                 if (this.nextSweepTick <= 0) {
-                    WhiteWyrmlingEntity.this.attackPhase = WhiteWyrmlingEntity.AttackPhase.SWOOP;
+                    WhiteElderDragonEntity.this.attackPhase = WhiteElderDragonEntity.AttackPhase.SWOOP;
                     this.setAnchorAboveTarget();
-                    this.nextSweepTick = this.adjustedTickDelay((8 + WhiteWyrmlingEntity.this.random.nextInt(4)) * 20);
-                    WhiteWyrmlingEntity.this.playSound(SoundEvents.PHANTOM_SWOOP, 10.0F, 0.95F + WhiteWyrmlingEntity.this.random.nextFloat() * 0.1F);
+                    this.nextSweepTick = this.adjustedTickDelay((8 + WhiteElderDragonEntity.this.random.nextInt(4)) * 20);
+                    WhiteElderDragonEntity.this.playSound(SoundEvents.PHANTOM_SWOOP, 10.0F, 0.95F + WhiteElderDragonEntity.this.random.nextFloat() * 0.1F);
                 }
             }
 
         }
 
         private void setAnchorAboveTarget() {
-            WhiteWyrmlingEntity.this.anchorPoint = WhiteWyrmlingEntity.this.getTarget().blockPosition().above(20 + WhiteWyrmlingEntity.this.random.nextInt(20));
-            if (WhiteWyrmlingEntity.this.anchorPoint.getY() < WhiteWyrmlingEntity.this.level.getSeaLevel()) {
-                WhiteWyrmlingEntity.this.anchorPoint = new BlockPos(WhiteWyrmlingEntity.this.anchorPoint.getX(), WhiteWyrmlingEntity.this.level.getSeaLevel() + 1, WhiteWyrmlingEntity.this.anchorPoint.getZ());
+            WhiteElderDragonEntity.this.anchorPoint = WhiteElderDragonEntity.this.getTarget().blockPosition().above(20 + WhiteElderDragonEntity.this.random.nextInt(20));
+            if (WhiteElderDragonEntity.this.anchorPoint.getY() < WhiteElderDragonEntity.this.level.getSeaLevel()) {
+                WhiteElderDragonEntity.this.anchorPoint = new BlockPos(WhiteElderDragonEntity.this.anchorPoint.getX(), WhiteElderDragonEntity.this.level.getSeaLevel() + 1, WhiteElderDragonEntity.this.anchorPoint.getZ());
             }
 
         }
@@ -291,34 +281,34 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         }
 
         public void clientTick() {
-            WhiteWyrmlingEntity.this.yHeadRot = WhiteWyrmlingEntity.this.yBodyRot;
-            WhiteWyrmlingEntity.this.yBodyRot = WhiteWyrmlingEntity.this.getYRot();
+            WhiteElderDragonEntity.this.yHeadRot = WhiteElderDragonEntity.this.yBodyRot;
+            WhiteElderDragonEntity.this.yBodyRot = WhiteElderDragonEntity.this.getYRot();
         }
     }
 
-    class PhantomCircleAroundAnchorGoal extends WhiteWyrmlingEntity.PhantomMoveTargetGoal {
+    class PhantomCircleAroundAnchorGoal extends WhiteElderDragonEntity.PhantomMoveTargetGoal {
         private float angle;
         private float distance;
         private float height;
         private float clockwise;
 
         public boolean canUse() {
-            return WhiteWyrmlingEntity.this.getTarget() == null || WhiteWyrmlingEntity.this.attackPhase == WhiteWyrmlingEntity.AttackPhase.CIRCLE;
+            return WhiteElderDragonEntity.this.getTarget() == null || WhiteElderDragonEntity.this.attackPhase == WhiteElderDragonEntity.AttackPhase.CIRCLE;
         }
 
         public void start() {
-            this.distance = 8.0F + WhiteWyrmlingEntity.this.random.nextFloat() * 10.0F;
-            this.height = -8.0F + WhiteWyrmlingEntity.this.random.nextFloat() * 9.0F;
-            this.clockwise = WhiteWyrmlingEntity.this.random.nextBoolean() ? 1.0F : -1.0F;
+            this.distance = 30.0F + WhiteElderDragonEntity.this.random.nextFloat() * 10.0F;
+            this.height = -30.0F + WhiteElderDragonEntity.this.random.nextFloat() * 9.0F;
+            this.clockwise = WhiteElderDragonEntity.this.random.nextBoolean() ? 1.0F : -1.0F;
             this.selectNext();
         }
 
         public void tick() {
-            if (WhiteWyrmlingEntity.this.random.nextInt(this.adjustedTickDelay(350)) == 0) {
-                this.height = -4.0F + WhiteWyrmlingEntity.this.random.nextFloat() * 9.0F;
+            if (WhiteElderDragonEntity.this.random.nextInt(this.adjustedTickDelay(350)) == 0) {
+                this.height = -4.0F + WhiteElderDragonEntity.this.random.nextFloat() * 9.0F;
             }
 
-            if (WhiteWyrmlingEntity.this.random.nextInt(this.adjustedTickDelay(250)) == 0) {
+            if (WhiteElderDragonEntity.this.random.nextInt(this.adjustedTickDelay(250)) == 0) {
                 ++this.distance;
                 if (this.distance > 15.0F) {
                     this.distance = 5.0F;
@@ -326,8 +316,8 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
                 }
             }
 
-            if (WhiteWyrmlingEntity.this.random.nextInt(this.adjustedTickDelay(450)) == 0) {
-                this.angle = WhiteWyrmlingEntity.this.random.nextFloat() * 2.0F * (float) Math.PI;
+            if (WhiteElderDragonEntity.this.random.nextInt(this.adjustedTickDelay(450)) == 0) {
+                this.angle = WhiteElderDragonEntity.this.random.nextFloat() * 2.0F * (float) Math.PI;
                 this.selectNext();
             }
 
@@ -335,12 +325,12 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
                 this.selectNext();
             }
 
-            if (WhiteWyrmlingEntity.this.moveTargetPoint.y < WhiteWyrmlingEntity.this.getY() && !WhiteWyrmlingEntity.this.level.isEmptyBlock(WhiteWyrmlingEntity.this.blockPosition().below(1))) {
+            if (WhiteElderDragonEntity.this.moveTargetPoint.y < WhiteElderDragonEntity.this.getY() && !WhiteElderDragonEntity.this.level.isEmptyBlock(WhiteElderDragonEntity.this.blockPosition().below(1))) {
                 this.height = Math.max(1.0F, this.height);
                 this.selectNext();
             }
 
-            if (WhiteWyrmlingEntity.this.moveTargetPoint.y > WhiteWyrmlingEntity.this.getY() && !WhiteWyrmlingEntity.this.level.isEmptyBlock(WhiteWyrmlingEntity.this.blockPosition().above(1))) {
+            if (WhiteElderDragonEntity.this.moveTargetPoint.y > WhiteElderDragonEntity.this.getY() && !WhiteElderDragonEntity.this.level.isEmptyBlock(WhiteElderDragonEntity.this.blockPosition().above(1))) {
                 this.height = Math.min(-1.0F, this.height);
                 this.selectNext();
             }
@@ -348,12 +338,12 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         }
 
         private void selectNext() {
-            if (BlockPos.ZERO.equals(WhiteWyrmlingEntity.this.anchorPoint)) {
-                WhiteWyrmlingEntity.this.anchorPoint = WhiteWyrmlingEntity.this.blockPosition();
+            if (BlockPos.ZERO.equals(WhiteElderDragonEntity.this.anchorPoint)) {
+                WhiteElderDragonEntity.this.anchorPoint = WhiteElderDragonEntity.this.blockPosition();
             }
 
             this.angle += this.clockwise * 15.0F * ((float) Math.PI / 180F);
-            WhiteWyrmlingEntity.this.moveTargetPoint = Vec3.atLowerCornerOf(WhiteWyrmlingEntity.this.anchorPoint).add((double) (this.distance * Mth.cos(this.angle)), (double) (-4.0F + this.height), (double) (this.distance * Mth.sin(this.angle)));
+            WhiteElderDragonEntity.this.moveTargetPoint = Vec3.atLowerCornerOf(WhiteElderDragonEntity.this.anchorPoint).add((double) (this.distance * Mth.cos(this.angle)), (double) (-4.0F + this.height), (double) (this.distance * Mth.sin(this.angle)));
         }
     }
 
@@ -374,14 +364,14 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         }
 
         public void tick() {
-            if (WhiteWyrmlingEntity.this.horizontalCollision) {
-                WhiteWyrmlingEntity.this.setYRot(WhiteWyrmlingEntity.this.getYRot() + 180.0F);
+            if (WhiteElderDragonEntity.this.horizontalCollision) {
+                WhiteElderDragonEntity.this.setYRot(WhiteElderDragonEntity.this.getYRot() + 180.0F);
                 this.speed = 0.1F;
             }
 
-            double d0 = WhiteWyrmlingEntity.this.moveTargetPoint.x - WhiteWyrmlingEntity.this.getX();
-            double d1 = WhiteWyrmlingEntity.this.moveTargetPoint.y - WhiteWyrmlingEntity.this.getY();
-            double d2 = WhiteWyrmlingEntity.this.moveTargetPoint.z - WhiteWyrmlingEntity.this.getZ();
+            double d0 = WhiteElderDragonEntity.this.moveTargetPoint.x - WhiteElderDragonEntity.this.getX();
+            double d1 = WhiteElderDragonEntity.this.moveTargetPoint.y - WhiteElderDragonEntity.this.getY();
+            double d2 = WhiteElderDragonEntity.this.moveTargetPoint.z - WhiteElderDragonEntity.this.getZ();
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
             if (Math.abs(d3) > (double) 1.0E-5F) {
                 double d4 = 1.0D - Math.abs(d1 * (double) 0.7F) / d3;
@@ -389,26 +379,26 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
                 d2 *= d4;
                 d3 = Math.sqrt(d0 * d0 + d2 * d2);
                 double d5 = Math.sqrt(d0 * d0 + d2 * d2 + d1 * d1);
-                float f = WhiteWyrmlingEntity.this.getYRot();
+                float f = WhiteElderDragonEntity.this.getYRot();
                 float f1 = (float) Mth.atan2(d2, d0);
-                float f2 = Mth.wrapDegrees(WhiteWyrmlingEntity.this.getYRot() + 90.0F);
+                float f2 = Mth.wrapDegrees(WhiteElderDragonEntity.this.getYRot() + 90.0F);
                 float f3 = Mth.wrapDegrees(f1 * (180F / (float) Math.PI));
-                WhiteWyrmlingEntity.this.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
-                WhiteWyrmlingEntity.this.yBodyRot = WhiteWyrmlingEntity.this.getYRot();
-                if (Mth.degreesDifferenceAbs(f, WhiteWyrmlingEntity.this.getYRot()) < 3.0F) {
+                WhiteElderDragonEntity.this.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
+                WhiteElderDragonEntity.this.yBodyRot = WhiteElderDragonEntity.this.getYRot();
+                if (Mth.degreesDifferenceAbs(f, WhiteElderDragonEntity.this.getYRot()) < 3.0F) {
                     this.speed = Mth.approach(this.speed, 1.8F, 0.005F * (1.8F / this.speed));
                 } else {
                     this.speed = Mth.approach(this.speed, 0.2F, 0.025F);
                 }
 
                 float f4 = (float) (-(Mth.atan2(-d1, d3) * (double) (180F / (float) Math.PI)));
-                WhiteWyrmlingEntity.this.setXRot(f4);
-                float f5 = WhiteWyrmlingEntity.this.getYRot() + 90.0F;
+                WhiteElderDragonEntity.this.setXRot(f4);
+                float f5 = WhiteElderDragonEntity.this.getYRot() + 90.0F;
                 double d6 = (double) (this.speed * Mth.cos(f5 * ((float) Math.PI / 180F))) * Math.abs(d0 / d5);
                 double d7 = (double) (this.speed * Mth.sin(f5 * ((float) Math.PI / 180F))) * Math.abs(d2 / d5);
                 double d8 = (double) (this.speed * Mth.sin(f4 * ((float) Math.PI / 180F))) * Math.abs(d1 / d5);
-                Vec3 vec3 = WhiteWyrmlingEntity.this.getDeltaMovement();
-                WhiteWyrmlingEntity.this.setDeltaMovement(vec3.add((new Vec3(d6, d8, d7)).subtract(vec3).scale(0.2D)));
+                Vec3 vec3 = WhiteElderDragonEntity.this.getDeltaMovement();
+                WhiteElderDragonEntity.this.setDeltaMovement(vec3.add((new Vec3(d6, d8, d7)).subtract(vec3).scale(0.2D)));
             }
 
         }
@@ -420,21 +410,21 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         }
 
         protected boolean touchingTarget() {
-            return WhiteWyrmlingEntity.this.moveTargetPoint.distanceToSqr(WhiteWyrmlingEntity.this.getX(), WhiteWyrmlingEntity.this.getY(), WhiteWyrmlingEntity.this.getZ()) < 4.0D;
+            return WhiteElderDragonEntity.this.moveTargetPoint.distanceToSqr(WhiteElderDragonEntity.this.getX(), WhiteElderDragonEntity.this.getY(), WhiteElderDragonEntity.this.getZ()) < 4.0D;
         }
     }
 
-    class PhantomSweepAttackGoal extends WhiteWyrmlingEntity.PhantomMoveTargetGoal {
+    class PhantomSweepAttackGoal extends WhiteElderDragonEntity.PhantomMoveTargetGoal {
         private static final int CAT_SEARCH_TICK_DELAY = 20;
         private boolean isScaredOfCat;
         private int catSearchTick;
 
         public boolean canUse() {
-            return WhiteWyrmlingEntity.this.getTarget() != null && WhiteWyrmlingEntity.this.attackPhase == WhiteWyrmlingEntity.AttackPhase.SWOOP;
+            return WhiteElderDragonEntity.this.getTarget() != null && WhiteElderDragonEntity.this.attackPhase == WhiteElderDragonEntity.AttackPhase.SWOOP;
         }
 
         public boolean canContinueToUse() {
-            LivingEntity livingentity = WhiteWyrmlingEntity.this.getTarget();
+            LivingEntity livingentity = WhiteElderDragonEntity.this.getTarget();
             if (livingentity == null) {
                 return false;
             } else if (!livingentity.isAlive()) {
@@ -450,9 +440,9 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
                 if (!this.canUse()) {
                     return false;
                 } else {
-                    if (WhiteWyrmlingEntity.this.tickCount > this.catSearchTick) {
-                        this.catSearchTick = WhiteWyrmlingEntity.this.tickCount + 20;
-                        List<Cat> list = WhiteWyrmlingEntity.this.level.getEntitiesOfClass(Cat.class, WhiteWyrmlingEntity.this.getBoundingBox().inflate(16.0D), EntitySelector.ENTITY_STILL_ALIVE);
+                    if (WhiteElderDragonEntity.this.tickCount > this.catSearchTick) {
+                        this.catSearchTick = WhiteElderDragonEntity.this.tickCount + 20;
+                        List<Cat> list = WhiteElderDragonEntity.this.level.getEntitiesOfClass(Cat.class, WhiteElderDragonEntity.this.getBoundingBox().inflate(16.0D), EntitySelector.ENTITY_STILL_ALIVE);
 
                         for (Cat cat : list) {
                             cat.hiss();
@@ -470,28 +460,27 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         }
 
         public void stop() {
-            WhiteWyrmlingEntity.this.setTarget((LivingEntity) null);
-            WhiteWyrmlingEntity.this.attackPhase = WhiteWyrmlingEntity.AttackPhase.CIRCLE;
+            WhiteElderDragonEntity.this.setTarget((LivingEntity) null);
+            WhiteElderDragonEntity.this.attackPhase = WhiteElderDragonEntity.AttackPhase.CIRCLE;
         }
 
         public void tick() {
-            LivingEntity livingentity = WhiteWyrmlingEntity.this.getTarget();
+            LivingEntity livingentity = WhiteElderDragonEntity.this.getTarget();
             if (livingentity != null) {
-                WhiteWyrmlingEntity.this.moveTargetPoint = new Vec3(livingentity.getX(), livingentity.getY(0.5D), livingentity.getZ());
-                if (WhiteWyrmlingEntity.this.getBoundingBox().inflate((double) 0.2F).intersects(livingentity.getBoundingBox())) {
-                    WhiteWyrmlingEntity.this.doHurtTarget(livingentity);
-                    WhiteWyrmlingEntity.this.attackPhase = WhiteWyrmlingEntity.AttackPhase.CIRCLE;
-                    if (!WhiteWyrmlingEntity.this.isSilent()) {
-                        WhiteWyrmlingEntity.this.level.levelEvent(1039, WhiteWyrmlingEntity.this.blockPosition(), 0);
+                WhiteElderDragonEntity.this.moveTargetPoint = new Vec3(livingentity.getX(), livingentity.getY(0.5D), livingentity.getZ());
+                if (WhiteElderDragonEntity.this.getBoundingBox().inflate((double) 0.2F).intersects(livingentity.getBoundingBox())) {
+                    WhiteElderDragonEntity.this.doHurtTarget(livingentity);
+                    WhiteElderDragonEntity.this.attackPhase = WhiteElderDragonEntity.AttackPhase.CIRCLE;
+                    if (!WhiteElderDragonEntity.this.isSilent()) {
+                        WhiteElderDragonEntity.this.level.levelEvent(1039, WhiteElderDragonEntity.this.blockPosition(), 0);
                     }
-                } else if (WhiteWyrmlingEntity.this.horizontalCollision || WhiteWyrmlingEntity.this.hurtTime > 0) {
-                    WhiteWyrmlingEntity.this.attackPhase = WhiteWyrmlingEntity.AttackPhase.CIRCLE;
+                } else if (WhiteElderDragonEntity.this.horizontalCollision || WhiteElderDragonEntity.this.hurtTime > 0) {
+                    WhiteElderDragonEntity.this.attackPhase = WhiteElderDragonEntity.AttackPhase.CIRCLE;
                 }
 
             }
         }
     }
-
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
@@ -518,6 +507,7 @@ public class WhiteWyrmlingEntity extends FlyingMob implements Enemy, IAnimatable
         data.addAnimationController(new AnimationController(this, "attackController",
                 0, this::attackPredicate));
     }
+
     @Override
     public AnimationFactory getFactory() {
         return manager;

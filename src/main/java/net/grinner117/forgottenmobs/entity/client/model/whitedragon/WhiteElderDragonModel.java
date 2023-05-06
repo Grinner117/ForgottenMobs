@@ -1,7 +1,7 @@
 package net.grinner117.forgottenmobs.entity.client.model.whitedragon;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteElderDragonEntity;
+import net.grinner117.forgottenmobs.entity.custom.WhiteElderDragonEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
