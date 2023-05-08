@@ -130,8 +130,8 @@ public class WhiteElderDragonEntity extends FlyingMob implements Enemy, IAnimata
 
         super.tick();
         if (this.level.isClientSide) {
-            for (int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getRandomX(1.5D), this.getRandomY(), this.getRandomZ(1.0D), 1.8D, 1.8D, 1.8D);
+            for (int i = 0; i < 8; ++i) {
+                this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getRandomX(0.2D), this.getRandomY(), this.getRandomZ(8.0D), 0.5D, 0.5D, 0.5D);
             }
         }
     }

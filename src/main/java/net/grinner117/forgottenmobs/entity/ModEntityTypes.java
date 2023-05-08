@@ -83,17 +83,17 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<WhiteYoungDragonEntity>> WHITEYOUNGDRAGON =
             ENTITY_TYPES.register("whiteyoungdragon",
                     () -> EntityType.Builder.of(WhiteYoungDragonEntity::new, MobCategory.MONSTER)
-                            .sized(1.8F, 1.8F).clientTrackingRange(80)
+                            .sized(4.0F, 1.0F).clientTrackingRange(80)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"whiteyoungdragon").toString()));
     public static final RegistryObject<EntityType<WhiteAdultDragonEntity>> WHITEADULTDRAGON =
             ENTITY_TYPES.register("whiteadultdragon",
                     () -> EntityType.Builder.of(WhiteAdultDragonEntity::new, MobCategory.MONSTER)
-                            .sized(2.8F, 2.8F).clientTrackingRange(60)
+                            .sized(8.8F, 2.8F).clientTrackingRange(60)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"whiteadultdragon").toString()));
     public static final RegistryObject<EntityType<WhiteElderDragonEntity>> WHITEELDERDRAGON =
             ENTITY_TYPES.register("whiteelderdragon",
                     () -> EntityType.Builder.of(WhiteElderDragonEntity::new, MobCategory.MONSTER)
-                            .sized(3.0F, 3.8F).clientTrackingRange(80)
+                            .sized(10.0F, 5.0F).clientTrackingRange(100)
                             .build(new ResourceLocation(ForgottenMobs.MODID,"whiteelderdragon").toString()));
     public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
             ENTITY_TYPES.register("goblinfighter",
