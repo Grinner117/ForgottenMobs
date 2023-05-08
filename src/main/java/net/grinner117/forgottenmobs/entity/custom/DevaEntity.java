@@ -1,10 +1,5 @@
 package net.grinner117.forgottenmobs.entity.custom;
 
-import net.grinner117.forgottenmobs.entity.custom.beholder.Beholder71Entity;
-import net.grinner117.forgottenmobs.entity.custom.beholder.Beholder72Entity;
-import net.grinner117.forgottenmobs.entity.custom.goblin.GoblinArcherEntity;
-import net.grinner117.forgottenmobs.entity.custom.goblin.GoblinFighterEntity;
-import net.grinner117.forgottenmobs.entity.custom.goblin.GoblinShamanEntity;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

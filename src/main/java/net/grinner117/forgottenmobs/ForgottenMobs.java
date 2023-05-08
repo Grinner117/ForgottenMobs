@@ -21,7 +21,6 @@ import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteAdul
 import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteElderDragonRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteWyrmlingRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteYoungDragonRenderer;
-import net.grinner117.forgottenmobs.entity.custom.whitedragon.WhiteAdultDragonEntity;
 import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.FlyingMob;
@@ -112,15 +111,15 @@ public class ForgottenMobs {
 
         SpawnPlacements.register(ModEntityTypes.GOBLINFIGHTER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.GOBLINARCHER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.GOBLINSHAMAN.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
 
         SpawnPlacements.register(ModEntityTypes.BEHOLDER71.get(),
@@ -133,28 +132,28 @@ public class ForgottenMobs {
 
         SpawnPlacements.register(ModEntityTypes.GREENHAG.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.OWLBEARFOREST.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.OWLBEARSNOW.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.NEEDLEBLIGHT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.TWIGBLIGHT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
 
         SpawnPlacements.register(ModEntityTypes.VINEBLIGHT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
 
         SpawnPlacements.register(ModEntityTypes.UNICORN.get(),
@@ -171,30 +170,31 @@ public class ForgottenMobs {
 
         SpawnPlacements.register(ModEntityTypes.INTELLECTDEVOURER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.CLOUDGIANT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
+
         SpawnPlacements.register(ModEntityTypes.GHOST.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.MINDFLAYER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.DBEAST.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.GRIMLOCK.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.SHAMBLINGMOUND.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.PLANETAR.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

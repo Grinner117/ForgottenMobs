@@ -1,5 +1,19 @@
 {
   "type": "forge:add_spawns",
+  "structure": [
+    "minecraft:ruined_portal",
+    "minecraft:village",
+    "minecraft:bastion_remnant",
+    "minecraft:desert_pyramid",
+    "minecraft:jungle_pyramid",
+    "minecraft:shipwreck",
+    "minecraft:monument",
+    "minecraft:endcity",
+    "minecraft:fortress",
+    "minecraft:stronghold",
+    "minecraft:woodland_mansion",
+    "minecraft:dungeon"
+  ],
   "biomes": [
     "minecraft:plains",
     "minecraft:dark_forest",
@@ -8,9 +22,9 @@
     "minecraft:forest"
   ],
   "spawners": {
-    "type": "forgottenmobs:animateddiamondarmor",
-    "weight": 20,
+    "type": "forgottenmobs:animatedironarmor",
+    "weight": 40,
     "minCount": 1,
-    "maxCount": 1
+    "maxCount": 2
   }
 }

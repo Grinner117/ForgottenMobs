@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom.shadowdragon;
+package net.grinner117.forgottenmobs.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
