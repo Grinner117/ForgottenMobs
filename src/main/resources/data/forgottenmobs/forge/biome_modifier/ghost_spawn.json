@@ -1,5 +1,21 @@
 {
   "type": "forge:add_spawns",
+  "structure": [
+    "minecraft:ruined_portal",
+    "minecraft:mineshaft",
+    "minecraft:bastion_remnant",
+    "minecraft:desert_pyramid",
+    "minecraft:jungle_pyramid",
+    "minecraft:endcity",
+    "minecraft:fortress",
+    "minecraft:stronghold",
+    "minecraft:woodland_mansion",
+    "minecraft:pillager_outpost",
+    "minecraft:ruined_portal",
+    "minecraft:end_city",
+    "minecraft:fortress",
+    "minecraft:village"
+  ],
   "biomes": [
     "minecraft:bamboo_jungle",
     "minecraft:beach",

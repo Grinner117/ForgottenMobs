@@ -1,5 +1,16 @@
 {
   "type": "forge:add_spawns",
+  "structure": [
+    "minecraft:endcity",
+    "minecraft:fortress",
+    "minecraft:stronghold",
+    "minecraft:woodland_mansion",
+    "minecraft:pillager_outpost",
+    "minecraft:ruined_portal",
+    "minecraft:end_city",
+    "minecraft:fortress",
+    "minecraft:end_ship"
+  ],
   "biomes": [
     "minecraft:frozen_ocean",
     "minecraft:frozen_peaks",

@@ -1,14 +1,25 @@
 {
   "type": "forge:add_spawns",
+  "structure": [
+    "minecraft:ruined_portal",
+    "minecraft:mineshaft",
+    "minecraft:bastion_remnant",
+    "minecraft:desert_pyramid",
+    "minecraft:jungle_pyramid",
+    "minecraft:endcity",
+    "minecraft:fortress",
+    "minecraft:stronghold",
+    "minecraft:woodland_mansion",
+    "minecraft:end_city",
+    "minecraft:end_ship"
+  ],
   "biomes": [
-    "minecraft:desert",
     "minecraft:badlands",
     "minecraft:frozen_ocean",
     "minecraft:frozen_peaks",
     "minecraft:frozen_river",
     "minecraft:ice_spikes",
     "minecraft:snowy_beach",
-    "minecraft:snowy_plains",
     "minecraft:snowy_slopes",
     "minecraft:snowy_taiga",
     "minecraft:swamp",
