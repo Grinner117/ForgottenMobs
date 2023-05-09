@@ -68,15 +68,15 @@ public class WhiteYoungDragonEntity extends FlyingMob implements Enemy, IAnimata
         return new WhiteYoungDragonEntity.PhantomBodyRotationControl(this);
     }
 
-    public static AttributeSupplier setAttributes() {    
-        return Monster.createMonsterAttributes()    
+    public static AttributeSupplier setAttributes() {
+        return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 120.0D)
                 .add(Attributes.ATTACK_DAMAGE, 22.0D)
                 .add(Attributes.ATTACK_SPEED, 1.2F)
                 .add(Attributes.MOVEMENT_SPEED, 1.5F)
-                .build();    
-    }      
-                      
+                .build();
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new WhiteYoungDragonEntity.PhantomAttackStrategyGoal());
         this.goalSelector.addGoal(2, new WhiteYoungDragonEntity.PhantomSweepAttackGoal());
@@ -127,13 +127,13 @@ public class WhiteYoungDragonEntity extends FlyingMob implements Enemy, IAnimata
                 this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.PHANTOM_FLAP, this.getSoundSource(), 0.95F + this.random.nextFloat() * 0.05F, 0.95F + this.random.nextFloat() * 0.05F, false);
             }
 
-            int i = this.getPhantomSize();
-            float f2 = Mth.cos(this.getYRot() * ((float) Math.PI / 180F)) * (1.3F + 0.21F * (float) i);
-            float f3 = Mth.sin(this.getYRot() * ((float) Math.PI / 180F)) * (1.3F + 0.21F * (float) i);
-            float f4 = (0.3F + f * 0.45F) * ((float) i * 0.2F + 1.0F);
-            this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() + (double) f2, this.getY() + (double) f4, this.getZ() + (double) f3, 0.3D, 0.3D, 0.3D);
-            this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getX() - (double) f2, this.getY() + (double) f4, this.getZ() - (double) f3, 0.3D, 0.3D, 0.3D); }
-
+            super.tick();
+            if (this.level.isClientSide) {
+                for (int i = 0; i < 8; ++i) {
+                    this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getRandomX(0.2D), this.getRandomY(), this.getRandomZ(8.0D), 0.5D, 0.5D, 0.5D);
+                }
+            }
+        }
     }
 
     protected void customServerAiStep() {
@@ -506,6 +506,7 @@ public class WhiteYoungDragonEntity extends FlyingMob implements Enemy, IAnimata
         data.addAnimationController(new AnimationController(this, "attackController",
                 0, this::attackPredicate));
     }
+
     @Override
     public AnimationFactory getFactory() {
         return manager;
