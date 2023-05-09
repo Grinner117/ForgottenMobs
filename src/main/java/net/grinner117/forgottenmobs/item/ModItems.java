@@ -208,16 +208,19 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GRIFFON_FEATHER = ITEMS.register("griffon_feather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> OWLBEAR_FUR = ITEMS.register("owlbear_fur",
+    public static final RegistryObject<Item> SNOW_OWLBEAR_FUR = ITEMS.register("snow_owlbear_fur",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> SNOW_OWLBEAR_HELEMET = ITEMS.register("snow_owlbear_helemet",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> SNOW_OWLBEAR_CHESTPLATE = ITEMS.register("snow_owlbear_chestplate",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
-    public static final RegistryObject<Item> OWLBEAR_HELEMET = ITEMS.register("OWLBEAR_HELEMET",
+    public static final RegistryObject<Item> FOREST_OWLBEAR_FUR = ITEMS.register("forest_owlbear_fur",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
-    public static final RegistryObject<Item> OWLBEAR_CHESTPLATE = ITEMS.register("owlbear_chestplate",
+    public static final RegistryObject<Item> FOREST_OWLBEAR_HELEMET = ITEMS.register("forest_owlbear_helemet",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
-
+    public static final RegistryObject<Item> FOREST_OWLBEAR_CHESTPLATE = ITEMS.register("forest_owlbear_chestplate",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GRIFFONFEATHER = ITEMS.register("griffonfeather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
