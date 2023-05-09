@@ -2,17 +2,19 @@
   "type": "forge:add_spawns",
   "structure": [
     "minecraft:ruined_portal",
-    "minecraft:village",
+    "minecraft:mineshaft",
     "minecraft:bastion_remnant",
     "minecraft:desert_pyramid",
     "minecraft:jungle_pyramid",
-    "minecraft:shipwreck",
-    "minecraft:monument",
     "minecraft:endcity",
     "minecraft:fortress",
     "minecraft:stronghold",
     "minecraft:woodland_mansion",
-    "minecraft:dungeon"
+    "minecraft:pillager_outpost",
+    "minecraft:ruined_portal",
+    "minecraft:end_city",
+    "minecraft:fortress",
+    "minecraft:end_ship"
   ],
   "biomes": [
     "minecraft:plains",
@@ -25,6 +27,6 @@
     "type": "forgottenmobs:animatedleatherarmor",
     "weight": 40,
     "minCount": 1,
-    "maxCount": 2
+    "maxCount": 3
   }
 }
