@@ -222,9 +222,9 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> FOREST_OWLBEAR_CHESTPLATE = ITEMS.register("forest_owlbear_chestplate",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> GRIFFONFEATHER = ITEMS.register("griffonfeather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
     public static final RegistryObject<Item> GRIFFONBEAK = ITEMS.register("griffonbeak",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
