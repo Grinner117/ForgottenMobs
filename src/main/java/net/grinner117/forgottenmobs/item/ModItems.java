@@ -184,6 +184,12 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> COUATL_FEATHER = ITEMS.register("couatlfeather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    public static final RegistryObject<Item> UNICORNHORN = ITEMS.register("unicorn_horn",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    public static final RegistryObject<Item> SNOW_OWLBEAR_FUR = ITEMS.register("snow_owlbear_fur",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> COUATL_WINGS = ITEMS.register("couatl_wings",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> BLIGHTED_SOIL = ITEMS.register("blighted_soil",
@@ -204,12 +210,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> DRAGON_SWORD = ITEMS.register("dragon_sword",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> UNICORNHORN = ITEMS.register("unicorn_horn",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> GRIFFON_FEATHER = ITEMS.register("griffon_feather",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> SNOW_OWLBEAR_FUR = ITEMS.register("snow_owlbear_fur",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
     public static final RegistryObject<Item> SNOW_OWLBEAR_HELEMET = ITEMS.register("snow_owlbear_helemet",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SNOW_OWLBEAR_CHESTPLATE = ITEMS.register("snow_owlbear_chestplate",
