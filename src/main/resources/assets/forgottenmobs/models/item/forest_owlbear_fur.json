@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0" : "forgottenmobs:item/forest_owlbear_fur"
+  }
+}
