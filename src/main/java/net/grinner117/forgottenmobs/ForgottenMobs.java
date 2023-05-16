@@ -60,8 +60,6 @@ public class ForgottenMobs {
     }
 
     private static void run() {
-
-
         SpawnPlacements.register(ModEntityTypes.ANIMATEDLEATHERARMOR.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
