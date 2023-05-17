@@ -1,6 +1,7 @@
-package net.grinner117.forgottenmobs.item;
+package net.grinner117.forgottenmobs.block;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
+import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -32,6 +33,9 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ForgottenMobs.MODID);
 
     public static final RegistryObject<Block> CLEANSINGSTONE = BLOCKS.register("cleansingstone",
-            () -> new Block(Block.Properties.of(Material.STONE).strength(4f, 1200f)
-                    .requiresCorrectToolForDrops()));
+            () -> new CleansingStone(Block.Properties.of(Material.STONE).strength(2f, 1200f)
+                    ));
+    public static final RegistryObject<Block> BLIGHTEDSOIL = BLOCKS.register("blightedsoil",
+            () -> new BlightedSoil(Block.Properties.of(Material.DIRT).strength(1f, 200f)
+            ));
 }

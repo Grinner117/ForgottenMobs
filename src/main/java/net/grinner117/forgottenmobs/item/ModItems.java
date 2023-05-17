@@ -197,8 +197,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> COUATL_WINGS = ITEMS.register("couatl_wings",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> BLIGHTED_SOIL = ITEMS.register("blighted_soil",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
     public static final RegistryObject<Item> DRAGON_HELEMET = ITEMS.register("dragon_helemet",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> DRAGON_CHESTPLATE = ITEMS.register("dragon_chestplate",

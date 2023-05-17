@@ -21,7 +21,7 @@ import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteAdul
 import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteElderDragonRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteWyrmlingRenderer;
 import net.grinner117.forgottenmobs.entity.client.renderer.whitedragon.WhiteYoungDragonRenderer;
-import net.grinner117.forgottenmobs.item.ModBlocks;
+import net.grinner117.forgottenmobs.block.ModBlocks;
 import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.FlyingMob;
