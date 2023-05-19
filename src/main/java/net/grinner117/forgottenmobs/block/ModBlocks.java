@@ -35,7 +35,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> CLEANSINGSTONE = BLOCKS.register("cleansingstone",
             () -> new CleansingStone(Block.Properties.of(Material.STONE).strength(2f, 1200f)
                     ));
-    public static final RegistryObject<Block> BLIGHTEDSOIL = BLOCKS.register("blightedsoil",
-            () -> new BlightedSoil(Block.Properties.of(Material.DIRT).strength(1f, 200f)
-            ));
+
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "forgottenmobs:griffonfeather"
+    "forgottenmobs:griffonfeather",
+    "forgottenmobs:coautlfeather"
   ]
 }

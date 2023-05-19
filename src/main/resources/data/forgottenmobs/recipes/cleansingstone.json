@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:ender_eye"
+    },
+    "Z": {
+      "item": "minecraft:polished_diorite"
+    },
+    "X": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "ZZZ"
+  ],
+  "result": {
+    "item": "forgottenmobs:cleansingstone"
+  }
+}
