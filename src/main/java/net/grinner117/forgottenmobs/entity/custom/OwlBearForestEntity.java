@@ -45,13 +45,15 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class OwlBearForestEntity extends Hoglin implements IAnimatable {
+public class OwlBearForestEntity extends Monster implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    public OwlBearForestEntity(EntityType<? extends Hoglin> pEntityType, Level pLevel) {
+    public OwlBearForestEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.xpReward = 80;
     }
+
+
     //stat block
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
