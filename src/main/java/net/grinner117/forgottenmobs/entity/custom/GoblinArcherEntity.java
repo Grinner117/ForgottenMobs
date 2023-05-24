@@ -46,8 +46,10 @@ import java.time.temporal.ChronoField;
 public class GoblinArcherEntity extends Skeleton implements RangedAttackMob, IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
+    //class constructor
     public GoblinArcherEntity(EntityType<? extends GoblinArcherEntity> p_32133_, Level p_32134_) {
         super(p_32133_, p_32134_);
+        this.xpReward = 30;
     }
 
     //stat block

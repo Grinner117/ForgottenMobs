@@ -42,11 +42,14 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 public class GoblinFighterEntity extends Zombie implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
+    //class constructor
     public GoblinFighterEntity(EntityType<? extends Zombie> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.xpReward = 30;
+
     }
 
-
+    //attributes
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0D)
@@ -57,28 +60,33 @@ public class GoblinFighterEntity extends Zombie implements IAnimatable {
                 .build();
     }
 
+    //sound events
+    //movement
     protected void playStepSound(BlockPos p_34316_, BlockState p_34317_) {
         this.playSound(SoundEvents.PIG_AMBIENT, 1.0F, 0.5F);
     }
+
+    //hurt
     protected SoundEvent getHurtSound(DamageSource p_32527_) {
         return SoundEvents.PIG_HURT;
     }
+
+    //ambient
     protected SoundEvent getAmbientSound() {
         return SoundEvents.PIG_AMBIENT;
     }
 
+    //death
     protected SoundEvent getDeathSound() {
         return SoundEvents.HOGLIN_DEATH;
     }
 
-    protected SoundEvent getStepSound() {
-        return SoundEvents.PIG_STEP;
-    }
-
+    //vollume
     protected float getSoundVolume() {
         return 0.8F;
     }
 
+    //animation
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.walk", true));
@@ -104,6 +112,7 @@ public class GoblinFighterEntity extends Zombie implements IAnimatable {
         data.addAnimationController(new AnimationController(this, "attackController",
                 0, this::attackPredicate));
     }
+
     @Override
     public AnimationFactory getFactory() {
         return manager;

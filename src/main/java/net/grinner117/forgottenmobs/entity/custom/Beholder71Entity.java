@@ -1,5 +1,6 @@
 package net.grinner117.forgottenmobs.entity.custom;
 
+import net.grinner117.forgottenmobs.entity.type.Angel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -64,12 +65,14 @@ public class Beholder71Entity extends Monster implements IAnimatable {
         this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 0.5D, 0.0F));
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 64.0F));
         this.goalSelector.addGoal(1, new Beholder71Entity.BlazeAttackGoal(this));
+
         this.goalSelector.addGoal(1, new MoveTowardsTargetGoal(this, 1.0f, 30.0f));
 
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder72Entity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder71Entity.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Angel.class, true));
 
     }
 
@@ -82,8 +85,7 @@ public class Beholder71Entity extends Monster implements IAnimatable {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 8.0F)
                 .add(Attributes.FOLLOW_RANGE, 10.0F)
                 .add(Attributes.FLYING_SPEED, 0.3F)
-
-
+                .add(Attributes.ARMOR, 8.0F)
                 .build();
     }
 

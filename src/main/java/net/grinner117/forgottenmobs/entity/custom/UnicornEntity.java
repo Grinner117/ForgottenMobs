@@ -16,6 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -35,8 +36,7 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 
 
-public class UnicornEntity extends AbstractHorse implements IAnimatable {
-    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(net.minecraft.world.entity.animal.horse.Horse.class, EntityDataSerializers.INT);
+public class UnicornEntity extends Horse implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
     public UnicornEntity(EntityType<? extends UnicornEntity> p_30689_, Level p_30690_) {
@@ -52,12 +52,6 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
                 .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.JUMP_STRENGTH, 0.5F)
                 .build();
-    }
-
-
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
     }
 
     //Sound
@@ -93,49 +87,6 @@ public class UnicornEntity extends AbstractHorse implements IAnimatable {
     protected SoundEvent getAngrySound() {
         super.getAngrySound();
         return SoundEvents.ENDERMAN_SCREAM;
-    }
-
-    public InteractionResult mobInteract(Player p_30713_, InteractionHand p_30714_) {
-        ItemStack itemstack = p_30713_.getItemInHand(p_30714_);
-        if (!this.isBaby()) {
-            if (this.isTamed() && p_30713_.isSecondaryUseActive()) {
-                this.openCustomInventoryScreen(p_30713_);
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
-            }
-
-            if (this.isVehicle()) {
-                return super.mobInteract(p_30713_, p_30714_);
-            }
-        }
-
-        if (!itemstack.isEmpty()) {
-            if (this.isFood(itemstack)) {
-                return this.fedFood(p_30713_, itemstack);
-            }
-
-            InteractionResult interactionresult = itemstack.interactLivingEntity(p_30713_, this, p_30714_);
-            if (interactionresult.consumesAction()) {
-                return interactionresult;
-            }
-
-            if (!this.isTamed()) {
-                this.makeMad();
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
-            }
-
-            boolean flag = !this.isBaby() && !this.isSaddled() && itemstack.is(Items.SADDLE);
-            if (this.isArmor(itemstack) || flag) {
-                this.openCustomInventoryScreen(p_30713_);
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
-            }
-        }
-
-        if (this.isBaby()) {
-            return super.mobInteract(p_30713_, p_30714_);
-        } else {
-            this.doPlayerRide(p_30713_);
-            return InteractionResult.sidedSuccess(this.level.isClientSide);
-        }
     }
 
     //this entity heals itself passiively
