@@ -27,15 +27,13 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class IDBeastEntity extends Monster implements Enemy, IAnimatable {
-    AnimationFactory manager = GeckoLibUtil.createFactory(this);
-    private float yRot;
-
+public class IDBeastEntity extends DBeastEntity {
+//class constructor and xp
     public IDBeastEntity(EntityType<? extends IDBeastEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
         this.xpReward = 0;
     }
-
+//atributes
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 1.0D)
@@ -46,65 +44,4 @@ public class IDBeastEntity extends Monster implements Enemy, IAnimatable {
                 .add(Attributes.ATTACK_KNOCKBACK, 0.0D)
                 .build();
     }
-
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
-        this.goalSelector.addGoal(5, new FloatGoal(this));
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 64.0F));
-
-
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, 0, false, false, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
-    }
-
-    //summons a single copy of idbeast every 20 seconds
-
-    @Override
-    public void aiStep() {
-        super.aiStep();
-        if (this.tickCount % 400 == 0) {
-            IDBeastEntity idbeast = new IDBeastEntity(ModEntityTypes.IDBEAST.get(), this.level);
-            idbeast.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, 0.0F);
-            this.level.addFreshEntity(idbeast);
-        }
-    }
-
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dbeast.walk", true));
-            return PlayState.CONTINUE;
-        }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dbeast.idle", true));
-        return PlayState.CONTINUE;
-    }
-
-    private PlayState attackPredicate(AnimationEvent event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.dbeast.attack", false));
-            this.swinging = false;
-        }
-        return PlayState.CONTINUE;
-    }
-
-
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
-
-    @Override
-    public AnimationFactory getFactory() {
-        return manager;
-    }
-
 }

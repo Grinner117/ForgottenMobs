@@ -26,6 +26,7 @@ import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.CrossbowAttackMob;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.npc.InventoryCarrier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -47,10 +48,11 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 public class OwlBearForestEntity extends Monster implements IAnimatable {
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    public OwlBearForestEntity(EntityType<? extends Monster> p_34683_, Level p_34684_) {
-        super(p_34683_, p_34684_);
-        this.xpReward = 50;
+    public OwlBearForestEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+        super(pEntityType, pLevel);
+        this.xpReward = 80;
     }
+
 
     //stat block
     public static AttributeSupplier setAttributes() {

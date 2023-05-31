@@ -6,8 +6,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -32,7 +30,7 @@ public class AnimatedArmor extends Monster implements IAnimatable {
     public AnimatedArmor(EntityType<? extends Monster> EntityType, Level Level) {
         super(EntityType, Level);
     }
-
+//particle effects
     public void aiStep() {
         if (this.level.isClientSide) {
             for (int i = 0; i < 2; ++i) {
@@ -42,51 +40,47 @@ public class AnimatedArmor extends Monster implements IAnimatable {
         super.aiStep();
     }
 
+    //ai
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.25F, false));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 64.0F));
-
-
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
     }
 
+    //sound
+    //step
     protected void playStepSound(BlockPos p_34316_, BlockState p_34317_) {
-        this.playSound(SoundEvents.WITHER_SKELETON_STEP, 1.0F, 0.5F);
+        this.playSound(SoundEvents.ARMOR_EQUIP_CHAIN, 1.0F, 0.5F);
     }
-
+//receive damage
     protected SoundEvent getHurtSound(DamageSource p_32527_) {
         return SoundEvents.ANVIL_BREAK;
     }
-
+//death sound
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENDERMAN_DEATH;
     }
-
-    protected SoundEvent getStepSound() {
-        return SoundEvents.ARMOR_EQUIP_CHAIN;
-    }
-
+//total volume
     protected float getSoundVolume() {
         return 1.0F;
     }
 
 
-+    //immune to potion effects
-55]  @Override
-    
+    //immune to potion effects
+    @Override
     public boolean isAffectedByPotions() {
         return false;
     }
 
-//dosn't take fire damage
+    //dosn't take fire damage
     public boolean isFireImmune() {
         return true;
     }
 
 
-//dosn't take water daamge
+    //dosn't take water daamge
     public boolean isSensitiveToWater() {
         return false;
     }
@@ -97,7 +91,7 @@ public class AnimatedArmor extends Monster implements IAnimatable {
         return true;
     }
 
-//animation
+    //animation
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.animatedarmor.walk", true));

@@ -7,14 +7,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:griffonfeather",
+          "name": "minecraft:ender_pearl",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2,
-                "max": 6
+                "min": 0,
+                "max": 2
               },
               "add": false
             },
@@ -22,31 +22,8 @@
               "function": "minecraft:looting_enchant",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "forgottenmobs:griffonbeak",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
+                "min": 1,
+                "max": 2
               }
             }
           ]
@@ -59,11 +36,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:griffonfeather"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:griffonbeak"
+          "name": "minecraft:ender_pearl"
         }
       ],
       "conditions": [

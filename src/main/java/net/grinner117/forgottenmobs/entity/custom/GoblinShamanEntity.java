@@ -49,7 +49,7 @@ public class GoblinShamanEntity extends Monster implements IAnimatable {
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
         this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
-        this.xpReward = 100;
+        this.xpReward = 60;
     }
 
     //ai goals
