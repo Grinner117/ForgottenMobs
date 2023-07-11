@@ -39,82 +39,97 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class GoblinFighterEntity extends Zombie implements IAnimatable {
-    AnimationFactory manager = GeckoLibUtil.createFactory(this);
+public class GoblinFighterEntity extends Monster implements IAnimatable {
+	AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    //class constructor
-    public GoblinFighterEntity(EntityType<? extends Zombie> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
-        this.xpReward = 30;
+	//class constructor
+	public GoblinFighterEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+		this.xpReward = 30;
+	}
 
-    }
 
-    //attributes
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 12.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0D)
-                .add(Attributes.ATTACK_SPEED, 0.5F)
-                .add(Attributes.MOVEMENT_SPEED, 1.1F)
-                .add(Attributes.FOLLOW_RANGE, 48.0D)
-                .build();
-    }
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
+		this.goalSelector.addGoal(5, new FloatGoal(this));
+		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
-    //sound events
-    //movement
-    protected void playStepSound(BlockPos p_34316_, BlockState p_34317_) {
-        this.playSound(SoundEvents.PIG_AMBIENT, 1.0F, 0.5F);
-    }
 
-    //hurt
-    protected SoundEvent getHurtSound(DamageSource p_32527_) {
-        return SoundEvents.PIG_HURT;
-    }
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, 0, false, false, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
+	}
 
-    //ambient
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.PIG_AMBIENT;
-    }
+	//attributes
+	public static AttributeSupplier setAttributes() {
+		return Monster.createMonsterAttributes()
+				.add(Attributes.MAX_HEALTH, 12.0D)
+				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.ATTACK_SPEED, 0.5F)
+				.add(Attributes.MOVEMENT_SPEED, 1.1F)
+				.add(Attributes.FOLLOW_RANGE, 48.0D)
+				.build();
+	}
 
-    //death
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.HOGLIN_DEATH;
-    }
+	//sound events
+	//movement
+	protected void playStepSound(BlockPos p_34316_, BlockState p_34317_) {
+		this.playSound(SoundEvents.PIG_AMBIENT, 1.0F, 0.5F);
+	}
 
-    //vollume
-    protected float getSoundVolume() {
-        return 0.8F;
-    }
+	//hurt
+	protected SoundEvent getHurtSound(DamageSource p_32527_) {
+		return SoundEvents.PIG_HURT;
+	}
 
-    //animation
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.walk", true));
-            return PlayState.CONTINUE;
-        }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.idle", true));
-        return PlayState.CONTINUE;
-    }
+	//ambient
+	protected SoundEvent getAmbientSound() {
+		return SoundEvents.PIG_AMBIENT;
+	}
 
-    private PlayState attackPredicate(AnimationEvent event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.attack", false));
-            this.swinging = false;
-        }
-        return PlayState.CONTINUE;
-    }
+	//death
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.HOGLIN_DEATH;
+	}
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
+	//vollume
+	protected float getSoundVolume() {
+		return 0.8F;
+	}
 
-    @Override
-    public AnimationFactory getFactory() {
-        return manager;
-    }
+	//animation
+	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+		if (event.isMoving()) {
+			event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.walk", true));
+			return PlayState.CONTINUE;
+		}
+		event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.idle", true));
+		return PlayState.CONTINUE;
+	}
+
+	private PlayState attackPredicate(AnimationEvent event) {
+		if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+			event.getController().markNeedsReload();
+			event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinfighter.attack", false));
+			this.swinging = false;
+		}
+		return PlayState.CONTINUE;
+	}
+
+	@Override
+	public void registerControllers(AnimationData data) {
+		data.addAnimationController(new AnimationController(this, "controller",
+				0, this::predicate));
+		data.addAnimationController(new AnimationController(this, "attackController",
+				0, this::attackPredicate));
+	}
+
+	@Override
+	public AnimationFactory getFactory() {
+		return manager;
+	}
 }
