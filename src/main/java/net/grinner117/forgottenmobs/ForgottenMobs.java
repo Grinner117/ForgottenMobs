@@ -136,11 +136,11 @@ public class ForgottenMobs {
                 Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.OWLBEARFOREST.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
                 Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.OWLBEARSNOW.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
                 Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.NEEDLEBLIGHT.get(),
@@ -166,7 +166,7 @@ public class ForgottenMobs {
                 FlyingMob::checkMobSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.COUATL.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.INTELLECTDEVOURER.get(),

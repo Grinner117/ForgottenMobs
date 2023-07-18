@@ -49,7 +49,7 @@ public class GoblinShamanEntity extends Monster implements IAnimatable {
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
         this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
-        this.xpReward = 60;
+        this.xpReward = 30;
     }
 
     //ai goals
@@ -71,10 +71,10 @@ public class GoblinShamanEntity extends Monster implements IAnimatable {
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 14.0D)
+                .add(Attributes.MAX_HEALTH, 6.0D)
                 .add(Attributes.ATTACK_DAMAGE, 8.0D)
                 .add(Attributes.ATTACK_SPEED, 0.5F)
-                .add(Attributes.MOVEMENT_SPEED, 0.8F)
+                .add(Attributes.MOVEMENT_SPEED, 0.9F)
                 .add(Attributes.FOLLOW_RANGE, 48.0D)
                 .build();
     }

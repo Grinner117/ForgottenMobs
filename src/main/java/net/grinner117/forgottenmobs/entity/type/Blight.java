@@ -5,6 +5,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -77,12 +79,11 @@ public class Blight extends Monster implements IAnimatable {
     }
 
     //heals over time
-    @Override
     public void aiStep() {
-        if (this.level.isDay()) {
-            this.heal(0.05F);
-        }
         super.aiStep();
+        if (this.tickCount % 900 == 0) {
+            this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, false, false, false));
+        }
     }
 
     //sounds

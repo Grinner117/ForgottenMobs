@@ -45,7 +45,7 @@ public class GoblinFighterEntity extends Monster implements IAnimatable {
 	//class constructor
 	public GoblinFighterEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
-		this.xpReward = 30;
+		this.xpReward = 20;
 	}
 
 
@@ -54,7 +54,7 @@ public class GoblinFighterEntity extends Monster implements IAnimatable {
 		super.registerGoals();
 		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
+		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(5, new FloatGoal(this));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
@@ -67,8 +67,8 @@ public class GoblinFighterEntity extends Monster implements IAnimatable {
 	//attributes
 	public static AttributeSupplier setAttributes() {
 		return Monster.createMonsterAttributes()
-				.add(Attributes.MAX_HEALTH, 12.0D)
-				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.MAX_HEALTH, 5.0D)
+				.add(Attributes.ATTACK_DAMAGE, 2.0D)
 				.add(Attributes.ATTACK_SPEED, 0.5F)
 				.add(Attributes.MOVEMENT_SPEED, 1.1F)
 				.add(Attributes.FOLLOW_RANGE, 48.0D)

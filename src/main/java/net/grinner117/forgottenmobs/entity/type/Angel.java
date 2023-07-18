@@ -48,7 +48,7 @@ public class Angel extends Monster implements Enemy, IAnimatable {
         }
         super.aiStep();
         if (this.tickCount % 600 == 0) {
-            this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 600, 0));
+            this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false,false,false));
         }
     }
 

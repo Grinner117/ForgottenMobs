@@ -7,7 +7,6 @@
     "minecraft:dark_forest",
     "minecraft:flower_forest",
     "minecraft:forest",
-    "minecraft:jungle",
     "minecraft:savanna_plateau",
     "minecraft:sunflower_plains",
     "minecraft:windswept_forest",
@@ -24,7 +23,7 @@
   ],
   "spawners": {
     "type": "forgottenmobs:owlbearforest",
-    "weight": 10,
+    "weight": 1,
     "minCount": 1,
     "maxCount": 1
   }

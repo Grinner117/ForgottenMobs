@@ -49,17 +49,17 @@ public class GoblinArcherEntity extends Skeleton implements RangedAttackMob, IAn
     //class constructor
     public GoblinArcherEntity(EntityType<? extends GoblinArcherEntity> p_32133_, Level p_32134_) {
         super(p_32133_, p_32134_);
-        this.xpReward = 30;
+        this.xpReward = 20;
     }
 
     //stat block
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 12.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0D)
+                .add(Attributes.MAX_HEALTH, 6.0D)
+                .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.ATTACK_SPEED, 0.8F)
-                .add(Attributes.MOVEMENT_SPEED, 0.5F)
-                .add(Attributes.FOLLOW_RANGE, 48.0D)
+                .add(Attributes.MOVEMENT_SPEED, 1.0F)
+                .add(Attributes.FOLLOW_RANGE, 32.0D)
                 .build();
     }
 
