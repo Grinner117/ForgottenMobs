@@ -1,7 +1,7 @@
-package net.grinner117.forgottenmobs.entity.client.model;
+package net.grinner117.forgottenangels.entity.client.model;
 
-import net.grinner117.forgottenmobs.ForgottenAngels;
-import net.grinner117.forgottenmobs.entity.custom.PlanetarEntity;
+import net.grinner117.forgottenangels.ForgottenAngels;
+import net.grinner117.forgottenangels.entity.custom.PlanetarEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

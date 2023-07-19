@@ -1,6 +1,6 @@
-package net.grinner117.forgottenmobs.block;
+package net.grinner117.forgottenangels.block;
 
-import net.grinner117.forgottenmobs.ForgottenAngels;
+import net.grinner117.forgottenangels.ForgottenAngels;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

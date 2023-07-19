@@ -1,10 +1,10 @@
-package net.grinner117.forgottenmobs;
+package net.grinner117.forgottenangels;
 
 import com.mojang.logging.LogUtils;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.client.renderer.*;
-import net.grinner117.forgottenmobs.block.ModBlocks;
-import net.grinner117.forgottenmobs.item.ModItems;
+import net.grinner117.forgottenangels.block.ModBlocks;
+import net.grinner117.forgottenangels.entity.ModEntityTypes;
+import net.grinner117.forgottenangels.entity.client.renderer.DevaRenderer;
+import net.grinner117.forgottenangels.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -31,7 +31,7 @@ public class ForgottenAngels {
 
 		ModItems.register(modEventBus);
 
-		ModEntityTypes.register(modEventBus);
+		net.grinner117.forgottenangels.entity.ModEntityTypes.register(modEventBus);
 		ModBlocks.BLOCKS.register(modEventBus);
 
 
@@ -44,11 +44,11 @@ public class ForgottenAngels {
 	}
 
 	private static void run() {
-		SpawnPlacements.register(ModEntityTypes.PLANETAR.get(),
+		SpawnPlacements.register(net.grinner117.forgottenangels.entity.ModEntityTypes.PLANETAR.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
 
-		SpawnPlacements.register(ModEntityTypes.DEVA.get(),
+		SpawnPlacements.register(net.grinner117.forgottenangels.entity.ModEntityTypes.DEVA.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
 
@@ -62,7 +62,7 @@ public class ForgottenAngels {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
-			EntityRenderers.register(ModEntityTypes.PLANETAR.get(), PlanetarRenderer::new);
+			EntityRenderers.register(net.grinner117.forgottenangels.entity.ModEntityTypes.PLANETAR.get(), net.grinner117.forgottenangels.entity.client.renderer.PlanetarRenderer::new);
 			EntityRenderers.register(ModEntityTypes.DEVA.get(), DevaRenderer::new);
 		}
 	}

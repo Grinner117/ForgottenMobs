@@ -1,8 +1,8 @@
-package net.grinner117.forgottenmobs.entity.event;
+package net.grinner117.forgottenangels.entity.event;
 
-import net.grinner117.forgottenmobs.ForgottenAngels;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.custom.*;
+import net.grinner117.forgottenangels.ForgottenAngels;
+import net.grinner117.forgottenangels.entity.ModEntityTypes;
+import net.grinner117.forgottenangels.entity.custom.DevaEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -12,7 +12,7 @@ public class ModEvents {
 	public static class ModEventBusEvents {
 		@SubscribeEvent
 		public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
-			event.put(ModEntityTypes.PLANETAR.get(), PlanetarEntity.setAttributes());
+			event.put(net.grinner117.forgottenangels.entity.ModEntityTypes.PLANETAR.get(), net.grinner117.forgottenangels.entity.custom.PlanetarEntity.setAttributes());
 			event.put(ModEntityTypes.DEVA.get(), DevaEntity.setAttributes());
 
 

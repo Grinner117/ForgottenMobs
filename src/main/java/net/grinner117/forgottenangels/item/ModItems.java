@@ -1,7 +1,8 @@
-package net.grinner117.forgottenmobs.item;
+package net.grinner117.forgottenangels.item;
 
-import net.grinner117.forgottenmobs.ForgottenAngels;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
+import net.grinner117.forgottenangels.entity.ModEntityTypes;
+import net.grinner117.forgottenangels.ForgottenAngels;
+import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,7 +13,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenAngels.MODID);
         public static final RegistryObject<Item> PLANETAR_SPAWN_EGG = ITEMS.register("planetar_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.PLANETAR, 0xea261c, 0x39843e,
+            () -> new ForgeSpawnEggItem(net.grinner117.forgottenangels.entity.ModEntityTypes.PLANETAR, 0xea261c, 0x39843e,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> DEVA_SPAWN_EGG = ITEMS.register("deva_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DEVA, 0xea261c, 0x39843e,

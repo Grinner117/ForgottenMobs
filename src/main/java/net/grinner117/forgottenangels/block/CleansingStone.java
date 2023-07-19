@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.block;
+package net.grinner117.forgottenangels.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;

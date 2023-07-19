@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.type;
+package net.grinner117.forgottenangels.entity.type;
 
 import net.grinner117.forgottenmobs.entity.custom.*;
 import net.minecraft.sounds.SoundEvent;
@@ -9,8 +9,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
