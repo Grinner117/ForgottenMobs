@@ -3,7 +3,7 @@ package net.grinner117.forgottenmobs.entity.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenMobs;
+import net.grinner117.forgottenmobs.ForgottenAngels;
 import net.grinner117.forgottenmobs.entity.client.model.DevaModel;
 import net.grinner117.forgottenmobs.entity.custom.DevaEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -20,7 +20,7 @@ public class DevaRenderer extends GeoEntityRenderer<DevaEntity> {
     }
     @Override
     public ResourceLocation getTextureLocation(DevaEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/deva.png");
+        return new ResourceLocation(ForgottenAngels.MODID, "textures/entity/deva.png");
     }
     @Override
     public RenderType getRenderType(DevaEntity animatable, float partialTicks, PoseStack stack,
