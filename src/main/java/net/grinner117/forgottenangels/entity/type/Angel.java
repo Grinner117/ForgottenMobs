@@ -15,6 +15,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -26,6 +27,8 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class Angel extends PathfinderMob implements IAnimatable {
+	private float allowedHeightOffset = 2.0F;
+	private int nextHeightOffsetChangeTick;
 	AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
 	public boolean shouldDropExperience() {
@@ -49,12 +52,29 @@ public class Angel extends PathfinderMob implements IAnimatable {
 	//will give itself mob effect invisibility every 30 seconds
 	public void aiStep() {
 		if (!this.onGround && this.getDeltaMovement().y < 0.0D) {
-			this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+			this.setDeltaMovement(this.getDeltaMovement().multiply(1.2D, 0.8D, 1.2D));
 		}
 		super.aiStep();
 		if (this.tickCount % 600 == 0) {
 			this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false, false));
 		}
+	}
+
+	protected void customServerAiStep() {
+		--this.nextHeightOffsetChangeTick;
+		if (this.nextHeightOffsetChangeTick <= 0) {
+			this.nextHeightOffsetChangeTick = 300;
+			this.allowedHeightOffset = (float)this.random.triangle(0.5D, 6.891D);
+		}
+
+		LivingEntity livingentity = this.getTarget();
+		if (livingentity != null && livingentity.getEyeY() > this.getEyeY() + (double)this.allowedHeightOffset && this.canAttack(livingentity)) {
+			Vec3 vec3 = this.getDeltaMovement();
+			this.setDeltaMovement(this.getDeltaMovement().add(0.0D, ((double)0.3F - vec3.y) * (double)0.3F, 0.0D));
+			this.hasImpulse = true;
+		}
+
+		super.customServerAiStep();
 	}
 	
 
