@@ -11,7 +11,7 @@ public class PlanetarEntity extends Angel {
 
     public PlanetarEntity(EntityType<? extends PlanetarEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
-        this.xpReward = 100;
+        this.xpReward = 400;
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()

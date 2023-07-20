@@ -11,7 +11,7 @@ public class DevaEntity extends Angel {
 
     public DevaEntity(EntityType<? extends DevaEntity> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
-        this.xpReward = 100;
+        this.xpReward = 300;
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
