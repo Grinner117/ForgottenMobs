@@ -1,6 +1,6 @@
 package net.grinner117.forgottenangels.entity.custom;
 
-import net.grinner117.forgottenangels.entity.type.Angel;
+import net.grinner117.forgottenmobs.entity.type.Angel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
