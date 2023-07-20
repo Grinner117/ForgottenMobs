@@ -197,13 +197,6 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
-        SpawnPlacements.register(ModEntityTypes.PLANETAR.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
-
-        SpawnPlacements.register(ModEntityTypes.DEVA.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
 
     }
 
@@ -258,8 +251,7 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.IDBEAST.get(),IDBeastRenderer::new);
             EntityRenderers.register(ModEntityTypes.GRIMLOCK.get(),GrimlockRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHAMBLINGMOUND.get(),ShamblingMoundRenderer::new);
-            EntityRenderers.register(ModEntityTypes.PLANETAR.get(),PlanetarRenderer::new);
-            EntityRenderers.register(ModEntityTypes.DEVA.get(),DevaRenderer::new);
+
         }
     }
 }
