@@ -1,6 +1,5 @@
 package net.grinner117.forgottenmobs.entity.type;
 
-import net.grinner117.forgottenmobs.entity.custom.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -9,15 +8,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -28,8 +26,18 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class Angel extends Monster implements Enemy, IAnimatable {
+public class Angel extends PathfinderMob implements IAnimatable {
+    private float allowedHeightOffset = 2.0F;
+    private int nextHeightOffsetChangeTick;
     AnimationFactory manager = GeckoLibUtil.createFactory(this);
+
+    public boolean shouldDropExperience() {
+        return true;
+    }
+
+    protected boolean shouldDropLoot() {
+        return true;
+    }
 
     public Angel(EntityType<? extends Angel> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
@@ -44,13 +52,31 @@ public class Angel extends Monster implements Enemy, IAnimatable {
     //will give itself mob effect invisibility every 30 seconds
     public void aiStep() {
         if (!this.onGround && this.getDeltaMovement().y < 0.0D) {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1.2D, 0.8D, 1.2D));
         }
         super.aiStep();
         if (this.tickCount % 600 == 0) {
-            this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false,false,false));
+            this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false, false));
         }
     }
+
+    protected void customServerAiStep() {
+        --this.nextHeightOffsetChangeTick;
+        if (this.nextHeightOffsetChangeTick <= 0) {
+            this.nextHeightOffsetChangeTick = 300;
+            this.allowedHeightOffset = (float)this.random.triangle(0.5D, 6.891D);
+        }
+
+        LivingEntity livingentity = this.getTarget();
+        if (livingentity != null && livingentity.getEyeY() > this.getEyeY() + (double)this.allowedHeightOffset && this.canAttack(livingentity)) {
+            Vec3 vec3 = this.getDeltaMovement();
+            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, ((double)0.3F - vec3.y) * (double)0.3F, 0.0D));
+            this.hasImpulse = true;
+        }
+
+        super.customServerAiStep();
+    }
+
 
     //GOALS
     @Override
@@ -58,30 +84,14 @@ public class Angel extends Monster implements Enemy, IAnimatable {
         super.registerGoals();
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.D, true));
         this.goalSelector.addGoal(5, new FloatGoal(this));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
-
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this ));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Zombie.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Skeleton.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, GoblinArcherEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, GoblinFighterEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, GoblinShamanEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder71Entity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder72Entity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, MindflayerEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, GreenHagEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, NeedleBlightEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, VineBlightEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, TwigBlightEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Hoglin.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Spider.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, ShamblingMoundEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, DBeastEntity.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Blaze.class, true));
+        this.targetSelector.addGoal(5, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, true));
     }
+
     //sound
     public SoundSource getSoundSource() {
         return SoundSource.NEUTRAL;
@@ -92,7 +102,7 @@ public class Angel extends Monster implements Enemy, IAnimatable {
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENDERMAN_DEATH;
+        return SoundEvents.GHAST_DEATH;
     }
 
     public SoundEvent getAmbientSound() {
@@ -104,8 +114,6 @@ public class Angel extends Monster implements Enemy, IAnimatable {
     }
 
 
-
-
     @Override
     public boolean hurt(DamageSource source, float amount) {
         if (source.getEntity() instanceof LivingEntity) {
@@ -113,6 +121,7 @@ public class Angel extends Monster implements Enemy, IAnimatable {
         }
         return super.hurt(source, amount);
     }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.walk", true));
