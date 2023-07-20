@@ -1,6 +1,5 @@
 package net.grinner117.forgottenangels.entity.type;
 
-import net.grinner117.forgottenmobs.entity.custom.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -9,15 +8,11 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib3.core.AnimationState;
@@ -61,6 +56,7 @@ public class Angel extends PathfinderMob implements IAnimatable {
 			this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false, false));
 		}
 	}
+	
 
 	//GOALS
 	@Override
@@ -72,7 +68,7 @@ public class Angel extends PathfinderMob implements IAnimatable {
 		this.goalSelector.addGoal(5, new FloatGoal(this));
 		this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 64.0F));
 
-		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(5, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, true));
 	}
 
@@ -86,7 +82,7 @@ public class Angel extends PathfinderMob implements IAnimatable {
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENDERMAN_DEATH;
+		return SoundEvents.GHAST_DEATH;
 	}
 
 	public SoundEvent getAmbientSound() {
