@@ -12,13 +12,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.*;
-import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.animal.horse.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
@@ -39,172 +40,128 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 
 
-public class StirgeEntity extends Bee, Monster implements IAnimatable, FlyingAnimal {
-    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(StirgeEntity.class, EntityDataSerializers.INT);
-    AnimationFactory manager = GeckoLibUtil.createFactory(this);
+public class StirgeEntity extends Monster implements IAnimatable, FlyingAnimal {
+	private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(StirgeEntity.class, EntityDataSerializers.INT);
+	AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    public StirgeEntity(EntityType<? extends StirgeEntity> p_30689_, Level p_30690_) {
-        super(p_30689_, p_30690_);
-    }
+	public StirgeEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+		this.xpReward = 3;
 
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 49.0D)
-                .add(Attributes.ATTACK_DAMAGE, 10.0D)
-                .add(Attributes.ATTACK_SPEED, 0.3F)
-                .add(Attributes.FOLLOW_RANGE, 148.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.3F)
-                .add(Attributes.JUMP_STRENGTH, 4.0F)
-                .add(Attributes.FLYING_SPEED, 1.0F)
-                .add(Attributes.ARMOR, 2.0D)
-                .build();
-    }
-
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.5F, true));
-
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Zombie.class, true));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Rabbit.class, true));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Cat.class, true));
-    }
-
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
-    }
-
-    //Sound
-    protected void playGallopSound(SoundType p_30709_) {
-        super.playGallopSound(p_30709_);
-        if (this.random.nextInt(10) == 0) {
-            this.playSound(SoundEvents.PHANTOM_FLAP, p_30709_.getVolume() * 0.6F, p_30709_.getPitch());
-        }
-        ItemStack stack = this.inventory.getItem(1);
-        if (isArmor(stack)) stack.onHorseArmorTick(level, this);
-    }
-
-    protected SoundEvent getAmbientSound() {
-        super.getAmbientSound();
-        return SoundEvents.HORSE_AMBIENT;
-    }
-
-    @Nullable
-    protected SoundEvent getEatingSound() {
-        return SoundEvents.HORSE_EAT;
-    }
-
-    protected SoundEvent getAngrySound() {
-        super.getAngrySound();
-        return SoundEvents.PARROT_HURT;
-    }
+	}
 
 
-    public InteractionResult mobInteract(Player p_30713_, InteractionHand p_30714_) {
-        ItemStack itemstack = p_30713_.getItemInHand(p_30714_);
-        if (!this.isBaby()) {
-            if (this.isTamed() && p_30713_.isSecondaryUseActive()) {
-                this.openCustomInventoryScreen(p_30713_);
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
-            }
-
-            if (this.isVehicle()) {
-                return super.mobInteract(p_30713_, p_30714_);
-            }
-        }
-        if (!itemstack.isEmpty()) {
-            if (this.isFood(itemstack)) {
-                return this.fedFood(p_30713_, itemstack);
-            }
-
-            InteractionResult interactionresult = itemstack.interactLivingEntity(p_30713_, this, p_30714_);
-            if (interactionresult.consumesAction()) {
-                return interactionresult;
-            }
-
-            if (!this.isTamed()) {
-                this.makeMad();
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
-            }
-
-            boolean flag = !this.isBaby() && !this.isSaddled() && itemstack.is(Items.SADDLE);
-            if (this.isArmor(itemstack) || flag) {
-                this.openCustomInventoryScreen(p_30713_);
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
-            }
-        }
-
-        if (this.isBaby()) {
-            return super.mobInteract(p_30713_, p_30714_);
-        } else {
-            this.doPlayerRide(p_30713_);
-            return InteractionResult.sidedSuccess(this.level.isClientSide);
-        }
-    }
+	//can fly like bee/ moves like a bee
+	public boolean isFlying() {
+		return !this.onGround;
+	}
 
 
-    public void tick() {
-        super.tick();
-        if (this.isVehicle()) {
-            Entity entity = this.getPassengers().get(0);
-            if (entity instanceof Player) {
-                Player player = (Player) entity;
-                if (player.isSprinting()) {
-                    this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 3, false, false, false));
-                    this.removeEffect(MobEffects.SLOW_FALLING);
-                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.15F)));
+	public static AttributeSupplier setAttributes() {
+		return Monster.createMonsterAttributes()
+				.add(Attributes.MAX_HEALTH, 1.0D)
+				.add(Attributes.ATTACK_DAMAGE, 1.0D)
+				.add(Attributes.ATTACK_SPEED, 0.1F)
+				.add(Attributes.FOLLOW_RANGE, 32.0D)
+				.add(Attributes.MOVEMENT_SPEED, 1.0F)
+				.add(Attributes.FLYING_SPEED, 1.0F)
+				.build();
+	}
 
-                } else {
-                    this.removeEffect(MobEffects.LEVITATION);
-                    this.setDeltaMovement(this.getDeltaMovement().add(this.getLookAngle().scale(0.08F)));
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(1, new FloatGoal(this));
+		this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0F, true));
 
-                    this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20, 0, false, false, false));
-                }
-            }
-        }
-    }
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, AbstractHorse.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Donkey.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Mule.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Llama.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, TraderLlama.class, true));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Cow.class, true));
 
-    //entity is immune to damage from falling
-    public boolean causeFallDamage(float p_70097_, float p_70098_, DamageSource p_70099_) {
-        return false;
-    }
+	}
+
+	//when attack give player poison effect
+	public boolean doHurtTarget(Entity entityIn) {
+		boolean flag = super.doHurtTarget(entityIn);
+		if (flag && this.getMainHandItem().isEmpty() && entityIn instanceof LivingEntity) {
+			float f = this.level.getCurrentDifficultyAt(this.blockPosition()).getEffectiveDifficulty();
+			((LivingEntity) entityIn).addEffect(new MobEffectInstance(MobEffects.POISON, 20, 0));
+		}
+		return flag;
+	}
 
 
-    //animations
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.griffon.walk", true));
-            return PlayState.CONTINUE;
-        }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.griffon.idle", true));
-        return PlayState.CONTINUE;
-    }
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+	}
 
-    private PlayState attackPredicate(AnimationEvent event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.griffon.attack", false));
-            this.swinging = false;
-        }
-        return PlayState.CONTINUE;
-    }
+	//Sound
+	protected SoundEvent getAmbientSound() {
+		super.getAmbientSound();
+		return SoundEvents.BEE_LOOP_AGGRESSIVE;
+	}
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
+	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+		super.getHurtSound(damageSourceIn);
+		return SoundEvents.BEE_HURT;
+	}
 
-    @Override
-    public AnimationFactory getFactory() {
-        return manager;
-    }
+	protected SoundEvent getDeathSound() {
+		super.getDeathSound();
+		return SoundEvents.BEE_DEATH;
+	}
+
+	protected SoundEvent getStepSound() {
+		return SoundEvents.BEE_LOOP_AGGRESSIVE;
+	}
+
+	protected SoundEvent getSwimSound() {
+		return SoundEvents.BEE_LOOP_AGGRESSIVE;
+	}
+
+	//entity is immune to damage from falling
+	public boolean causeFallDamage(float p_70097_, float p_70098_, DamageSource p_70099_) {
+		return false;
+	}
+
+
+	//animations
+	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+		if (event.isMoving()) {
+			event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.stirge.walk", true));
+			return PlayState.CONTINUE;
+		}
+		event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.stirge.idle", true));
+		return PlayState.CONTINUE;
+	}
+
+	private PlayState attackPredicate(AnimationEvent event) {
+		if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+			event.getController().markNeedsReload();
+			event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.stirge.attack", false));
+			this.swinging = false;
+		}
+		return PlayState.CONTINUE;
+	}
+
+	@Override
+	public void registerControllers(AnimationData data) {
+		data.addAnimationController(new AnimationController(this, "controller",
+				0, this::predicate));
+		data.addAnimationController(new AnimationController(this, "attackController",
+				0, this::attackPredicate));
+	}
+
+	@Override
+	public AnimationFactory getFactory() {
+		return manager;
+	}
 }

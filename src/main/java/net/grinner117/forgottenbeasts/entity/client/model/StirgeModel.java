@@ -1,6 +1,7 @@
 package net.grinner117.forgottenbeasts.entity.client.model;
 
 import net.grinner117.forgottenbeasts.ForgottenBeasts;
+import net.grinner117.forgottenbeasts.entity.custom.StirgeEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

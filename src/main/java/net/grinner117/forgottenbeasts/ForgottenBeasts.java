@@ -56,6 +56,10 @@ public class ForgottenBeasts {
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
 
+		SpawnPlacements.register(ModEntityTypes.STIRGE.get(),
+				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				FlyingMob::checkMobSpawnRules);
+
 	}
 
 	private void commonSetup(final FMLCommonSetupEvent event) {
@@ -69,6 +73,7 @@ public class ForgottenBeasts {
 
 			EntityRenderers.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARFOREST.get(), net.grinner117.forgottenbeasts.entity.client.renderer.OwlBearForestRenderer::new);
 			EntityRenderers.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowRenderer::new);
+			EntityRenderers.register(ModEntityTypes.STIRGE.get(), net.grinner117.forgottenbeasts.entity.client.renderer.StirgeRenderer::new);
 
 			EntityRenderers.register(ModEntityTypes.GRIFFON.get(), net.grinner117.forgottenbeasts.entity.client.renderer.GriffonRenderer::new);
 

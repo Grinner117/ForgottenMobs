@@ -4,6 +4,8 @@ package net.grinner117.forgottenbeasts.entity.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.grinner117.forgottenbeasts.ForgottenBeasts;
+import net.grinner117.forgottenbeasts.entity.client.model.StirgeModel;
+import net.grinner117.forgottenbeasts.entity.custom.StirgeEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -25,7 +27,7 @@ public class StirgeRenderer extends GeoEntityRenderer<StirgeEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(1.8f, 1.8f, 1.8f);
+        stack.scale(1.0f, 1.0f, 1.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

@@ -15,6 +15,7 @@ public class ModEvents {
 
 			event.put(ModEntityTypes.OWLBEARFOREST.get(), net.grinner117.forgottenbeasts.entity.custom.OwlBearForestEntity.setAttributes());
 			event.put(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowEntity.setAttributes());
+			event.put(ModEntityTypes.STIRGE.get(), net.grinner117.forgottenbeasts.entity.custom.StirgeEntity.setAttributes());
 
 			event.put(ModEntityTypes.GRIFFON.get(), net.grinner117.forgottenbeasts.entity.custom.GriffonEntity.setAttributes());
 		}

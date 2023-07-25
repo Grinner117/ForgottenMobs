@@ -26,6 +26,10 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.GRIFFON, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+    public static final RegistryObject<Item> STIRGE_SPAWN_EGG = ITEMS.register("stirge_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.STIRGE, 0xac5a5f, 0xe34fba,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
 
     public static final RegistryObject<Item> SNOW_OWLBEAR_FUR = ITEMS.register("snow_owlbear_fur",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));

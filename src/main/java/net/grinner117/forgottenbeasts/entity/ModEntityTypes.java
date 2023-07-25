@@ -26,7 +26,11 @@ public class ModEntityTypes {
 							.sized(1.6F, 2.6F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenBeasts.MODID, "owlbearsnow").toString()));
 
-
+	public static final RegistryObject<EntityType<net.grinner117.forgottenbeasts.entity.custom.StirgeEntity>> STIRGE =
+			ENTITY_TYPES.register("stirge",
+					() -> EntityType.Builder.of(net.grinner117.forgottenbeasts.entity.custom.StirgeEntity::new, MobCategory.MONSTER)
+							.sized(1.0F, 1.0F).clientTrackingRange(80)
+							.build(new ResourceLocation(ForgottenBeasts.MODID, "stirge").toString()));
 	public static final RegistryObject<EntityType<net.grinner117.forgottenbeasts.entity.custom.GriffonEntity>> GRIFFON =
 			ENTITY_TYPES.register("griffon",
 					() -> EntityType.Builder.of(GriffonEntity::new, MobCategory.MONSTER)
