@@ -3,7 +3,7 @@ package net.grinner117.forgottenmobs.entity.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenMobs;
+import net.grinner117.forgottenmobs.ForgottenBeasts;
 import net.grinner117.forgottenmobs.entity.client.model.OwlBearSnowModel;
 import net.grinner117.forgottenmobs.entity.custom.OwlBearSnowEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -20,7 +20,7 @@ public class OwlBearSnowRenderer extends GeoEntityRenderer<OwlBearSnowEntity> {
     }
     @Override
     public ResourceLocation getTextureLocation(OwlBearSnowEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/owlbearsnow.png");
+        return new ResourceLocation(ForgottenBeasts.MODID, "textures/entity/owlbearsnow.png");
     }
     @Override
     public RenderType getRenderType(OwlBearSnowEntity animatable, float partialTicks, PoseStack stack,

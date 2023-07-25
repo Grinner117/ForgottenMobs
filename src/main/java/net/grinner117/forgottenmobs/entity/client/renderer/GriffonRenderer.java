@@ -3,7 +3,7 @@ package net.grinner117.forgottenmobs.entity.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenMobs;
+import net.grinner117.forgottenmobs.ForgottenBeasts;
 import net.grinner117.forgottenmobs.entity.client.model.GriffonModel;
 import net.grinner117.forgottenmobs.entity.custom.GriffonEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -20,7 +20,7 @@ public class GriffonRenderer extends GeoEntityRenderer<GriffonEntity> {
     }
     @Override
     public ResourceLocation getTextureLocation(GriffonEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/griffon.png");
+        return new ResourceLocation(ForgottenBeasts.MODID, "textures/entity/griffon.png");
     }
     @Override
     public RenderType getRenderType(GriffonEntity animatable, float partialTicks, PoseStack stack,
