@@ -71,13 +71,11 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
         this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 0.5F, true));
 
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, Raider.class));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Zombie.class, true));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Rabbit.class, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Cat.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, true));
     }
 
     protected void defineSynchedData() {
@@ -89,7 +87,7 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
     protected void playGallopSound(SoundType p_30709_) {
         super.playGallopSound(p_30709_);
         if (this.random.nextInt(10) == 0) {
-            this.playSound(SoundEvents.HORSE_BREATHE, p_30709_.getVolume() * 0.6F, p_30709_.getPitch());
+            this.playSound(SoundEvents.PHANTOM_FLAP, p_30709_.getVolume() * 0.6F, p_30709_.getPitch());
         }
         ItemStack stack = this.inventory.getItem(1);
         if (isArmor(stack)) stack.onHorseArmorTick(level, this);
@@ -102,7 +100,7 @@ public class GriffonEntity extends AbstractHorse implements IAnimatable {
 
     protected SoundEvent getDeathSound() {
         super.getDeathSound();
-        return SoundEvents.HORSE_DEATH;
+        return SoundEvents.CHICKEN_DEATH;
     }
 
     @Nullable

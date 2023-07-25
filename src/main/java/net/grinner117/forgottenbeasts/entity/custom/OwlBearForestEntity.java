@@ -55,7 +55,6 @@ public class OwlBearForestEntity extends Monster implements IAnimatable {
 		this.xpReward = 180;
 	}
 
-
 	//stat block
 	public static AttributeSupplier setAttributes() {
 		return Monster.createMonsterAttributes()
