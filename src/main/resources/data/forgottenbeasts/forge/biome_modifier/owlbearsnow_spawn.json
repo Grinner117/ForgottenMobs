@@ -30,7 +30,7 @@
     "minecraft:river"
   ],
   "spawners": {
-    "type": "forgottenmobs:owlbearsnow",
+    "type": "forgottenbeasts:owlbearsnow",
     "weight": 1,
     "minCount": 1,
     "maxCount": 1

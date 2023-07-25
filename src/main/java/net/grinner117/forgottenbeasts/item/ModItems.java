@@ -1,7 +1,8 @@
-package net.grinner117.forgottenmobs.item;
+package net.grinner117.forgottenbeasts.item;
 
-import net.grinner117.forgottenmobs.ForgottenBeasts;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
+import net.grinner117.forgottenbeasts.entity.ModEntityTypes;
+import net.grinner117.forgottenbeasts.ForgottenBeasts;
+import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -16,10 +17,10 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenBeasts.MODID);
 
     public static final RegistryObject<Item> OWLBEARFOREST_SPAWN_EGG = ITEMS.register("owlbearforest_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARFOREST, 0x9f8636, 0x9f8636,
+            () -> new ForgeSpawnEggItem(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARFOREST, 0x9f8636, 0x9f8636,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> OWLBEARSNOW_SPAWN_EGG = ITEMS.register("owlbearsnow_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.OWLBEARSNOW, 0xc5c5c5, 0x9f8636,
+            () -> new ForgeSpawnEggItem(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARSNOW, 0xc5c5c5, 0x9f8636,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GRIFFON_SPAWN_EGG = ITEMS.register("griffon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.GRIFFON, 0xac8a5f, 0xe0cfba,

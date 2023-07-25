@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:forest_owlbear_fur",
+          "name": "forgottenbeasts:forest_owlbear_fur",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -59,7 +59,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:forest_owlbear_fur"
+          "name": "forgottenbeasts:forest_owlbear_fur"
         },
         {
           "type": "minecraft:item",

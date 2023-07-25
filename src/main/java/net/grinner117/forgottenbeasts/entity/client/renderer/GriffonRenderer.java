@@ -1,11 +1,11 @@
-package net.grinner117.forgottenmobs.entity.client.renderer;
+package net.grinner117.forgottenbeasts.entity.client.renderer;
 
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenBeasts;
-import net.grinner117.forgottenmobs.entity.client.model.GriffonModel;
-import net.grinner117.forgottenmobs.entity.custom.GriffonEntity;
+import net.grinner117.forgottenbeasts.ForgottenBeasts;
+import net.grinner117.forgottenbeasts.entity.client.model.GriffonModel;
+import net.grinner117.forgottenbeasts.entity.custom.GriffonEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

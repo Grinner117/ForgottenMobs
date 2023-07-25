@@ -36,7 +36,7 @@
 
   ],
   "spawners": {
-    "type": "forgottenmobs:griffon",
+    "type": "forgottenbeasts:griffon",
     "weight": 1,
     "minCount": 1,
     "maxCount": 1

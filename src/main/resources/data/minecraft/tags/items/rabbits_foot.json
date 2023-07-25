@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "forgottenmobs:griffonbeak",
-    "forgottenmobs:owlbearbeak"
+    "forgottenbeasts:griffonbeak",
+    "forgottenbeasts:owlbearbeak"
   ]
 }

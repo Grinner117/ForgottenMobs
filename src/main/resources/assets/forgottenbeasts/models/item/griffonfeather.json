@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0" : "forgottenmobs:item/griffonfeather"
+    "layer0" : "forgottenbeasts:item/griffonfeather"
   }
 }

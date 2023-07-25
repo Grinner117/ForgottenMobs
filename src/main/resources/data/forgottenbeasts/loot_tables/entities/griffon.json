@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:griffonfeather",
+          "name": "forgottenbeasts:griffonfeather",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -30,7 +30,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:griffonbeak",
+          "name": "forgottenbeasts:griffonbeak",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -59,7 +59,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:griffonfeather"
+          "name": "forgottenbeasts:griffonfeather"
         },
         {
           "type": "minecraft:item",

@@ -1,11 +1,11 @@
-package net.grinner117.forgottenmobs.entity.client.renderer;
+package net.grinner117.forgottenbeasts.entity.client.renderer;
 
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenBeasts;
-import net.grinner117.forgottenmobs.entity.client.model.OwlBearSnowModel;
-import net.grinner117.forgottenmobs.entity.custom.OwlBearSnowEntity;
+import net.grinner117.forgottenbeasts.ForgottenBeasts;
+import net.grinner117.forgottenbeasts.entity.client.model.OwlBearSnowModel;
+import net.grinner117.forgottenbeasts.entity.custom.OwlBearSnowEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -13,13 +13,13 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
-public class OwlBearSnowRenderer extends GeoEntityRenderer<OwlBearSnowEntity> {
+public class OwlBearSnowRenderer extends GeoEntityRenderer<net.grinner117.forgottenbeasts.entity.custom.OwlBearSnowEntity> {
     public OwlBearSnowRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new OwlBearSnowModel());
         this.shadowRadius = 1.0f;
     }
     @Override
-    public ResourceLocation getTextureLocation(OwlBearSnowEntity instance) {
+    public ResourceLocation getTextureLocation(net.grinner117.forgottenbeasts.entity.custom.OwlBearSnowEntity instance) {
         return new ResourceLocation(ForgottenBeasts.MODID, "textures/entity/owlbearsnow.png");
     }
     @Override

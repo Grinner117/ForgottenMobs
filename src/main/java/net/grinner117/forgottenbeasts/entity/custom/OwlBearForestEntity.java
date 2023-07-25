@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom;
+package net.grinner117.forgottenbeasts.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

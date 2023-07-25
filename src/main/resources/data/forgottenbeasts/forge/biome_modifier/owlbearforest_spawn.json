@@ -22,7 +22,7 @@
     "minecraft:river"
   ],
   "spawners": {
-    "type": "forgottenmobs:owlbearforest",
+    "type": "forgottenbeasts:owlbearforest",
     "weight": 1,
     "minCount": 1,
     "maxCount": 1

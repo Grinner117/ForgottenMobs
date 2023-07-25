@@ -1,10 +1,9 @@
-package net.grinner117.forgottenmobs;
+package net.grinner117.forgottenbeasts;
 
 import com.mojang.logging.LogUtils;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.client.renderer.*;
-import net.grinner117.forgottenmobs.block.ModBlocks;
-import net.grinner117.forgottenmobs.item.ModItems;
+import net.grinner117.forgottenbeasts.entity.ModEntityTypes;
+import net.grinner117.forgottenbeasts.entity.client.renderer.OwlBearSnowRenderer;
+import net.grinner117.forgottenbeasts.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -32,9 +31,7 @@ public class ForgottenBeasts {
 
 		ModItems.register(modEventBus);
 
-		ModEntityTypes.register(modEventBus);
-		ModBlocks.BLOCKS.register(modEventBus);
-
+		net.grinner117.forgottenbeasts.entity.ModEntityTypes.register(modEventBus);
 
 		GeckoLib.initialize();
 
@@ -47,15 +44,15 @@ public class ForgottenBeasts {
 	private static void run() {
 
 
-		SpawnPlacements.register(ModEntityTypes.OWLBEARFOREST.get(),
+		SpawnPlacements.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARFOREST.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
 				Monster::checkMonsterSpawnRules);
 
-		SpawnPlacements.register(ModEntityTypes.OWLBEARSNOW.get(),
+		SpawnPlacements.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARSNOW.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
 				Monster::checkMonsterSpawnRules);
 
-		SpawnPlacements.register(ModEntityTypes.GRIFFON.get(),
+		SpawnPlacements.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.GRIFFON.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
 
@@ -70,10 +67,10 @@ public class ForgottenBeasts {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
 
-			EntityRenderers.register(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestRenderer::new);
-			EntityRenderers.register(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowRenderer::new);
+			EntityRenderers.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARFOREST.get(), net.grinner117.forgottenbeasts.entity.client.renderer.OwlBearForestRenderer::new);
+			EntityRenderers.register(net.grinner117.forgottenbeasts.entity.ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowRenderer::new);
 
-			EntityRenderers.register(ModEntityTypes.GRIFFON.get(), GriffonRenderer::new);
+			EntityRenderers.register(ModEntityTypes.GRIFFON.get(), net.grinner117.forgottenbeasts.entity.client.renderer.GriffonRenderer::new);
 
 		}
 	}
