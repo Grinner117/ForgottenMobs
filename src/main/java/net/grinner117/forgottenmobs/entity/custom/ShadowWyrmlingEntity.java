@@ -63,8 +63,8 @@ public class ShadowWyrmlingEntity extends ShadowDragon {
 
     public static AttributeSupplier setAttributes() {    
         return Monster.createMonsterAttributes()    
-                .add(Attributes.MAX_HEALTH, 80.0D)
-                .add(Attributes.ATTACK_DAMAGE, 14.0D)    
+                .add(Attributes.MAX_HEALTH, 60.0D)
+                .add(Attributes.ATTACK_DAMAGE, 8.0D)
                 .add(Attributes.ATTACK_SPEED, 1.0F)    
                 .add(Attributes.MOVEMENT_SPEED, 1.0F)    
                 .build();    

@@ -16,7 +16,7 @@ public class ShadowAdultDragonEntity extends ShadowDragon {
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 200.0D)
-                .add(Attributes.ATTACK_DAMAGE, 35.0D)
+                .add(Attributes.ATTACK_DAMAGE, 16.0D)
                 .add(Attributes.ATTACK_SPEED, 1.5F)
                 .add(Attributes.MOVEMENT_SPEED, 1.6F)
                 .add(Attributes.ARMOR_TOUGHNESS, 8.0F)

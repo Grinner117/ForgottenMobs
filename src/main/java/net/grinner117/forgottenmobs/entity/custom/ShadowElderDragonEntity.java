@@ -16,7 +16,7 @@ public class ShadowElderDragonEntity extends ShadowDragon {
     public static AttributeSupplier setAttributes() {    
         return Monster.createMonsterAttributes()    
                 .add(Attributes.MAX_HEALTH, 400.0D)
-                .add(Attributes.ATTACK_DAMAGE, 100.0D)
+                .add(Attributes.ATTACK_DAMAGE, 32.0D)
                 .add(Attributes.ATTACK_SPEED, 1.8F)
                 .add(Attributes.MOVEMENT_SPEED, 1.8F)
                 .build();    

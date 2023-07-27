@@ -46,7 +46,7 @@ public class DBeastEntity extends Monster implements Enemy, IAnimatable {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 40.0D)
                 .add(Attributes.ARMOR_TOUGHNESS, 8.0D)
-                .add(Attributes.ATTACK_DAMAGE, 16.0D)
+                .add(Attributes.ATTACK_DAMAGE, 8.0D)
                 .add(Attributes.ATTACK_SPEED, 0.4F)
                 .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .add(Attributes.FOLLOW_RANGE, 64.0D)
