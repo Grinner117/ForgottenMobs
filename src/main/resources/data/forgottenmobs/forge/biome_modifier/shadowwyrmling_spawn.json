@@ -9,7 +9,7 @@
   ],
   "spawners": {
     "type": "forgottenmobs:shadowwymling",
-    "weight": 40,
+    "weight": 1,
     "minCount": 1,
     "maxCount": 4
   }
