@@ -206,17 +206,6 @@ public class ModEntityTypes {
 							.sized(1.8F, 2.5F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "shamblingmound").toString()));
 
-	public static final RegistryObject<EntityType<PlanetarEntity>> PLANETAR =
-			ENTITY_TYPES.register("planetar",
-					() -> EntityType.Builder.of(PlanetarEntity::new, MobCategory.MONSTER)
-							.sized(1.8F, 2.5F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "planetar").toString()));
-
-	public static final RegistryObject<EntityType<DevaEntity>> DEVA =
-			ENTITY_TYPES.register("deva",
-					() -> EntityType.Builder.of(DevaEntity::new, MobCategory.MONSTER)
-							.sized(1.8F, 2.5F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "deva").toString()));
 
 	public static void register(IEventBus eventBus) {
 		ENTITY_TYPES.register(eventBus);

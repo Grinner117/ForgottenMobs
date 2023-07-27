@@ -74,8 +74,7 @@ public class ModEvents {
             event.put(ModEntityTypes.IDBEAST.get(), IDBeastEntity.setAttributes());
             event.put(ModEntityTypes.GRIMLOCK.get(), GrimlockEntity.setAttributes());
             event.put(ModEntityTypes.SHAMBLINGMOUND.get(), ShamblingMoundEntity.setAttributes());
-            event.put(ModEntityTypes.PLANETAR.get(), PlanetarEntity.setAttributes());
-            event.put(ModEntityTypes.DEVA.get(), DevaEntity.setAttributes());
+
 
 
         }
