@@ -24,21 +24,5 @@ public class WhiteYoungDragonEntity extends WhiteDragon {
                 .add(Attributes.MOVEMENT_SPEED, 1.5F)
                 .build();
     }
-    public void tick() {
-        super.tick();
-        if (this.level.isClientSide) {
-            float f = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
-            float f1 = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount + 1) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
-            if (f > 0.0F && f1 <= 0.0F) {
-                this.level.playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.PHANTOM_FLAP, this.getSoundSource(), 0.95F + this.random.nextFloat() * 0.05F, 0.95F + this.random.nextFloat() * 0.05F, false);
-            }
 
-            super.tick();
-            if (this.level.isClientSide) {
-                for (int i = 0; i < 8; ++i) {
-                    this.level.addParticle(ParticleTypes.SNOWFLAKE, this.getRandomX(0.2D), this.getRandomY(), this.getRandomZ(8.0D), 0.5D, 0.5D, 0.5D);
-                }
-            }
-        }
-    }
 }
