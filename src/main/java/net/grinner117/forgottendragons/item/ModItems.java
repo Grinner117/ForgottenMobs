@@ -47,7 +47,6 @@ public class ModItems {
      public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
             () -> new Item(new Item.Properties()));
 
-
     public static final RegistryObject<Item> WHITE_DRAGON_SOUL = ITEMS.register("white_dragon_soul",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHADOW_DRAGON_SOUL = ITEMS.register("shadow_dragon_soul",
