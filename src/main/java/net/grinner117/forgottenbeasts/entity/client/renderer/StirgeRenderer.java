@@ -16,7 +16,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class StirgeRenderer extends GeoEntityRenderer<StirgeEntity> {
     public StirgeRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new StirgeModel());
-        this.shadowRadius = 1.0f;
+        this.shadowRadius = 0.3f;
     }
     @Override
     public ResourceLocation getTextureLocation(StirgeEntity instance) {
@@ -27,7 +27,7 @@ public class StirgeRenderer extends GeoEntityRenderer<StirgeEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(1.0f, 1.0f, 1.0f);
+        stack.scale(1.2f, 1.2f, 1.2f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }
