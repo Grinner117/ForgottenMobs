@@ -1,9 +1,13 @@
 package net.grinner117.forgottendragons.item;
 
+import net.grinner117.forgottendragons.base.ModArmorMaterial;
 import net.grinner117.forgottendragons.entity.ModEntityTypes;
 import net.grinner117.forgottendragons.ForgottenDragons;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -68,6 +72,18 @@ public class ModItems {
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+
+    public static class ArmorTiers{
+        public static final ArmorMaterial SHADOWDRAGONARMOR = new ModArmorMaterial(
+                "shadowdragonarmor",
+                2200,
+                new int[]{7,15,12,7},
+                200,
+                SoundEvents.ARMOR_EQUIP_NETHERITE,
+                10.0f, 0.8f,
+                () -> Ingredient.of(ModItems.SHADOW_DRAGON_SOUL.get()));
+
     }
 
 }

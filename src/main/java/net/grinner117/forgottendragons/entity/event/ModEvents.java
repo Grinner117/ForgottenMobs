@@ -1,5 +1,6 @@
 package net.grinner117.forgottendragons.entity.event;
 
+import net.grinner117.forgottendragons.base.ModArmorMaterial;
 import net.grinner117.forgottendragons.entity.ModEntityTypes;
 import net.grinner117.forgottendragons.ForgottenDragons;
 import net.grinner117.forgottendragons.entity.custom.ShadowAdultDragonEntity;
@@ -10,6 +11,9 @@ import net.grinner117.forgottendragons.entity.custom.WhiteAdultDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.WhiteElderDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.WhiteWyrmlingEntity;
 import net.grinner117.forgottendragons.entity.custom.WhiteYoungDragonEntity;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -32,4 +36,9 @@ public class ModEvents {
 
 		}
 	}
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+	public class ArmorHandlers {
+
+	}
+
 }
