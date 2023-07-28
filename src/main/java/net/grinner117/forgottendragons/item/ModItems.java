@@ -5,6 +5,8 @@ import net.grinner117.forgottendragons.entity.ModEntityTypes;
 import net.grinner117.forgottendragons.ForgottenDragons;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -53,23 +55,16 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHADOW_DRAGON_SCALES = ITEMS.register("shadow_dragon_scales",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-      public static final RegistryObject<Item> DRAGON_HELEMET = ITEMS.register("dragon_helemet",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_CHESTPLATE = ITEMS.register("dragon_chestplate",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_LEGGINGS = ITEMS.register("dragon_leggings",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_BOOTS = ITEMS.register("dragon_boots",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_PICKAXE = ITEMS.register("dragon_pickaxe",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_SHOVEL = ITEMS.register("dragon_shovel",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_HOE = ITEMS.register("dragon_hoe",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DRAGON_SWORD = ITEMS.register("dragon_sword",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_HELMET = ITEMS.register("lightmonsterbonearmor_helmet",
+            () -> new Nightvison_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.HEAD, props()));
+    public static final RegistryObject<ArmorItem> LIGHTMONSTERBONEARMOR_CHESTPLATE = ITEMS.register("lightmonsterbonearmor_chestplate",
+            () -> new DamageRes2_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.CHEST, props()));
+    public static final RegistryObject<ArmorItem> LIGHTMONSTERBONEARMOR_LEGGINGS = ITEMS.register("lightmonsterbonearmor_leggings",
+            () -> new Jump3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
+    public static final RegistryObject<ArmorItem> LIGHTMONSTERBONEARMOR_BOOTS = ITEMS.register("lightmonsterbonearmor_boots",
+            () -> new Speed3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.FEET, props()));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
