@@ -3,23 +3,6 @@ package net.grinner117.forgottenmobs.entity.event;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
 import net.grinner117.forgottenmobs.entity.custom.*;
-import net.grinner117.forgottenmobs.entity.custom.AnimatedDiamondArmorEntity;
-import net.grinner117.forgottenmobs.entity.custom.AnimatedGoldArmorEntity;
-import net.grinner117.forgottenmobs.entity.custom.AnimatedIronArmorEntity;
-import net.grinner117.forgottenmobs.entity.custom.AnimatedLeatherArmorEntity;
-import net.grinner117.forgottenmobs.entity.custom.Beholder71Entity;
-import net.grinner117.forgottenmobs.entity.custom.Beholder72Entity;
-import net.grinner117.forgottenmobs.entity.custom.GoblinArcherEntity;
-import net.grinner117.forgottenmobs.entity.custom.GoblinFighterEntity;
-import net.grinner117.forgottenmobs.entity.custom.GoblinShamanEntity;
-import net.grinner117.forgottenmobs.entity.custom.ShadowAdultDragonEntity;
-import net.grinner117.forgottenmobs.entity.custom.ShadowElderDragonEntity;
-import net.grinner117.forgottenmobs.entity.custom.ShadowWyrmlingEntity;
-import net.grinner117.forgottenmobs.entity.custom.ShadowYoungDragonEntity;
-import net.grinner117.forgottenmobs.entity.custom.WhiteAdultDragonEntity;
-import net.grinner117.forgottenmobs.entity.custom.WhiteElderDragonEntity;
-import net.grinner117.forgottenmobs.entity.custom.WhiteWyrmlingEntity;
-import net.grinner117.forgottenmobs.entity.custom.WhiteYoungDragonEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,16 +18,6 @@ public class ModEvents {
             event.put(ModEntityTypes.ANIMATEDGOLDARMOR.get(), AnimatedGoldArmorEntity.setAttributes());
             event.put(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(), AnimatedDiamondArmorEntity.setAttributes());
 
-            event.put(ModEntityTypes.SHADOWWYRMLING.get(), ShadowWyrmlingEntity.setAttributes());
-            event.put(ModEntityTypes.SHADOWYOUNGDRAGON.get(), ShadowYoungDragonEntity.setAttributes());
-            event.put(ModEntityTypes.SHADOWADULTDRAGON.get(), ShadowAdultDragonEntity.setAttributes());
-            event.put(ModEntityTypes.SHADOWELDERDRAGON.get(), ShadowElderDragonEntity.setAttributes());
-
-            event.put(ModEntityTypes.WHITEWYRMLING.get(), WhiteWyrmlingEntity.setAttributes());
-            event.put(ModEntityTypes.WHITEYOUNGDRAGON.get(), WhiteYoungDragonEntity.setAttributes());
-            event.put(ModEntityTypes.WHITEADULTDRAGON.get(), WhiteAdultDragonEntity.setAttributes());
-            event.put(ModEntityTypes.WHITEELDERDRAGON.get(), WhiteElderDragonEntity.setAttributes());
-
             event.put(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterEntity.setAttributes());
             event.put(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherEntity.setAttributes());
             event.put(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanEntity.setAttributes());
@@ -55,8 +28,6 @@ public class ModEvents {
 
             event.put(ModEntityTypes.GREENHAG.get(), GreenHagEntity.setAttributes());
 
-            event.put(ModEntityTypes.OWLBEARFOREST.get(), OwlBearForestEntity.setAttributes());
-            event.put(ModEntityTypes.OWLBEARSNOW.get(), OwlBearSnowEntity.setAttributes());
 
             event.put(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightEntity.setAttributes());
             event.put(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightEntity.setAttributes());
@@ -64,7 +35,6 @@ public class ModEvents {
 
 
             event.put(ModEntityTypes.UNICORN.get(), UnicornEntity.setAttributes());
-            event.put(ModEntityTypes.GRIFFON.get(), GriffonEntity.setAttributes());
             event.put(ModEntityTypes.COUATL.get(), CouatlEntity.setAttributes());
             event.put(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerEntity.setAttributes());
             event.put(ModEntityTypes.CLOUDGIANT.get(), CloudGiantEntity.setAttributes());

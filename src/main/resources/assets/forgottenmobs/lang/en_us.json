@@ -7,33 +7,16 @@
 
   "item.forgottenmobs.goblinfang": "Goblin Fang",
 
-  "item.forgottenmobs.griffonfeather": "Griffon Feather",
-  "item.forgottenmobs.griffonbeak": "Griffon Beak",
-  "item.forgottenmobs.owlbearbeak": "Owlbear Beak",
-  "item.forgottenmobs.white_dragon_soul": "White Dragon Soul",
-  "item.forgottenmobs.shadow_dragon_scale": "Shadow Dragon Scale",
-  "item.forgottenmobs.shadow_dragon_soul": "Shadow Dragon Soul",
-  "item.forgottenmobs.white_dragon_scale": "White Dragon Scale",
+
   "item.forgottenmobs.ghost_ash": "Ghost Ash",
   "item.forgottenmobs.unicorn_horn": "Unicorn Horn",
   "item.forgottenmobs.couatlfeather": "Couatl Feather",
-  "item.forgottenmobs.snow_owlbear_fur": "Snow Owlbear Fur",
 
 
   "item.forgottenmobs.animatedleatherarmor_spawn_egg": "Animated Leather Armor Spawn Egg",
   "item.forgottenmobs.animatedironarmor_spawn_egg": "Animated Iron Armor Spawn Egg",
   "item.forgottenmobs.animatedgoldarmor_spawn_egg": "Animated Gold Armor Spawn Egg",
   "item.forgottenmobs.animateddiamondarmor_spawn_egg": "Animated Diamond Armor Spawn Egg",
-
-  "item.forgottenmobs.shadowwyrmling_spawn_egg": "Shadow Wyrmling Spawn Egg",
-  "item.forgottenmobs.shadowyoungdragon_spawn_egg": "Young Shadow Dragon Spawn Egg",
-  "item.forgottenmobs.shadowadultdragon_spawn_egg": "Adult Shadow Dragon Spawn Egg",
-  "item.forgottenmobs.shadowelderdragon_spawn_egg": "Elder Shadow Dragon Spawn Egg",
-
-  "item.forgottenmobs.whitewyrmling_spawn_egg": "White Wyrmling Spawn Egg",
-  "item.forgottenmobs.whiteyoungdragon_spawn_egg": "Young White Dragon Spawn Egg",
-  "item.forgottenmobs.whiteadultdragon_spawn_egg": "Adult White Dragon Spawn Egg",
-  "item.forgottenmobs.whiteelderdragon_spawn_egg": "Elder White Dragon Spawn Egg",
 
   "item.forgottenmobs.goblinfighter_spawn_egg": "Goblin Fighter Spawn Egg",
   "item.forgottenmobs.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
@@ -54,7 +37,6 @@
   "item.forgottenmobs.beholder72_spawn_egg": "Beholder 7 2 Spawn Egg",
 
   "item.forgottenmobs.unicorn_spawn_egg": "Unicorn Spawn Egg",
-  "item.forgottenmobs.griffon_spawn_egg": "Griffon Spawn Egg",
   "item.forgottenmobs.intellectdevourer_spawn_egg": "Intellect Devourer Spawn Egg",
   "item.forgottenmobs.cloudgiant_spawn_egg": "Cloud Giant Spawn Egg",
   "item.forgottenmobs.ghost_spawn_egg": "Ghost Spawn Egg",
@@ -66,8 +48,6 @@
   "item.forgottenmobs.vineblight_spawn_egg": "Vine Blight Spawn Egg",
 
   "block.forgottenmobs.cleansingstone": "Cleansing Stone",
-
-
 
   "entity.forgottenmobs.needleblight": "Needle Blight",
   "entity.forgottenmobs.twigblight": "Twig Blight",
@@ -86,8 +66,6 @@
 
   "entity.forgottenmobs.shamblingmound": "Shambling Mound",
 
-
-
   "entity.forgottenmobs.beholder72": "Beholder",
   "entity.forgottenmobs.beholder71": "Beholder",
 
@@ -100,20 +78,7 @@
   "entity.forgottenmobs.goblinshaman": "Goblin Shaman",
 
   "entity.forgottenmobs.couatl": "Couatl",
-  "entity.forgottenmobs.griffon": "Griffon",
-
-
   "entity.forgottenmobs.greenhag": "Green Hag",
-
-  "entity.forgottenmobs.whiteelderdragon": "Elder White Dragon",
-  "entity.forgottenmobs.whiteadultdragon": "Adult White Dragon",
-  "entity.forgottenmobs.whiteyoungdragon": "Young White Dragon",
-  "entity.forgottenmobs.whitewyrmling": "White Wyrmling",
-
-  "entity.forgottenmobs.shadowelderdragon": "Elder Shadow Dragon",
-  "entity.forgottenmobs.shadowadultdragon": "Adult Shadow Dragon",
-  "entity.forgottenmobs.shadowyoungdragon": "Young Shadow Dragon",
-  "entity.forgottenmobs.shadowwyrmling": "Shadow Wyrmling",
 
   "entity.forgottenmobs.animateddiamondarmor": "Animated Diamond Armor",
   "entity.forgottenmobs.animatedgoldarmor": "Animated Gold Armor",

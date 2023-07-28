@@ -35,49 +35,6 @@ public class ModEntityTypes {
 					() -> EntityType.Builder.of(AnimatedGoldArmorEntity::new, MobCategory.MONSTER)
 							.sized(0.7F, 1.8F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedgoldarmor").toString()));
-
-	public static final RegistryObject<EntityType<ShadowWyrmlingEntity>> SHADOWWYRMLING =
-			ENTITY_TYPES.register("shadowwyrmling",
-					() -> EntityType.Builder.of(ShadowWyrmlingEntity::new, MobCategory.MONSTER)
-							.sized(1.0F, 1.0F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "shadowwyrmling").toString()));
-
-	public static final RegistryObject<EntityType<ShadowYoungDragonEntity>> SHADOWYOUNGDRAGON =
-			ENTITY_TYPES.register("shadowyoungdragon",
-					() -> EntityType.Builder.of(ShadowYoungDragonEntity::new, MobCategory.MONSTER)
-							.sized(1.8F, 1.8F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "shadowyoungdragon").toString()));
-	public static final RegistryObject<EntityType<ShadowAdultDragonEntity>> SHADOWADULTDRAGON =
-			ENTITY_TYPES.register("shadowadultdragon",
-					() -> EntityType.Builder.of(ShadowAdultDragonEntity::new, MobCategory.MONSTER)
-							.sized(2.8F, 2.8F).clientTrackingRange(60)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "shadowadultdragon").toString()));
-	public static final RegistryObject<EntityType<ShadowElderDragonEntity>> SHADOWELDERDRAGON =
-			ENTITY_TYPES.register("shadowelderdragon",
-					() -> EntityType.Builder.of(ShadowElderDragonEntity::new, MobCategory.MONSTER)
-							.sized(3.0F, 3.8F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "shadowelderdragon").toString()));
-	public static final RegistryObject<EntityType<WhiteWyrmlingEntity>> WHITEWYRMLING =
-			ENTITY_TYPES.register("whitewyrmling",
-					() -> EntityType.Builder.of(WhiteWyrmlingEntity::new, MobCategory.MONSTER)
-							.sized(1.0F, 1.0F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "whitewyrmling").toString()));
-
-	public static final RegistryObject<EntityType<WhiteYoungDragonEntity>> WHITEYOUNGDRAGON =
-			ENTITY_TYPES.register("whiteyoungdragon",
-					() -> EntityType.Builder.of(WhiteYoungDragonEntity::new, MobCategory.MONSTER)
-							.sized(4.0F, 1.0F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "whiteyoungdragon").toString()));
-	public static final RegistryObject<EntityType<WhiteAdultDragonEntity>> WHITEADULTDRAGON =
-			ENTITY_TYPES.register("whiteadultdragon",
-					() -> EntityType.Builder.of(WhiteAdultDragonEntity::new, MobCategory.MONSTER)
-							.sized(8.8F, 2.8F).clientTrackingRange(60)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "whiteadultdragon").toString()));
-	public static final RegistryObject<EntityType<WhiteElderDragonEntity>> WHITEELDERDRAGON =
-			ENTITY_TYPES.register("whiteelderdragon",
-					() -> EntityType.Builder.of(WhiteElderDragonEntity::new, MobCategory.MONSTER)
-							.sized(10.0F, 5.0F).clientTrackingRange(100)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "whiteelderdragon").toString()));
 	public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
 			ENTITY_TYPES.register("goblinfighter",
 					() -> EntityType.Builder.of(GoblinFighterEntity::new, MobCategory.MONSTER)
@@ -120,29 +77,11 @@ public class ModEntityTypes {
 							.sized(1.0F, 2.0F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "greenhag").toString()));
 
-	public static final RegistryObject<EntityType<OwlBearForestEntity>> OWLBEARFOREST =
-			ENTITY_TYPES.register("owlbearforest",
-					() -> EntityType.Builder.of(OwlBearForestEntity::new, MobCategory.MONSTER)
-							.sized(1.6F, 2.6F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "owlbearforest").toString()));
-
-	public static final RegistryObject<EntityType<OwlBearSnowEntity>> OWLBEARSNOW =
-			ENTITY_TYPES.register("owlbearsnow",
-					() -> EntityType.Builder.of(OwlBearSnowEntity::new, MobCategory.MONSTER)
-							.sized(1.6F, 2.6F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "owlbearsnow").toString()));
-
 	public static final RegistryObject<EntityType<UnicornEntity>> UNICORN =
 			ENTITY_TYPES.register("unicorn",
 					() -> EntityType.Builder.of(UnicornEntity::new, MobCategory.MONSTER)
 							.sized(1.8F, 1.6F).clientTrackingRange(60)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "unicorn").toString()));
-
-	public static final RegistryObject<EntityType<GriffonEntity>> GRIFFON =
-			ENTITY_TYPES.register("griffin",
-					() -> EntityType.Builder.of(GriffonEntity::new, MobCategory.MONSTER)
-							.sized(1.8F, 1.6F).clientTrackingRange(60)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "griffin").toString()));
 
 	public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
 			ENTITY_TYPES.register("needleblight",
