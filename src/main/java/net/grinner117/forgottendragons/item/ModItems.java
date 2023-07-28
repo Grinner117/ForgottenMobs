@@ -3,6 +3,7 @@ package net.grinner117.forgottendragons.item;
 import net.grinner117.forgottendragons.base.ModArmorMaterial;
 import net.grinner117.forgottendragons.entity.ModEntityTypes;
 import net.grinner117.forgottendragons.ForgottenDragons;
+import net.grinner117.forgottendragons.perk.*;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -59,15 +60,16 @@ public class ModItems {
 
     public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_HELMET = ITEMS.register("lightmonsterbonearmor_helmet",
             () -> new Nightvison_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.HEAD, props()));
-    public static final RegistryObject<ArmorItem> LIGHTMONSTERBONEARMOR_CHESTPLATE = ITEMS.register("lightmonsterbonearmor_chestplate",
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_CHESTPLATE = ITEMS.register("lightmonsterbonearmor_chestplate",
             () -> new DamageRes2_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.CHEST, props()));
-    public static final RegistryObject<ArmorItem> LIGHTMONSTERBONEARMOR_LEGGINGS = ITEMS.register("lightmonsterbonearmor_leggings",
-            () -> new Jump3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
-    public static final RegistryObject<ArmorItem> LIGHTMONSTERBONEARMOR_BOOTS = ITEMS.register("lightmonsterbonearmor_boots",
-            () -> new Speed3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.FEET, props()));
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_LEGGINGS = ITEMS.register("lightmonsterbonearmor_leggings",
+            () -> new Invisablity_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_BOOTS = ITEMS.register("lightmonsterbonearmor_boots",
+            () -> new Damage3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.FEET, props()));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+    private static Item.Properties props(){return new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB); }
 
     public static class ArmorTiers{
         public static final ArmorMaterial SHADOWDRAGONARMOR = new ModArmorMaterial(
