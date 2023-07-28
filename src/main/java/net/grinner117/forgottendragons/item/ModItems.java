@@ -57,14 +57,13 @@ public class ModItems {
     public static final RegistryObject<Item> SHADOW_DRAGON_SCALES = ITEMS.register("shadow_dragon_scales",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
-
-    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_HELMET = ITEMS.register("lightmonsterbonearmor_helmet",
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_HELMET = ITEMS.register("shadowdragonarmor_helmet",
             () -> new Nightvison_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.HEAD, props()));
-    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_CHESTPLATE = ITEMS.register("lightmonsterbonearmor_chestplate",
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_CHESTPLATE = ITEMS.register("shadowdragonarmor_chestplate",
             () -> new DamageRes2_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.CHEST, props()));
-    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_LEGGINGS = ITEMS.register("lightmonsterbonearmor_leggings",
-            () -> new Invisablity_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
-    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_BOOTS = ITEMS.register("lightmonsterbonearmor_boots",
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_LEGGINGS = ITEMS.register("shadowdragonarmor_leggings",
+            () -> new Invisibility_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
+    public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_BOOTS = ITEMS.register("shadowdragonarmor_boots",
             () -> new Damage3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.FEET, props()));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
