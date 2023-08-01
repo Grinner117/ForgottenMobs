@@ -1,6 +1,6 @@
 package net.grinner117.forgottendragons.entity.custom;
 
-import net.grinner117.forgottenmobs.entity.type.WhiteDragon;
+import net.grinner117.forgottendragons.entity.type.WhiteDragon;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
