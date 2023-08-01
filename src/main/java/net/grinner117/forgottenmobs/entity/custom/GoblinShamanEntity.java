@@ -59,7 +59,6 @@ public class GoblinShamanEntity extends Monster implements IAnimatable {
         this.goalSelector.addGoal(1, new GoblinShamanEntity.BlazeAttackGoal(this));
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
-        this.goalSelector.addGoal(7, new AvoidEntityGoal<>(this, OwlBearForestEntity.class, 6.0F, 1.0D, 1.2D));
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));

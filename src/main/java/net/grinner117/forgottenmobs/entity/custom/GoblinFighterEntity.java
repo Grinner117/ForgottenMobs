@@ -48,7 +48,6 @@ public class GoblinFighterEntity extends Monster implements IAnimatable {
 		this.xpReward = 20;
 	}
 
-
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
