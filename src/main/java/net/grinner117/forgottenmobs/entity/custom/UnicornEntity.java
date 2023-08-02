@@ -53,7 +53,6 @@ public class UnicornEntity extends Horse implements IAnimatable {
                 .add(Attributes.JUMP_STRENGTH, 0.5F)
                 .build();
     }
-
     //Sound
     protected void playGallopSound(SoundType p_30709_) {
         super.playGallopSound(p_30709_);

@@ -12,7 +12,7 @@
   ],
   "spawners": {
     "type": "forgottenmobs:goblinfighter",
-    "weight": 60,
+    "weight": 10,
     "minCount": 4,
     "maxCount": 12
   }

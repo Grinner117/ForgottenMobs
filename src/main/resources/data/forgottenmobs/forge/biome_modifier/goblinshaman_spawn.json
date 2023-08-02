@@ -11,20 +11,8 @@
     "minecraft:grove"
   ],
   "spawners": {
-    "type": "forgottenmobs:goblinfighter",
-    "weight": 50,
-    "minCount": 4,
-    "maxCount": 8
-  },
-  "spawners": {
-    "type": "forgottenmobs:goblinarcher",
-    "weight": 70,
-    "minCount": 4,
-    "maxCount": 8
-  },
-  "spawners": {
     "type": "forgottenmobs:goblinshaman",
-    "weight": 60,
+    "weight": 10,
     "minCount": 2,
     "maxCount": 4
   }
