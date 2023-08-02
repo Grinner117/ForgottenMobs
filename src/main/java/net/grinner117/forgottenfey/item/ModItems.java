@@ -1,7 +1,7 @@
 package net.grinner117.forgottenfey.item;
 
+import net.grinner117.forgottenfey.ForgottenFey;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenMobs.MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenFey.MODID);
 
         public static final RegistryObject<Item> GOBLINFIGHTER_SPAWN_EGG = ITEMS.register("goblinfighter_spawn_egg",
             () -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINFIGHTER, 0x9f8636, 0x000000,

@@ -1,6 +1,5 @@
 package net.grinner117.forgottenfey.entity.client.renderer;
 
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.grinner117.forgottenfey.ForgottenFey;
@@ -17,8 +16,8 @@ public class GoblinShamanRenderer extends GeoEntityRenderer<GoblinShamanEntity> 
     public GoblinShamanRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new GoblinShamanModel());
         this.shadowRadius = 0.5f;
-
     }
+
     @Override
     public ResourceLocation getTextureLocation(GoblinShamanEntity instance) {
         return new ResourceLocation(ForgottenFey.MODID, "textures/entity/goblinshaman.png");
