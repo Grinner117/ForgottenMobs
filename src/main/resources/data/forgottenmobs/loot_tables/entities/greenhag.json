@@ -27,6 +27,29 @@
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "forgottenfey:goblinheart",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 1
+              },
+              "add": false
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 0
+              }
+            }
+          ]
         },{
           "type": "minecraft:item",
           "name": "minecraft:blaze_powder",
@@ -89,6 +112,10 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:ghast_tear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "forgottenfey:goblinheart"
         }
       ],
       "conditions": [

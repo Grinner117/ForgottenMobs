@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0" : "forgottenmobs:item/goblinfang"
+    "layer0" : "forgottenfey:item/goblinheart"
   }
 }

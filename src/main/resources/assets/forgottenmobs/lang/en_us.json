@@ -1,26 +1,27 @@
 {
-  "item.forgottenmobs.goblinfang": "Goblin Fang",
+  "item.forgottenfey.goblinfang": "Goblin Fang",
+  "item.forgottenfey.goblinheart": "Goblin Heart",
 
-  "item.forgottenmobs.unicorn_horn": "Unicorn Horn",
-  "item.forgottenmobs.couatlfeather": "Couatl Feather",
+  "item.forgottenfey.unicorn_horn": "Unicorn Horn",
+  "item.forgottenfey.couatlfeather": "Couatl Feather",
 
-  "item.forgottenmobs.goblinfighter_spawn_egg": "Goblin Fighter Spawn Egg",
-  "item.forgottenmobs.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
-  "item.forgottenmobs.goblinshaman_spawn_egg": "Goblin Shaman Spawn Egg",
+  "item.forgottenfey.goblinfighter_spawn_egg": "Goblin Fighter Spawn Egg",
+  "item.forgottenfey.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
+  "item.forgottenfey.goblinshaman_spawn_egg": "Goblin Shaman Spawn Egg",
 
-  "item.forgottenmobs.greenhag_spawn_egg": "Green Hag Spawn Egg",
-  "item.forgottenmobs.grimlock_spawn_egg": "Grimlock Spawn Egg",
+  "item.forgottenfey.greenhag_spawn_egg": "Green Hag Spawn Egg",
+  "item.forgottenfey.grimlock_spawn_egg": "Grimlock Spawn Egg",
 
-   "item.forgottenmobs.unicorn_spawn_egg": "Unicorn Spawn Egg",
+   "item.forgottenfey.unicorn_spawn_egg": "Unicorn Spawn Egg",
 
-  "entity.forgottenmobs.unicorn": "Majestic Unicorn",
+  "entity.forgottenfey.unicorn": "Majestic Unicorn",
 
-  "entity.forgottenmobs.grimlock": "Grimlock",
+  "entity.forgottenfey.grimlock": "Grimlock",
 
-  "entity.forgottenmobs.goblinfighter": "Goblin Fighter",
-  "entity.forgottenmobs.goblinarcher": "Goblin Archer",
-  "entity.forgottenmobs.goblinshaman": "Goblin Shaman",
+  "entity.forgottenfey.goblinfighter": "Goblin Fighter",
+  "entity.forgottenfey.goblinarcher": "Goblin Archer",
+  "entity.forgottenfey.goblinshaman": "Goblin Shaman",
 
-  "entity.forgottenmobs.couatl": "Couatl",
-  "entity.forgottenmobs.greenhag": "Green Hag"
+  "entity.forgottenfey.couatl": "Couatl",
+  "entity.forgottenfey.greenhag": "Green Hag"
 }
