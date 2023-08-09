@@ -1,10 +1,12 @@
 package net.grinner117.forgottenfey;
 
+
 import com.mojang.logging.LogUtils;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
+import net.grinner117.forgottenfey.entity.client.renderer.*;
 import net.grinner117.forgottenfey.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.FlyingMob;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -17,6 +19,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
+
 
 @Mod(ForgottenFey.MODID)
 public class ForgottenFey {
@@ -40,7 +43,6 @@ public class ForgottenFey {
     }
 
     private static void run() {
-
         SpawnPlacements.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINFIGHTER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
@@ -57,9 +59,10 @@ public class ForgottenFey {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
-        SpawnPlacements.register(net.grinner117.forgottenfey.entity.ModEntityTypes.UNICORN.get(),
+        SpawnPlacements.register(ModEntityTypes.UNICORN.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
+                Mob::checkMobSpawnRules);
+
 
         SpawnPlacements.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GRIMLOCK.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
