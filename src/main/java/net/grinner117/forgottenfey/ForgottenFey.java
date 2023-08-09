@@ -33,7 +33,7 @@ public class ForgottenFey {
 
         ModItems.register(modEventBus);
 
-        net.grinner117.forgottenfey.entity.ModEntityTypes.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
         GeckoLib.initialize();
 
         modEventBus.addListener(this::commonSetup);
@@ -83,9 +83,9 @@ public class ForgottenFey {
             EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINARCHER.get(), GoblinArcherRenderer::new);
             EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanRenderer::new);
 
-            EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GREENHAG.get(), GreenHagRenderer::new);
+            EntityRenderers.register(ModEntityTypes.GREENHAG.get(), GreenHagRenderer::new);
 
-            EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
+            EntityRenderers.register(ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
             EntityRenderers.register(ModEntityTypes.GRIMLOCK.get(), GrimlockRenderer::new);
 
         }

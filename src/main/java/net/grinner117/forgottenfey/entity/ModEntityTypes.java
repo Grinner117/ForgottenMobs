@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
 			DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ForgottenFey.MODID);
-			public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
+	public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
 			ENTITY_TYPES.register("goblinfighter",
 					() -> EntityType.Builder.of(GoblinFighterEntity::new, MobCategory.MONSTER)
 							.sized(0.8F, 0.8F).clientTrackingRange(80)
@@ -43,7 +43,7 @@ public class ModEntityTypes {
 							.sized(1.8F, 1.6F).clientTrackingRange(60)
 							.build(new ResourceLocation(ForgottenFey.MODID, "unicorn").toString()));
 
-		public static final RegistryObject<EntityType<GrimlockEntity>> GRIMLOCK =
+	public static final RegistryObject<EntityType<GrimlockEntity>> GRIMLOCK =
 			ENTITY_TYPES.register("grimlock",
 					() -> EntityType.Builder.of(GrimlockEntity::new, MobCategory.MONSTER)
 							.sized(1.8F, 2.5F).clientTrackingRange(80)

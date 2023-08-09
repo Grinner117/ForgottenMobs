@@ -1,9 +1,8 @@
 package net.grinner117.forgottenfey.entity.event;
 
 import net.grinner117.forgottenfey.ForgottenFey;
-import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.custom.*;
+import net.grinner117.forgottenfey.entity.ModEntityTypes;
+import net.grinner117.forgottenfey.entity.custom.*;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
