@@ -27,15 +27,6 @@ public class ModItems {
     public static final RegistryObject<Item> ANIMATEDGOLDARMOR_SPAWN_EGG = ITEMS.register("animatedgoldarmor_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.ANIMATEDGOLDARMOR, 0x1eff3f, 0xe9921a,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-      public static final RegistryObject<Item> GOBLINFIGHTER_SPAWN_EGG = ITEMS.register("goblinfighter_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.GOBLINFIGHTER, 0x9f8636, 0x000000,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> GOBLINARCHER_SPAWN_EGG = ITEMS.register("goblinarcher_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.GOBLINARCHER, 0x9f8636, 0x000000,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> GOBLINSHAMAN_SPAWN_EGG = ITEMS.register("goblinshaman_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.GOBLINSHAMAN, 0x9f8636, 0x000000,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> COUATL_SPAWN_EGG = ITEMS.register("couatl_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.COUATL, 0x14499b, 0xff923c,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
@@ -44,9 +35,6 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> BEHOLDER72_SPAWN_EGG = ITEMS.register("beholder72_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.BEHOLDER72, 0x7d512e, 0x010913,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> GREENHAG_SPAWN_EGG = ITEMS.register("greenhag_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.GREENHAG, 0x7d512e, 0x9f8636,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> NEEDLEBLIGHT_SPAWN_EGG = ITEMS.register("needleblight_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.NEEDLEBLIGHT, 0x231c06, 0x6b5411,
@@ -59,9 +47,6 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> UNICORN_SPAWN_EGG = ITEMS.register("unicorn_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.UNICORN, 0xf0e97f, 0xfbfbfb,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> INTELLECTDEVOURER_SPAWN_EGG = ITEMS.register("intellectdevourer_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.INTELLECTDEVOURER, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
@@ -76,9 +61,6 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> DBEAST_SPAWN_EGG = ITEMS.register("dbeast_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DBEAST, 0x3d3045, 0xb1b901,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> GRIMLOCK_SPAWN_EGG = ITEMS.register("grimlock_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.GRIMLOCK, 0xaa9fae, 0xbebc9b,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHAMBLINGMOUND_SPAWN_EGG = ITEMS.register("shamblingmound_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SHAMBLINGMOUND, 0xea261c, 0x39843e,
@@ -96,18 +78,11 @@ public class ModItems {
                     .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
                             .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 5), 1.0F)
                             .build())));
-    public static final RegistryObject<Item> GOBLINFANG = ITEMS.register("goblinfang",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
-                    .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
-                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
-                            .build())));
     public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GHOST_ASH = ITEMS.register("ghost_ash",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> COUATL_FEATHER = ITEMS.register("couatlfeather",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> UNICORNHORN = ITEMS.register("unicorn_horn",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> COUATL_WINGS = ITEMS.register("couatl_wings",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
