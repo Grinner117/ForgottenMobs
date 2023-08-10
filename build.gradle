@@ -6,7 +6,7 @@ plugins {
 
 }
 
-version = '1.19.2 - 1.0'
+version = '1.19.2 - 1.1'
 group = 'net.grinner117.forgottenangels' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'forgottenangels'
 
@@ -116,7 +116,7 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.38')
-    implementation fg.deobf('curse.maven:forgottenmobs-842942:4652280')
+    implementation fg.deobf('curse.maven:forgottenmobs-842942:4691598')
 
 
 }

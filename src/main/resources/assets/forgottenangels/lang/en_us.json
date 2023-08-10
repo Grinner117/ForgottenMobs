@@ -1,6 +1,14 @@
 {
-  "item.forgottenmobs.planetar_spawn_egg": "Planetar Spawn Egg",
-  "item.forgottenmobs.deva_spawn_egg": "Deva Spawn Egg",
-  "entity.forgottenmobs.planetar": "Planetar",
-  "entity.forgottenmobs.deva": "Deva"
+  "item.forgottenangels.planetar_spawn_egg": "Planetar Spawn Egg",
+  "item.forgottenangels.deva_spawn_egg": "Deva Spawn Egg",
+  "item.forgottenangels.angelfeather": "Angel Feather",
+  "item.forgottenangels.angelheart": "Angel Heart",
+  "item.forgottenangels.angelsoul": "Angel Soul",
+  "item.forgottenangels.angelbone": "Angel Bone",
+  "item.forgottenangels.angelflesh": "Angel Flesh",
+  "item.forgottenangels.angeleye": "Angel Eye",
+  "item.forgottenangels.angeltear": "Angel Tear",
+  "item.forgottenangels.angelblood": "Angel Blood",
+  "entity.forgottenangels.planetar": "Planetar",
+  "entity.forgottenangels.deva": "Deva"
 }
