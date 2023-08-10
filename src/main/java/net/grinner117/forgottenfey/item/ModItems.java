@@ -18,13 +18,13 @@ public class ModItems {
 			DeferredRegister.create(ForgeRegistries.ITEMS, ForgottenFey.MODID);
 
 	public static final RegistryObject<Item> GOBLINFIGHTER_SPAWN_EGG = ITEMS.register("goblinfighter_spawn_egg",
-			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINFIGHTER, 0x9f8636, 0x000000,
+			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINFIGHTER, 0x9f8536, 0x000000,
 					new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> GOBLINARCHER_SPAWN_EGG = ITEMS.register("goblinarcher_spawn_egg",
-			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINARCHER, 0x9f8636, 0x000000,
+			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINARCHER, 0x9f8626, 0x000000,
 					new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> GOBLINSHAMAN_SPAWN_EGG = ITEMS.register("goblinshaman_spawn_egg",
-			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINSHAMAN, 0x9f8636, 0x000000,
+			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINSHAMAN, 0x9f8646, 0x000000,
 					new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> GREENHAG_SPAWN_EGG = ITEMS.register("greenhag_spawn_egg",
 			() -> new ForgeSpawnEggItem(net.grinner117.forgottenfey.entity.ModEntityTypes.GREENHAG, 0x7d512e, 0x9f8636,
