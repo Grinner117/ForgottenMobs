@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0" : "forgottenmobs:item/shadowdragonscale"
+    "layer0" : "forgottendragons:item/shadowdragonscale"
   }
 }
