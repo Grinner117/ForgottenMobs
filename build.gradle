@@ -121,6 +121,7 @@ dependencies {
 
 }
 
+
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
     manifest {

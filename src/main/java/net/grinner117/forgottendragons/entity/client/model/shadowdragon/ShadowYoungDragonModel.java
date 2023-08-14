@@ -1,7 +1,7 @@
 package net.grinner117.forgottendragons.entity.client.model.shadowdragon;
 
 import net.grinner117.forgottendragons.ForgottenDragons;
-import net.grinner117.forgottendragons.entity.custom.ShadowYoungDragonEntity;
+import net.grinner117.forgottendragons.entity.custom.shadowdragon.ShadowYoungDragonEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.grinner117.forgottendragons.ForgottenDragons;
 import net.grinner117.forgottendragons.entity.client.model.whitedragon.WhiteAdultDragonModel;
-import net.grinner117.forgottendragons.entity.custom.WhiteAdultDragonEntity;
+import net.grinner117.forgottendragons.entity.custom.whitedragon.WhiteAdultDragonEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
