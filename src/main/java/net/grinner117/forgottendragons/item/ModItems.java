@@ -44,12 +44,27 @@ public class ModItems {
     public static final RegistryObject<Item> WHITEELDERDRAGON_SPAWN_EGG = ITEMS.register("whiteelderdragon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.WHITEELDERDRAGON, 0x1eff3f, 0x000000,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+    public static final RegistryObject<Item> FIREWYRMLING_SPAWN_EGG = ITEMS.register("firewyrmling_spawn_egg",
+            () -> new ForgeSpawnEggItem(net.grinner117.forgottendragons.entity.ModEntityTypes.FIREWYRMLING, 0xd64129, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> FIREYOUNGDRAGON_SPAWN_EGG = ITEMS.register("fireyoungdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(net.grinner117.forgottendragons.entity.ModEntityTypes.FIREYOUNGDRAGON, 0xd64129, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> FIREADULTDRAGON_SPAWN_EGG = ITEMS.register("fireadultdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(net.grinner117.forgottendragons.entity.ModEntityTypes.FIREADULTDRAGON, 0xd64129, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> FIREELDERDRAGON_SPAWN_EGG = ITEMS.register("fireelderdragon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.FIREELDERDRAGON, 0xd64129, 0x000000,
+                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
      public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> WHITE_DRAGON_SOUL = ITEMS.register("white_dragon_soul",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHADOW_DRAGON_SOUL = ITEMS.register("shadow_dragon_soul",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> FIRE_DRAGON_SOUL = ITEMS.register("shadow_dragon_soul",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> WHITE_DRAGON_SCALES = ITEMS.register("white_dragon_scales",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
@@ -78,6 +93,24 @@ public class ModItems {
                 SoundEvents.ARMOR_EQUIP_NETHERITE,
                 10.0f, 0.8f,
                 () -> Ingredient.of(ModItems.SHADOW_DRAGON_SOUL.get()));
+
+        public static final ArmorMaterial FIREDRAGONARMOR = new ModArmorMaterial(
+                "whitedragonarmor",
+                2200,
+                new int[]{7,15,12,7},
+                200,
+                SoundEvents.ARMOR_EQUIP_NETHERITE,
+                10.0f, 0.8f,
+                () -> Ingredient.of(ModItems.FIRE_DRAGON_SOUL.get()));
+
+        public static final ArmorMaterial WHITTEDRAGONARMOR = new ModArmorMaterial(
+                "firedragonarmor",
+                2200,
+                new int[]{7,15,12,7},
+                200,
+                SoundEvents.ARMOR_EQUIP_NETHERITE,
+                10.0f, 0.8f,
+                () -> Ingredient.of(ModItems.WHITE_DRAGON_SOUL.get()));
 
     }
 

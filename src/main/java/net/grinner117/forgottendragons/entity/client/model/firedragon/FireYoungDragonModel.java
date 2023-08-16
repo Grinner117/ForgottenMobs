@@ -1,6 +1,7 @@
 package net.grinner117.forgottendragons.entity.client.model.firedragon;
 
 import net.grinner117.forgottendragons.ForgottenDragons;
+import net.grinner117.forgottendragons.entity.custom.firedragon.FireYoungDragonEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
