@@ -70,6 +70,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHADOW_DRAGON_SCALES = ITEMS.register("shadow_dragon_scales",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+    public static final RegistryObject<Item> FIRE_DRAGON_SCALES = ITEMS.register("fire_dragon_scales",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
     public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_HELMET = ITEMS.register("shadowdragonarmor_helmet",
             () -> new Nightvison_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.HEAD, props()));

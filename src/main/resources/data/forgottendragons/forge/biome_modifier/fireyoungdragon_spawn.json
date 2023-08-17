@@ -1,16 +1,9 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
-	"minecraft:nether_wastes",
-	"minecraft:soul_sand_valley",
-	"minecraft:basalt_deltas",
-	"minecraft:crimson_forest",
-	"minecraft:eroded_badlands",
-	"minecraft:desert",
-	"minecraft:badlands"
   ],
   "spawners": {
-	"type": "forgottendragons:fireadultdragon",
+	"type": "forgottendragons:fireyoungdragon",
 	"weight": 1,
 	"minCount": 1,
 	"maxCount": 1
