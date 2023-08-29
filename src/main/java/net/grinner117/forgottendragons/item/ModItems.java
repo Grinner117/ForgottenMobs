@@ -64,7 +64,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHADOW_DRAGON_SOUL = ITEMS.register("shadow_dragon_soul",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> FIRE_DRAGON_SOUL = ITEMS.register("shadow_dragon_soul",
+    public static final RegistryObject<Item> FIRE_DRAGON_SOUL = ITEMS.register("fire_dragon_soul",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> WHITE_DRAGON_SCALES = ITEMS.register("white_dragon_scales",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
