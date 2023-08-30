@@ -78,41 +78,64 @@ public class ModItems {
     public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_CHESTPLATE = ITEMS.register("shadowdragonarmor_chestplate",
             () -> new DamageRes2_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.CHEST, props()));
     public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_LEGGINGS = ITEMS.register("shadowdragonarmor_leggings",
-            () -> new Invisibility_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
+            () -> new SlowFalling_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.LEGS, props()));
     public static final RegistryObject<ArmorItem> SHADOWDRAGONARMOR_BOOTS = ITEMS.register("shadowdragonarmor_boots",
             () -> new Damage3_Perk(ArmorTiers.SHADOWDRAGONARMOR, EquipmentSlot.FEET, props()));
+
+    public static final RegistryObject<ArmorItem> WHITEDRAGONARMOR_HELMET = ITEMS.register("whitedragonarmor_helmet",
+            () -> new Damage_Perk(ArmorTiers.WHITTEDRAGONARMOR, EquipmentSlot.HEAD, props()));
+    public static final RegistryObject<ArmorItem> WHITEDRAGONARMOR_CHESTPLATE = ITEMS.register("whitedragonarmor_chestplate",
+            () -> new Health3_Perk(ArmorTiers.WHITTEDRAGONARMOR, EquipmentSlot.CHEST, props()));
+    public static final RegistryObject<ArmorItem> WHITEDRAGONARMOR_LEGGINGS = ITEMS.register("whitedragonarmor_leggings",
+            () -> new Jump3_Perk(ArmorTiers.WHITTEDRAGONARMOR, EquipmentSlot.LEGS, props()));
+    public static final RegistryObject<ArmorItem> WHITEDRAGONARMOR_BOOTS = ITEMS.register("whitedragonarmor_boots",
+            () -> new DamageRes2_Perk(ArmorTiers.WHITTEDRAGONARMOR, EquipmentSlot.FEET, props()));
+
+    public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_HELMET = ITEMS.register("firedragonarmor_helmet",
+            () -> new Regeneration2_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.HEAD, props()));
+    public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_CHESTPLATE = ITEMS.register("firedragonarmor_chestplate",
+            () -> new DamageRes2_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.CHEST, props()));
+    public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_LEGGINGS = ITEMS.register("firedragonarmor_leggings",
+            () -> new SlowFalling_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.LEGS, props()));
+    public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_BOOTS = ITEMS.register("firedragonarmor_boots",
+            () -> new Damage3_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.FEET, props()));
+
+
+
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
     private static Item.Properties props(){return new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB); }
 
     public static class ArmorTiers{
+
         public static final ArmorMaterial SHADOWDRAGONARMOR = new ModArmorMaterial(
                 "shadowdragonarmor",
                 2200,
                 new int[]{7,15,12,7},
                 200,
-                SoundEvents.ARMOR_EQUIP_NETHERITE,
+                SoundEvents.PHANTOM_SWOOP,
                 10.0f, 0.8f,
-                () -> Ingredient.of(ModItems.SHADOW_DRAGON_SOUL.get()));
+                () -> Ingredient.of(ModItems.SHADOW_DRAGON_SCALES.get()));
 
         public static final ArmorMaterial FIREDRAGONARMOR = new ModArmorMaterial(
-                "whitedragonarmor",
-                2200,
+                "firedragonarmor",
+                2500,
                 new int[]{7,15,12,7},
                 200,
-                SoundEvents.ARMOR_EQUIP_NETHERITE,
+                SoundEvents.PHANTOM_SWOOP,
                 10.0f, 0.8f,
-                () -> Ingredient.of(ModItems.FIRE_DRAGON_SOUL.get()));
+                () -> Ingredient.of(ModItems.FIRE_DRAGON_SCALES.get()));
 
         public static final ArmorMaterial WHITTEDRAGONARMOR = new ModArmorMaterial(
-                "firedragonarmor",
-                2200,
+                "whitedragonarmor",
+                2600,
                 new int[]{7,15,12,7},
                 200,
-                SoundEvents.ARMOR_EQUIP_NETHERITE,
-                10.0f, 0.8f,
-                () -> Ingredient.of(ModItems.WHITE_DRAGON_SOUL.get()));
+                SoundEvents.PHANTOM_SWOOP,
+                14.0f, 1.8f,
+                () -> Ingredient.of(ModItems.WHITE_DRAGON_SCALES.get()));
 
     }
 

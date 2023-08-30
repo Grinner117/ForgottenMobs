@@ -3,37 +3,44 @@
   "item.forgottendragons.shadow_dragon_scale": "Shadow Dragon Scale",
   "item.forgottendragons.shadow_dragon_soul": "Shadow Dragon Soul",
   "item.forgottendragons.white_dragon_scale": "White Dragon Scale",
-
   "item.forgottendragons.shadow_dragon_boots": "Shadow Dragon Boots",
   "item.forgottendragons.shadow_dragon_helmet": "Shadow Dragon Helmet",
   "item.forgottendragons.shadow_dragon_leggings": "Shadow Dragon Leggings",
   "item.forgottendragons.shadow_dragon_chestplate": "Shadow Dragon Chestplate",
-
   "item.forgottendragons.shadowwyrmling_spawn_egg": "Shadow Wyrmling Spawn Egg",
   "item.forgottendragons.shadowyoungdragon_spawn_egg": "Young Shadow Dragon Spawn Egg",
   "item.forgottendragons.shadowadultdragon_spawn_egg": "Adult Shadow Dragon Spawn Egg",
   "item.forgottendragons.shadowelderdragon_spawn_egg": "Elder Shadow Dragon Spawn Egg",
-
   "item.forgottendragons.whitewyrmling_spawn_egg": "White Wyrmling Spawn Egg",
   "item.forgottendragons.whiteyoungdragon_spawn_egg": "Young White Dragon Spawn Egg",
   "item.forgottendragons.whiteadultdragon_spawn_egg": "Adult White Dragon Spawn Egg",
   "item.forgottendragons.whiteelderdragon_spawn_egg": "Elder White Dragon Spawn Egg",
-
   "item.forgottendragons.firewyrmling_spawn_egg": "Fire Wyrmling Spawn Egg",
   "item.forgottendragons.fireyoungdragon_spawn_egg": "Young Fire Dragon Spawn Egg",
   "item.forgottendragons.fireadultdragon_spawn_egg": "Adult Fire Dragon Spawn Egg",
   "item.forgottendragons.fireelderdragon_spawn_egg": "Elder Fire Dragon Spawn Egg",
 
+  "item.forgottendragons.shadowdragonarmor_helmet": "Shadow Helmet",
+  "item.forgottendragons.shadowdragonarmor_chestplate": "Shadow Chestplate",
+  "item.forgottendragons.shadowdragonarmor_leggings": "Shadow Leggings",
+  "item.forgottendragons.shadowdragonarmor_boots": "Shadow Boots",
+
+  "item.forgottendragons.whitedragonarmor_helmet": "White Helmet",
+  "item.forgottendragons.whitedragonarmor_chestplate": "White Chestplate",
+  "item.forgottendragons.whitedragonarmor_leggings": "White Leggings",
+  "item.forgottendragons.whitedragonarmor_boots": "White Boots",
+
+  "item.forgottendragons.firedragonarmor_helmet": "Fire Helmet",
+  "item.forgottendragons.firedragonarmor_chestplate": "Fire Chestplate",
+  "item.forgottendragons.firedragonarmor_leggings": "Fire Leggings",
+  "item.forgottendragons.firedragonarmor_boots": "Fire Boots",
 
   "entity.forgottendragons.whiteelderdragon": "Elder White Dragon",
   "entity.forgottendragons.whiteadultdragon": "Adult White Dragon",
   "entity.forgottendragons.whiteyoungdragon": "Young White Dragon",
   "entity.forgottendragons.whitewyrmling": "White Wyrmling",
-
   "entity.forgottendragons.shadowelderdragon": "Elder Shadow Dragon",
   "entity.forgottendragons.shadowadultdragon": "Adult Shadow Dragon",
   "entity.forgottendragons.shadowyoungdragon": "Young Shadow Dragon",
   "entity.forgottendragons.shadowwyrmling": "Shadow Wyrmling"
-
-
 }
