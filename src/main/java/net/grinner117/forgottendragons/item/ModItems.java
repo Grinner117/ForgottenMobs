@@ -94,9 +94,9 @@ public class ModItems {
     public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_HELMET = ITEMS.register("firedragonarmor_helmet",
             () -> new Regeneration2_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.HEAD, props()));
     public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_CHESTPLATE = ITEMS.register("firedragonarmor_chestplate",
-            () -> new DamageRes2_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.CHEST, props()));
+            () -> new Fire_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.CHEST, props()));
     public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_LEGGINGS = ITEMS.register("firedragonarmor_leggings",
-            () -> new SlowFalling_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.LEGS, props()));
+            () -> new Speed3_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.LEGS, props()));
     public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_BOOTS = ITEMS.register("firedragonarmor_boots",
             () -> new Damage3_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.FEET, props()));
 
@@ -133,7 +133,7 @@ public class ModItems {
                 2600,
                 new int[]{7,15,12,7},
                 200,
-                SoundEvents.PHANTOM_SWOOP,
+                SoundEvents.GLASS_BREAK,
                 14.0f, 1.8f,
                 () -> Ingredient.of(ModItems.WHITE_DRAGON_SCALES.get()));
 
