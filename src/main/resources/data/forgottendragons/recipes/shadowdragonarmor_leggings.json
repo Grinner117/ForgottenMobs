@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
 	"X": {
-	  "item": "forgottenmobs:shadow_dragon_scales"
+	  "item": "forgottendragons:shadow_dragon_scales"
 	}
   },
   "pattern": [
@@ -11,6 +11,6 @@
 	"X X"
   ],
   "result": {
-	"item": "forgottenmobs:shadowdragonarmor_leggings"
+	"item": "forgottendragons:shadowdragonarmor_leggings"
   }
 }

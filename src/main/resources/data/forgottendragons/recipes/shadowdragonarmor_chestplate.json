@@ -2,15 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "key": {
 	"X": {
-	  "item": "forgottenmobs:shadow_dragon_scales"
+	  "item": "forgottendragons:shadow_dragon_scales"
+	},
+	"#": {
+	  "item": "forgottendragons:shadow_dragon_soul"
 	}
   },
   "pattern": [
 	"X X",
-	"XXX",
+	"X#X",
 	"XXX"
   ],
   "result": {
-	"item": "forgottenmobs:shadowdragonarmor_chestplate"
+	"item": "forgottendragons:shadowdragonarmor_chestplate"
   }
 }
