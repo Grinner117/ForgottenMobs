@@ -1,4 +1,4 @@
-package net.grinner117.forgottendragons.perk;
+package net.grinner117.forgottenmobs.perk;
 
 
 import net.minecraft.ChatFormatting;

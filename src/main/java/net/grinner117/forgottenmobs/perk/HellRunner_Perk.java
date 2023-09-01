@@ -16,9 +16,8 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-
-public class Damage2_Perk extends ArmorItem {
-	public Damage2_Perk(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
+public class HellRunner_Perk extends ArmorItem {
+	public HellRunner_Perk(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
 		super(material, slot, properties);
 
 	}
@@ -26,16 +25,22 @@ public class Damage2_Perk extends ArmorItem {
 	@Override
 	public void onArmorTick(ItemStack stack, Level world, Player player) {
 		if (!world.isClientSide()) {
-			player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, false, false, true));
+			player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0, false, false, false));
+			player.addEffect(new MobEffectInstance(MobEffects.JUMP, 200, 0, false, false, false));
+			player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200, 0, false, false, false));
+			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false, false));
+			player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 2, false, false, true));
+
 		}
+
 	}
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> componets, TooltipFlag flag) {
 		if (Screen.hasShiftDown()) {
-			componets.add(Component.literal("Damage 3").withStyle(ChatFormatting.DARK_AQUA));
+			componets.add(Component.literal("Slowfalling, Jump, Saturation, Speed, Fire Resistance").withStyle(ChatFormatting.DARK_AQUA));
 		} else {
-			componets.add(Component.literal("Shift Right click for more Info").withStyle(ChatFormatting.YELLOW));
+			componets.add(Component.literal("Hell Runner").withStyle(ChatFormatting.YELLOW));
 		}
 		super.appendHoverText(stack, level, componets, flag);
 	}

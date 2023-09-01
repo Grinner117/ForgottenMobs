@@ -1,4 +1,4 @@
-package net.grinner117.forgottendragons.perk;
+package net.grinner117.forgottenmobs.perk;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -16,8 +16,8 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Invisibility_Perk extends ArmorItem {
-    public Invisibility_Perk(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
+public class FireRes_Perk extends ArmorItem {
+    public FireRes_Perk(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
         super(material, slot, properties);
 
     }
@@ -25,14 +25,14 @@ public class Invisibility_Perk extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if (!world.isClientSide()) {
-            player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 200, 0,false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 2, false, false, true));
         }
-
     }
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> componets, TooltipFlag flag){
         if(Screen.hasShiftDown()){
-            componets.add(Component.literal("Invisibility").withStyle(ChatFormatting.DARK_AQUA));
+            componets.add(Component.literal("Damage 3").withStyle(ChatFormatting.DARK_AQUA));
         } else{
             componets.add(Component.literal("Shift Right click for more Info").withStyle(ChatFormatting.YELLOW));
         }
