@@ -5,7 +5,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.2 - 1.0'
+version = '1.19.2 - 2.6'
 group = 'net.grinner117.forgottenfey' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'forgottenfey'
 
@@ -99,7 +99,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.38')
-    implementation fg.deobf('curse.maven:forgottenfey-842942:4652280')
+    implementation fg.deobf('curse.maven:forgottenfey-842942:4731972')
 
 }
 
