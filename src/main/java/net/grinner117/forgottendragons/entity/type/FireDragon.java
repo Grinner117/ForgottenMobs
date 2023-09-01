@@ -27,6 +27,11 @@ public class FireDragon extends Dragon {
 
 	private int explosionPower = 1;
 
+	public int getMaxSpawnClusterSize() {
+		return 1;
+	}
+
+
 	public void setCharging(boolean pCharging) {
 		this.entityData.set(DATA_IS_CHARGING, pCharging);
 	}

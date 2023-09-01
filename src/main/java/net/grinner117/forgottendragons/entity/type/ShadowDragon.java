@@ -12,6 +12,9 @@ public class ShadowDragon extends Dragon {
     public ShadowDragon(EntityType<? extends Dragon> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
     }
+    public int getMaxSpawnClusterSize() {
+        return 1;
+    }
 
     //particle effect
     @Override
