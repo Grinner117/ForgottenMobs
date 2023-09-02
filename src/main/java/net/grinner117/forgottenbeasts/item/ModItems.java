@@ -3,10 +3,13 @@ package net.grinner117.forgottenbeasts.item;
 import net.grinner117.forgottenbeasts.entity.ModEntityTypes;
 import net.grinner117.forgottenbeasts.ForgottenBeasts;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -59,4 +62,35 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
 
+
+    public static class ArmorTiers {
+
+        public static final ArmorMaterial SHADOWDRAGONARMOR = new ModArmorMaterial(
+                "shadowdragonarmor",
+                2200,
+                new int[]{7, 15, 12, 7},
+                200,
+                SoundEvents.PHANTOM_SWOOP,
+                10.0f, 0.8f,
+                () -> Ingredient.of(ModItems.SHADOW_DRAGON_SCALES.get()));
+
+        public static final ArmorMaterial FIREDRAGONARMOR = new ModArmorMaterial(
+                "firedragonarmor",
+                2500,
+                new int[]{7, 15, 12, 7},
+                200,
+                SoundEvents.PHANTOM_SWOOP,
+                10.0f, 0.8f,
+                () -> Ingredient.of(ModItems.FIRE_DRAGON_SCALES.get()));
+
+        public static final ArmorMaterial WHITTEDRAGONARMOR = new ModArmorMaterial(
+                "whitedragonarmor",
+                2600,
+                new int[]{7, 15, 12, 7},
+                200,
+                SoundEvents.GLASS_BREAK,
+                14.0f, 1.8f,
+                () -> Ingredient.of(ModItems.WHITE_DRAGON_SCALES.get()));
+
+    }
 }
