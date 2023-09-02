@@ -1,5 +1,6 @@
 package net.grinner117.forgottenbeasts.item;
 
+import net.grinner117.forgottenbeasts.base.ModArmorMaterial;
 import net.grinner117.forgottenbeasts.entity.ModEntityTypes;
 import net.grinner117.forgottenbeasts.ForgottenBeasts;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
