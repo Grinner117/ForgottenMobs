@@ -66,32 +66,23 @@ public class ModItems {
 
     public static class ArmorTiers {
 
-        public static final ArmorMaterial SHADOWDRAGONARMOR = new ModArmorMaterial(
-                "shadowdragonarmor",
-                2200,
-                new int[]{7, 15, 12, 7},
-                200,
-                SoundEvents.PHANTOM_SWOOP,
-                10.0f, 0.8f,
-                () -> Ingredient.of(ModItems.SHADOW_DRAGON_SCALES.get()));
+        public static final ArmorMaterial SNOWOWLBEARARMOR = new ModArmorMaterial(
+                "snowowlbeararmor",
+                1800,
+                new int[]{5, 12, 10, 5},
+                100,
+                SoundEvents.ARMOR_EQUIP_LEATHER,
+                8.0f, 0.8f,
+                () -> Ingredient.of(ModItems.SNOW_OWLBEAR_FUR.get()));
 
-        public static final ArmorMaterial FIREDRAGONARMOR = new ModArmorMaterial(
-                "firedragonarmor",
-                2500,
-                new int[]{7, 15, 12, 7},
-                200,
-                SoundEvents.PHANTOM_SWOOP,
-                10.0f, 0.8f,
-                () -> Ingredient.of(ModItems.FIRE_DRAGON_SCALES.get()));
-
-        public static final ArmorMaterial WHITTEDRAGONARMOR = new ModArmorMaterial(
-                "whitedragonarmor",
-                2600,
-                new int[]{7, 15, 12, 7},
-                200,
-                SoundEvents.GLASS_BREAK,
-                14.0f, 1.8f,
-                () -> Ingredient.of(ModItems.WHITE_DRAGON_SCALES.get()));
+        public static final ArmorMaterial FORESTOWLBEARARMOR = new ModArmorMaterial(
+                "forestowlbeararmor",
+                1800,
+                new int[]{5, 12, 10, 5},
+                100,
+                SoundEvents.ARMOR_EQUIP_LEATHER,
+                8.0f, 0.8f,
+                () -> Ingredient.of(ModItems.FOREST_OWLBEAR_FUR.get()));
 
     }
 }
