@@ -4,9 +4,11 @@ import net.grinner117.forgottenbeasts.base.ModArmorMaterial;
 import net.grinner117.forgottenbeasts.entity.ModEntityTypes;
 import net.grinner117.forgottenbeasts.ForgottenBeasts;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
+import net.grinner117.forgottenmobs.perk.Health3_Perk;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
@@ -46,9 +48,13 @@ public class ModItems {
     public static final RegistryObject<Item> FOREST_OWLBEAR_HELEMET = ITEMS.register("forest_owlbear_helemet",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> FOREST_OWLBEAR_CHESTPLATE = ITEMS.register("forest_owlbear_chestplate",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+            			() -> new Health3_Perk(ArmorTiers.FORESTOWLBEARARMOR, EquipmentSlot.FEET, props()));
     public static final RegistryObject<Item> GRIFFONFEATHER = ITEMS.register("griffonfeather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
+   //public static final RegistryObject<ArmorItem> FIREDRAGONARMOR_BOOTS = ITEMS.register("firedragonarmor_boots",
+   //			() -> new Damage3_Perk(ArmorTiers.FIREDRAGONARMOR, EquipmentSlot.FEET, props()));
     public static final RegistryObject<Item> GRIFFONBEAK = ITEMS.register("griffonbeak",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
                     .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
