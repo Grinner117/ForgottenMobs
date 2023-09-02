@@ -3,14 +3,17 @@
   "item.forgottenbeasts.griffonbeak": "Griffon Beak",
   "item.forgottenbeasts.owlbearbeak": "Owlbear Beak",
   "item.forgottenbeasts.snow_owlbear_fur": "Snow Owlbear Fur",
+  "item.forgottenbeasts.forest_owlbear_fur": "Forest Owlbear Fur",
+  "item.forgottenbeasts.forest_owlbear_chestplate": "Forest Owlbear Chestplate",
+  "item.forgottenbeasts.forest_owlbear_helmet": "Forest Owlbear Helmet",
+  "item.forgottenbeasts.snow_owlbear_chestplate": "Snow Owlbear Chestplate",
+  "item.forgottenbeasts.snow_owlbear_helmet": "Snow Owlbear Helmet",
   "item.forgottenbeasts.owlbearforest_spawn_egg": "Forest OwlBear Spawn Egg",
   "item.forgottenbeasts.owlbearsnow_spawn_egg": "Snow OwlBear Spawn Egg",
   "item.forgottenbeasts.griffon_spawn_egg": "Griffon Spawn Egg",
   "item.forgottenbeasts.stirge_spawn_egg": "Stirge Spawn Egg",
-
   "entity.forgottenbeasts.owlbearforest": "OwlBear",
   "entity.forgottenbeasts.owlbearsnow": "OwlBear",
   "entity.forgottenbeasts.stirge": "Stirge",
-
   "entity.forgottenbeasts.griffon": "Griffon"
 }
