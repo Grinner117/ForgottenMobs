@@ -44,11 +44,11 @@ public class ModItems {
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> FOREST_OWLBEAR_FUR = ITEMS.register("forest_owlbear_fur",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-	public static final RegistryObject<Item> SNOW_OWLBEAR_HELEMET = ITEMS.register("snow_owlbear_helemet",
+	public static final RegistryObject<Item> SNOW_OWLBEAR_HELMET = ITEMS.register("snow_owlbear_helmet",
 			() -> new Nightvison_Perk(ArmorTiers.SNOWOWLBEARARMOR, EquipmentSlot.HEAD, props()));
 	public static final RegistryObject<Item> SNOW_OWLBEAR_CHESTPLATE = ITEMS.register("snow_owlbear_chestplate",
 			() -> new Health3_Perk(ArmorTiers.SNOWOWLBEARARMOR, EquipmentSlot.CHEST, props()));
-	public static final RegistryObject<Item> FOREST_OWLBEAR_HELEMET = ITEMS.register("forest_owlbear_helemet",
+	public static final RegistryObject<Item> FOREST_OWLBEAR_HELMET = ITEMS.register("forest_owlbear_helmet",
 			() -> new Regeneration2_Perk(ArmorTiers.FORESTOWLBEARARMOR, EquipmentSlot.HEAD, props()));
 	public static final RegistryObject<Item> FOREST_OWLBEAR_CHESTPLATE = ITEMS.register("forest_owlbear_chestplate",
 			() -> new Health3_Perk(ArmorTiers.FORESTOWLBEARARMOR, EquipmentSlot.CHEST, props()));
