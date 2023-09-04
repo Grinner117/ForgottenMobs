@@ -65,7 +65,6 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
-
         SpawnPlacements.register(ModEntityTypes.BEHOLDER71.get(),
                 SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FlyingMob::checkMobSpawnRules);
@@ -81,7 +80,6 @@ public class ForgottenMobs {
         SpawnPlacements.register(ModEntityTypes.TWIGBLIGHT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
-
 
         SpawnPlacements.register(ModEntityTypes.VINEBLIGHT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -132,7 +130,6 @@ public class ForgottenMobs {
 
             EntityRenderers.register(ModEntityTypes.BEHOLDER71.get(), Beholder71Renderer::new);
             EntityRenderers.register(ModEntityTypes.BEHOLDER72.get(), Beholder72Renderer::new);
-
 
             EntityRenderers.register(ModEntityTypes.NEEDLE.get(), NeedleRenderer::new);
             EntityRenderers.register(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightRenderer::new);

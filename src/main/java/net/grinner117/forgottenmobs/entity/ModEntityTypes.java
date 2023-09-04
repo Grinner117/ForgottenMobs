@@ -53,17 +53,7 @@ public class ModEntityTypes {
 					() -> EntityType.Builder.of(Beholder72Entity::new, MobCategory.MONSTER)
 							.sized(2.0F, 3.0F).clientTrackingRange(120)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "beholder72").toString()));
-<<<<<<< HEAD
 
-	public static final RegistryObject<EntityType<GreenHagEntity>> GREENHAG =
-			ENTITY_TYPES.register("greenhag",
-					() -> EntityType.Builder.of(GreenHagEntity::new, MobCategory.MONSTER)
-							.sized(1.0F, 2.0F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "greenhag").toString()));
-
-
-=======
->>>>>>> 1.19.2
 	public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
 			ENTITY_TYPES.register("needleblight",
 					() -> EntityType.Builder.of(NeedleBlightEntity::new, MobCategory.MONSTER)
