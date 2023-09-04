@@ -35,23 +35,6 @@ public class ModEntityTypes {
 					() -> EntityType.Builder.of(AnimatedGoldArmorEntity::new, MobCategory.MONSTER)
 							.sized(0.7F, 1.8F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedgoldarmor").toString()));
-	public static final RegistryObject<EntityType<GoblinFighterEntity>> GOBLINFIGHTER =
-			ENTITY_TYPES.register("goblinfighter",
-					() -> EntityType.Builder.of(GoblinFighterEntity::new, MobCategory.MONSTER)
-							.sized(0.8F, 0.8F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "goblinfighter").toString()));
-
-	public static final RegistryObject<EntityType<GoblinArcherEntity>> GOBLINARCHER =
-			ENTITY_TYPES.register("goblinarcher",
-					() -> EntityType.Builder.of(GoblinArcherEntity::new, MobCategory.MONSTER)
-							.sized(0.8F, 0.8F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "goblinarcher").toString()));
-
-	public static final RegistryObject<EntityType<GoblinShamanEntity>> GOBLINSHAMAN =
-			ENTITY_TYPES.register("goblinshaman",
-					() -> EntityType.Builder.of(GoblinShamanEntity::new, MobCategory.MONSTER)
-							.sized(0.8F, 0.8F).clientTrackingRange(80)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "goblinshaman").toString()));
 
 	public static final RegistryObject<EntityType<CouatlEntity>> COUATL =
 			ENTITY_TYPES.register("couatl",
@@ -77,11 +60,6 @@ public class ModEntityTypes {
 							.sized(1.0F, 2.0F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "greenhag").toString()));
 
-	public static final RegistryObject<EntityType<UnicornEntity>> UNICORN =
-			ENTITY_TYPES.register("unicorn",
-					() -> EntityType.Builder.of(UnicornEntity::new, MobCategory.MONSTER)
-							.sized(1.8F, 1.6F).clientTrackingRange(60)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "unicorn").toString()));
 
 	public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
 			ENTITY_TYPES.register("needleblight",
