@@ -12,41 +12,46 @@ public record ModArmorMaterial(String name, int durablity, int[] protection, int
                                float toughness, float knocbackResistance,
                                Supplier<Ingredient> repairMaterial) implements ArmorMaterial {
 
-    private static final int[] DURABLILITY_PER_SLOT = new int[] {13,15,16,11};
-    @Override
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return DURABLILITY_PER_SLOT[slot.getIndex()]= this.durablity;
-    }
-    @Override
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.protection[slot.getIndex()];
-    }
+	private static final int[] DURABLILITY_PER_SLOT = new int[]{13, 15, 16, 11};
 
-    @Override
-    public int getEnchantmentValue() {
-        return this.enchantability;
-    }
+	@Override
+	public int getDurabilityForSlot(EquipmentSlot slot) {
+		return DURABLILITY_PER_SLOT[slot.getIndex()] = this.durablity;
+	}
 
-    @Override
-    public SoundEvent getEquipSound() {
-        return this.equipsound;
-    }
+	@Override
+	public int getDefenseForSlot(EquipmentSlot slot) {
+		return this.protection[slot.getIndex()];
+	}
 
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairMaterial().get();
-    }
 
-    @Override
-    public String getName() {
-        return ForgottenBeasts.MODID + ":" + this.name;
-    }
-    @Override
-    public float getToughness() {
-        return this.toughness;
-    }
-    @Override
-    public float getKnockbackResistance() {
-        return this.knocbackResistance;
-    }
+	@Override
+	public int getEnchantmentValue() {
+		return this.enchantability;
+	}
+
+	@Override
+	public SoundEvent getEquipSound() {
+		return this.equipsound;
+	}
+
+	@Override
+	public Ingredient getRepairIngredient() {
+		return this.repairMaterial().get();
+	}
+
+	@Override
+	public String getName() {
+		return ForgottenBeasts.MODID + ":" + this.name;
+	}
+
+	@Override
+	public float getToughness() {
+		return this.toughness;
+	}
+
+	@Override
+	public float getKnockbackResistance() {
+		return this.knocbackResistance;
+	}
 }
