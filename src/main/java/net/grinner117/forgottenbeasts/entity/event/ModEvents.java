@@ -19,5 +19,9 @@ public class ModEvents {
 
 			event.put(ModEntityTypes.GRIFFON.get(), net.grinner117.forgottenbeasts.entity.custom.GriffonEntity.setAttributes());
 		}
+		@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+		public class ArmorHandlers {
+
+		}
 	}
 }

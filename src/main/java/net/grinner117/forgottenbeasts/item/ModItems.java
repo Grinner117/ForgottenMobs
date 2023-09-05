@@ -79,7 +79,7 @@ public class ModItems {
 		public static final ArmorMaterial SNOWOWLBEARARMOR = new ModArmorMaterial(
 				"snowowlbeararmor",
 				1800,
-				new int[]{5, 12, 10, 5},
+				new int[]{10, 12, 0, 0},
 				100,
 				SoundEvents.ARMOR_EQUIP_LEATHER,
 				8.0f, 0.8f,
@@ -88,7 +88,7 @@ public class ModItems {
 		public static final ArmorMaterial FORESTOWLBEARARMOR = new ModArmorMaterial(
 				"forestowlbeararmor",
 				1800,
-				new int[]{5, 12, 10, 5},
+				new int[]{10, 12, 0, 0},
 				100,
 				SoundEvents.ARMOR_EQUIP_LEATHER,
 				8.0f, 0.8f,
