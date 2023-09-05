@@ -77,7 +77,7 @@ public class ModItems {
 	public static class ArmorTiers {
 
 		public static final ArmorMaterial SNOWOWLBEARARMOR = new ModArmorMaterial(
-				"snowowlbeararmor",
+				"snow_owlbear_armor",
 				1800,
 				new int[]{5, 12, 10, 5},
 				100,
@@ -86,7 +86,7 @@ public class ModItems {
 				() -> Ingredient.of(ModItems.SNOW_OWLBEAR_FUR.get()));
 
 		public static final ArmorMaterial FORESTOWLBEARARMOR = new ModArmorMaterial(
-				"forestowlbeararmor",
+				"forest_owlbear_armor",
 				1800,
 				new int[]{5, 12, 10, 5},
 				100,
