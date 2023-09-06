@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+	"X": {
+	  "item": "forgottenbeasts:forest_owlbear_fur"
+	}
+  },
+  "pattern": [
+	"X X",
+	"XXX",
+	"XXX"
+  ],
+  "result": {
+	"item": "forgottenbeasts:forest_owlbear_chestplate"
+  }
+}
