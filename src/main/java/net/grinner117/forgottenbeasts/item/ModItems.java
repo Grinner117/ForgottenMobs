@@ -45,13 +45,13 @@ public class ModItems {
 	public static final RegistryObject<Item> FOREST_OWLBEAR_FUR = ITEMS.register("forest_owlbear_fur",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> SNOW_OWLBEAR_HELMET = ITEMS.register("snow_owlbear_helmet",
-			() -> new Nightvison_Perk(ArmorTiers.SNOWOWLBEARARMOR, EquipmentSlot.HEAD, props()));
+			() -> new Nightvison_Perk(ArmorTiers.SNOW_OWLBEAR_ARMOR, EquipmentSlot.HEAD, props()));
 	public static final RegistryObject<Item> SNOW_OWLBEAR_CHESTPLATE = ITEMS.register("snow_owlbear_chestplate",
-			() -> new Health3_Perk(ArmorTiers.SNOWOWLBEARARMOR, EquipmentSlot.CHEST, props()));
+			() -> new Health3_Perk(ArmorTiers.SNOW_OWLBEAR_ARMOR, EquipmentSlot.CHEST, props()));
 	public static final RegistryObject<Item> FOREST_OWLBEAR_HELMET = ITEMS.register("forest_owlbear_helmet",
-			() -> new Regeneration2_Perk(ArmorTiers.FORESTOWLBEARARMOR, EquipmentSlot.HEAD, props()));
+			() -> new Regeneration2_Perk(ArmorTiers.FOREST_OWLBEAR_ARMOR, EquipmentSlot.HEAD, props()));
 	public static final RegistryObject<Item> FOREST_OWLBEAR_CHESTPLATE = ITEMS.register("forest_owlbear_chestplate",
-			() -> new Health3_Perk(ArmorTiers.FORESTOWLBEARARMOR, EquipmentSlot.CHEST, props()));
+			() -> new Health3_Perk(ArmorTiers.FOREST_OWLBEAR_ARMOR, EquipmentSlot.CHEST, props()));
 	public static final RegistryObject<Item> GRIFFONFEATHER = ITEMS.register("griffonfeather",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> GRIFFONBEAK = ITEMS.register("griffonbeak",
@@ -76,7 +76,7 @@ public class ModItems {
 
 	public static class ArmorTiers {
 
-		public static final ArmorMaterial SNOWOWLBEARARMOR = new ModArmorMaterial(
+		public static final ArmorMaterial SNOW_OWLBEAR_ARMOR = new ModArmorMaterial(
 				"snowowlbeararmor",
 				1800,
 				new int[]{10, 12, 0, 0},
@@ -85,7 +85,7 @@ public class ModItems {
 				8.0f, 0.8f,
 				() -> Ingredient.of(ModItems.SNOW_OWLBEAR_FUR.get()));
 
-		public static final ArmorMaterial FORESTOWLBEARARMOR = new ModArmorMaterial(
+		public static final ArmorMaterial FOREST_OWLBEAR_ARMOR = new ModArmorMaterial(
 				"forestowlbeararmor",
 				1800,
 				new int[]{10, 12, 0, 0},
