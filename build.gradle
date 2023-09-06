@@ -5,7 +5,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.2 - 2.6'
+version = '1.19.2 - 2.6.1'
 group = 'net.grinner117.forgottenfey' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'forgottenfey'
 
@@ -21,6 +21,8 @@ minecraft {
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             // Renetmended logging level for the console
             // You can set various levels here.
@@ -45,6 +47,8 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             property 'forge.enabledGameTestNamespaces', 'forgottenfey'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             mods {
                 forgottenfey {
@@ -92,14 +96,18 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven { url 'https://cursemaven.com' }
+    maven { url = "https://maven.theillusivec4.top/" } // Curios
+
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' } // GeckoLib
+    maven { url 'https://cursemaven.com' } // Forgotten Mobs
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.38')
-    implementation fg.deobf('curse.maven:forgottenfey-842942:4731972')
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.38') // GeckoLib
+    implementation fg.deobf('curse.maven:forgottenmobs-842942:4731972') // Forgotten Mobs
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1") // Curios
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1:api") // Curios
 
 }
 
