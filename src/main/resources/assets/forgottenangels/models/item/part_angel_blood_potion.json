@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+	"layer0": "forgottenangels:item/part_angel_blood_potion"
+  }
+}

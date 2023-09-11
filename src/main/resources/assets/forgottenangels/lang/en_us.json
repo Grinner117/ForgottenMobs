@@ -9,6 +9,9 @@
   "item.forgottenangels.angeleye": "Angel Eye",
   "item.forgottenangels.angeltear": "Angel Tear",
   "item.forgottenangels.angelblood": "Angel Blood",
+  "item.forgottenangels.angel_blood_potion": "Angel Blood Potion",
+  "item.forgottenangels.diluted_angel_blood_potion": "Diluted Angel Blood Potion",
+  "item.forgottenangels.part_angel_blood_potion": "Part Angel Blood Potion",
   "entity.forgottenangels.planetar": "Planetar",
   "entity.forgottenangels.deva": "Deva"
 }
