@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+	{
+	  "item": "forgottenangels:part_angel_blood_potion"
+	},
+	{
+	  "item": "forgottenangels:angelsoul"
+	}
+  ],
+  "result": {
+	"item": "forgottenangels:angel_blood_potion"
+  }
+}

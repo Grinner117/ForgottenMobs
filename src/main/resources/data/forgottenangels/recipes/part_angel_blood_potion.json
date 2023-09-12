@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+	{
+	  "item": "forgottenangels:diluted_angel_blood_potion"
+	},
+	{
+	  "item": "minecraft:golden_apple"
+	},
+	{
+	  "item": "minecraft:angeltear"
+	}
+  ],
+  "result": {
+	"item": "forgottenangels:part_angel_blood_potion"
+  }
+}

@@ -2,17 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
 	{
-	  "item": "forgottenangles:angelblood"
+	  "item": "forgottenangels:angelblood"
 	},
 	{
-	  "item": "minecraft:water_bottle"
+	  "item": "minecraft:glass_bottle"
 	},
 	{
-	  "item": "minecraft:chours_fruit"
+	  "item": "minecraft:chorus_fruit"
 	}
   ],
   "result": {
-	"item": "forgottenangles:diluted_angel_blood",
-	"count": 3
+	"item": "forgottenangels:diluted_angel_blood_potion"
   }
 }
