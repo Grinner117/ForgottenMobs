@@ -5,7 +5,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.2 - 2.6.1'
+version = '1.19.2 - 2.7'
 group = 'net.grinner117.forgottenfey' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'forgottenfey'
 
@@ -105,7 +105,8 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.38') // GeckoLib
-    implementation fg.deobf('curse.maven:forgottenmobs-842942:4731972') // Forgotten Mobs
+    implementation fg.deobf('curse.maven:forgottenmobs-842942:4784386') // Forgotten Mobs
+    implementation fg.deobf('curse.maven:radiant-library-912744:4760071') // Radiant Library
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1") // Curios
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1:api") // Curios
 
