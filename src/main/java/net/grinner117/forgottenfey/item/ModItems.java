@@ -2,7 +2,7 @@ package net.grinner117.forgottenfey.item;
 
 import net.grinner117.forgottenfey.ForgottenFey;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
+import net.grinner117.radiantlibrary.effects.ModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -44,6 +44,16 @@ public class ModItems {
 			() -> new Item(new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)
 					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+							.build())));
+
+	public static final RegistryObject<Item> GRIMLOCK_TOE = ITEMS.register("grimlock_toe",
+			() -> new Item(new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)
+					.food(new FoodProperties.Builder().nutrition(3).saturationMod(2)
+							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 3), 0.4F)
+							.effect(() -> new MobEffectInstance(ModEffects.SNARE_EFFECT.get(), 180, 1), 0.4F)
+							.effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 180, 1), 0.4F)
+
+
 							.build())));
 
 	public static final RegistryObject<Item> UNICORNHORN = ITEMS.register("unicorn_horn",
