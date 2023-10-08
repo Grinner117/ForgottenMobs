@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0" : "forgottenfey:item/couatlfeather"
+    "layer0" : "forgottenfey:item/grimlock_toe"
   }
 }
