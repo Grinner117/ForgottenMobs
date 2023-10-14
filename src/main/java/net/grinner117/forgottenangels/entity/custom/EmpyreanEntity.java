@@ -15,12 +15,12 @@ public class EmpyreanEntity extends Angel {
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 150.0D)
-                .add(Attributes.ARMOR_TOUGHNESS, 16.0D)
-                .add(Attributes.ATTACK_DAMAGE, 15.0D)
-                .add(Attributes.ATTACK_SPEED, 1.0F)
-                .add(Attributes.MOVEMENT_SPEED, 0.2F)
-                .add(Attributes.FLYING_SPEED, 0.6F)
+                .add(Attributes.MAX_HEALTH, 300.0D)
+                .add(Attributes.ARMOR_TOUGHNESS, 32.0D)
+                .add(Attributes.ATTACK_DAMAGE, 30.0D)
+                .add(Attributes.ATTACK_SPEED, 0.8F)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
+                .add(Attributes.FLYING_SPEED, 0.65F)
                 .add(Attributes.FOLLOW_RANGE, 30.0D)
                 .build();
     }
