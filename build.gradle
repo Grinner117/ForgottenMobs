@@ -6,7 +6,7 @@ plugins {
 
 }
 
-version = '1.19.2 - 2.7'
+version = '1.19.2 - 2.7.1'
 group = 'net.grinner117.forgottenangels' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'forgottenangels'
 
