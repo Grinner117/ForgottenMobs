@@ -1,6 +1,7 @@
 {
   "item.forgottenangels.planetar_spawn_egg": "Planetar Spawn Egg",
   "item.forgottenangels.deva_spawn_egg": "Deva Spawn Egg",
+  "item.forgottenangels.empyrean_spawn_egg": "Empyrean Spawn Egg",
   "item.forgottenangels.angelfeather": "Angel Feather",
   "item.forgottenangels.angelheart": "Angel Heart",
   "item.forgottenangels.angelsoul": "Angel Soul",
@@ -13,5 +14,6 @@
   "item.forgottenangels.diluted_angel_blood_potion": "Diluted Angel Blood Potion",
   "item.forgottenangels.part_angel_blood_potion": "Part Angel Blood Potion",
   "entity.forgottenangels.planetar": "Planetar",
-  "entity.forgottenangels.deva": "Deva"
+  "entity.forgottenangels.deva": "Deva",
+  "entity.forgottenangels.empyrean": "Empyrean"
 }

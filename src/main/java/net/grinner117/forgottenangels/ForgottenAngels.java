@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.grinner117.forgottenangels.block.ModBlocks;
 import net.grinner117.forgottenangels.entity.ModEntityTypes;
 import net.grinner117.forgottenangels.entity.client.renderer.DevaRenderer;
+import net.grinner117.forgottenangels.entity.client.renderer.EmpyreanRenderer;
 import net.grinner117.forgottenangels.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.FlyingMob;
@@ -44,13 +45,18 @@ public class ForgottenAngels {
 	}
 
 	private static void run() {
-		SpawnPlacements.register(net.grinner117.forgottenangels.entity.ModEntityTypes.PLANETAR.get(),
+		SpawnPlacements.register(ModEntityTypes.PLANETAR.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
 
-		SpawnPlacements.register(net.grinner117.forgottenangels.entity.ModEntityTypes.DEVA.get(),
+		SpawnPlacements.register(ModEntityTypes.DEVA.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
+
+		SpawnPlacements.register(ModEntityTypes.EMPYREAN.get(),
+				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				FlyingMob::checkMobSpawnRules);
+
 
 	}
 
@@ -62,8 +68,10 @@ public class ForgottenAngels {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
-			EntityRenderers.register(net.grinner117.forgottenangels.entity.ModEntityTypes.PLANETAR.get(), net.grinner117.forgottenangels.entity.client.renderer.PlanetarRenderer::new);
+			EntityRenderers.register(ModEntityTypes.PLANETAR.get(), net.grinner117.forgottenangels.entity.client.renderer.PlanetarRenderer::new);
 			EntityRenderers.register(ModEntityTypes.DEVA.get(), DevaRenderer::new);
+			EntityRenderers.register(ModEntityTypes.EMPYREAN.get(), EmpyreanRenderer::new);
+
 		}
 	}
 }

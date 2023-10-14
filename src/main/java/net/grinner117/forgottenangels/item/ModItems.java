@@ -23,6 +23,10 @@ public class ModItems {
 			() -> new ForgeSpawnEggItem(ModEntityTypes.DEVA, 0xea261c, 0x39843e,
 					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
+	public static final RegistryObject<Item> EMPYREAN_SPAWN_EGG = ITEMS.register("empyrean_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntityTypes.EMPYREAN, 0xea234c, 0x16843e,
+					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
 	public static final RegistryObject<Item> ANGELFEATHER = ITEMS.register("angelfeather",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 
