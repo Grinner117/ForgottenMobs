@@ -24,4 +24,6 @@ public class EmpyreanEntity extends Angel {
                 .add(Attributes.FOLLOW_RANGE, 30.0D)
                 .build();
     }
+
+
 }
