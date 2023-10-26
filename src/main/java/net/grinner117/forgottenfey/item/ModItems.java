@@ -44,6 +44,7 @@ public class ModItems {
 			() -> new Item(new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)
 					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+							.effect(() -> new MobEffectInstance(ModEffects.BOUNCE_EFFECT.get(), 200, 1), 0.5F)
 							.build())));
 
 	public static final RegistryObject<Item> GRIMLOCK_TOE = ITEMS.register("grimlock_toe",
@@ -52,8 +53,6 @@ public class ModItems {
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 3), 0.4F)
 							.effect(() -> new MobEffectInstance(ModEffects.SNARE_EFFECT.get(), 180, 1), 0.4F)
 							.effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 180, 1), 0.4F)
-
-
 							.build())));
 
 	public static final RegistryObject<Item> UNICORNHORN = ITEMS.register("unicorn_horn",
