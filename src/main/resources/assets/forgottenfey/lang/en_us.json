@@ -2,31 +2,20 @@
   "item.forgottenfey.goblinfang": "Goblin Fang",
   "item.forgottenfey.goblinheart": "Goblin Heart",
   "item.forgottenfey.grimlock_toe": "Grimlock Toe",
-
   "item.forgottenfey.unicorn_horn": "Unicorn Horn",
   "item.forgottenfey.couatlfeather": "Couatl Feather",
-
   "item.forgottenfey.goblinfighter_spawn_egg": "Goblin Fighter Spawn Egg",
   "item.forgottenfey.goblinarcher_spawn_egg": "Goblin Archer Spawn Egg",
   "item.forgottenfey.goblinshaman_spawn_egg": "Goblin Shaman Spawn Egg",
-
   "item.forgottenfey.greenhag_spawn_egg": "Green Hag Spawn Egg",
   "item.forgottenfey.grimlock_spawn_egg": "Grimlock Spawn Egg",
-
-   "item.forgottenfey.unicorn_spawn_egg": "Unicorn Spawn Egg",
-
-
+  "item.forgottenfey.unicorn_spawn_egg": "Unicorn Spawn Egg",
   "item.forgottenfey.crown": "Curious Crown",
-
-
   "entity.forgottenfey.unicorn": "Majestic Unicorn",
-
   "entity.forgottenfey.grimlock": "Grimlock",
-
   "entity.forgottenfey.goblinfighter": "Goblin Fighter",
   "entity.forgottenfey.goblinarcher": "Goblin Archer",
   "entity.forgottenfey.goblinshaman": "Goblin Shaman",
-
   "entity.forgottenfey.couatl": "Couatl",
   "entity.forgottenfey.greenhag": "Green Hag"
 }

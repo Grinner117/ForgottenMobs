@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.grinner117.forgottenfey.curios.client.CuriosLayerDefinitions;
 import net.grinner117.forgottenfey.curios.client.model.CrownModel;
 import net.grinner117.forgottenfey.curios.client.renderer.CrownRenderer;
-import net.grinner117.forgottenfey.curios.common.CuriosTestRegistry;
+import net.grinner117.forgottenfey.curios.common.ModCurios;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
 import net.grinner117.forgottenfey.entity.client.renderer.*;
 import net.grinner117.forgottenfey.item.ModItems;
@@ -45,7 +45,6 @@ public class ForgottenFey {
 	// Directly reference a slf4j logger
 	public ForgottenFey() {
 
-		CuriosTestRegistry.init();
 		final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		eventBus.addListener(this::enqueue);
 		eventBus.addListener(this::clientSetup);
@@ -54,7 +53,7 @@ public class ForgottenFey {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		ModItems.register(modEventBus);
-
+		ModCurios.register(modEventBus);
 		ModEntityTypes.register(modEventBus);
 		GeckoLib.initialize();
 
@@ -130,16 +129,19 @@ public class ForgottenFey {
 						.collect(Collectors.toList()));
 		InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
 				() -> new SlotTypeMessage.Builder("test").build());
+		InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+				() -> new SlotTypeMessage.Builder("legacy").build());
 	}
 
 	//Register the Curios Here
 	private void clientSetup(final FMLClientSetupEvent evt) {
 
-		CuriosRendererRegistry.register(CuriosTestRegistry.CROWN.get(), CrownRenderer::new);
+		CuriosRendererRegistry.register(ModCurios.CROWN.get(), CrownRenderer::new);
 	}
 
 	//Register the Curios Here
 	private void registerLayers(final EntityRenderersEvent.RegisterLayerDefinitions evt) {
 		evt.registerLayerDefinition(CuriosLayerDefinitions.CROWN, CrownModel::createLayer);
 	}
+
 }
