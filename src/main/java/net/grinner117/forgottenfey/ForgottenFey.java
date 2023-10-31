@@ -5,6 +5,7 @@ import net.grinner117.forgottenfey.curios.client.CuriosLayerDefinitions;
 import net.grinner117.forgottenfey.curios.client.model.CrownModel;
 import net.grinner117.forgottenfey.curios.client.renderer.CrownRenderer;
 import net.grinner117.forgottenfey.curios.common.ModCurios;
+import net.grinner117.forgottenfey.curios.common.item.GoblinNecklace;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
 import net.grinner117.forgottenfey.entity.client.renderer.*;
 import net.grinner117.forgottenfey.item.ModItems;
@@ -136,7 +137,7 @@ public class ForgottenFey {
 	//Register the Curios Here
 	private void clientSetup(final FMLClientSetupEvent evt) {
 
-		CuriosRendererRegistry.register(ModCurios.CROWN.get(), CrownRenderer::new);
+//		CuriosRendererRegistry.register(ModCurios.CROWN.get(), CrownRenderer::new);
 	}
 
 	//Register the Curios Here
