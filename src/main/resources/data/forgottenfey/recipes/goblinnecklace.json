@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"###",
+	"# #",
+	" / "
+  ],
+  "key": {
+	"#": {
+	  "item": "minecraft:leather"
+	},
+	"/": {
+	  "tag": "forgottenmobs:goblinfang"
+	}
+  },
+  "result": {
+	"item": "forgottenmobs:goblinnecklace"
+  }
+}
