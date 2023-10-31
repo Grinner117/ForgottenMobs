@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-	" # ",
-	"# #",
-	" / "
-  ],
+
   "key": {
 	"#": {
 	  "item": "minecraft:leather"
 	},
 	"/": {
-	  "tag": "forgottenfey:goblinfang"
+	  "item": "forgottenfey:goblinfang"
 	}
   },
+  "pattern": [
+	" # ",
+	"# #",
+	" / "
+  ],
   "result": {
 	"item": "forgottenfey:goblinnecklace"
   }
