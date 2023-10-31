@@ -56,7 +56,7 @@ public class GoblinNecklace extends Item implements ICurio {
 	public ICurio.SoundInfo getEquipSound(SlotContext slotContext) {
 		return new ICurio.SoundInfo(SoundEvents.ARMOR_EQUIP_CHAIN, 1.0f, 1.5f);
 	}
-	
+
 
 	//equip on use
 	@Override
