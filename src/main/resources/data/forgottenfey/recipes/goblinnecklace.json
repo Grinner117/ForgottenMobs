@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-	"###",
+	" # ",
 	"# #",
 	" / "
   ],
@@ -10,10 +10,10 @@
 	  "item": "minecraft:leather"
 	},
 	"/": {
-	  "tag": "forgottenmobs:goblinfang"
+	  "tag": "forgottenfey:goblinfang"
 	}
   },
   "result": {
-	"item": "forgottenmobs:goblinnecklace"
+	"item": "forgottenfey:goblinnecklace"
   }
 }
