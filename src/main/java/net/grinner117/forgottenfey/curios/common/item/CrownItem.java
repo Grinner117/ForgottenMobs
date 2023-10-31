@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 
 import static top.theillusivec4.curios.api.CuriosApi.getCuriosHelper;
 
-public class CrownItem extends Item {
+public class CrownItem extends Item implements ICurio {
 
 	public CrownItem() {
 		super(new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)
@@ -53,6 +53,11 @@ public class CrownItem extends Item {
 	@Override
 	public boolean isFoil(@Nonnull ItemStack stack) {
 		return true;
+	}
+
+	@Override
+	public ItemStack getStack() {
+		return null;
 	}
 
 	@Nonnull
