@@ -65,6 +65,35 @@ public class ModItems {
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
 							.build())));
 
+	//add stirge proboscis
+	public static final RegistryObject<Item> STIRGEPROBOSCIS = ITEMS.register("stirgeproboscis",
+			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+							.build())));
+
+	//add stirge wing
+	public static final RegistryObject<Item> STIRGEWING = ITEMS.register("stirgewing",
+			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+							.build())));
+
+	//add stirge leg
+	public static final RegistryObject<Item> STIRGELEG = ITEMS.register("stirgeleg",
+			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+							.build())));
+
+	//add stirge eye
+	public static final RegistryObject<Item> STIRGEEYE = ITEMS.register("stirgeeye",
+			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
+							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
+							.build())));
+
+	
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}
