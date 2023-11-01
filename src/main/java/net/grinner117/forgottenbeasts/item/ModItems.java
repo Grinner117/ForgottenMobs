@@ -1,8 +1,8 @@
 package net.grinner117.forgottenbeasts.item;
 
+import net.grinner117.forgottenbeasts.ForgottenBeasts;
 import net.grinner117.forgottenbeasts.base.ModArmorMaterial;
 import net.grinner117.forgottenbeasts.entity.ModEntityTypes;
-import net.grinner117.forgottenbeasts.ForgottenBeasts;
 import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.grinner117.forgottenmobs.perk.Health3_Perk;
 import net.grinner117.forgottenmobs.perk.Nightvison_Perk;
@@ -64,21 +64,18 @@ public class ModItems {
 					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
 							.build())));
-
 	//add stirge proboscis
 	public static final RegistryObject<Item> STIRGEPROBOSCIS = ITEMS.register("stirgeproboscis",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
 					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
 							.build())));
-
 	//add stirge wing
 	public static final RegistryObject<Item> STIRGEWING = ITEMS.register("stirgewing",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
 					.food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
 							.build())));
-
 	//add stirge leg
 	public static final RegistryObject<Item> STIRGELEG = ITEMS.register("stirgeleg",
 			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
@@ -93,7 +90,13 @@ public class ModItems {
 							.effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 2), 1.0F)
 							.build())));
 
-	
+	//add cooked stirge proboscis
+	public static final RegistryObject<Item> COOKEDSTIRGEPROBOSCIS = ITEMS.register("cookedstirgeproboscis",
+			() -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
+					.food(new FoodProperties.Builder().nutrition(2).saturationMod(3.0f)
+							.effect(() -> new MobEffectInstance(MobEffects.HEAL, 200, 2), 1.0F)
+							.build())));
+
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}
