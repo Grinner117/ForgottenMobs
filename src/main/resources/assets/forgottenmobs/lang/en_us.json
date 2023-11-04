@@ -1,60 +1,36 @@
 {
   "itemGroup.forgottentab": "Forgotten Mobs",
-
   "item.forgottenmobs.eyestalk": "Beholder Eye Stalk",
   "item.forgottenmobs.beholderfang": "Beholder Fang",
   "item.forgottenmobs.beholderhide": "Beholder Hide",
-
   "item.forgottenmobs.ghost_ash": "Ghost Ash",
-  "item.forgottenmobs.couatlfeather": "Couatl Feather",
-
   "item.forgottenmobs.animatedleatherarmor_spawn_egg": "Animated Leather Armor Spawn Egg",
   "item.forgottenmobs.animatedironarmor_spawn_egg": "Animated Iron Armor Spawn Egg",
   "item.forgottenmobs.animatedgoldarmor_spawn_egg": "Animated Gold Armor Spawn Egg",
   "item.forgottenmobs.animateddiamondarmor_spawn_egg": "Animated Diamond Armor Spawn Egg",
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 1.19.2
-
-  "item.forgottenmobs.couatl_spawn_egg": "Couatl Spawn Egg",
-
   "item.forgottenmobs.shamblingmound_spawn_egg": "Shambling Mound Spawn Egg",
-
   "item.forgottenmobs.beholder71_spawn_egg": "Beholder 7 1 Spawn Egg",
   "item.forgottenmobs.beholder72_spawn_egg": "Beholder 7 2 Spawn Egg",
-
   "item.forgottenmobs.intellectdevourer_spawn_egg": "Intellect Devourer Spawn Egg",
   "item.forgottenmobs.cloudgiant_spawn_egg": "Cloud Giant Spawn Egg",
   "item.forgottenmobs.ghost_spawn_egg": "Ghost Spawn Egg",
   "item.forgottenmobs.mindflayer_spawn_egg": "Mind Flayer Spawn Egg",
   "item.forgottenmobs.dbeast_spawn_egg": "Displacer Beast Spawn Egg",
-
   "item.forgottenmobs.needleblight_spawn_egg": "Needle Blight Spawn Egg",
   "item.forgottenmobs.twigblight_spawn_egg": "Twig Blight Spawn Egg",
   "item.forgottenmobs.vineblight_spawn_egg": "Vine Blight Spawn Egg",
-
   "entity.forgottenmobs.needleblight": "Needle Blight",
   "entity.forgottenmobs.twigblight": "Twig Blight",
   "entity.forgottenmobs.vineblight": "Vine Blight",
-
-
   "entity.forgottenmobs.intellectdevourer": "Intellect Devourer",
   "entity.forgottenmobs.cloudgiant": "Cloud Giant",
   "entity.forgottenmobs.ghost": "Ghost",
   "entity.forgottenmobs.mindflayer": "Mindflayer",
   "entity.forgottenmobs.dbeast": "Displacer Beast",
   "entity.forgottenmobs.idbeast": "Displacer Beast",
-
-
   "entity.forgottenmobs.shamblingmound": "Shambling Mound",
-
   "entity.forgottenmobs.beholder72": "Beholder",
   "entity.forgottenmobs.beholder71": "Beholder",
-
-  "entity.forgottenmobs.couatl": "Couatl",
-
   "entity.forgottenmobs.animateddiamondarmor": "Animated Diamond Armor",
   "entity.forgottenmobs.animatedgoldarmor": "Animated Gold Armor",
   "entity.forgottenmobs.animatedleatherarmor": "Animated Leather Armor",
