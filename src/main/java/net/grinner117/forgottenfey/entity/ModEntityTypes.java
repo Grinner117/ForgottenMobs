@@ -18,7 +18,11 @@ public class ModEntityTypes {
 					() -> EntityType.Builder.of(GoblinFighterEntity::new, MobCategory.MONSTER)
 							.sized(0.8F, 0.8F).clientTrackingRange(80)
 							.build(new ResourceLocation(ForgottenFey.MODID, "goblinfighter").toString()));
-
+	public static final RegistryObject<EntityType<CouatlEntity>> COUATL =
+			ENTITY_TYPES.register("couatl",
+					() -> EntityType.Builder.of(CouatlEntity::new, MobCategory.MONSTER)
+							.sized(12.0F, 4.0F).clientTrackingRange(120)
+							.build(new ResourceLocation(ForgottenFey.MODID, "couatl").toString()));
 	public static final RegistryObject<EntityType<GoblinArcherEntity>> GOBLINARCHER =
 			ENTITY_TYPES.register("goblinarcher",
 					() -> EntityType.Builder.of(GoblinArcherEntity::new, MobCategory.MONSTER)

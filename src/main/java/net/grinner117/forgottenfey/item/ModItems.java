@@ -2,6 +2,7 @@ package net.grinner117.forgottenfey.item;
 
 import net.grinner117.forgottenfey.ForgottenFey;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
+import net.grinner117.forgottenmobs.item.ModCreativeModeTab;
 import net.grinner117.radiantlibrary.effects.ModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -54,7 +55,9 @@ public class ModItems {
 							.effect(() -> new MobEffectInstance(ModEffects.SNARE_EFFECT.get(), 180, 1), 0.4F)
 							.effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 180, 1), 0.4F)
 							.build())));
-
+	public static final RegistryObject<Item> COUATL_SPAWN_EGG = ITEMS.register("couatl_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntityTypes.COUATL, 0x14499b, 0xff923c,
+					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
 	public static final RegistryObject<Item> UNICORNHORN = ITEMS.register("unicorn_horn",
 			() -> new Item(new Item.Properties().tab(net.grinner117.forgottenmobs.item.ModCreativeModeTab.FORGOTTENTAB)));
 

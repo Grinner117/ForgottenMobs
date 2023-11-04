@@ -1,11 +1,10 @@
 package net.grinner117.forgottenfey;
 
+
 import com.mojang.logging.LogUtils;
 import net.grinner117.forgottenfey.curios.client.CuriosLayerDefinitions;
 import net.grinner117.forgottenfey.curios.client.model.CrownModel;
-import net.grinner117.forgottenfey.curios.client.renderer.CrownRenderer;
 import net.grinner117.forgottenfey.curios.common.ModCurios;
-import net.grinner117.forgottenfey.curios.common.item.GoblinNecklace;
 import net.grinner117.forgottenfey.entity.ModEntityTypes;
 import net.grinner117.forgottenfey.entity.client.renderer.*;
 import net.grinner117.forgottenfey.item.ModItems;
@@ -17,7 +16,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -30,12 +28,12 @@ import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 import top.theillusivec4.curios.api.event.CurioAttributeModifierEvent;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
 
 @Mod(ForgottenFey.MODID)
 public class ForgottenFey {
@@ -50,7 +48,7 @@ public class ForgottenFey {
 		eventBus.addListener(this::enqueue);
 		eventBus.addListener(this::clientSetup);
 		eventBus.addListener(this::registerLayers);
-		MinecraftForge.EVENT_BUS.addListener(this::attributeModifier);
+		EVENT_BUS.addListener(this::attributeModifier);
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		ModItems.register(modEventBus);
@@ -60,7 +58,7 @@ public class ForgottenFey {
 
 		modEventBus.addListener(this::commonSetup);
 
-		MinecraftForge.EVENT_BUS.register(this);
+		EVENT_BUS.register(this);
 
 	}
 
@@ -85,6 +83,9 @@ public class ForgottenFey {
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				Mob::checkMobSpawnRules);
 
+		SpawnPlacements.register(ModEntityTypes.COUATL.get(),
+				SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				Mob::checkMobSpawnRules);
 
 		SpawnPlacements.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GRIMLOCK.get(),
 				SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -100,16 +101,13 @@ public class ForgottenFey {
 	public static class ClientModEvents {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
-
-			EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterRenderer::new);
-			EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINARCHER.get(), GoblinArcherRenderer::new);
-			EntityRenderers.register(net.grinner117.forgottenfey.entity.ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanRenderer::new);
-
+			EntityRenderers.register(ModEntityTypes.GOBLINFIGHTER.get(), GoblinFighterRenderer::new);
+			EntityRenderers.register(ModEntityTypes.GOBLINARCHER.get(), GoblinArcherRenderer::new);
+			EntityRenderers.register(ModEntityTypes.GOBLINSHAMAN.get(), GoblinShamanRenderer::new);
 			EntityRenderers.register(ModEntityTypes.GREENHAG.get(), GreenHagRenderer::new);
-
+			EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
 			EntityRenderers.register(ModEntityTypes.UNICORN.get(), UnicornRenderer::new);
 			EntityRenderers.register(ModEntityTypes.GRIMLOCK.get(), GrimlockRenderer::new);
-
 		}
 	}
 
