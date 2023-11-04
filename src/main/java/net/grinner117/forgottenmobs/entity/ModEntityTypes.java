@@ -36,11 +36,7 @@ public class ModEntityTypes {
 							.sized(0.7F, 1.8F).clientTrackingRange(120)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedgoldarmor").toString()));
 
-	public static final RegistryObject<EntityType<CouatlEntity>> COUATL =
-			ENTITY_TYPES.register("couatl",
-					() -> EntityType.Builder.of(CouatlEntity::new, MobCategory.MONSTER)
-							.sized(12.0F, 4.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "couatl").toString()));
+
 
 	public static final RegistryObject<EntityType<Beholder71Entity>> BEHOLDER71 =
 			ENTITY_TYPES.register("beholder71",

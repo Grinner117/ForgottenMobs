@@ -85,10 +85,6 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
-        SpawnPlacements.register(ModEntityTypes.COUATL.get(),
-                SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
-
         SpawnPlacements.register(ModEntityTypes.INTELLECTDEVOURER.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
@@ -136,7 +132,6 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightRenderer::new);
             EntityRenderers.register(ModEntityTypes.VINEBLIGHT.get(), VineBlightRenderer::new);
 
-            EntityRenderers.register(ModEntityTypes.COUATL.get(), CouatlRenderer::new);
             EntityRenderers.register(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerRenderer::new);
             EntityRenderers.register(ModEntityTypes.MINDFLAYER.get(),MindflayerRenderer::new);
             EntityRenderers.register(ModEntityTypes.CLOUDGIANT.get(),CloudGiantRenderer::new);
