@@ -1,5 +1,6 @@
 package net.grinner117.forgottenfey.entity.custom;
 
+import net.grinner117.radiantlibrary.effects.ModEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -12,6 +13,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -24,6 +27,7 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib3.core.AnimationState;
@@ -130,8 +134,18 @@ public class CouatlEntity extends FlyingMob implements Enemy, IAnimatable {
 		}
 	}
 
-	protected void customServerAiStep() {
+	//give neaby players mob effect
+	public void customServerAiStep() {
 		super.customServerAiStep();
+		if (this.tickCount % 30 == 0) {
+			for (Player player : this.level.getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(200.0D))) {
+				if (!player.isCreative() && !player.isSpectator()) {
+					player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0, false, false, false));
+					player.addEffect(new MobEffectInstance(MobEffects.HEAL, 100, 0, false, false, false));
+					player.addEffect(new MobEffectInstance(ModEffects.RECOVERY_EFFECT.get(), 100, 1, false, false, false));
+				}
+			}
+		}
 	}
 
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_33126_, DifficultyInstance p_33127_, MobSpawnType p_33128_, @Nullable SpawnGroupData p_33129_, @Nullable CompoundTag p_33130_) {
@@ -395,5 +409,15 @@ public class CouatlEntity extends FlyingMob implements Enemy, IAnimatable {
 		}
 	}
 
+	//spawn above y 120
+	@Override
+	public boolean checkSpawnRules(LevelAccessor p_33099_, MobSpawnType p_33100_) {
+		return this.getY() > 120 && super.checkSpawnRules(p_33099_, p_33100_);
+	}
+//despawn at night
+	@Override
+	public boolean removeWhenFarAway(double p_33096_) {
+		return this.isPersistenceRequired() && !this.isEffectiveAi() && this.level.isNight();
+	}
 
 }
