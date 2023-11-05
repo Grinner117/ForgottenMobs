@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 10,
+  "ingredient": {
+    "item": "forgottenaberration:beholderhide"
+  },
+  "result": {
+    "count": 6,
+    "item": "minecraft:leather"
+  }
+}

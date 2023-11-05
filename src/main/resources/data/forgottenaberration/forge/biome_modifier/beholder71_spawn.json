@@ -1,0 +1,42 @@
+{
+  "type": "forge:add_spawns",
+  "structure": [
+    "minecraft:ruined_portal",
+    "minecraft:mineshaft",
+    "minecraft:bastion_remnant",
+    "minecraft:desert_pyramid",
+    "minecraft:jungle_pyramid",
+    "minecraft:endcity",
+    "minecraft:fortress",
+    "minecraft:stronghold",
+    "minecraft:woodland_mansion",
+    "minecraft:end_city",
+    "minecraft:end_ship"
+  ],
+  "biomes": [
+    "minecraft:badlands",
+    "minecraft:frozen_ocean",
+    "minecraft:frozen_peaks",
+    "minecraft:frozen_river",
+    "minecraft:ice_spikes",
+    "minecraft:snowy_beach",
+    "minecraft:snowy_slopes",
+    "minecraft:snowy_taiga",
+    "minecraft:swamp",
+    "minecraft:wooded_badlands",
+    "minecraft:mushroom_fields",
+    "minecraft:end_barrens",
+    "minecraft:end_highlands",
+    "minecraft:end_midlands",
+    "minecraft:the_end",
+    "minecraft:the_void",
+    "minecraft:dripstone_caves",
+    "minecraft:eroded_badlands"
+  ],
+  "spawners": {
+    "type": "forgottenaberration:beholder71",
+    "weight": 1,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}
