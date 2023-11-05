@@ -1,6 +1,8 @@
 package net.grinner117.forgottenaberration.entity.custom;
 
 import net.grinner117.forgottenmobs.entity.type.Angel;
+import net.grinner117.forgottenmobs.entity.type.Dragon;
+import net.grinner117.forgottenmobs.entity.type.Goblin;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -17,6 +19,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.SmallFireball;
@@ -73,6 +76,10 @@ public class Beholder71Entity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder72Entity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder71Entity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Angel.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Dragon.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Goblin.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
+
 
     }
 

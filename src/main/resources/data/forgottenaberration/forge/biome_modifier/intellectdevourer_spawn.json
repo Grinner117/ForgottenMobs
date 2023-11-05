@@ -27,7 +27,7 @@
     "minecraft:savanna"
   ],
   "spawners": {
-    "type": "forgottenaberration:intellectdevouerer",
+    "type": "forgottenaberration:intellectdevourer",
     "weight": 20,
     "minCount": 2,
     "maxCount": 4

@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:beholderhide",
+          "name": "forgottenaberration:beholderhide",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -29,7 +29,7 @@
           ]
         },{
           "type": "minecraft:item",
-          "name": "forgottenmobs:eyestalk",
+          "name": "forgottenaberration:eyestalk",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -51,7 +51,7 @@
           ]
         },{
           "type": "minecraft:item",
-          "name": "forgottenmobs:beholderfang",
+          "name": "forgottenaberration:beholderfang",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -102,15 +102,15 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:beholderhide"
+          "name": "forgottenaberration:beholderhide"
         },
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:eyestalk"
+          "name": "forgottenaberration:eyestalk"
         },
         {
           "type": "minecraft:item",
-          "name": "forgottenmobs:beholderfang"
+          "name": "forgottenaberration:beholderfang"
         },
         {
           "type": "minecraft:item",
