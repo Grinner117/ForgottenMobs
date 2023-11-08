@@ -41,4 +41,4 @@ public class Bouncy_Perk extends ArmorItem {
 		super.appendHoverText(stack, level, componets, flag);
 	}
 }
-}
+
