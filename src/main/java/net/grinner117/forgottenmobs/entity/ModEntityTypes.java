@@ -1,7 +1,10 @@
 package net.grinner117.forgottenmobs.entity;
 
 import net.grinner117.forgottenmobs.ForgottenMobs;
-import net.grinner117.forgottenmobs.entity.custom.*;
+import net.grinner117.forgottenmobs.entity.custom.NeedleBlightEntity;
+import net.grinner117.forgottenmobs.entity.custom.ShamblingMoundEntity;
+import net.grinner117.forgottenmobs.entity.custom.TwigBlightEntity;
+import net.grinner117.forgottenmobs.entity.custom.VineBlightEntity;
 import net.grinner117.forgottenmobs.entity.projectile.NeedleEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -14,27 +17,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
 			DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ForgottenMobs.MODID);
-	public static final RegistryObject<EntityType<AnimatedDiamondArmorEntity>> ANIMATEDDIAMONDARMOR =
-			ENTITY_TYPES.register("animateddiamondarmor",
-					() -> EntityType.Builder.of(AnimatedDiamondArmorEntity::new, MobCategory.MONSTER)
-							.sized(0.7F, 1.8F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "animateddiamondarmor").toString()));
-
-	public static final RegistryObject<EntityType<AnimatedLeatherArmorEntity>> ANIMATEDLEATHERARMOR =
-			ENTITY_TYPES.register("animatedleatherarmor",
-					() -> EntityType.Builder.of(AnimatedLeatherArmorEntity::new, MobCategory.MONSTER)
-							.sized(0.7F, 1.8F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedleatherarmor").toString()));
-	public static final RegistryObject<EntityType<AnimatedIronArmorEntity>> ANIMATEDIRONARMOR =
-			ENTITY_TYPES.register("animatedironarmor",
-					() -> EntityType.Builder.of(AnimatedIronArmorEntity::new, MobCategory.MONSTER)
-							.sized(0.7F, 1.8F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedironarmor").toString()));
-	public static final RegistryObject<EntityType<AnimatedGoldArmorEntity>> ANIMATEDGOLDARMOR =
-			ENTITY_TYPES.register("animatedgoldarmor",
-					() -> EntityType.Builder.of(AnimatedGoldArmorEntity::new, MobCategory.MONSTER)
-							.sized(0.7F, 1.8F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedgoldarmor").toString()));
 
 	public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
 			ENTITY_TYPES.register("needleblight",
@@ -56,17 +38,6 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.of((EntityType.EntityFactory<NeedleEntity>) NeedleEntity::new, MobCategory.MISC)
 					.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
 					.build(new ResourceLocation(ForgottenMobs.MODID, "needle").toString()));
-
-	public static final RegistryObject<EntityType<CloudGiantEntity>> CLOUDGIANT =
-			ENTITY_TYPES.register("cloudgiant",
-					() -> EntityType.Builder.of(CloudGiantEntity::new, MobCategory.MONSTER)
-							.sized(5.0F, 10.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "cloudgiant").toString()));
-	public static final RegistryObject<EntityType<GhostEntity>> GHOST =
-			ENTITY_TYPES.register("ghost",
-					() -> EntityType.Builder.of(GhostEntity::new, MobCategory.MONSTER)
-							.sized(1.0F, 2.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "ghost").toString()));
 
 	public static final RegistryObject<EntityType<ShamblingMoundEntity>> SHAMBLINGMOUND =
 			ENTITY_TYPES.register("shamblingmound",
