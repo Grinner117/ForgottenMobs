@@ -1,0 +1,12 @@
+{
+  "item.forgottenplant.shamblingmound_spawn_egg": "Shambling Mound Spawn Egg",
+  "item.forgottenplant.needleblight_spawn_egg": "Needle Blight Spawn Egg",
+  "item.forgottenplant.twigblight_spawn_egg": "Twig Blight Spawn Egg",
+  "item.forgottenplant.vineblight_spawn_egg": "Vine Blight Spawn Egg",
+  "item.forgottenplant.needle": "Needle",
+  "entity.forgottenplant.needleblight": "Needle Blight",
+  "entity.forgottenplant.twigblight": "Twig Blight",
+  "entity.forgottenplant.vineblight": "Vine Blight",
+  "entity.forgottenplant.shamblingmound": "Shambling Mound",
+  "entity.forgottenplant.needle": "Needle"
+}

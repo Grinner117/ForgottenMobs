@@ -3,7 +3,7 @@ package net.grinner117.forgottenmobs.entity.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenMobs;
+import net.grinner117.forgottenmobs.ForgottenPlant;
 import net.grinner117.forgottenmobs.entity.client.model.NeedleBlightModel;
 import net.grinner117.forgottenmobs.entity.custom.NeedleBlightEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -20,7 +20,7 @@ public class NeedleBlightRenderer extends GeoEntityRenderer<NeedleBlightEntity> 
     }
     @Override
     public ResourceLocation getTextureLocation(NeedleBlightEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/blight.png");
+        return new ResourceLocation(ForgottenPlant.MODID, "textures/entity/blight.png");
     }
     @Override
     public RenderType getRenderType(NeedleBlightEntity animatable, float partialTicks, PoseStack stack,

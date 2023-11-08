@@ -3,7 +3,7 @@ package net.grinner117.forgottenmobs.entity.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.grinner117.forgottenmobs.ForgottenMobs;
+import net.grinner117.forgottenmobs.ForgottenPlant;
 import net.grinner117.forgottenmobs.entity.client.model.ShamblingMoundModel;
 import net.grinner117.forgottenmobs.entity.custom.ShamblingMoundEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -20,7 +20,7 @@ public class ShamblingMoundRenderer extends GeoEntityRenderer<ShamblingMoundEnti
     }
     @Override
     public ResourceLocation getTextureLocation(ShamblingMoundEntity instance) {
-        return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/shamblingmound.png");
+        return new ResourceLocation(ForgottenPlant.MODID, "textures/entity/shamblingmound.png");
     }
     @Override
     public RenderType getRenderType(ShamblingMoundEntity animatable, float partialTicks, PoseStack stack,
