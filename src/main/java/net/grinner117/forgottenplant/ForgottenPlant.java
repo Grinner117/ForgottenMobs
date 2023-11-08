@@ -1,13 +1,13 @@
-package net.grinner117.forgottenmobs;
+package net.grinner117.forgottenplant;
 
 import com.mojang.logging.LogUtils;
-import net.grinner117.forgottenmobs.entity.ModEntityTypes;
-import net.grinner117.forgottenmobs.entity.client.renderer.NeedleBlightRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.ShamblingMoundRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.TwigBlightRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.VineBlightRenderer;
-import net.grinner117.forgottenmobs.entity.client.renderer.projectile.NeedleRenderer;
-import net.grinner117.forgottenmobs.item.ModItems;
+import net.grinner117.forgottenplant.entity.ModEntityTypes;
+import net.grinner117.forgottenplant.entity.client.renderer.projectile.NeedleRenderer;
+import net.grinner117.forgottenplant.entity.client.renderer.NeedleBlightRenderer;
+import net.grinner117.forgottenplant.entity.client.renderer.ShamblingMoundRenderer;
+import net.grinner117.forgottenplant.entity.client.renderer.TwigBlightRenderer;
+import net.grinner117.forgottenplant.entity.client.renderer.VineBlightRenderer;
+import net.grinner117.forgottenplant.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;

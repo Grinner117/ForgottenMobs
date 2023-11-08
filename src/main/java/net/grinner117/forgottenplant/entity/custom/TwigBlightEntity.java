@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.custom;
+package net.grinner117.forgottenplant.entity.custom;
 
 import net.grinner117.forgottenmobs.entity.type.Blight;
 import net.minecraft.world.entity.EntityType;

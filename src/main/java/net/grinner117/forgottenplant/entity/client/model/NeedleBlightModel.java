@@ -1,7 +1,7 @@
-package net.grinner117.forgottenmobs.entity.client.model;
+package net.grinner117.forgottenplant.entity.client.model;
 
-import net.grinner117.forgottenmobs.ForgottenPlant;
-import net.grinner117.forgottenmobs.entity.custom.NeedleBlightEntity;
+import net.grinner117.forgottenplant.ForgottenPlant;
+import net.grinner117.forgottenplant.entity.custom.NeedleBlightEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

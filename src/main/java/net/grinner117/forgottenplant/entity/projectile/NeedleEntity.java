@@ -1,4 +1,4 @@
-package net.grinner117.forgottenmobs.entity.projectile;
+package net.grinner117.forgottenplant.entity.projectile;
 
 import net.grinner117.forgottenmobs.entity.ModEntityTypes;
 import net.minecraft.world.entity.EntityType;

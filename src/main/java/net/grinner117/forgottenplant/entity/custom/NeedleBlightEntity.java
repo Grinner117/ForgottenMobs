@@ -1,7 +1,7 @@
-package net.grinner117.forgottenmobs.entity.custom;
+package net.grinner117.forgottenplant.entity.custom;
 
-import net.grinner117.forgottenmobs.entity.projectile.NeedleEntity;
 import net.grinner117.forgottenmobs.entity.type.Blight;
+import net.grinner117.forgottenplant.entity.projectile.NeedleEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
@@ -54,7 +54,7 @@ public class NeedleBlightEntity extends Blight implements RangedAttackMob {
     //uses needle entity as ranged attack
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
-        NeedleEntity needleEntity = new NeedleEntity(this.level, this);
+        net.grinner117.forgottenplant.entity.projectile.NeedleEntity needleEntity = new NeedleEntity(this.level, this);
         double d0 = target.getEyeY() - (double) 1.1F;
         double d1 = target.getX() - this.getX();
         double d2 = d0 - needleEntity.getY();
