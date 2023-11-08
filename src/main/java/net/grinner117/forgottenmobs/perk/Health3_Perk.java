@@ -1,5 +1,9 @@
 package net.grinner117.forgottenmobs.perk;
 
+import net.grinner117.radiantlibrary.effects.ModEffects;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -10,10 +14,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Health3_Perk extends ArmorItem {
@@ -25,6 +32,17 @@ public class Health3_Perk extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if (!world.isClientSide()) {
             player.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 200, 3,false, false, true));
+            player.addEffect(new MobEffectInstance(ModEffects.RECOVERY_EFFECT.get(), 200, 3,false, false, true));
+
         }
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> componets, TooltipFlag flag){
+        if(Screen.hasShiftDown()){
+            componets.add(Component.literal("Health Boost and Recovery").withStyle(ChatFormatting.DARK_AQUA));
+        } else{
+            componets.add(Component.literal("Feeling like a holy knight are we?").withStyle(ChatFormatting.YELLOW));
+        }
+        super.appendHoverText(stack, level, componets,flag);
     }
 }

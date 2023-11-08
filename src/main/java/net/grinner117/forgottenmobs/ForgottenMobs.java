@@ -65,14 +65,6 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
-        SpawnPlacements.register(ModEntityTypes.BEHOLDER71.get(),
-                SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
-
-        SpawnPlacements.register(ModEntityTypes.BEHOLDER72.get(),
-                SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingMob::checkMobSpawnRules);
-
         SpawnPlacements.register(ModEntityTypes.NEEDLEBLIGHT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
@@ -85,23 +77,11 @@ public class ForgottenMobs {
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
-        SpawnPlacements.register(ModEntityTypes.INTELLECTDEVOURER.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Monster::checkMonsterSpawnRules);
-
         SpawnPlacements.register(ModEntityTypes.CLOUDGIANT.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
         SpawnPlacements.register(ModEntityTypes.GHOST.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Monster::checkMonsterSpawnRules);
-
-        SpawnPlacements.register(ModEntityTypes.MINDFLAYER.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Monster::checkMonsterSpawnRules);
-
-        SpawnPlacements.register(ModEntityTypes.DBEAST.get(),
                 SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules);
 
@@ -124,20 +104,13 @@ public class ForgottenMobs {
             EntityRenderers.register(ModEntityTypes.ANIMATEDGOLDARMOR.get(), AnimatedGoldArmorRenderer::new);
             EntityRenderers.register(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(), AnimatedDiamondArmorRenderer::new);
 
-            EntityRenderers.register(ModEntityTypes.BEHOLDER71.get(), Beholder71Renderer::new);
-            EntityRenderers.register(ModEntityTypes.BEHOLDER72.get(), Beholder72Renderer::new);
-
             EntityRenderers.register(ModEntityTypes.NEEDLE.get(), NeedleRenderer::new);
             EntityRenderers.register(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightRenderer::new);
             EntityRenderers.register(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightRenderer::new);
             EntityRenderers.register(ModEntityTypes.VINEBLIGHT.get(), VineBlightRenderer::new);
 
-            EntityRenderers.register(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerRenderer::new);
-            EntityRenderers.register(ModEntityTypes.MINDFLAYER.get(),MindflayerRenderer::new);
             EntityRenderers.register(ModEntityTypes.CLOUDGIANT.get(),CloudGiantRenderer::new);
             EntityRenderers.register(ModEntityTypes.GHOST.get(),GhostRenderer::new);
-            EntityRenderers.register(ModEntityTypes.DBEAST.get(),DBeastRenderer::new);
-            EntityRenderers.register(ModEntityTypes.IDBEAST.get(),IDBeastRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHAMBLINGMOUND.get(),ShamblingMoundRenderer::new);
 
         }

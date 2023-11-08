@@ -3,7 +3,7 @@
   "cookingtime": 200,
   "experience": 10,
   "ingredient": {
-    "item": "forgottenmobs:beholderhide"
+    "item": "forgottenaberration:beholderhide"
   },
   "result": {
     "count": 6,

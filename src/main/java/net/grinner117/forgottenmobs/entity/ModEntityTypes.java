@@ -36,20 +36,6 @@ public class ModEntityTypes {
 							.sized(0.7F, 1.8F).clientTrackingRange(120)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "animatedgoldarmor").toString()));
 
-
-
-	public static final RegistryObject<EntityType<Beholder71Entity>> BEHOLDER71 =
-			ENTITY_TYPES.register("beholder71",
-					() -> EntityType.Builder.of(Beholder71Entity::new, MobCategory.MONSTER)
-							.sized(2.0F, 3.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "beholder71").toString()));
-
-	public static final RegistryObject<EntityType<Beholder72Entity>> BEHOLDER72 =
-			ENTITY_TYPES.register("beholder72",
-					() -> EntityType.Builder.of(Beholder72Entity::new, MobCategory.MONSTER)
-							.sized(2.0F, 3.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "beholder72").toString()));
-
 	public static final RegistryObject<EntityType<NeedleBlightEntity>> NEEDLEBLIGHT =
 			ENTITY_TYPES.register("needleblight",
 					() -> EntityType.Builder.of(NeedleBlightEntity::new, MobCategory.MONSTER)
@@ -71,37 +57,16 @@ public class ModEntityTypes {
 					.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
 					.build(new ResourceLocation(ForgottenMobs.MODID, "needle").toString()));
 
-	public static final RegistryObject<EntityType<IntellectDevourerEntity>> INTELLECTDEVOURER =
-			ENTITY_TYPES.register("intellectdevourer",
-					() -> EntityType.Builder.of(IntellectDevourerEntity::new, MobCategory.MONSTER)
-							.sized(1.0F, 1.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "intellectdevourer").toString()));
 	public static final RegistryObject<EntityType<CloudGiantEntity>> CLOUDGIANT =
 			ENTITY_TYPES.register("cloudgiant",
 					() -> EntityType.Builder.of(CloudGiantEntity::new, MobCategory.MONSTER)
 							.sized(5.0F, 10.0F).clientTrackingRange(120)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "cloudgiant").toString()));
-	public static final RegistryObject<EntityType<MindflayerEntity>> MINDFLAYER =
-			ENTITY_TYPES.register("mindflayer",
-					() -> EntityType.Builder.of(MindflayerEntity::new, MobCategory.MONSTER)
-							.sized(1.0F, 2.0F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "mindflayer").toString()));
 	public static final RegistryObject<EntityType<GhostEntity>> GHOST =
 			ENTITY_TYPES.register("ghost",
 					() -> EntityType.Builder.of(GhostEntity::new, MobCategory.MONSTER)
 							.sized(1.0F, 2.0F).clientTrackingRange(120)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "ghost").toString()));
-	public static final RegistryObject<EntityType<DBeastEntity>> DBEAST =
-			ENTITY_TYPES.register("dbeast",
-					() -> EntityType.Builder.of(DBeastEntity::new, MobCategory.MONSTER)
-							.sized(2.0F, 1.8F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "dbeast").toString()));
-	public static final RegistryObject<EntityType<IDBeastEntity>> IDBEAST =
-			ENTITY_TYPES.register("idbeast",
-					() -> EntityType.Builder.of(IDBeastEntity::new, MobCategory.MONSTER)
-							.sized(2.0F, 1.8F).clientTrackingRange(120)
-							.build(new ResourceLocation(ForgottenMobs.MODID, "idbeast").toString()));
-
 
 	public static final RegistryObject<EntityType<ShamblingMoundEntity>> SHAMBLINGMOUND =
 			ENTITY_TYPES.register("shamblingmound",

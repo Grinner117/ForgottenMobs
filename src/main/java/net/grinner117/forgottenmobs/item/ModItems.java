@@ -27,13 +27,6 @@ public class ModItems {
     public static final RegistryObject<Item> ANIMATEDGOLDARMOR_SPAWN_EGG = ITEMS.register("animatedgoldarmor_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.ANIMATEDGOLDARMOR, 0x1eff3f, 0xe9921a,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
-    public static final RegistryObject<Item> BEHOLDER71_SPAWN_EGG = ITEMS.register("beholder71_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.BEHOLDER71, 0x7d512e, 0xd22f00,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> BEHOLDER72_SPAWN_EGG = ITEMS.register("beholder72_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.BEHOLDER72, 0x7d512e, 0x010913,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> NEEDLEBLIGHT_SPAWN_EGG = ITEMS.register("needleblight_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.NEEDLEBLIGHT, 0x231c06, 0x6b5411,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
@@ -45,45 +38,18 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> INTELLECTDEVOURER_SPAWN_EGG = ITEMS.register("intellectdevourer_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.INTELLECTDEVOURER, 0xac8a5f, 0xe0cfba,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> CLOUDGIANT_SPAWN_EGG = ITEMS.register("cloudgiant_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.CLOUDGIANT, 0xbb1b42, 0xdc1541,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GHOST_SPAWN_EGG = ITEMS.register("ghost_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.GHOST, 0xac8a5f, 0xe0cfba,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> MINDFLAYER_SPAWN_EGG = ITEMS.register("mindflayer_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.MINDFLAYER, 0xac8a5f, 0xe0cfba,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> DBEAST_SPAWN_EGG = ITEMS.register("dbeast_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.DBEAST, 0x3d3045, 0xb1b901,
-                    new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> SHAMBLINGMOUND_SPAWN_EGG = ITEMS.register("shamblingmound_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SHAMBLINGMOUND, 0xea261c, 0x39843e,
                     new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-
-    public static final RegistryObject<Item> EYESTALK = ITEMS.register("eyestalk",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
-                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(2)
-                            .effect(() -> new MobEffectInstance(MobEffects.WITHER, 80, 0), 0.3F)
-                            .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 80, 0), 0.3F)
-                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 0), 0.3F)
-                            .build())));
-    public static final RegistryObject<Item> BEHOLDERFANG = ITEMS.register("beholderfang",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)
-                    .food(new FoodProperties.Builder().nutrition(-1).saturationMod(-1)
-                            .effect(() -> new MobEffectInstance(MobEffects.HARM, 20, 5), 1.0F)
-                            .build())));
-    public static final RegistryObject<Item> BEHOLDERHIDE = ITEMS.register("beholderhide",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
     public static final RegistryObject<Item> GHOST_ASH = ITEMS.register("ghost_ash",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> COUATL_FEATHER = ITEMS.register("couatlfeather",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
-    public static final RegistryObject<Item> COUATL_WINGS = ITEMS.register("couatl_wings",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

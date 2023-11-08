@@ -32,9 +32,9 @@ public class SlowFalling_Perk extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> componets, TooltipFlag flag){
         if(Screen.hasShiftDown()){
-            componets.add(Component.literal("Damage 1").withStyle(ChatFormatting.DARK_AQUA));
+            componets.add(Component.literal("Slow Falling 1").withStyle(ChatFormatting.DARK_AQUA));
         } else{
-            componets.add(Component.literal("Shift Right click for more Info").withStyle(ChatFormatting.YELLOW));
+            componets.add(Component.literal("and I'm Free falling....").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, level, componets,flag);
     }

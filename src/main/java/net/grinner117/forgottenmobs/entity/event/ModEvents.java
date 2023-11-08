@@ -18,19 +18,14 @@ public class ModEvents {
 			event.put(ModEntityTypes.ANIMATEDGOLDARMOR.get(), AnimatedGoldArmorEntity.setAttributes());
 			event.put(ModEntityTypes.ANIMATEDDIAMONDARMOR.get(), AnimatedDiamondArmorEntity.setAttributes());
 
-			event.put(ModEntityTypes.BEHOLDER71.get(), Beholder71Entity.setAttributes());
-			event.put(ModEntityTypes.BEHOLDER72.get(), Beholder72Entity.setAttributes());
 
 			event.put(ModEntityTypes.NEEDLEBLIGHT.get(), NeedleBlightEntity.setAttributes());
 			event.put(ModEntityTypes.TWIGBLIGHT.get(), TwigBlightEntity.setAttributes());
 			event.put(ModEntityTypes.VINEBLIGHT.get(), VineBlightEntity.setAttributes());
 
-			event.put(ModEntityTypes.INTELLECTDEVOURER.get(), IntellectDevourerEntity.setAttributes());
 			event.put(ModEntityTypes.CLOUDGIANT.get(), CloudGiantEntity.setAttributes());
 			event.put(ModEntityTypes.GHOST.get(), GhostEntity.setAttributes());
-			event.put(ModEntityTypes.MINDFLAYER.get(), MindflayerEntity.setAttributes());
-			event.put(ModEntityTypes.DBEAST.get(), DBeastEntity.setAttributes());
-			event.put(ModEntityTypes.IDBEAST.get(), IDBeastEntity.setAttributes());
+
 			event.put(ModEntityTypes.SHAMBLINGMOUND.get(), ShamblingMoundEntity.setAttributes());
 
 

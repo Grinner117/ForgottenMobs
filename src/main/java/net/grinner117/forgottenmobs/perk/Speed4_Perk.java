@@ -33,7 +33,7 @@ public class Speed4_Perk extends ArmorItem {
         if(Screen.hasShiftDown()){
             componets.add(Component.literal("Movement Speed 4").withStyle(ChatFormatting.DARK_AQUA));
         } else{
-            componets.add(Component.literal("Shift Right click for more Info").withStyle(ChatFormatting.YELLOW));
+            componets.add(Component.literal("For being over there now").withStyle(ChatFormatting.YELLOW));
         }
         super.appendHoverText(stack, level, componets,flag);
     }
