@@ -7,8 +7,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -24,16 +22,22 @@ public class FireDragon extends Dragon {
 	public FireDragon(EntityType<? extends Dragon> p_33101_, Level p_33102_) {
 		super(p_33101_, p_33102_);
 	}
-
-	private int explosionPower = 1;
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(DATA_IS_CHARGING, false);
+	}
+	private int explosionPower = 30;
 
 	public int getMaxSpawnClusterSize() {
 		return 1;
 	}
 
-
 	public void setCharging(boolean pCharging) {
 		this.entityData.set(DATA_IS_CHARGING, pCharging);
+	}
+
+	protected boolean shouldDespawnInPeaceful() {
+		return true;
 	}
 
 	//	particle effect
@@ -44,11 +48,9 @@ public class FireDragon extends Dragon {
 			float f = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
 			float f1 = Mth.cos((float) (this.getUniqueFlapTickOffset() + this.tickCount + 1) * 7.448451F * ((float) Math.PI / 180F) + (float) Math.PI);
 			if (f > 0.0F && f1 <= 0.0F) {
-				this.level.addParticle(ParticleTypes.LARGE_SMOKE, this.getX() + (double) (this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double) this.getBbWidth(), this.getY() + 0.5D + (double) (this.random.nextFloat() * this.getBbHeight()), this.getZ() + (double) (this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double) this.getBbWidth(), 1.0D, 1.0D, 1.0D);
+				this.level.addParticle(ParticleTypes.LARGE_SMOKE, this.getX() + (double) (this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double) this.getBbWidth(), this.getY() + 0.5D + (double) (this.random.nextFloat() * this.getBbHeight()), this.getZ() + (double) (this.random.nextFloat() * this.getBbWidth() * 1.0F) - (double) this.getBbWidth(), 1.0D, 1.0D, 1.0D);
 			}
 		}
-		//has mobeffect
-
 	}
 
 	protected void registerGoals() {
@@ -73,11 +75,53 @@ public class FireDragon extends Dragon {
 				}
 			}
 		}
-		//has fire restance
 
-		if (level.isClientSide()) {
-			this.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 100, false, false, true));
-		}
+	}
+
+	//immune to fireball damage source
+	public boolean hurtByFireball(LargeFireball p_38398_) {
+		this.teleport();
+		this.playSound(SoundEvents.DRAGON_FIREBALL_EXPLODE, 1.0F, 1.0F);
+		return false;
+	}
+
+	//immune to magic damage source
+	public boolean hurtByMagic(LivingEntity p_38394_) {
+		this.teleport();
+		return false;
+	}
+
+	//immune to fire damage source
+	public boolean hurtByFire() {
+		this.teleport();
+		return false;
+	}
+
+	//immune to suffocation damage source
+	public boolean hurtByBlock() {
+		this.teleport();
+		this.playSound(SoundEvents.DRAGON_FIREBALL_EXPLODE, 1.0F, 1.0F);
+
+		return false;
+	}
+
+	//if it takes arrow damage, tp away
+	public boolean hurtByArrow() {
+		this.playSound(SoundEvents.DRAGON_FIREBALL_EXPLODE, 0.2F, 1.0F);
+		return false;
+	}
+
+	//if it takes damage from player, tp away
+	public boolean hurtByPlayer(Player p_38396_) {
+		this.playSound(SoundEvents.DRAGON_FIREBALL_EXPLODE, 0.2F, 1.0F);
+		return true;
+	}
+
+	//define teleport
+	public void teleport() {
+		Vec3 vec3 = this.getDeltaMovement();
+		this.setDeltaMovement(-vec3.x, vec3.y, -vec3.z);
+		this.playSound(SoundEvents.DRAGON_FIREBALL_EXPLODE, 1.0F, 1.0F);
 	}
 
 	//give fireball attack
@@ -89,24 +133,14 @@ public class FireDragon extends Dragon {
 			this.ghast = pGhast;
 		}
 
-		/**
-		 * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-		 * method as well.
-		 */
 		public boolean canUse() {
 			return this.ghast.getTarget() != null;
 		}
 
-		/**
-		 * Execute a one shot task or start executing a continuous task
-		 */
 		public void start() {
 			this.chargeTime = 0;
 		}
 
-		/**
-		 * Reset the task's internal state. Called when this task is interrupted by another one
-		 */
 		public void stop() {
 			this.ghast.setCharging(false);
 		}
@@ -115,9 +149,6 @@ public class FireDragon extends Dragon {
 			return true;
 		}
 
-		/**
-		 * Keep ticking a continuous task that has already been started
-		 */
 		public void tick() {
 			LivingEntity livingentity = this.ghast.getTarget();
 			if (livingentity != null) {

@@ -33,6 +33,4 @@ public class FireAdultDragonEntity extends FireDragon {
                 .add(Attributes.ARMOR_TOUGHNESS, 8.0F)
                 .build();
     }
-
-
 }
