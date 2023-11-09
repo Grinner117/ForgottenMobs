@@ -20,7 +20,7 @@ public class FireElderDragonRenderer extends GeoEntityRenderer<FireElderDragonEn
     }
     @Override
     public ResourceLocation getTextureLocation(FireElderDragonEntity instance) {
-        return new ResourceLocation(ForgottenDragons.MODID, "textures/entity/shadowdragon.png");
+        return new ResourceLocation(ForgottenDragons.MODID, "textures/entity/firedragon.png");
     }
     @Override
     public RenderType getRenderType(FireElderDragonEntity animatable, float partialTicks, PoseStack stack,

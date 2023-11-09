@@ -79,9 +79,8 @@ public class FireDragon extends Dragon {
 			this.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 100, false, false, true));
 		}
 	}
+
 	//give fireball attack
-
-
 	static class ShootFireballGoal extends Goal {
 		private final FireDragon ghast;
 		public int chargeTime;

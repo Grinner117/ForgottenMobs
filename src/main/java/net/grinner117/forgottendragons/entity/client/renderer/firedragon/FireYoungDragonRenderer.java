@@ -22,7 +22,7 @@ public class FireYoungDragonRenderer extends GeoEntityRenderer<FireYoungDragonEn
 
     @Override
     public ResourceLocation getTextureLocation(FireYoungDragonEntity instance) {
-        return new ResourceLocation(ForgottenDragons.MODID, "textures/entity/shadowdragon.png");
+        return new ResourceLocation(ForgottenDragons.MODID, "textures/entity/firedragon.png");
     }
 
         @Override
