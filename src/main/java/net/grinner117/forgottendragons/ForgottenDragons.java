@@ -2,10 +2,14 @@ package net.grinner117.forgottendragons;
 
 import com.mojang.logging.LogUtils;
 import net.grinner117.forgottendragons.entity.ModEntityTypes;
+import net.grinner117.forgottendragons.entity.client.renderer.bluedragon.BlueAdultDragonRenderer;
+import net.grinner117.forgottendragons.entity.client.renderer.bluedragon.BlueElderDragonRenderer;
+import net.grinner117.forgottendragons.entity.client.renderer.bluedragon.BlueWyrmlingRenderer;
+import net.grinner117.forgottendragons.entity.client.renderer.bluedragon.BlueYoungDragonRenderer;
 import net.grinner117.forgottendragons.entity.client.renderer.firedragon.FireAdultDragonRenderer;
-import net.grinner117.forgottendragons.entity.client.renderer.firedragon.FireYoungDragonRenderer;
 import net.grinner117.forgottendragons.entity.client.renderer.firedragon.FireElderDragonRenderer;
 import net.grinner117.forgottendragons.entity.client.renderer.firedragon.FireWyrmlingRenderer;
+import net.grinner117.forgottendragons.entity.client.renderer.firedragon.FireYoungDragonRenderer;
 import net.grinner117.forgottendragons.entity.client.renderer.shadowdragon.ShadowAdultDragonRenderer;
 import net.grinner117.forgottendragons.entity.client.renderer.shadowdragon.ShadowElderDragonRenderer;
 import net.grinner117.forgottendragons.entity.client.renderer.shadowdragon.ShadowWyrmlingRenderer;
@@ -101,6 +105,22 @@ public class ForgottenDragons {
 				SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				FlyingMob::checkMobSpawnRules);
 
+		SpawnPlacements.register(ModEntityTypes.BLUEELDERDRAGON.get(),
+				SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				FlyingMob::checkMobSpawnRules);
+
+		SpawnPlacements.register(ModEntityTypes.BLUEADULTDRAGON.get(),
+				SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				FlyingMob::checkMobSpawnRules);
+
+		SpawnPlacements.register(ModEntityTypes.BLUEYOUNGDRAGON.get(),
+				SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				FlyingMob::checkMobSpawnRules);
+
+		SpawnPlacements.register(ModEntityTypes.BLUEWYRMLING.get(),
+				SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				FlyingMob::checkMobSpawnRules);
+
 
 	}
 
@@ -127,6 +147,12 @@ public class ForgottenDragons {
 			EntityRenderers.register(ModEntityTypes.FIREWYRMLING.get(), FireWyrmlingRenderer::new);
 			EntityRenderers.register(ModEntityTypes.FIREELDERDRAGON.get(), FireElderDragonRenderer::new);
 			EntityRenderers.register(ModEntityTypes.FIREYOUNGDRAGON.get(), FireYoungDragonRenderer::new);
+
+			EntityRenderers.register(ModEntityTypes.BLUEELDERDRAGON.get(), BlueElderDragonRenderer::new);
+			EntityRenderers.register(ModEntityTypes.BLUEADULTDRAGON.get(), BlueAdultDragonRenderer::new);
+			EntityRenderers.register(ModEntityTypes.BLUEYOUNGDRAGON.get(), BlueYoungDragonRenderer::new);
+			EntityRenderers.register(ModEntityTypes.BLUEWYRMLING.get(), BlueWyrmlingRenderer::new);
+
 
 		}
 	}

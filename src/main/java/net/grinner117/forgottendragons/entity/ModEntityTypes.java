@@ -1,6 +1,10 @@
 package net.grinner117.forgottendragons.entity;
 
 import net.grinner117.forgottendragons.ForgottenDragons;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueAdultDragonEntity;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueElderDragonEntity;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueWyrmlingEntity;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueYoungDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.firedragon.FireAdultDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.firedragon.FireElderDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.firedragon.FireWyrmlingEntity;
@@ -88,6 +92,34 @@ public class ModEntityTypes {
 					() -> EntityType.Builder.of(FireElderDragonEntity::new, MobCategory.MONSTER)
 							.sized(10.0F, 5.0F).clientTrackingRange(200)
 							.build(new ResourceLocation(ForgottenDragons.MODID, "fireelderdragon").toString()));
+
+
+	public static final RegistryObject<EntityType<BlueElderDragonEntity>> BLUEELDERDRAGON =
+			ENTITY_TYPES.register("blueelderdragon",
+					() -> EntityType.Builder.of(BlueElderDragonEntity::new, MobCategory.MONSTER)
+							.sized(10.0F, 5.0F).clientTrackingRange(200)
+							.build(new ResourceLocation(ForgottenDragons.MODID, "blueelderdragon").toString()));
+
+	public static final RegistryObject<EntityType<BlueAdultDragonEntity>> BLUEADULTDRAGON =
+			ENTITY_TYPES.register("blueadultdragon",
+					() -> EntityType.Builder.of(BlueAdultDragonEntity::new, MobCategory.MONSTER)
+							.sized(8.8F, 2.8F).clientTrackingRange(200)
+							.build(new ResourceLocation(ForgottenDragons.MODID, "blueadultdragon").toString()));
+
+	public static final RegistryObject<EntityType<BlueWyrmlingEntity>> BLUEWYRMLING =
+			ENTITY_TYPES.register("bluewyrmling",
+					() -> EntityType.Builder.of(BlueWyrmlingEntity::new, MobCategory.MONSTER)
+							.sized(1.0F, 1.0F).clientTrackingRange(200)
+							.build(new ResourceLocation(ForgottenDragons.MODID, "bluewyrmling").toString()));
+
+	public static final RegistryObject<EntityType<BlueYoungDragonEntity>> BLUEYOUNGDRAGON =
+			ENTITY_TYPES.register("blueyoungdragon",
+					() -> EntityType.Builder.of(BlueYoungDragonEntity::new, MobCategory.MONSTER)
+							.sized(4.0F, 1.0F).clientTrackingRange(200)
+							.build(new ResourceLocation(ForgottenDragons.MODID, "blueyoungdragon").toString()));
+
+
+
 	public static void register(IEventBus eventBus) {
 		ENTITY_TYPES.register(eventBus);
 	}

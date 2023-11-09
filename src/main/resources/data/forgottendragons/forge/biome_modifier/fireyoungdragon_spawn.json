@@ -1,6 +1,17 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
+    "minecraft:mountains",
+    "minecraft:wooded_mountains",
+    "minecraft:gravelly_mountains",
+    "minecraft:modified_gravelly_mountains",
+    "minecraft:mountain_edge",
+    "minecraft:badlands",
+    "minecraft:nether_wastes",
+    "minecraft:crimson_forest",
+    "minecraft:warped_forest",
+    "minecraft:soul_sand_valley",
+    "minecraft:basalt_deltas"
   ],
   "spawners": {
 	"type": "forgottendragons:fireyoungdragon",

@@ -58,6 +58,23 @@ public class ModItems {
 	public static final RegistryObject<Item> FIREELDERDRAGON_SPAWN_EGG = ITEMS.register("fireelderdragon_spawn_egg",
 			() -> new ForgeSpawnEggItem(ModEntityTypes.FIREELDERDRAGON, 0xd64129, 0x000000,
 					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+	public static final RegistryObject<Item> BLUEWYRMLING_SPAWN_EGG = ITEMS.register("bluewyrmling_spawn_egg",
+			() -> new ForgeSpawnEggItem(net.grinner117.forgottendragons.entity.ModEntityTypes.BLUEWYRMLING, 0x1eff3f, 0x000000,
+					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+	public static final RegistryObject<Item> BLUEYOUNGDRAGON_SPAWN_EGG = ITEMS.register("blueyoungdragon_spawn_egg",
+			() -> new ForgeSpawnEggItem(net.grinner117.forgottendragons.entity.ModEntityTypes.BLUEYOUNGDRAGON, 0x1eff3f, 0x000000,
+					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+	public static final RegistryObject<Item> BLUEADULTDRAGON_SPAWN_EGG = ITEMS.register("blueadultdragon_spawn_egg",
+			() -> new ForgeSpawnEggItem(net.grinner117.forgottendragons.entity.ModEntityTypes.BLUEADULTDRAGON, 0x1eff3f, 0x000000,
+					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+	public static final RegistryObject<Item> BLUEELDERDRAGON_SPAWN_EGG = ITEMS.register("blueelderdragon_spawn_egg",
+			() -> new ForgeSpawnEggItem(ModEntityTypes.BLUEELDERDRAGON, 0x1eff3f, 0x000000,
+					new Item.Properties().tab(ModCreativeModeTab.FORGOTTENTAB)));
+
+
 	public static final RegistryObject<Item> NEEDLE = ITEMS.register("needle",
 			() -> new Item(new Item.Properties()));
 
