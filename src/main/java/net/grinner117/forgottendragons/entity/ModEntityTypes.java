@@ -48,7 +48,7 @@ public class ModEntityTypes {
 	public static final RegistryObject<EntityType<ShadowElderDragonEntity>> SHADOWELDERDRAGON =
 			ENTITY_TYPES.register("shadowelderdragon",
 					() -> EntityType.Builder.of(ShadowElderDragonEntity::new, MobCategory.MONSTER)
-							.sized(3.0F, 3.8F).clientTrackingRange(200)
+							.sized(18.0F, 10.0F).clientTrackingRange(200)
 							.build(new ResourceLocation(ForgottenDragons.MODID, "shadowelderdragon").toString()));
 	public static final RegistryObject<EntityType<WhiteWyrmlingEntity>> WHITEWYRMLING =
 			ENTITY_TYPES.register("whitewyrmling",
@@ -69,7 +69,7 @@ public class ModEntityTypes {
 	public static final RegistryObject<EntityType<WhiteElderDragonEntity>> WHITEELDERDRAGON =
 			ENTITY_TYPES.register("whiteelderdragon",
 					() -> EntityType.Builder.of(WhiteElderDragonEntity::new, MobCategory.MONSTER)
-							.sized(10.0F, 5.0F).clientTrackingRange(200)
+							.sized(18.0F, 10.0F).clientTrackingRange(200)
 							.build(new ResourceLocation(ForgottenDragons.MODID, "whiteelderdragon").toString()));
 	public static final RegistryObject<EntityType<FireWyrmlingEntity>> FIREWYRMLING =
 			ENTITY_TYPES.register("firewyrmling",
@@ -90,14 +90,14 @@ public class ModEntityTypes {
 	public static final RegistryObject<EntityType<FireElderDragonEntity>> FIREELDERDRAGON =
 			ENTITY_TYPES.register("fireelderdragon",
 					() -> EntityType.Builder.of(FireElderDragonEntity::new, MobCategory.MONSTER)
-							.sized(10.0F, 5.0F).clientTrackingRange(200)
+							.sized(18.0F, 10.0F).clientTrackingRange(200)
 							.build(new ResourceLocation(ForgottenDragons.MODID, "fireelderdragon").toString()));
 
 
 	public static final RegistryObject<EntityType<BlueElderDragonEntity>> BLUEELDERDRAGON =
 			ENTITY_TYPES.register("blueelderdragon",
 					() -> EntityType.Builder.of(BlueElderDragonEntity::new, MobCategory.MONSTER)
-							.sized(10.0F, 5.0F).clientTrackingRange(200)
+							.sized(18.0F, 10.0F).clientTrackingRange(200)
 							.build(new ResourceLocation(ForgottenDragons.MODID, "blueelderdragon").toString()));
 
 	public static final RegistryObject<EntityType<BlueAdultDragonEntity>> BLUEADULTDRAGON =

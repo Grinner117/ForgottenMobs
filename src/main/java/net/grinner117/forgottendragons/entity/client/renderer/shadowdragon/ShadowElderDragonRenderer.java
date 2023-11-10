@@ -27,7 +27,7 @@ public class ShadowElderDragonRenderer extends GeoEntityRenderer<ShadowElderDrag
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(6.0f, 6.0f, 6.0f);
+        stack.scale(11.0f, 11.0f, 11.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
 }
     }

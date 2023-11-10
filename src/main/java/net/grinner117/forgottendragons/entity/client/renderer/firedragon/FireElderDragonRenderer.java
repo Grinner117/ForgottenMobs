@@ -27,7 +27,7 @@ public class FireElderDragonRenderer extends GeoEntityRenderer<FireElderDragonEn
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(6.0f, 6.0f, 6.0f);
+        stack.scale(14.0f, 14.0f, 14.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
 }
     }

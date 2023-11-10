@@ -1,7 +1,11 @@
 package net.grinner117.forgottendragons.entity.event;
 
-import net.grinner117.forgottendragons.entity.ModEntityTypes;
 import net.grinner117.forgottendragons.ForgottenDragons;
+import net.grinner117.forgottendragons.entity.ModEntityTypes;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueAdultDragonEntity;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueElderDragonEntity;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueWyrmlingEntity;
+import net.grinner117.forgottendragons.entity.custom.bluedragon.BlueYoungDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.firedragon.FireAdultDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.firedragon.FireElderDragonEntity;
 import net.grinner117.forgottendragons.entity.custom.firedragon.FireWyrmlingEntity;
@@ -39,8 +43,14 @@ public class ModEvents {
 			event.put(ModEntityTypes.FIREADULTDRAGON.get(), FireAdultDragonEntity.setAttributes());
 			event.put(ModEntityTypes.FIREELDERDRAGON.get(), FireElderDragonEntity.setAttributes());
 
+			event.put(ModEntityTypes.BLUEWYRMLING.get(), BlueWyrmlingEntity.setAttributes());
+			event.put(ModEntityTypes.BLUEYOUNGDRAGON.get(), BlueYoungDragonEntity.setAttributes());
+			event.put(ModEntityTypes.BLUEADULTDRAGON.get(), BlueAdultDragonEntity.setAttributes());
+			event.put(ModEntityTypes.BLUEELDERDRAGON.get(), BlueElderDragonEntity.setAttributes());
+
 		}
 	}
+
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 	public class ArmorHandlers {
 

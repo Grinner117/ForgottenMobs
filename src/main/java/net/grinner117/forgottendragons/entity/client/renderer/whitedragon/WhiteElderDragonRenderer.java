@@ -27,7 +27,7 @@ public class WhiteElderDragonRenderer extends GeoEntityRenderer<WhiteElderDragon
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(6.0f, 6.0f, 6.0f);
+        stack.scale(12.0f, 12.0f, 12.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
 }
     }

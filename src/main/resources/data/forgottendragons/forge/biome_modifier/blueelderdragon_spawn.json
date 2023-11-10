@@ -1,11 +1,13 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
+	"minecraft:desert"
+
   ],
   "spawners": {
-    "type": "forgottendragons:blueelderragon",
-    "weight": 1,
-    "minCount": 1,
-    "maxCount": 1
+	"type": "forgottendragons:blueelderdragon",
+	"weight": 1,
+	"minCount": 1,
+	"maxCount": 1
   }
 }
