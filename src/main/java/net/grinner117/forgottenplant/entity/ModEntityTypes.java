@@ -34,8 +34,8 @@ public class ModEntityTypes {
 							.sized(1.8F, 1.8F).clientTrackingRange(120)
 							.build(new ResourceLocation(ForgottenPlant.MODID, "vineblight").toString()));
 
-	public static final RegistryObject<EntityType<net.grinner117.forgottenplant.entity.projectile.NeedleEntity>> NEEDLE = ENTITY_TYPES.register("needle",
-			() -> EntityType.Builder.of((EntityType.EntityFactory<net.grinner117.forgottenplant.entity.projectile.NeedleEntity>) NeedleEntity::new, MobCategory.MISC)
+	public static final RegistryObject<EntityType<NeedleEntity>> NEEDLE = ENTITY_TYPES.register("needle",
+			() -> EntityType.Builder.of((EntityType.EntityFactory<NeedleEntity>) NeedleEntity::new, MobCategory.MISC)
 					.sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
 					.build(new ResourceLocation(ForgottenPlant.MODID, "needle").toString()));
 

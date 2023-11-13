@@ -11,7 +11,6 @@ import net.minecraft.world.level.Level;
 public class NeedleItem extends ArrowItem {
 	public NeedleItem(Properties props) {
 		super(props);
-
 	}
 
 	@Override
