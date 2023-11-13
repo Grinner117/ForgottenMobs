@@ -25,24 +25,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib3.core.AnimationState;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 
 import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.List;
 
-public class Dragon extends FlyingMob implements Enemy, IAnimatable {
+public class Dragon extends FlyingMob implements Enemy, GeoEntity {
 
-    AnimationFactory manager = GeckoLibUtil.createFactory(this);
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
     public static final float FLAP_DEGREES_PER_TICK = 7.448451F;
     public static final int TICKS_PER_FLAP = Mth.ceil(24.166098F);
     private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(Dragon.class, EntityDataSerializers.INT);
@@ -61,7 +58,7 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
     }
 
     protected BodyRotationControl createBodyControl() {
-        return new Dragon.PhantomBodyRotationControl(this);
+        return new Dragon.DragonBodyRotationControl(this);
     }
 
     protected void registerGoals() {
@@ -82,10 +79,10 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
 
     private void updatePhantomSizeInfo() {
         this.refreshDimensions();
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double) (6 + this.getPhantomSize()));
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double) (6 + this.getDragonSize()));
     }
 
-    public int getPhantomSize() {
+    public int getDragonSize() {
         return this.entityData.get(ID_SIZE);
     }
 
@@ -128,7 +125,7 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
         p_33141_.putInt("AX", this.anchorPoint.getX());
         p_33141_.putInt("AY", this.anchorPoint.getY());
         p_33141_.putInt("AZ", this.anchorPoint.getZ());
-        p_33141_.putInt("Size", this.getPhantomSize());
+        p_33141_.putInt("Size", this.getDragonSize());
     }
 
     public boolean shouldRenderAtSqrDistance(double p_33107_) {
@@ -140,18 +137,20 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
     }
 //ambient sound
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENDER_DRAGON_AMBIENT;
+        this.playSound(SoundEvents.ENDER_DRAGON_AMBIENT, 0.8F, 0.95F + this.random.nextFloat() * 0.1F);
+    return null;
     }
+    
 //hurt sound
-    protected SoundEvent getHurtSound(DamageSource p_33152_) {
-        return SoundEvents.ENDER_DRAGON_HURT;
-    }
+        protected SoundEvent getHurtSound (DamageSource p_33152_){
+            return SoundEvents.ENDER_DRAGON_HURT;
+        }
 //death sound
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENDER_DRAGON_DEATH;
-    }
+        protected SoundEvent getDeathSound () {
+            return SoundEvents.PHANTOM_DEATH;
+        }
 //volume
-    protected float getSoundVolume() {
+        protected float getSoundVolume () {
         return 6.0F;
     }
 
@@ -161,8 +160,8 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
     }
 
     public EntityDimensions getDimensions(Pose p_33113_) {
-        int i = this.getPhantomSize();
-        EntityDimensions entitydimensions = super.getDimensions(p_33113_);
+            int i = this.getDragonSize();
+            EntityDimensions entitydimensions = super.getDimensions(p_33113_);
         float f = (entitydimensions.width + 0.2F * (float) i) / entitydimensions.width;
         return entitydimensions.scale(f);
     }
@@ -243,8 +242,8 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
         }
     }
 
-    class PhantomBodyRotationControl extends BodyRotationControl {
-        public PhantomBodyRotationControl(Mob p_33216_) {
+    class DragonBodyRotationControl extends BodyRotationControl {
+        public DragonBodyRotationControl(Mob p_33216_) {
             super(p_33216_);
         }
 
@@ -383,7 +382,6 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
     }
 
     class PhantomSweepAttackGoal extends Dragon.PhantomMoveTargetGoal {
-        private static final int CAT_SEARCH_TICK_DELAY = 20;
         private boolean isScaredOfCat;
         private int catSearchTick;
 
@@ -450,34 +448,35 @@ public class Dragon extends FlyingMob implements Enemy, IAnimatable {
         }
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.walk", true));
+        private PlayState predicate (software.bernie.geckolib.core.animation.AnimationState animationState){
+            if (animationState.isMoving()) {
+                animationState.getController().setAnimation(RawAnimation.begin().then("animation.dragon.walk", Animation.LoopType.LOOP));
+                return PlayState.CONTINUE;
+            }
+            animationState.getController().setAnimation(RawAnimation.begin().then("animation.dragon.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.idle", true));
-        return PlayState.CONTINUE;
-    }
 
-    private PlayState attackPredicate(AnimationEvent event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("wyrmling.animation.attack", false));
-            this.swinging = false;
+        private PlayState attackPredicate (AnimationState state){
+            if (this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
+                state.getController().forceAnimationReset();
+                state.getController().setAnimation((RawAnimation.begin().then("animation.dragon.attack", Animation.LoopType.PLAY_ONCE)));
+                this.swinging = false;
+            }
+            return PlayState.CONTINUE;
         }
-        return PlayState.CONTINUE;
-    }
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
-    }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return manager;
+        @Override
+        public void registerControllers (AnimatableManager.ControllerRegistrar controllers){
+            controllers.add(new AnimationController(this, "controller",
+                    0, this::predicate));
+            controllers.add(new AnimationController(this, "attackController",
+                    0, this::attackPredicate));
+        }
+
+        @Override
+        public AnimatableInstanceCache getAnimatableInstanceCache () {
+            return null;
+        }
     }
-}

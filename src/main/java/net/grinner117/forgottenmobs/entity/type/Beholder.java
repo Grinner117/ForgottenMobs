@@ -22,23 +22,19 @@ import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib3.core.AnimationState;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class Beholder extends Monster implements IAnimatable {
+public class Beholder extends Monster implements GeoEntity {
 	private float allowedHeightOffset = 0.5F;
 	private int nextHeightOffsetChangeTick;
-	AnimationFactory manager = GeckoLibUtil.createFactory(this);
+	private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 	private static final EntityDataAccessor<Integer> DATA_ID_ATTACK_TARGET = SynchedEntityData.defineId(Beholder.class, EntityDataSerializers.INT);
 
 	public int getAttackDuration() {
@@ -63,7 +59,7 @@ public class Beholder extends Monster implements IAnimatable {
 		this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 0.5D, 0.0F));
 		this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 64.0F));
 		this.goalSelector.addGoal(2, new Beholder.BlazeAttackGoal(this));
-		this.goalSelector.addGoal(2, new Beholder.GuardianAttackGoal(this));
+		this.goalSelector.addGoal(2, new Beholder.BeholderAttackGoal(this));
 		this.goalSelector.addGoal(1, new MoveTowardsTargetGoal(this, 1.0f, 30.0f));
 
 		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
@@ -215,19 +211,19 @@ public class Beholder extends Monster implements IAnimatable {
 	}
 
 
-	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-		if (event.isMoving()) {
-			event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.beholder.walk", true));
+	private PlayState predicate(AnimationState animationState) {
+		if (animationState.isMoving()) {
+			animationState.getController().setAnimation(RawAnimation.begin().then("animation.beholder.walk", Animation.LoopType.LOOP));
 			return PlayState.CONTINUE;
 		}
-		event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.beholder.idle", true));
+		animationState.getController().setAnimation(RawAnimation.begin().then("animation.beholder.idle", Animation.LoopType.LOOP));
 		return PlayState.CONTINUE;
 	}
 
-	private PlayState attackPredicate(AnimationEvent event) {
-		if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-			event.getController().markNeedsReload();
-			event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.beholder.attack", false));
+	private PlayState attackPredicate(AnimationState state) {
+		if (this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
+			state.getController().forceAnimationReset();
+			state.getController().setAnimation((RawAnimation.begin().then("animation.beholder.attack", Animation.LoopType.PLAY_ONCE)));
 			this.swinging = false;
 		}
 		return PlayState.CONTINUE;
@@ -235,50 +231,50 @@ public class Beholder extends Monster implements IAnimatable {
 
 
 	@Override
-	public void registerControllers(AnimationData data) {
-		data.addAnimationController(new AnimationController(this, "controller",
+	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+		controllers.add(new AnimationController(this, "controller",
 				0, this::predicate));
-		data.addAnimationController(new AnimationController(this, "attackController",
+		controllers.add(new AnimationController(this, "attackController",
 				0, this::attackPredicate));
 	}
 
 	@Override
-	public AnimationFactory getFactory() {
-		return manager;
+	public AnimatableInstanceCache getAnimatableInstanceCache() {
+		return null;
 	}
 
-	static class GuardianAttackGoal extends Goal {
-		private final Beholder guardian;
+	static class BeholderAttackGoal extends Goal {
+		private final Beholder beholder;
 		private int attackTime;
 
-		public GuardianAttackGoal(Beholder beholder) {
+		public BeholderAttackGoal(Beholder beholder) {
 			this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-			this.guardian = beholder;
+			this.beholder = beholder;
 		}
 
 		public boolean canUse() {
-			LivingEntity livingentity = this.guardian.getTarget();
+			LivingEntity livingentity = this.beholder.getTarget();
 			return livingentity != null && livingentity.isAlive();
 		}
 
 		public boolean canContinueToUse() {
-			return super.canContinueToUse() && (this.guardian.getTarget() != null && this.guardian.distanceToSqr(this.guardian.getTarget()) > 9.0D);
+			return super.canContinueToUse() && (this.beholder.getTarget() != null && this.beholder.distanceToSqr(this.beholder.getTarget()) > 9.0D);
 		}
 
 		public void start() {
 			this.attackTime = -10;
-			this.guardian.getNavigation().stop();
-			LivingEntity livingentity = this.guardian.getTarget();
+			this.beholder.getNavigation().stop();
+			LivingEntity livingentity = this.beholder.getTarget();
 			if (livingentity != null) {
-				this.guardian.getLookControl().setLookAt(livingentity, 90.0F, 90.0F);
+				this.beholder.getLookControl().setLookAt(livingentity, 90.0F, 90.0F);
 			}
 
-			this.guardian.hasImpulse = true;
+			this.beholder.hasImpulse = true;
 		}
 
 		public void stop() {
-			this.guardian.setActiveAttackTarget(0);
-			this.guardian.setTarget((LivingEntity) null);
+			this.beholder.setActiveAttackTarget(0);
+			this.beholder.setTarget((LivingEntity) null);
 		}
 
 		public boolean requiresUpdateEveryTick() {
@@ -286,27 +282,27 @@ public class Beholder extends Monster implements IAnimatable {
 		}
 
 		public void tick() {
-			LivingEntity livingentity = this.guardian.getTarget();
+			LivingEntity livingentity = this.beholder.getTarget();
 			if (livingentity != null) {
-				this.guardian.getNavigation().stop();
-				this.guardian.getLookControl().setLookAt(livingentity, 90.0F, 90.0F);
-				if (!this.guardian.hasLineOfSight(livingentity)) {
-					this.guardian.setTarget((LivingEntity) null);
+				this.beholder.getNavigation().stop();
+				this.beholder.getLookControl().setLookAt(livingentity, 90.0F, 90.0F);
+				if (!this.beholder.hasLineOfSight(livingentity)) {
+					this.beholder.setTarget((LivingEntity) null);
 				} else {
 					++this.attackTime;
 					if (this.attackTime == 0) {
-						this.guardian.setActiveAttackTarget(livingentity.getId());
-						if (!this.guardian.isSilent()) {
-							this.guardian.level.broadcastEntityEvent(this.guardian, (byte) 21);
+						this.beholder.setActiveAttackTarget(livingentity.getId());
+						if (!this.beholder.isSilent()) {
+							this.beholder.level.broadcastEntityEvent(this.beholder, (byte) 21);
 						}
-					} else if (this.attackTime >= this.guardian.getAttackDuration()) {
+					} else if (this.attackTime >= this.beholder.getAttackDuration()) {
 						float f = 1.0F;
-						if (this.guardian.level.getDifficulty() == Difficulty.HARD) {
+						if (this.beholder.level.getDifficulty() == Difficulty.HARD) {
 							f += 2.0F;
 						}
-						livingentity.hurt(DamageSource.indirectMagic(this.guardian, this.guardian), f);
-						livingentity.hurt(DamageSource.mobAttack(this.guardian), (float) this.guardian.getAttributeValue(Attributes.ATTACK_DAMAGE));
-						this.guardian.setTarget((LivingEntity) null);
+						livingentity.hurt(DamageSource.m_19364_(this.beholder), f);
+						livingentity.hurt(DamageSource.m_19364_(this.beholder), (float) this.beholder.getAttributeValue(Attributes.ATTACK_DAMAGE));
+						this.beholder.setTarget((LivingEntity) null);
 					}
 
 					super.tick();

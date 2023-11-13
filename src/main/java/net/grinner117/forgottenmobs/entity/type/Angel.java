@@ -16,28 +16,18 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib3.core.AnimationState;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 
-public class Angel extends PathfinderMob implements IAnimatable {
+public class Angel extends PathfinderMob implements GeoEntity {
     private float allowedHeightOffset = 2.0F;
     private int nextHeightOffsetChangeTick;
-    AnimationFactory manager = GeckoLibUtil.createFactory(this);
 
-    public boolean shouldDropExperience() {
-        return true;
-    }
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 
-    protected boolean shouldDropLoot() {
-        return true;
-    }
 
     public Angel(EntityType<? extends Angel> p_33101_, Level p_33102_) {
         super(p_33101_, p_33102_);
@@ -122,19 +112,19 @@ public class Angel extends PathfinderMob implements IAnimatable {
         return super.hurt(source, amount);
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.walk", true));
+    private PlayState predicate(AnimationState animationState) {
+        if (animationState.isMoving()) {
+            animationState.getController().setAnimation(RawAnimation.begin().then("animation.angel.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.idle", true));
+        animationState.getController().setAnimation(RawAnimation.begin().then("animation.angel.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
-    private PlayState attackPredicate(AnimationEvent event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.planetar.attack", false));
+    private PlayState attackPredicate(AnimationState state) {
+        if (this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
+            state.getController().forceAnimationReset();
+            state.getController().setAnimation((RawAnimation.begin().then("animation.angel.attack", Animation.LoopType.PLAY_ONCE)));
             this.swinging = false;
         }
         return PlayState.CONTINUE;
@@ -142,16 +132,16 @@ public class Angel extends PathfinderMob implements IAnimatable {
 
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController(this, "controller",
                 0, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
+        controllers.add(new AnimationController(this, "attackController",
                 0, this::attackPredicate));
     }
 
     @Override
-    public AnimationFactory getFactory() {
-        return manager;
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return null;
     }
 
 }

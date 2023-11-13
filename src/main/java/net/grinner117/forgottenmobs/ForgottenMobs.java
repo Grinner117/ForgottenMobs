@@ -12,6 +12,7 @@ import net.grinner117.forgottenmobs.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,7 +22,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib.GeckoLib;
 
 @Mod(ForgottenMobs.MODID)
 public class ForgottenMobs {
@@ -42,6 +43,12 @@ public class ForgottenMobs {
 		modEventBus.addListener(this::commonSetup);
 
 		MinecraftForge.EVENT_BUS.register(this);
+
+		modEventBus.addListener(this::addCreativeTab);
+
+	}
+
+	private void addCreativeTab(CreativeModeTabEvent.BuildContents event) {
 
 	}
 
