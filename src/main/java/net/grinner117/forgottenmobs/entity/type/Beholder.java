@@ -1,5 +1,6 @@
 package net.grinner117.forgottenmobs.entity.type;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -36,13 +37,12 @@ public class Beholder extends Monster implements GeoEntity {
 	private int nextHeightOffsetChangeTick;
 	private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 	private static final EntityDataAccessor<Integer> DATA_ID_ATTACK_TARGET = SynchedEntityData.defineId(Beholder.class, EntityDataSerializers.INT);
+	private ClientLevel level;
 
 	public int getAttackDuration() {
 		return 80;
 	}
-
 	private LivingEntity clientSideCachedAttackTarget;
-
 	private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Beholder.class, EntityDataSerializers.BYTE);
 
 	public Beholder(EntityType<? extends Beholder> p_32219_, Level p_32220_) {
@@ -61,7 +61,6 @@ public class Beholder extends Monster implements GeoEntity {
 		this.goalSelector.addGoal(2, new Beholder.BlazeAttackGoal(this));
 		this.goalSelector.addGoal(2, new Beholder.BeholderAttackGoal(this));
 		this.goalSelector.addGoal(1, new MoveTowardsTargetGoal(this, 1.0f, 30.0f));
-
 		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Beholder.class, true));
@@ -150,19 +149,20 @@ public class Beholder extends Monster implements GeoEntity {
 
 	public void aiStep() {
 
-		if (!this.onGround && this.getDeltaMovement().y < 0.01D) {
-			this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.65D, 1.0D));
+		if (!this.onGround() && this.getDeltaMovement().y < 0.0D) {
+			this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
 		}
 
-		if (this.level.isClientSide) {
+		if (this.level().isClientSide) {
 			if (this.random.nextInt(24) == 0 && !this.isSilent()) {
-				this.level.playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.ENDERMAN_AMBIENT, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
+				this.level().playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.BLAZE_BURN, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
 			}
 
-			for (int i = 0; i < 2; ++i) {
-				this.level.addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
+			for(int i = 0; i < 2; ++i) {
+				this.level().addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
 			}
 		}
+		
 		LivingEntity livingentity = this.getActiveAttackTarget();
 		if (livingentity != null) {
 			this.getLookControl().setLookAt(livingentity, 90.0F, 90.0F);
@@ -287,22 +287,22 @@ public class Beholder extends Monster implements GeoEntity {
 				this.beholder.getNavigation().stop();
 				this.beholder.getLookControl().setLookAt(livingentity, 90.0F, 90.0F);
 				if (!this.beholder.hasLineOfSight(livingentity)) {
-					this.beholder.setTarget((LivingEntity) null);
+					this.beholder.setTarget((LivingEntity)null);
 				} else {
 					++this.attackTime;
 					if (this.attackTime == 0) {
 						this.beholder.setActiveAttackTarget(livingentity.getId());
 						if (!this.beholder.isSilent()) {
-							this.beholder.level.broadcastEntityEvent(this.beholder, (byte) 21);
+							this.beholder.level().broadcastEntityEvent(this.beholder, (byte)21);
 						}
 					} else if (this.attackTime >= this.beholder.getAttackDuration()) {
 						float f = 1.0F;
-						if (this.beholder.level.getDifficulty() == Difficulty.HARD) {
+						if (this.beholder.level().getDifficulty() == Difficulty.HARD) {
 							f += 2.0F;
 						}
-						livingentity.hurt(DamageSource.m_19364_(this.beholder), f);
-						livingentity.hurt(DamageSource.m_19364_(this.beholder), (float) this.beholder.getAttributeValue(Attributes.ATTACK_DAMAGE));
-						this.beholder.setTarget((LivingEntity) null);
+						livingentity.hurt(this.beholder.damageSources().indirectMagic(this.beholder, this.beholder), f);
+						livingentity.hurt(this.beholder.damageSources().mobAttack(this.beholder), (float)this.beholder.getAttributeValue(Attributes.ATTACK_DAMAGE));
+						this.beholder.setTarget((LivingEntity)null);
 					}
 
 					super.tick();

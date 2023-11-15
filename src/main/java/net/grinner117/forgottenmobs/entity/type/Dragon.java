@@ -181,7 +181,7 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
                 return false;
             } else {
                 this.nextScanTick = reducedTickDelay(60);
-                List<Player> list = Dragon.this.level.getNearbyPlayers(this.attackTargeting, Dragon.this, Dragon.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
+                List<Player> list = Dragon.this.level().getNearbyPlayers(this.attackTargeting, Dragon.this, Dragon.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
                 if (!list.isEmpty()) {
                     list.sort(Comparator.<Entity, Double>comparing(Entity::getY).reversed());
 
@@ -217,7 +217,7 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
         }
 
         public void stop() {
-            Dragon.this.anchorPoint = Dragon.this.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, Dragon.this.anchorPoint).above(10 + Dragon.this.random.nextInt(20));
+            Dragon.this.anchorPoint = Dragon.this.level().getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, Dragon.this.anchorPoint).above(10 + Dragon.this.random.nextInt(20));
         }
 
         public void tick() {
@@ -235,8 +235,8 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
 
         private void setAnchorAboveTarget() {
             Dragon.this.anchorPoint = Dragon.this.getTarget().blockPosition().above(20 + Dragon.this.random.nextInt(20));
-            if (Dragon.this.anchorPoint.getY() < Dragon.this.level.getSeaLevel()) {
-                Dragon.this.anchorPoint = new BlockPos(Dragon.this.anchorPoint.getX(), Dragon.this.level.getSeaLevel() + 1, Dragon.this.anchorPoint.getZ());
+            if (Dragon.this.anchorPoint.getY() < Dragon.this.level().getSeaLevel()) {
+                Dragon.this.anchorPoint = new BlockPos(Dragon.this.anchorPoint.getX(), Dragon.this.level().getSeaLevel() + 1, Dragon.this.anchorPoint.getZ());
             }
 
         }
@@ -292,12 +292,12 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
                 this.selectNext();
             }
 
-            if (Dragon.this.moveTargetPoint.y < Dragon.this.getY() && !Dragon.this.level.isEmptyBlock(Dragon.this.blockPosition().below(1))) {
+            if (Dragon.this.moveTargetPoint.y < Dragon.this.getY() && !Dragon.this.level().isEmptyBlock(Dragon.this.blockPosition().below(1))) {
                 this.height = Math.max(1.0F, this.height);
                 this.selectNext();
             }
 
-            if (Dragon.this.moveTargetPoint.y > Dragon.this.getY() && !Dragon.this.level.isEmptyBlock(Dragon.this.blockPosition().above(1))) {
+            if (Dragon.this.moveTargetPoint.y > Dragon.this.getY() && !Dragon.this.level().isEmptyBlock(Dragon.this.blockPosition().above(1))) {
                 this.height = Math.min(-1.0F, this.height);
                 this.selectNext();
             }
@@ -408,7 +408,7 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
                 } else {
                     if (Dragon.this.tickCount > this.catSearchTick) {
                         this.catSearchTick = Dragon.this.tickCount + 20;
-                        List<Cat> list = Dragon.this.level.getEntitiesOfClass(Cat.class, Dragon.this.getBoundingBox().inflate(16.0D), EntitySelector.ENTITY_STILL_ALIVE);
+                        List<Cat> list = Dragon.this.level().getEntitiesOfClass(Cat.class, Dragon.this.getBoundingBox().inflate(16.0D), EntitySelector.ENTITY_STILL_ALIVE);
 
                         for (Cat cat : list) {
                             cat.hiss();
@@ -438,7 +438,7 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
                     Dragon.this.doHurtTarget(livingentity);
                     Dragon.this.attackPhase = Dragon.AttackPhase.CIRCLE;
                     if (!Dragon.this.isSilent()) {
-                        Dragon.this.level.levelEvent(1039, Dragon.this.blockPosition(), 0);
+                        Dragon.this.level().levelEvent(1039, Dragon.this.blockPosition(), 0);
                     }
                 } else if (Dragon.this.horizontalCollision || Dragon.this.hurtTime > 0) {
                     Dragon.this.attackPhase = Dragon.AttackPhase.CIRCLE;
@@ -448,14 +448,21 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
         }
     }
 
-        private PlayState predicate (software.bernie.geckolib.core.animation.AnimationState animationState){
-            if (animationState.isMoving()) {
-                animationState.getController().setAnimation(RawAnimation.begin().then("animation.dragon.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
+    public void aiStep() {
+
+        if (!this.onGround() && this.getDeltaMovement().y < 0.0D) {
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+        }
+    }
+
+    private PlayState predicate(software.bernie.geckolib.core.animation.AnimationState animationState) {
+        if (animationState.isMoving()) {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.dragon.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
+        animationState.getController().setAnimation(RawAnimation.begin().then("animation.dragon.walk", Animation.LoopType.LOOP));
+        return PlayState.CONTINUE;
+    }
 
         private PlayState attackPredicate (AnimationState state){
             if (this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {

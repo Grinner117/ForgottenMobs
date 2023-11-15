@@ -41,7 +41,7 @@ public class Angel extends PathfinderMob implements GeoEntity {
     //can fly
     //will give itself mob effect invisibility every 30 seconds
     public void aiStep() {
-        if (!this.onGround && this.getDeltaMovement().y < 0.0D) {
+        if (!this.onGround() && this.getDeltaMovement().y < 0.0D) {
             this.setDeltaMovement(this.getDeltaMovement().multiply(1.2D, 0.8D, 1.2D));
         }
         super.aiStep();

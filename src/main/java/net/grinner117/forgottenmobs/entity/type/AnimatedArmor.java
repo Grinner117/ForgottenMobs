@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -28,14 +29,22 @@ public class AnimatedArmor extends Monster implements GeoEntity {
     }
 
     //particle effects
+
+
     public void aiStep() {
-        if (this.level.isClientSide) {
-            for (int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.PORTAL, this.getRandomX(0.3D), this.getRandomY() - 0.23D, this.getRandomZ(0.3D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
+
+            if (this.level().isClientSide) {
+                if (this.random.nextInt(24) == 0 && !this.isSilent()) {
+                    this.level().playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.CHAIN_FALL, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
+                }
+
+                for(int i = 0; i < 2; ++i) {
+                    this.level().addParticle(ParticleTypes.REVERSE_PORTAL, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
+                }
             }
+
+            super.aiStep();
         }
-        super.aiStep();
-    }
 
     //ai
     @Override

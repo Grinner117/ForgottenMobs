@@ -1,5 +1,6 @@
 package net.grinner117.forgottenmobs.entity.type;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -29,6 +30,7 @@ import java.util.List;
 
 public class Blight extends Monster implements GeoEntity {
 	private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
+	private ClientLevel level;
 
 	public Blight(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
@@ -46,20 +48,7 @@ public class Blight extends Monster implements GeoEntity {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, 0, false, false, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test));
 	}
-
-
-	//Particle
-	@Override
-	public void tick() {
-		super.tick();
-		if (this.level.isClientSide) {
-			for (int i = 0; i < 2; ++i) {
-				this.level.addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.5D, 0.5D, 0.5D);
-			}
-		}
-	}
-
-	//weak to fire
+		//weak to fire
 	@Override
 	public boolean isOnFire() {
 		return super.isOnFire();
@@ -71,6 +60,13 @@ public class Blight extends Monster implements GeoEntity {
 		if (this.tickCount % 500 == 0) {
 			this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, false, false, false));
 		}
+
+		if (this.level.isClientSide) {
+			for (int i = 0; i < 2; ++i) {
+				this.level.addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.3D), this.getRandomY() - 0.23D, this.getRandomZ(0.3D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
+			}
+		}
+		super.aiStep();
 	}
 
 	//sounds
