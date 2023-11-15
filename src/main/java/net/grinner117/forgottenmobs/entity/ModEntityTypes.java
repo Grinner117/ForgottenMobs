@@ -38,7 +38,7 @@ public class ModEntityTypes {
 	public static final RegistryObject<EntityType<CloudGiantEntity>> CLOUDGIANT =
 			ENTITY_TYPES.register("cloudgiant",
 					() -> EntityType.Builder.of(CloudGiantEntity::new, MobCategory.MONSTER)
-							.sized(5.0F, 10.0F).clientTrackingRange(120)
+							.sized(0.7F, 0.7F).clientTrackingRange(300)
 							.build(new ResourceLocation(ForgottenMobs.MODID, "cloudgiant").toString()));
 	public static final RegistryObject<EntityType<GhostEntity>> GHOST =
 			ENTITY_TYPES.register("ghost",

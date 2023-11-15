@@ -141,7 +141,6 @@ public class Angel extends PathfinderMob implements GeoEntity {
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return null;
+        return factory;
     }
-
 }

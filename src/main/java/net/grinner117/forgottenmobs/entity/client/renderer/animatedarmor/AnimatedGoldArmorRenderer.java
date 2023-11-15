@@ -1,8 +1,10 @@
 package net.grinner117.forgottenmobs.entity.client.renderer.animatedarmor;
 
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.client.model.animatedarmor.AnimatedGoldArmorModel;
+import net.grinner117.forgottenmobs.entity.custom.AnimatedDiamondArmorEntity;
 import net.grinner117.forgottenmobs.entity.custom.AnimatedGoldArmorEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -21,6 +23,16 @@ public class AnimatedGoldArmorRenderer extends GeoEntityRenderer<AnimatedGoldArm
     @Override
     public ResourceLocation getTextureLocation(AnimatedGoldArmorEntity instance) {
         return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/animatedgoldarmor.png");
+    }
+
+    @Override
+    public void render(AnimatedGoldArmorEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
+                       MultiBufferSource bufferSource, int packedLight) {
+        if(entity.isBaby()) {
+            poseStack.scale(0.4f, 0.4f, 0.4f);
+        }
+
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
     public RenderType getRenderType(AnimatedGoldArmorEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource

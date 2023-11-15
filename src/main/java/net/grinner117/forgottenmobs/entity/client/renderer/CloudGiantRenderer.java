@@ -1,7 +1,9 @@
 package net.grinner117.forgottenmobs.entity.client.renderer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.client.model.CloudGiantModel;
+import net.grinner117.forgottenmobs.entity.custom.AnimatedLeatherArmorEntity;
 import net.grinner117.forgottenmobs.entity.custom.CloudGiantEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -21,7 +23,12 @@ public class CloudGiantRenderer extends GeoEntityRenderer<CloudGiantEntity> {
     public ResourceLocation getTextureLocation(CloudGiantEntity instance) {
         return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/cloudgiant.png");
     }
-
+    @Override
+    public void render(CloudGiantEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
+                       MultiBufferSource bufferSource, int packedLight) {
+            poseStack.scale(20.0f, 20.0f, 20.0f);
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    }
     public RenderType getRenderType(CloudGiantEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource
             bufferSource, float partialTicks) {
         return super.getRenderType(animatable, texture, bufferSource, partialTicks);

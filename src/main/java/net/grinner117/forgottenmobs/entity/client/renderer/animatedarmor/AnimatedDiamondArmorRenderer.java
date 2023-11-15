@@ -1,6 +1,7 @@
 package net.grinner117.forgottenmobs.entity.client.renderer.animatedarmor;
 
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.grinner117.forgottenmobs.ForgottenMobs;
 import net.grinner117.forgottenmobs.entity.client.model.animatedarmor.AnimatedDiamondArmorModel;
 import net.grinner117.forgottenmobs.entity.custom.AnimatedDiamondArmorEntity;
@@ -22,6 +23,17 @@ public class AnimatedDiamondArmorRenderer extends GeoEntityRenderer<AnimatedDiam
     public ResourceLocation getTextureLocation(AnimatedDiamondArmorEntity instance) {
         return new ResourceLocation(ForgottenMobs.MODID, "textures/entity/animateddiamondarmor.png");
     }
+
+    @Override
+    public void render(AnimatedDiamondArmorEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
+                       MultiBufferSource bufferSource, int packedLight) {
+        if(entity.isBaby()) {
+            poseStack.scale(0.4f, 0.4f, 0.4f);
+        }
+
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    }
+
 
     public RenderType getRenderType(AnimatedDiamondArmorEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource
             bufferSource, float partialTicks) {

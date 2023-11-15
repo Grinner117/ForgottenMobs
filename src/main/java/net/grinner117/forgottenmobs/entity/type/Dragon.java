@@ -482,8 +482,8 @@ public class Dragon extends FlyingMob implements Enemy, GeoEntity {
                     0, this::attackPredicate));
         }
 
-        @Override
-        public AnimatableInstanceCache getAnimatableInstanceCache () {
-            return null;
-        }
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return factory;
+    }
     }

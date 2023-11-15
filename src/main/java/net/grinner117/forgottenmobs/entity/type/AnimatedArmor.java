@@ -127,9 +127,8 @@ public class AnimatedArmor extends Monster implements GeoEntity {
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return null;
+        return factory;
     }
-
 }
 
 

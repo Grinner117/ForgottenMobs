@@ -240,7 +240,7 @@ public class Beholder extends Monster implements GeoEntity {
 
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {
-		return null;
+		return factory;
 	}
 
 	static class BeholderAttackGoal extends Goal {

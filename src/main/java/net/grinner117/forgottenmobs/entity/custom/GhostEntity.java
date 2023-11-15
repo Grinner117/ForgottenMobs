@@ -150,6 +150,6 @@ public class GhostEntity extends Monster implements Enemy, GeoEntity {
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return null;
+        return factory;
     }
 }
