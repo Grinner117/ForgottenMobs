@@ -18,6 +18,6 @@ public class AnimatedIronArmorModel extends GeoModel<AnimatedIronArmorEntity> {
 
     @Override
     public ResourceLocation getAnimationResource(AnimatedIronArmorEntity animatable) {
-        return new ResourceLocation(ForgottenMobs.MODID, "animations/animatedarmor.animation.json");
+        return new ResourceLocation(ForgottenMobs.MODID, "animations/animation.animatedarmor.json");
     }
 }

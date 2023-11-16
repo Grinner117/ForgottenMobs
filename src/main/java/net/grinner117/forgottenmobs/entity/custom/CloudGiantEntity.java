@@ -86,7 +86,7 @@ public class CloudGiantEntity extends Monster implements Enemy, GeoEntity {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.cloudgiant.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-        animationState.getController().setAnimation(RawAnimation.begin().then("animation.cloudgiant.idle", Animation.LoopType.LOOP));
+        animationState.getController().setAnimation(RawAnimation.begin().then("animation.cloudgiant.x", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 

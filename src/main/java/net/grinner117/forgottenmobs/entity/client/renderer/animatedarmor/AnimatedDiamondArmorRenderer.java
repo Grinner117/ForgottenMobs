@@ -27,12 +27,13 @@ public class AnimatedDiamondArmorRenderer extends GeoEntityRenderer<AnimatedDiam
     @Override
     public void render(AnimatedDiamondArmorEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
-        if(entity.isBaby()) {
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        }
-
+        poseStack.scale(2.8f, 2.0f, 2.8f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+
     }
+
+
+
 
 
     public RenderType getRenderType(AnimatedDiamondArmorEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource

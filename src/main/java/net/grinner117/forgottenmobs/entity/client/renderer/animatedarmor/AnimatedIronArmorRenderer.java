@@ -27,11 +27,9 @@ public class AnimatedIronArmorRenderer extends GeoEntityRenderer<AnimatedIronArm
     @Override
     public void render(AnimatedIronArmorEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
-        if(entity.isBaby()) {
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        }
-
+        poseStack.scale(2.8f, 2.0f, 2.8f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+
     }
     public RenderType getRenderType(AnimatedIronArmorEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource
             bufferSource, float partialTicks) {

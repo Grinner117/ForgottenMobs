@@ -18,6 +18,6 @@ public class AnimatedLeatherArmorModel extends GeoModel<AnimatedLeatherArmorEnti
 
     @Override
     public ResourceLocation getAnimationResource(AnimatedLeatherArmorEntity animatable) {
-        return new ResourceLocation(ForgottenMobs.MODID, "animations/animatedarmor.animation.json");
+        return new ResourceLocation(ForgottenMobs.MODID, "animations/animation.animatedarmor.json");
     }
 }

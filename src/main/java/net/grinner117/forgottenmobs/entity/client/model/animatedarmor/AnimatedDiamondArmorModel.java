@@ -16,6 +16,6 @@ public class AnimatedDiamondArmorModel extends GeoModel<AnimatedDiamondArmorEnti
     }
     @Override
     public ResourceLocation getAnimationResource(AnimatedDiamondArmorEntity animatable) {
-        return new ResourceLocation(ForgottenMobs.MODID, "animations/animatedarmor.animation.json");
+        return new ResourceLocation(ForgottenMobs.MODID, "animations/animation.animatedarmor.json");
     }
 }

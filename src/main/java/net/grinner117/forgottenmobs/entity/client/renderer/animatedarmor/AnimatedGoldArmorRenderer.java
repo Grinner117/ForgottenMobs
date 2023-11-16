@@ -28,11 +28,9 @@ public class AnimatedGoldArmorRenderer extends GeoEntityRenderer<AnimatedGoldArm
     @Override
     public void render(AnimatedGoldArmorEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
-        if(entity.isBaby()) {
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        }
-
+        poseStack.scale(2.8f, 2.0f, 2.8f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+
     }
 
     public RenderType getRenderType(AnimatedGoldArmorEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource

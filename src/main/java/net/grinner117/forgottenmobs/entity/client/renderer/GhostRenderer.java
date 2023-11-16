@@ -27,10 +27,7 @@ public class GhostRenderer extends GeoEntityRenderer<GhostEntity> {
     @Override
     public void render(GhostEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
-        if(entity.isBaby()) {
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        }
-
+        poseStack.scale(1.0f, 1.0f, 1.0f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
     public RenderType getRenderType(GhostEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource

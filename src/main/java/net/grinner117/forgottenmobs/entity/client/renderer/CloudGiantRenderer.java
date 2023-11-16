@@ -26,7 +26,7 @@ public class CloudGiantRenderer extends GeoEntityRenderer<CloudGiantEntity> {
     @Override
     public void render(CloudGiantEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
-            poseStack.scale(20.0f, 20.0f, 20.0f);
+            poseStack.scale(25.0f, 25.0f, 25.0f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
     public RenderType getRenderType(CloudGiantEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource
